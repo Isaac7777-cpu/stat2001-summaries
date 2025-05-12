@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  title: "STAT3011 Revision Summaries"
+  repo-url: https://github.com/Isaac7777-cpu/stat2001-summaries
+  repo-actions: [edit, source, issue]
+  repo-branch: master
+  repo-subdir: stat3011-lecture-notes/
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents: contents
+    background: light
+  page-footer:
+    left: "Copyright 2025, Isaac Leong"
+    right:
+      - icon: github
+        href: https://github.com/Isaac7777-cpu/stat3011-lecture-notes
+      - icon: linkedin
+        href: https://www.linkedin.com/in/isaac-leong-40b3b6276?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQ7KeJzrBS6Kd8acL8AxrAw%3D%3D
+format:
+  html:
+    theme:
+      light:
+        - lux
+        - brand
+      dark:
+        - cyborg
+        - brand
+        - ./scripts/custom-dark.scss
+    css: styles.css
+    toc: true
+    toc-expand: true
+    number-sections: true
+    fig-align: center
+    code-fold: true
+    code-summary: "Show the code"
+    code-results: hold
