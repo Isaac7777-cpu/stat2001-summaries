@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About This Site",
+    "section": "",
+    "text": "This website serves as a comprehensive revision resource for students enrolled in STAT2001: Introductory Mathematical Statistics at the Australian National University. It aims to distill complex statistical concepts into digestible summaries and provide practical examples to enhance learning.\n\n\n\n\nTo offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials.\n\n\n\n\n\nThis site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials.\n\n\n\n\nYour feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+  },
+  {
+    "objectID": "about.html#purpose",
+    "href": "about.html#purpose",
+    "title": "About This Site",
+    "section": "",
+    "text": "To offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials."
+  },
+  {
+    "objectID": "about.html#whos-behind-this",
+    "href": "about.html#whos-behind-this",
+    "title": "About This Site",
+    "section": "",
+    "text": "This site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials."
+  },
+  {
+    "objectID": "about.html#feedback-and-contributions",
+    "href": "about.html#feedback-and-contributions",
+    "title": "About This Site",
+    "section": "",
+    "text": "Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+  },
+  {
+    "objectID": "topics.html",
+    "href": "topics.html",
+    "title": "STAT2001 Weekly Topics",
+    "section": "",
+    "text": "This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.\n\n\nWeekly Study Plan\n\n\n\n\n\n\n\nWeek\nTopic\nExtra Information\n\n\n\n\n1\nCH1 Statistics; CH2 Probability\nCalculus notes\n\n\n2\nCH2 Probability\nRefresher Quiz 1, Refresher Quiz 2 on combinatorics\n\n\n3\nCH2 Probability\n\n\n\n4\nCH3 Discrete Random Variables\nMakeup Tue 11/3, Formula sheet, Binomial distribution\n\n\n5\nCH4 Continuous Random Variables\nAssessable Quiz due Fri 21/3, Gamma distribution, R and random variables\n\n\n6\nCH5 Multivariate Probability\nAssignment 1 available\n\n\n—\nTeaching Break\n\n\n\n7\nCH6 Functions of Random Variables\nAssignment 1 due\n\n\n8\nCH7 Sampling Distributions & CLT\nMakeup Tue 22/4\n\n\n9*\nCH8 Estimation\nAssignment 2 available\n\n\n10\nCH9 Point Estimation\n\n\n\n11\nCH16 Bayesian Methods; CH10\nAssignment 2 due\n\n\n12\nCH10 Hypothesis Testing\nNon-exhaustive summary\n\n\n\n\n\n\n\nChapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+  },
+  {
+    "objectID": "topics.html#notes",
+    "href": "topics.html#notes",
+    "title": "STAT2001 Weekly Topics",
+    "section": "",
+    "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "This site is your companion for revising STAT2001: Introductory Mathematical Statistics at ANU. Whether you’re preparing for exams or reinforcing weekly concepts, you’ll find concise summaries, worked examples, and practice materials here.\n\n\n\nThe content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators.\n\n\n\n\n\nAll examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions.\n\n\n\n\n\nNavigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
+  },
+  {
+    "objectID": "index.html#topics-covered",
+    "href": "index.html#topics-covered",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "The content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators."
+  },
+  {
+    "objectID": "index.html#tools-and-resources",
+    "href": "index.html#tools-and-resources",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "All examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "Navigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
+  }
+]
