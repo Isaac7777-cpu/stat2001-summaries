@@ -1,0 +1,355 @@
+---
+title: "Known Discrete Distributions"
+---
+
+## Binomial Distribution
+
+The first is the _binomial distribution_. This has to do with experiments which involve doing something several times, independently, and observing the number of 'successes'.
+
+---
+
+::: {#exm-4}
+
+A die is rolled 7 times. Let $Y$ be the number of 6's which come up. Find $Y$'s pmf.
+
+\begin{align*}
+P(Y = 3) & = P(Three 6's and four non-6's, in any order) \\
+& = P(6660000) + P(6606000) + \cdots + P(0000666) \\
+& = \left( \frac{1}{6} \right)^3 \left( \frac{5}{6} \right)^4 + \left( \frac{1}{6}\right)^2 \frac{5}{6} \frac{1}{6} \left( \frac{5}{6}\right)^3 + \cdots + \left( \frac{5}{6}\right)^4 \left( \frac{1}{6} \right)^3 \\
+& = \binom{7}{3} \left( \frac{1}{6} \right)^3 \left( \frac{5}{6} \right)^4 \approx 0.0781
+\end{align*}
+
+:::
+
+---
+
+Overall, we can conclude that,
+
+::: {#thm-binomial-pmf}
+A random variable $Y$ has the _binomial distribution_ with parameters $n$ and $p$ if its pmf is of the form
+
+$$
+p(y) = \binom{n}{y} p^y(1-p)^{n-y}, \quad y = 0, 1, 2, \ldots, n
+$$
+
+:::
+
+We write $Y \sim \text{Bin}(n, p)$. We call $n$ the number of trials and $p$ the probability of success.
+
+--- 
+
+::: {#exm-5}
+
+A coin is going to be tossed 10 times. Find the probability that 3 heads come up. Let $Y$ be the number of heads that come up. Then $Y \sim \text{Bin}(10, 0.5)$. 
+
+Then this problem is simply evaluating $p(3)$ by using the pm from @thm-binomial-pmf.
+
+:::
+
+---
+
+## Bernoulli Distribution
+
+This is a special case of the binomial distribution when $n = 1$. Hence, we can define a very simple form of pmf.[^1]
+
+[^1]: In fact, many people define this first and simply describe the binomial distribution as a repeated bernoulli trial with bernoulli distribution.
+
+::: {#thm-bernoulli-pmf}
+
+It is easy to see from @thm-binomial-pmf that 
+
+$$
+p(y) = \begin{cases}
+p & y = 1 \\
+1 - p & y = 0 \\
+\end{cases}
+$$
+
+where $0 \leq p \leq 1$.
+
+:::
+
+We write $Y \sim \text{Bern}(p)$ and we cal $p$ the _probability of success_, as before.
+
+## Geometric Distribution
+
+Here is a motivating example for geometric distribution.
+
+---
+
+::: {#exm-7}
+
+A die is rolled repeated until the first 6 comes up. Find the pmf of $Y$, the number of rolls. 
+
+$P(Y = 3) = P(\text{Two non-6's and then a 6}) = P(006) = (5/6)^2(1/6) = 0.0231. Similarly, $P(Y = 4) = (5/6)^3(1/6) = 0.00386.
+
+:::
+
+---
+
+Now, from the above example, we can see that $p(y) = (5/6)^{y-1}(1/6), \quad y = 1, 2, \ldots$. We say that $Y$ has a geometric distribution (with parameter $1/6$).
+
+::: {#thm-geometric-pmf}
+
+A random variable $Y$ has the _geometric distribution_ with parameter $p$ if its pmf is of the form. 
+
+$$
+p(y) = (1 - p)^{y-1}p, \qquad y = 1, 2, 3, \ldots
+$$
+
+where $0 \leq p \leq 1$.
+
+:::
+
+We write $Y \sim \text{Geo}(p)$. We call $p$ the _probability of success_, as before.
+
+::: {#thm-property}
+
+Note that the above geometric pmf is _proper_.
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+\sum_{y=1}^\infty (1 - p)^{y-1}p & = p \sum_{x = 0}^{\infty} (1 - p)^x \tag{put $x = y - 1$} \\
+& = p \times \frac{1}{1 - (1 - p)} = 1 \tag{Property 2}
+\end{align*}
+
+:::
+
+### Application of Geometric Distribution
+
+Note that the geometric distribution can be used to model _waiting times_.
+
+::: {#exm-8}
+
+Suppose that the probability of an engine malfunctioning during any 1-hr period is 0.02. Find the pr that the engine will survive 2 hours.
+
+Let $Y$ be the number of 1-hr periods until the first malfunction (including the 1-hr period in which that malfunction occurs). Then $Y \sim \text{Geo}(p)$, where $p = 0.02$ 
+
+Example: A malfunction in the 3^rd^ 1-hr period means that $Y = 3$.
+
+\begin{align*}
+P(Y > 2) & = \sum_{y=3}^{\infty} q^{y-1}p \tag{$q = 1 - p = 0.98$} \\
+& = pq^2 \sum_{y=3}^{\infty} q^{y-3} \\
+& = pq^2 \sum_{x=0}^{\infty} q^x \tag{after putting $x=y - 3$} \\
+& = pq^2 \frac{1}{1 - q} = q^2 = 0.98^ = 0.9604 \\
+\end{align*}
+
+This may be calculated more simply as:
+$$
+P(Y > 2) = 1 - P(Y \leq 2) = 1 - (p(1) + p(2)) = 1 - (p + qp) = q^2
+$$
+
+or even more simply as:
+$$
+P(Y > 2) = P(\text{Survive 2 hours}) = P(\text{No failures in first 2 hours}) = q^2
+$$
+
+:::
+
+### mgf of Geometric
+
+::: {#thm-geometric-mgf}
+
+\begin{align*}
+E(e^{Yt}) & = \sum_{y=1}^\infty e^{yt} (1 - p)^{y-1}p \\
+& = pe^t \sum_{y = 1}^\infty e^{(y - 1)t} (1 - p)^{y - 1} \\
+& = p e^t \sum_{y = 1}^\infty ((1 - p)e^t)^(y - 1) \\
+& = \frac{p e^t}{1 - (1 - p)e^t} \tag{Sum of geometric series} \\
+\end{align*}
+
+:::
+
+## Hypergeometric Distribution
+
+::: {#exm-9}
+
+The motivation of this hypergeometric distribution has to do with sampling objects from a box, without replacement, and observing how many have a certain characteristic.
+
+A box has 9 marbles, of which 3 are white and 6 are black. You randomly select 5 marbles from the box (without replacement). Find the pmf of $Y$, the number of white marbles amongst the selected 5.
+
+Number the 9 marbles $1, 2, \ldots, 9$ with the first 3 being white and the last 6 black. Then the sample points may be represented by writing 12345, 12346, ..., 56789.
+
+Note: We don't write 13245, because this represents the same sample point as 12345. In other words, the distinct sample points correspond to strings of numbers in increasing order. Hence the total number of sample points is $n_S = \binom{9}{5}$.
+
+The sample points associated with the event $Y = 2$ are 12456, 12457, ..., 23789, and the number of these is $n_2 = \binom{3}{2}\binom{6}{3}. We require 2 numbers to be from 1,2,3, and the other 3 from 4,5,6,7,8,9.
+
+$$
+P(Y = 2) = \frac{n_2}{n_S} = \frac{\binom{3}{2}\binom{6}{3}}{\binom{9}{5}} = \frac{3(20)}{126} = \frac{10}{21} = 0.4762
+$$
+
+$$
+P(Y=1) = \frac{n_1}{n_S} = \frac{\binom{3}{1} \binom{6}{4}}{\binom{9}{5}} = \frac{3(15)}{126} = \frac{5}{14} = 0.3571
+$$
+
+We see that $Y$ has pmf
+$$
+p(y) = \frac{\binom{3}{y}\binom{6}{5-y}}{\binom{9}{5}}, \quad y = 0,1,2,3.
+$$
+
+We say that $Y$ has a hypergeometric distribution (with parameters 9, 3, and 5).
+
+:::
+
+---
+
+::: {#thm-hypergeometric-pmf}
+
+A random variable $Y$ has the hypergeometric distribution with parameters $N$, $r$ and $n$ if its pmf is of the form
+$$
+p(y) = \frac{\binom{r}{y}\binom{N - r}{n - y}}{\binom{N}{n}}, \quad y = 0,1,2,\ldots,r,
+$$
+
+Subject to $0 \leq n - y \leq N - r$ and $N = 1,2,3,\ldots; \; r = 1,2,\ldots,N; n = 1,2,\ldots, N$.
+
+The number of black balls sampled, $n-y$, can't be less than 0 or more than the total number of black balls in the box, $N - r$.
+
+:::
+
+We write $Y \sim \text{Hyp}(N, r, n)$. We may call $N$ "the number of balls" (parameter), $r$ "the number of white balls", and $n$ "the number of sampled balls".
+
+---
+
+::: {#exm-ad}
+There are 10 men and 15 women in a room. 8 people are chosen randomly to form a committee. Find the probability that the committee contains 6 women.
+
+Let $Y = \text{number of women on the committee}$. Then $Y \sim \text{Hyp}(25, 15, 8)$ and so
+
+$$
+p(6) = \frac{\binom{15}{6}\binom{10}{2}}{\binom{25}{8}} = 0.2082
+$$
+
+:::
+
+## Poisson Distribution
+
+Generally, one can think of the Poisson distribution being when $n \to \infty$ version of the binomial distribution with the expected value being $\lambda$. The derivation is given in the below.
+
+::: {#thm-poisson-nature}
+
+Poisson distribution is, in essence, a binomial distribution with $n \to \infty$ and $p = \lambda / n$.
+
+:::
+
+::: {.proof}
+
+Now, suppose $X \sim \text{Bin}(n, \lambda / n)$. Then, the above description in the mathematical notation is,
+
+\begin{align*}
+\lim_{n \to \infty} p_X(x) & = \lim_{n \to \infty} \binom{n}{x} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
+& = \lim_{n \to \infty} \frac{n!}{x! (n-x)!} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
+& = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left( \frac{n!}{(n - x)!} \frac{1}{n^x} \right) \left(1 - \frac{\lambda}{n} \right)^{n - x} \\
+& = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n - x} \tag{First part evaluate to 1 with L'Hopital's} \\
+& = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n} \left(1 - \frac{\lambda}{n}\right)^{-x} \\
+& = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n} \tag{The second term is one as the power does not depend on $n$} \\
+& = \frac{\lambda^x e^{-\lambda}}{x!}
+\end{align*} 
+
+Then, we have two ways to go from here, simply declare that this is the pmf for Poisson or we can confirm this with the "known" poisson pmf which is, I guess for me, from thin air...
+
+:::
+
+---
+
+::: {#cor-poisson-pmf}
+The pmf of Poisson distribution is
+$$
+p(x) = \frac{\lambda^x e^{-\lambda}}{x!}
+$$
+:::
+
+::: {.proof}
+This is simply a restatement of the results from @thm-poisson-nature.
+:::
+
+---
+
+Now, I guess the remaining part is to show that the expectation is indeed $\lambda$.
+
+::: {#thm-poisson-expectation}
+
+X \sim \text{Poi}(\lambda) \implies E(X) = \lambda
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+E(X) & = \sum_{x = 0}^\infty x \frac{e^{-\lambda} \lambda^x}{x!} \\
+& = e^{-\lambda}\lambda \sum_{x=1}^\infty \frac{\lambda^{x-1}}{(y-1)!} \\
+& = e^{-\lambda} \lambda \sum_{x=0}^\infty \frac{\lambda^x}{x!} \\
+& = e^{-\lambda}\lambda e^{\lambda} = \lambda 
+\end{align*}
+
+:::
+
+::: {#exm-poisson-var}
+
+\begin{align*}
+E(Y(Y - 1)) & = \sum_{y = 0}^\infty y(y-1) \frac{\lambda^y e^{-\lambda}}{y!} \\
+& = \lambda^2 \sum_{y = 2}^\infty \frac{\lambda^{y - 2} e^{-\lambda}}{(y-2)!} \tag{First two terms are 0} \\
+& = \lambda^2 \sum_{x=0}^\infty \frac{\lambda^x e^{-\lambda}}{x!} \\
+& = \lambda^2 \tag{The infinite sum is 1 as it is the sum of pmf of $X \sim Pois(\lambda)$}
+\end{align*}
+:::
+
+Therefore, $Var(Y) = E(Y(Y-1)) + E(Y) - (E(Y))^2 = \lambda$.
+
+---
+
+### Poisson Approximation to the Binomial
+
+The Binomial distribution can be approximated by the poisson distribution with $\lambda = np$ when $n$ is "large" and $p$ is "small".
+
+Generally, the Poisson approximation should be considered only when the exact binomial probability is hard or impossible to calculate. As a rule of thumb, the Poisson approximation is 'good' if $n$ is at least 20 and $p$ is at most 0.05, or if $n$ is at least 100 and $np$ is at most 10.
+
+## Negative Binomial Distribution
+
+Similar to geometric distribution where we have independent and identical trials. We observe either _success_ or _fail_ on each trial. The probability of success on each trial is $p$. 
+
+The geometric distribution handles the case where we are interested in the number of trial on which the _first_ success occurs. $Y = 1,2,3,\ldots$ counts the number of trials until the first success.
+
+What if we are interested in knowing the number of the trial on which the _second_, _third_, or _fourth_ success occurs? $Y = r, r+1, r+2, \ldots$ ($r = 1, 2, 3, \ldots$). $r$ is a parameter ($r =1$ for geometric).
+
+::: {#thm-negative-bin-pmf}
+
+The pmf og negative binomial distribution is,
+
+$$
+p(y) = P(Y = y) = \binom{y - 1}{r - 1} p^{r-1}q^{y-r}
+$$
+, where $r$ is the number of success; $p$ and $q$ defined as usual.
+
+By simple counting methods as covered before.
+
+:::
+
+---
+
+::: {#exm-neg-bin-mgf}
+
+The mgf of negative binomial distribution.
+
+Suppose $Y \sim \text{NegBin}(r, p)$, then,
+
+\begin{align*}
+E(e^{Yt}) & = \sum_{y = r}^\infty e^{yt} \binom{y-1}{r-1} p^r q^{y-r} \\
+& = \sum_{y = r}^\infty e^{yt} \frac{(y - 1)!}{(r - 1)! (y - r)!} p^r q^{y-r} \\
+& = p^r \sum_{y = r}^\infty 
+\end{align*}
+
+:::
+
+::: {#thm-neg-bin-mean}
+
+The direct proof is relatively hard to see. However, using @thm-geometric-mgf with @thm-mgf-of-list-of-independent-vars.
+
+:::
+
+::: {.proof}
+
+\begin{}
+
+:::

@@ -1,3 +1,83 @@
 ---
-title: "Probability"
+title: "CH02: Probability"
 ---
+
+# Probability functions
+
+For a given experiement and associated sample space $S$, a probability function $P$ is a real-valued function whose domain is the power set of the sample space, $S$, and satisfies the following:
+
+1. $P(A) \geq 0$ for all $A \subset S$ (probability can't be negative)
+2. $P(S) = 1$ (Something must happen)
+3. Suppose $A_1, A_2, \ldots$ is an infinite sequence of disjoint events. Then $P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots$
+
+These three conditions are known as the _three axioms of probabiliyt_. They do not completely specify $P$, but merely ensure that $P$ is 'sensible'. It remains for $P$ to be precisely defined in any given situation. Typically, $P$ is defined by assigning 'reasonable' probabilities to each of the same points (or simple events) in $S$.
+
+::: {.callout-notes title="Example 3"}
+
+If the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.
+
+So it is reasonable to assign probability function $P$ in case by 
+$$
+P(\{1\}) = P(\{2\}) = \cdots = P(\{6\}) = 1 / 6
+$$
+
+Equivalently, we may write $P(\{k\}) = 1/6$, $k=1, \ldots, 6$ or $P(\{k\}) = 1/6 \; \forall k = S$.
+
+:::
+
+---
+
+::: {#thm-null-set}
+$P(\emptyset) = 0$
+:::
+
+::: {.proof}
+
+Apply Axiom 3 with $A_i = \emptyset$ for all $i$.
+
+$\emptyset = \emptyset \cup \emptyset \cup \ldots$ Also $\emptyset \cap \emptyset = \emptyset$ (i.e. $\emptyset$ and $\emptyset$ are disjoint). It follows that $P(\emptyset) = P(\emptyset \cup \emptyset \cup \ldots) = P(\emptyset) + P(\emptyset) + \cdots$. We now subtract $P(\emptyset)$ from both sides. Hence $0 = P(\emptyset) + P(\emptyset) + \cdots$. Therefore, $P(\emptyset) = 0$.
+
+:::
+
+--- 
+
+::: {#thm-finite-disjoint}
+Axiom 3 also holds for _finite_ sequences. Thus if $A_1, A_2, \ldots, A_n$ are disjoint events, then
+
+$$
+P(A_1 \cup A_2 \cup \ldots \cup A_n) = P(A_1) + P(A_2) + \cdots + P(A_n)
+$$
+
+:::
+
+::: {.proof}
+
+Apply Axiom 3 and @thm-null-set, with $A_i = \emptyset$ for all $i = n + 1, n + 2, \ldots$.
+
+:::
+
+--- 
+
+::: {#thm-complementary}
+
+$$
+P(\bar{A}) = 1 - P(A)
+$$
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+
+1 & = P(S) \tag{by Axiom 2} \\
+  & = P(A \cup \bar{A}) \tag{by the definition of complementation} \\
+  & = P(A) + P(\bar{A}) \tag{by Theorem 2 with $n = 2$, since $A$ and $\bar{A}$ are disjoint.}
+
+\end{align*}
+
+:::
+
+---
+
+
