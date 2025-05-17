@@ -28,6 +28,54 @@
     "text": "Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
   },
   {
+    "objectID": "contents/chapter-02/index.html",
+    "href": "contents/chapter-02/index.html",
+    "title": "CH02: Probability",
+    "section": "",
+    "text": "1 Probability functions\nFor a given experiement and associated sample space \\(S\\), a probability function \\(P\\) is a real-valued function whose domain is the power set of the sample space, \\(S\\), and satisfies the following:\n\n\\(P(A) \\geq 0\\) for all \\(A \\subset S\\) (probability can’t be negative)\n\\(P(S) = 1\\) (Something must happen)\nSuppose \\(A_1, A_2, \\ldots\\) is an infinite sequence of disjoint events. Then \\(P(A_1 \\cup A_2 \\cup \\ldots) = P(A_1) + P(A_2) + \\ldots\\)\n\nThese three conditions are known as the three axioms of probabiliyt. They do not completely specify \\(P\\), but merely ensure that \\(P\\) is ‘sensible’. It remains for \\(P\\) to be precisely defined in any given situation. Typically, \\(P\\) is defined by assigning ‘reasonable’ probabilities to each of the same points (or simple events) in \\(S\\).\n\nIf the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.\nSo it is reasonable to assign probability function \\(P\\) in case by \\[\nP(\\{1\\}) = P(\\{2\\}) = \\cdots = P(\\{6\\}) = 1 / 6\n\\]\nEquivalently, we may write \\(P(\\{k\\}) = 1/6\\), \\(k=1, \\ldots, 6\\) or \\(P(\\{k\\}) = 1/6 \\; \\forall k = S\\).\n\n\n\nTheorem 1 \\(P(\\emptyset) = 0\\)\n\n\nProof. Apply Axiom 3 with \\(A_i = \\emptyset\\) for all \\(i\\).\n\\(\\emptyset = \\emptyset \\cup \\emptyset \\cup \\ldots\\) Also \\(\\emptyset \\cap \\emptyset = \\emptyset\\) (i.e. \\(\\emptyset\\) and \\(\\emptyset\\) are disjoint). It follows that \\(P(\\emptyset) = P(\\emptyset \\cup \\emptyset \\cup \\ldots) = P(\\emptyset) + P(\\emptyset) + \\cdots\\). We now subtract \\(P(\\emptyset)\\) from both sides. Hence \\(0 = P(\\emptyset) + P(\\emptyset) + \\cdots\\). Therefore, \\(P(\\emptyset) = 0\\).\n\n\n\nTheorem 2 Axiom 3 also holds for finite sequences. Thus if \\(A_1, A_2, \\ldots, A_n\\) are disjoint events, then\n\\[\nP(A_1 \\cup A_2 \\cup \\ldots \\cup A_n) = P(A_1) + P(A_2) + \\cdots + P(A_n)\n\\]\n\n\nProof. Apply Axiom 3 and Theorem 1, with \\(A_i = \\emptyset\\) for all \\(i = n + 1, n + 2, \\ldots\\).\n\n\n\nTheorem 3 \\[\nP(\\bar{A}) = 1 - P(A)\n\\]\n\n\nProof. \\[\\begin{align*}\n\n1 & = P(S) \\tag{by Axiom 2} \\\\\n  & = P(A \\cup \\bar{A}) \\tag{by the definition of complementation} \\\\\n  & = P(A) + P(\\bar{A}) \\tag{by Theorem 2 with $n = 2$, since $A$ and $\\bar{A}$ are disjoint.}\n\n\\end{align*}\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH02: Probability"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html",
+    "href": "contents/chapter-03/index.html",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "Definition 1 A random variable (rv) is a numerical variable whose value depends on the outcome of an experiment.\n\nA random variable must be a number; it cannot be a letter, say. More precisely, a random variable is a “real-valued function for which the domain is a sample space”.\n\nExample 1 A coin is tossed twice and the sequence of \\(H\\)’s and \\(T\\)’s is observed. Let \\(Y\\) be the number of \\(H\\)’s which come up. Show that \\(Y\\) is a random variable. The experiment here has 4 possible outcomes: \\(TT\\), \\(TH\\), \\(HT\\), \\(HH\\).\n\\(Y = 0\\) if the outcome is \\(TT\\)\n\\(Y = 1\\) if the outcome is \\(TH\\) or \\(HT\\)\n\\(Y = 2\\) if the outcome is \\(HH\\)\n\n\n\nThe probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.\n\n\n\nIt is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html#probability-distribution",
+    "href": "contents/chapter-03/index.html#probability-distribution",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "The probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html#probability-mass-function",
+    "href": "contents/chapter-03/index.html#probability-mass-function",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "It is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
     "objectID": "topics.html",
     "href": "topics.html",
     "title": "STAT2001 Weekly Topics",
@@ -40,6 +88,214 @@
     "title": "STAT2001 Weekly Topics",
     "section": "",
     "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html",
+    "href": "contents/chapter-03/1rv.html",
+    "title": "Known Discrete Distributions",
+    "section": "",
+    "text": "The first is the binomial distribution. This has to do with experiments which involve doing something several times, independently, and observing the number of ‘successes’.\n\n\nExample 1 A die is rolled 7 times. Let \\(Y\\) be the number of 6’s which come up. Find \\(Y\\)’s pmf.\n\\[\\begin{align*}\nP(Y = 3) & = P(Three 6's and four non-6's, in any order) \\\\\n& = P(6660000) + P(6606000) + \\cdots + P(0000666) \\\\\n& = \\left( \\frac{1}{6} \\right)^3 \\left( \\frac{5}{6} \\right)^4 + \\left( \\frac{1}{6}\\right)^2 \\frac{5}{6} \\frac{1}{6} \\left( \\frac{5}{6}\\right)^3 + \\cdots + \\left( \\frac{5}{6}\\right)^4 \\left( \\frac{1}{6} \\right)^3 \\\\\n& = \\binom{7}{3} \\left( \\frac{1}{6} \\right)^3 \\left( \\frac{5}{6} \\right)^4 \\approx 0.0781\n\\end{align*}\\]\n\n\nOverall, we can conclude that,\n\nTheorem 1 A random variable \\(Y\\) has the binomial distribution with parameters \\(n\\) and \\(p\\) if its pmf is of the form\n\\[\np(y) = \\binom{n}{y} p^y(1-p)^{n-y}, \\quad y = 0, 1, 2, \\ldots, n\n\\]\n\nWe write \\(Y \\sim \\text{Bin}(n, p)\\). We call \\(n\\) the number of trials and \\(p\\) the probability of success.\n\n\nExample 2 A coin is going to be tossed 10 times. Find the probability that 3 heads come up. Let \\(Y\\) be the number of heads that come up. Then \\(Y \\sim \\text{Bin}(10, 0.5)\\).\nThen this problem is simply evaluating \\(p(3)\\) by using the pm from Theorem 1.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#binomial-distribution",
+    "href": "contents/chapter-03/1rv.html#binomial-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "",
+    "text": "The first is the binomial distribution. This has to do with experiments which involve doing something several times, independently, and observing the number of ‘successes’.\n\n\nExample 1 A die is rolled 7 times. Let \\(Y\\) be the number of 6’s which come up. Find \\(Y\\)’s pmf.\n\\[\\begin{align*}\nP(Y = 3) & = P(Three 6's and four non-6's, in any order) \\\\\n& = P(6660000) + P(6606000) + \\cdots + P(0000666) \\\\\n& = \\left( \\frac{1}{6} \\right)^3 \\left( \\frac{5}{6} \\right)^4 + \\left( \\frac{1}{6}\\right)^2 \\frac{5}{6} \\frac{1}{6} \\left( \\frac{5}{6}\\right)^3 + \\cdots + \\left( \\frac{5}{6}\\right)^4 \\left( \\frac{1}{6} \\right)^3 \\\\\n& = \\binom{7}{3} \\left( \\frac{1}{6} \\right)^3 \\left( \\frac{5}{6} \\right)^4 \\approx 0.0781\n\\end{align*}\\]\n\n\nOverall, we can conclude that,\n\nTheorem 1 A random variable \\(Y\\) has the binomial distribution with parameters \\(n\\) and \\(p\\) if its pmf is of the form\n\\[\np(y) = \\binom{n}{y} p^y(1-p)^{n-y}, \\quad y = 0, 1, 2, \\ldots, n\n\\]\n\nWe write \\(Y \\sim \\text{Bin}(n, p)\\). We call \\(n\\) the number of trials and \\(p\\) the probability of success.\n\n\nExample 2 A coin is going to be tossed 10 times. Find the probability that 3 heads come up. Let \\(Y\\) be the number of heads that come up. Then \\(Y \\sim \\text{Bin}(10, 0.5)\\).\nThen this problem is simply evaluating \\(p(3)\\) by using the pm from Theorem 1.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#bernoulli-distribution",
+    "href": "contents/chapter-03/1rv.html#bernoulli-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "2 Bernoulli Distribution",
+    "text": "2 Bernoulli Distribution\nThis is a special case of the binomial distribution when \\(n = 1\\). Hence, we can define a very simple form of pmf.1\n\nTheorem 2 It is easy to see from Theorem 1 that\n\\[\np(y) = \\begin{cases}\np & y = 1 \\\\\n1 - p & y = 0 \\\\\n\\end{cases}\n\\]\nwhere \\(0 \\leq p \\leq 1\\).\n\nWe write \\(Y \\sim \\text{Bern}(p)\\) and we cal \\(p\\) the probability of success, as before.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#geometric-distribution",
+    "href": "contents/chapter-03/1rv.html#geometric-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "3 Geometric Distribution",
+    "text": "3 Geometric Distribution\nHere is a motivating example for geometric distribution.\n\n\nExample 3 A die is rolled repeated until the first 6 comes up. Find the pmf of \\(Y\\), the number of rolls.\n$P(Y = 3) = P() = P(006) = (5/6)^2(1/6) = 0.0231. Similarly, $P(Y = 4) = (5/6)^3(1/6) = 0.00386.\n\n\nNow, from the above example, we can see that \\(p(y) = (5/6)^{y-1}(1/6), \\quad y = 1, 2, \\ldots\\). We say that \\(Y\\) has a geometric distribution (with parameter \\(1/6\\)).\n\nTheorem 3 A random variable \\(Y\\) has the geometric distribution with parameter \\(p\\) if its pmf is of the form.\n\\[\np(y) = (1 - p)^{y-1}p, \\qquad y = 1, 2, 3, \\ldots\n\\]\nwhere \\(0 \\leq p \\leq 1\\).\n\nWe write \\(Y \\sim \\text{Geo}(p)\\). We call \\(p\\) the probability of success, as before.\n\nTheorem 4 Note that the above geometric pmf is proper.\n\n\nProof. \\[\\begin{align*}\n\\sum_{y=1}^\\infty (1 - p)^{y-1}p & = p \\sum_{x = 0}^{\\infty} (1 - p)^x \\tag{put $x = y - 1$} \\\\\n& = p \\times \\frac{1}{1 - (1 - p)} = 1 \\tag{Property 2}\n\\end{align*}\\]\n\n\n3.1 Application of Geometric Distribution\nNote that the geometric distribution can be used to model waiting times.\n\nExample 4 Suppose that the probability of an engine malfunctioning during any 1-hr period is 0.02. Find the pr that the engine will survive 2 hours.\nLet \\(Y\\) be the number of 1-hr periods until the first malfunction (including the 1-hr period in which that malfunction occurs). Then \\(Y \\sim \\text{Geo}(p)\\), where \\(p = 0.02\\)\nExample: A malfunction in the 3rd 1-hr period means that \\(Y = 3\\).\n\\[\\begin{align*}\nP(Y &gt; 2) & = \\sum_{y=3}^{\\infty} q^{y-1}p \\tag{$q = 1 - p = 0.98$} \\\\\n& = pq^2 \\sum_{y=3}^{\\infty} q^{y-3} \\\\\n& = pq^2 \\sum_{x=0}^{\\infty} q^x \\tag{after putting $x=y - 3$} \\\\\n& = pq^2 \\frac{1}{1 - q} = q^2 = 0.98^ = 0.9604 \\\\\n\\end{align*}\\]\nThis may be calculated more simply as: \\[\nP(Y &gt; 2) = 1 - P(Y \\leq 2) = 1 - (p(1) + p(2)) = 1 - (p + qp) = q^2\n\\]\nor even more simply as: \\[\nP(Y &gt; 2) = P(\\text{Survive 2 hours}) = P(\\text{No failures in first 2 hours}) = q^2\n\\]\n\n\n\n3.2 mgf of Geometric\n\nTheorem 5 \\[\\begin{align*}\nE(e^{Yt}) & = \\sum_{y=1}^\\infty e^{yt} (1 - p)^{y-1}p \\\\\n& = pe^t \\sum_{y = 1}^\\infty e^{(y - 1)t} (1 - p)^{y - 1} \\\\\n& = p e^t \\sum_{y = 1}^\\infty ((1 - p)e^t)^(y - 1) \\\\\n& = \\frac{p e^t}{1 - (1 - p)e^t} \\tag{Sum of geometric series} \\\\\n\\end{align*}\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#hypergeometric-distribution",
+    "href": "contents/chapter-03/1rv.html#hypergeometric-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "4 Hypergeometric Distribution",
+    "text": "4 Hypergeometric Distribution\n\nExample 5 The motivation of this hypergeometric distribution has to do with sampling objects from a box, without replacement, and observing how many have a certain characteristic.\nA box has 9 marbles, of which 3 are white and 6 are black. You randomly select 5 marbles from the box (without replacement). Find the pmf of \\(Y\\), the number of white marbles amongst the selected 5.\nNumber the 9 marbles \\(1, 2, \\ldots, 9\\) with the first 3 being white and the last 6 black. Then the sample points may be represented by writing 12345, 12346, …, 56789.\nNote: We don’t write 13245, because this represents the same sample point as 12345. In other words, the distinct sample points correspond to strings of numbers in increasing order. Hence the total number of sample points is \\(n_S = \\binom{9}{5}\\).\nThe sample points associated with the event \\(Y = 2\\) are 12456, 12457, …, 23789, and the number of these is $n_2 = . We require 2 numbers to be from 1,2,3, and the other 3 from 4,5,6,7,8,9.\n\\[\nP(Y = 2) = \\frac{n_2}{n_S} = \\frac{\\binom{3}{2}\\binom{6}{3}}{\\binom{9}{5}} = \\frac{3(20)}{126} = \\frac{10}{21} = 0.4762\n\\]\n\\[\nP(Y=1) = \\frac{n_1}{n_S} = \\frac{\\binom{3}{1} \\binom{6}{4}}{\\binom{9}{5}} = \\frac{3(15)}{126} = \\frac{5}{14} = 0.3571\n\\]\nWe see that \\(Y\\) has pmf \\[\np(y) = \\frac{\\binom{3}{y}\\binom{6}{5-y}}{\\binom{9}{5}}, \\quad y = 0,1,2,3.\n\\]\nWe say that \\(Y\\) has a hypergeometric distribution (with parameters 9, 3, and 5).\n\n\n\nTheorem 6 A random variable \\(Y\\) has the hypergeometric distribution with parameters \\(N\\), \\(r\\) and \\(n\\) if its pmf is of the form \\[\np(y) = \\frac{\\binom{r}{y}\\binom{N - r}{n - y}}{\\binom{N}{n}}, \\quad y = 0,1,2,\\ldots,r,\n\\]\nSubject to \\(0 \\leq n - y \\leq N - r\\) and \\(N = 1,2,3,\\ldots; \\; r = 1,2,\\ldots,N; n = 1,2,\\ldots, N\\).\nThe number of black balls sampled, \\(n-y\\), can’t be less than 0 or more than the total number of black balls in the box, \\(N - r\\).\n\nWe write \\(Y \\sim \\text{Hyp}(N, r, n)\\). We may call \\(N\\) “the number of balls” (parameter), \\(r\\) “the number of white balls”, and \\(n\\) “the number of sampled balls”.\n\n\nExample 6 There are 10 men and 15 women in a room. 8 people are chosen randomly to form a committee. Find the probability that the committee contains 6 women.\nLet \\(Y = \\text{number of women on the committee}\\). Then \\(Y \\sim \\text{Hyp}(25, 15, 8)\\) and so\n\\[\np(6) = \\frac{\\binom{15}{6}\\binom{10}{2}}{\\binom{25}{8}} = 0.2082\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#poisson-distribution",
+    "href": "contents/chapter-03/1rv.html#poisson-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "5 Poisson Distribution",
+    "text": "5 Poisson Distribution\nGenerally, one can think of the Poisson distribution being when \\(n \\to \\infty\\) version of the binomial distribution with the expected value being \\(\\lambda\\). The derivation is given in the below.\n\nTheorem 7 Poisson distribution is, in essence, a binomial distribution with \\(n \\to \\infty\\) and \\(p = \\lambda / n\\).\n\n\nProof. Now, suppose \\(X \\sim \\text{Bin}(n, \\lambda / n)\\). Then, the above description in the mathematical notation is,\n\\[\\begin{align*}\n\\lim_{n \\to \\infty} p_X(x) & = \\lim_{n \\to \\infty} \\binom{n}{x} \\left( \\frac{\\lambda}{n} \\right)^x \\left(1 - \\frac{\\lambda}{n}\\right)^{n-x} \\\\\n& = \\lim_{n \\to \\infty} \\frac{n!}{x! (n-x)!} \\left( \\frac{\\lambda}{n} \\right)^x \\left(1 - \\frac{\\lambda}{n}\\right)^{n-x} \\\\\n& = \\frac{\\lambda^x}{x!} \\lim_{n \\to \\infty} \\left( \\frac{n!}{(n - x)!} \\frac{1}{n^x} \\right) \\left(1 - \\frac{\\lambda}{n} \\right)^{n - x} \\\\\n& = \\frac{\\lambda^x}{x!} \\lim_{n \\to \\infty} \\left(1 - \\frac{\\lambda}{n}\\right)^{n - x} \\tag{First part evaluate to 1 with L'Hopital's} \\\\\n& = \\frac{\\lambda^x}{x!} \\lim_{n \\to \\infty} \\left(1 - \\frac{\\lambda}{n}\\right)^{n} \\left(1 - \\frac{\\lambda}{n}\\right)^{-x} \\\\\n& = \\frac{\\lambda^x}{x!} \\lim_{n \\to \\infty} \\left(1 - \\frac{\\lambda}{n}\\right)^{n} \\tag{The second term is one as the power does not depend on $n$} \\\\\n& = \\frac{\\lambda^x e^{-\\lambda}}{x!}\n\\end{align*}\\]\nThen, we have two ways to go from here, simply declare that this is the pmf for Poisson or we can confirm this with the “known” poisson pmf which is, I guess for me, from thin air…\n\n\n\nCorollary 1 The pmf of Poisson distribution is \\[\np(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}\n\\]\n\n\nProof. This is simply a restatement of the results from Theorem 7.\n\n\nNow, I guess the remaining part is to show that the expectation is indeed \\(\\lambda\\).\n\nTheorem 8 X () E(X) = \n\n\nProof. \\[\\begin{align*}\nE(X) & = \\sum_{x = 0}^\\infty x \\frac{e^{-\\lambda} \\lambda^x}{x!} \\\\\n& = e^{-\\lambda}\\lambda \\sum_{x=1}^\\infty \\frac{\\lambda^{x-1}}{(y-1)!} \\\\\n& = e^{-\\lambda} \\lambda \\sum_{x=0}^\\infty \\frac{\\lambda^x}{x!} \\\\\n& = e^{-\\lambda}\\lambda e^{\\lambda} = \\lambda\n\\end{align*}\\]\n\n\nExample 7 \\[\\begin{align*}\nE(Y(Y - 1)) & = \\sum_{y = 0}^\\infty y(y-1) \\frac{\\lambda^y e^{-\\lambda}}{y!} \\\\\n& = \\lambda^2 \\sum_{y = 2}^\\infty \\frac{\\lambda^{y - 2} e^{-\\lambda}}{(y-2)!} \\tag{First two terms are 0} \\\\\n& = \\lambda^2 \\sum_{x=0}^\\infty \\frac{\\lambda^x e^{-\\lambda}}{x!} \\\\\n& = \\lambda^2 \\tag{The infinite sum is 1 as it is the sum of pmf of $X \\sim Pois(\\lambda)$}\n\\end{align*}\\]\n\nTherefore, \\(Var(Y) = E(Y(Y-1)) + E(Y) - (E(Y))^2 = \\lambda\\).\n\n\n5.1 Poisson Approximation to the Binomial\nThe Binomial distribution can be approximated by the poisson distribution with \\(\\lambda = np\\) when \\(n\\) is “large” and \\(p\\) is “small”.\nGenerally, the Poisson approximation should be considered only when the exact binomial probability is hard or impossible to calculate. As a rule of thumb, the Poisson approximation is ‘good’ if \\(n\\) is at least 20 and \\(p\\) is at most 0.05, or if \\(n\\) is at least 100 and \\(np\\) is at most 10.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#negative-binomial-distribution",
+    "href": "contents/chapter-03/1rv.html#negative-binomial-distribution",
+    "title": "Known Discrete Distributions",
+    "section": "6 Negative Binomial Distribution",
+    "text": "6 Negative Binomial Distribution\nSimilar to geometric distribution where we have independent and identical trials. We observe either success or fail on each trial. The probability of success on each trial is \\(p\\).\nThe geometric distribution handles the case where we are interested in the number of trial on which the first success occurs. \\(Y = 1,2,3,\\ldots\\) counts the number of trials until the first success.\nWhat if we are interested in knowing the number of the trial on which the second, third, or fourth success occurs? \\(Y = r, r+1, r+2, \\ldots\\) (\\(r = 1, 2, 3, \\ldots\\)). \\(r\\) is a parameter (\\(r =1\\) for geometric).\n\nTheorem 9 The pmf og negative binomial distribution is,\n\\[\np(y) = P(Y = y) = \\binom{y - 1}{r - 1} p^{r-1}q^{y-r}\n\\] , where \\(r\\) is the number of success; \\(p\\) and \\(q\\) defined as usual.\nBy simple counting methods as covered before.\n\n\n\nExample 8 The mgf of negative binomial distribution.\nSuppose \\(Y \\sim \\text{NegBin}(r, p)\\), then,\n\\[\\begin{align*}\nE(e^{Yt}) & = \\sum_{y = r}^\\infty e^{yt} \\binom{y-1}{r-1} p^r q^{y-r} \\\\\n& = \\sum_{y = r}^\\infty e^{yt} \\frac{(y - 1)!}{(r - 1)! (y - r)!} p^r q^{y-r} \\\\\n& = p^r \\sum_{y = r}^\\infty\n\\end{align*}\\]\n\n\nTheorem 10 The direct proof is relatively hard to see. However, using Theorem 5 with ?@thm-mgf-of-list-of-independent-vars.\n\n\nProof. \\begin{}",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/1rv.html#footnotes",
+    "href": "contents/chapter-03/1rv.html#footnotes",
+    "title": "Known Discrete Distributions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIn fact, many people define this first and simply describe the binomial distribution as a repeated bernoulli trial with bernoulli distribution.↩︎",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Known Discrete Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html",
+    "href": "contents/chapter-03/2measures.html",
+    "title": "Measures Related to Distribution",
+    "section": "",
+    "text": "Now, we want to ask a question about what is the “expected value” of the outcome of a certain random variable.\n\nDefinition 1 Suppose \\(Y\\) is a discrete random variable with pmf \\(p(y)\\). Then the expected value (or mean) of \\(Y\\) is \\[\n\\mathbb{E}(Y) = \\sum_y y p(y)\n\\]\nThe sum is over all possible values \\(y\\) of the rv \\(Y\\). We may also write \\(Y\\)’s mean as \\(\\mu_Y\\) or \\(\\mu\\).\n\n\\(\\mu\\) is a measure of central tendency, in the sense that it represents the average of a hypothetically infinite number of independent realisations of \\(Y\\).\n\n\nExample 1 Find the mean of the Bernoulli distribution.\nLet \\(Y \\sim \\text{Bern}(p)\\). Then\n\\[\n\\mu = \\sum_{y=0}^{1} yp(y) = 0p(0) + 1p(1) = 0(1-p) + 1p = p\n\\]\nThus for example, if we toss a fair coin thousands of times, and each time write 1 when a head comes up and 0 otherwise, we will get a sequence like 0,0,1,0,1,1,1,0,… The average of these 1’s and 0’s will be about 1/2, corresponding to the fact that each such number has a Bernoulli distribution with parameter 1/2 and thus a mean of 1/2.\n\n\n\nTheorem 1 If \\(Y \\sim \\text{Bin}(n, p)\\). Then \\(Y\\) has expectation \\(np\\).\n\n\nProof. \\[\\begin{align*}\n\\mu & = \\sum_{y=0}^{n} y \\binom{n}{y} p^y (1- p)^{n-y} \\\\\n& = \\sum_{y=1}^{n} y \\frac{n!}{y! (n-y)!} p^y (1-p)^{n-y} \\tag{the first term is zero} \\\\\n& = np \\sum_{y=1}^{n} \\frac{(n-1)!}{(y-1)!(n-1-(y-1))!}p^{y-1}(1-p)^{n-1-(y-1)} \\\\\n& = np \\sum_{x=0}^{m} \\frac{m!}{x! (m - x)!} p^x (1 - p)^{m-x} \\tag{$x = y - 1$ and $m = n - 1$} \\\\\n& = np \\tag{since the sum equals 1, by the binomial theorem}\n\\end{align*}\\]\nThis makes sense. For example, if we roll a die 60 times, we can expect 60(1/6) = 10 sixes.\n\n\n\n\n\nDefinition 2 Suppose that \\(Y\\) is a discrete random variable with pmf \\(p(y)\\), and \\(g(t)\\) is a function. Then the expected value (or mean) of \\(g(Y)\\) is defined to be \\[\n\\mathbb{E}(g(Y)) = \\sum_y g(y)p(y)\n\\]\n\nHere, we have simply taken this as a definition, so no need for a proof.\n\n\nExample 2 Suppose that \\(Y \\sim \\text{Bern}(p)\\). Find \\(\\mathbb{E}[Y^2]\\).\n\\[\n\\mathbb{E}\\left[Y^2\\right] = \\sum_y y^2 p(y) = 0^2(1-p) + 1^2p = p\n\\]\n\n\nCorollary 1 It is clear to see that the above procedures can be applied to \\(\\mathbb{E}\\left[Y^k\\right] = p\\).\n\n\n\n\n\n\nIf \\(c\\) is constant, then \\(\\mathbb{E}\\left[c\\right] = c\\)\n\\(\\mathbb{E}\\left[c g(Y) \\right] = c \\mathbb{E}\\left[ g(Y) \\right]\\)\n\\(\\mathbb{E}\\left[ \\sum_{i = 1}^{k} g_i(Y) \\right] = \\sum_{i=1}^k \\mathbb{E}\\left[ g_i(Y) \\right]\\)\n\n\nProof. \\[\n\\mathbb{E}[c] = \\sum_y cp(y) = c \\sum_y p(y) = c \\cdot (1) = c\n\\]\n\n\nProof. \\[\\begin{align*}\n\\mathbb{E}\\left[ cg(Y) \\right] & = \\sum_y cg(y) p(y) \\\\\n& = c \\sum_y g(y) p(y) \\\\\n& = c \\mathbb{E}\\left[ g(Y) \\right] \\\\\n\\end{align*}\\]\n\n\nProof. \\[\n\\mathbb{E} \\left[ \\sum_{i=1}^k g_i(Y) \\right] = \\sum_y \\left( \\sum_{i=1}^k g_i(Y) \\right) p(y) = \\sum_{i=1}^k \\sum_y \\left( g_i(Y) p(Y) \\right) = \\sum_{i=1}^k \\mathbb{E}\\left[g_i(Y)\\right]\n\\]\n\n\n\n\n\nThe \\(k\\)-th raw moment of \\(Y\\) is \\(\\mu_k' = \\mathbb{E}\\left[Y^k\\right]\\)\nThe \\(k\\)-th central moment of \\(Y\\) is $_k = \nThe variance of \\(Y\\) is $(Y) = ^2 = _2 = \nThe standard deviation of \\(Y\\) is simply the square root of variance.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#expectations-of-functions-of-rv",
+    "href": "contents/chapter-03/2measures.html#expectations-of-functions-of-rv",
+    "title": "Measures Related to Distribution",
+    "section": "",
+    "text": "Definition 2 Suppose that \\(Y\\) is a discrete random variable with pmf \\(p(y)\\), and \\(g(t)\\) is a function. Then the expected value (or mean) of \\(g(Y)\\) is defined to be \\[\n\\mathbb{E}(g(Y)) = \\sum_y g(y)p(y)\n\\]\n\nHere, we have simply taken this as a definition, so no need for a proof.\n\n\nExample 2 Suppose that \\(Y \\sim \\text{Bern}(p)\\). Find \\(\\mathbb{E}[Y^2]\\).\n\\[\n\\mathbb{E}\\left[Y^2\\right] = \\sum_y y^2 p(y) = 0^2(1-p) + 1^2p = p\n\\]\n\n\nCorollary 1 It is clear to see that the above procedures can be applied to \\(\\mathbb{E}\\left[Y^k\\right] = p\\).",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#laws-of-expectation",
+    "href": "contents/chapter-03/2measures.html#laws-of-expectation",
+    "title": "Measures Related to Distribution",
+    "section": "",
+    "text": "If \\(c\\) is constant, then \\(\\mathbb{E}\\left[c\\right] = c\\)\n\\(\\mathbb{E}\\left[c g(Y) \\right] = c \\mathbb{E}\\left[ g(Y) \\right]\\)\n\\(\\mathbb{E}\\left[ \\sum_{i = 1}^{k} g_i(Y) \\right] = \\sum_{i=1}^k \\mathbb{E}\\left[ g_i(Y) \\right]\\)\n\n\nProof. \\[\n\\mathbb{E}[c] = \\sum_y cp(y) = c \\sum_y p(y) = c \\cdot (1) = c\n\\]\n\n\nProof. \\[\\begin{align*}\n\\mathbb{E}\\left[ cg(Y) \\right] & = \\sum_y cg(y) p(y) \\\\\n& = c \\sum_y g(y) p(y) \\\\\n& = c \\mathbb{E}\\left[ g(Y) \\right] \\\\\n\\end{align*}\\]\n\n\nProof. \\[\n\\mathbb{E} \\left[ \\sum_{i=1}^k g_i(Y) \\right] = \\sum_y \\left( \\sum_{i=1}^k g_i(Y) \\right) p(y) = \\sum_{i=1}^k \\sum_y \\left( g_i(Y) p(Y) \\right) = \\sum_{i=1}^k \\mathbb{E}\\left[g_i(Y)\\right]\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#special-expectations",
+    "href": "contents/chapter-03/2measures.html#special-expectations",
+    "title": "Measures Related to Distribution",
+    "section": "",
+    "text": "The \\(k\\)-th raw moment of \\(Y\\) is \\(\\mu_k' = \\mathbb{E}\\left[Y^k\\right]\\)\nThe \\(k\\)-th central moment of \\(Y\\) is $_k = \nThe variance of \\(Y\\) is $(Y) = ^2 = _2 = \nThe standard deviation of \\(Y\\) is simply the square root of variance.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#two-important-results",
+    "href": "contents/chapter-03/2measures.html#two-important-results",
+    "title": "Measures Related to Distribution",
+    "section": "2.1 Two Important Results",
+    "text": "2.1 Two Important Results\n\n\\(\\text{Var}(Y) = \\mathbb{E}\\left[ Y^2 \\right] - \\left(\\mathbb{E}[Y]\\right)^2\\)\n\\(\\text{Var}(a + bY) = b^2 \\text{Var}(Y)\\)\n\n\nProof. 1:\n\\[\nVar(Y) = E((Y - \\mu)^2) = E(Y^2) - 2\\mu E(Y) + \\mu^2 = E(Y^2) - \\mu^2\n\\]\n2:\n\\[\nVar(a + bY) = E((a + bY - E(a+ bY))^2) = E(b^2(Y - E(Y))^2) = b^2E((Y - \\mu)^2) = b^2 Var(Y)\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#two-important-application-of-mgf",
+    "href": "contents/chapter-03/2measures.html#two-important-application-of-mgf",
+    "title": "Measures Related to Distribution",
+    "section": "3.1 Two Important Application of MGF",
+    "text": "3.1 Two Important Application of MGF\n\nto compute raw moments, according to the formula: \\[\n\\mu_k' = m^{(k)}(0)\n\\]\nTo uniquely identify distributions.\n\n\nProof. 1:\n\\[\\begin{align*}\nm^{(k)}(t) & = \\frac{d^k}{dt^k} E(e^{Yt}) \\\\\n& = \\frac{d^k}{dt^k} \\left( \\sum_y e^{yt} p(y) \\right) \\\\\n& = \\sum_y y^k e^{(yt)} p(y) \\\\\n\\end{align*}\\]\nThen, evaluating the above at \\(t = 0\\) indicates, \\[\nm^{(k)}(0) = \\sum_y y^k e^0 p(y) = E(Y^k) = \\mu_k'\n\\]\n\nNote that proof of 2. is actually much harder than I expected so the proof is skipped. For interested reader, refer to this.\n\n\nExample 3 Use the mgf technique to find the mean and variance of the binomial distribution.\nLet \\(Y \\sim \\text{Bin}(n, p)\\). Then \\(Y\\) has mgf,\n\\[\\begin{align*}\nm(t) & = E(e^{Yt}) \\\\\n& = \\sum_{y = 0}^n e^{yt} \\binom{n}{y} p^y (1 - p)^{n-y} \\\\\n& = \\sum_{y = 0}^n \\binom{n}{y} (pe^t) (1 - p)^{n - y} \\\\\n& = \\left( (pe^t) + (1 - p) \\right) ^n \\tag{By the binomial theorem.}\n\\end{align*}\\]\nThus, \\(m(t) = (1 - p + pe^t)^n\\).\nThen, \\(m'(t) = \\frac{dm(t)}{dt} = n(1 - p + pe^t)^{n-1}pe^t\\). Then, \\(m''(t) = n(1 - p + pe^t)pe^t + n(n-1)(1 - p + pe^t)^{n-2}p^2e^2t\\). Hence,\n\\[\\begin{align*}\nE(Y) = m'(0) = n (1 - p + p)^{n-1} p e^0 = np \\\\\nm''(0) = np + n(n-1)p^2 \\\\\nVar(Y) = m''(0) - (m'(0))^2 = np + n(n-1)p^2 - (np)^2 = np - np^2 = np(1-p) \\\\\n\\end{align*}\\]\nThis is the same result as we have derived before.\n\n\n\nExample 4 A random variable \\(Y\\) has the mgf \\(m(t) = \\frac{1}{8}(1 + e^t)^3\\). Find the probability that \\(Y\\) equals three.\n\\[\nm(t) = (1 - \\frac{1}{2} + \\frac{1}{2}e^t)^3 = (1 - p + pe^t)^n, \\quad \\text{where $n = 3$ and $p = 1/2$}\n\\]\nThus \\(m(t)\\) is the mgf of a random variable whose distribution is binomial with parameters 3 and \\(1/2\\). Therefore \\(Y \\sim \\text{Bin}(3, 1/2)\\), and so \\(P(Y = 3) = 1/8\\).\n\n\n\n\n\n\n\nSome of my takeaway\n\n\n\nI think it is somewhat important to recognise the known mgf form and transform it whenever a similar question is give in the exam.\n\n\n\n\nTheorem 2",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#model",
+    "href": "contents/chapter-03/2measures.html#model",
+    "title": "Measures Related to Distribution",
+    "section": "5.1 Model",
+    "text": "5.1 Model\nThe mode of a rv \\(Y\\) is any value \\(y\\) at which \\(Y\\)’s pmg, \\(p(y)\\) is a maximum.\nIt is possible to have multiple modes, and the mode may then also b defined as the set of all such modes.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/2measures.html#median",
+    "href": "contents/chapter-03/2measures.html#median",
+    "title": "Measures Related to Distribution",
+    "section": "5.2 Median",
+    "text": "5.2 Median\nThe median of a rv \\(Y\\) is any value \\(y\\) such that \\[\nP(X \\leq Y) \\geq \\frac{1}{2} \\qquad \\text{and} \\qquad P(Y \\geq y) \\geq \\frac{1}{2}\n\\]\nThere may be more than one median, and the median may then also be defined as the set of all such medians.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V.",
+      "Measures Related to Distribution"
+    ]
   },
   {
     "objectID": "index.html",

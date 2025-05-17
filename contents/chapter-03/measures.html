@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT2001 Revision Hub – STAT3011 Revision Summaries</title>
+<title>Measures Related to Distribution – STAT3011 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cca4a60b3d8f15fb5bf147fd5d6f1f1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-2217adcdf65dad125b43df69404e4bc2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/chapter-03/rv.html" rel="next">
+<link href="../../contents/chapter-03/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cca4a60b3d8f15fb5bf147fd5d6f1f1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-2217adcdf65dad125b43df69404e4bc2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +71,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -80,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT3011 Revision Summaries</span>
     </a>
   </div>
@@ -91,11 +122,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About This Site</span></a>
   </li>  
 </ul>
@@ -110,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT2001 Revision Hub</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/measures.html">Measures Related to Distribution</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -141,29 +172,29 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH02: Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH03: Discrete R.V.</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Known Discrete Distributions</span></a>
+  <a href="../../contents/chapter-03/measures.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Measures Related to Distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Measures Related to Distribution</span></a>
+  <a href="../../contents/chapter-03/rv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Known Discrete Distributions</span></a>
   </div>
 </li>
       </ul>
@@ -180,26 +211,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-the-stat2001-revision-hub" id="toc-welcome-to-the-stat2001-revision-hub" class="nav-link active" data-scroll-target="#welcome-to-the-stat2001-revision-hub"><span class="header-section-number">1</span> 📊 Welcome to the STAT2001 Revision Hub</a>
+  <li><a href="#expectation" id="toc-expectation" class="nav-link active" data-scroll-target="#expectation"><span class="header-section-number">1</span> Expectation</a>
   <ul class="collapse">
-  <li><a href="#topics-covered" id="toc-topics-covered" class="nav-link" data-scroll-target="#topics-covered"><span class="header-section-number">1.1</span> 📚 Topics Covered</a></li>
-  <li><a href="#tools-and-resources" id="toc-tools-and-resources" class="nav-link" data-scroll-target="#tools-and-resources"><span class="header-section-number">1.2</span> 🛠️ Tools and Resources</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">1.3</span> 📌 Getting Started</a></li>
+  <li><a href="#expectations-of-functions-of-rv" id="toc-expectations-of-functions-of-rv" class="nav-link" data-scroll-target="#expectations-of-functions-of-rv"><span class="header-section-number">1.1</span> Expectations of Functions of RV</a></li>
+  <li><a href="#laws-of-expectation" id="toc-laws-of-expectation" class="nav-link" data-scroll-target="#laws-of-expectation"><span class="header-section-number">1.2</span> Laws of Expectation</a></li>
+  <li><a href="#special-expectations" id="toc-special-expectations" class="nav-link" data-scroll-target="#special-expectations"><span class="header-section-number">1.3</span> Special Expectations</a></li>
+  </ul></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">2</span> Variance</a>
+  <ul class="collapse">
+  <li><a href="#two-important-results" id="toc-two-important-results" class="nav-link" data-scroll-target="#two-important-results"><span class="header-section-number">2.1</span> Two Important Results</a></li>
+  </ul></li>
+  <li><a href="#moment-generating-functions" id="toc-moment-generating-functions" class="nav-link" data-scroll-target="#moment-generating-functions"><span class="header-section-number">3</span> Moment Generating Functions</a>
+  <ul class="collapse">
+  <li><a href="#two-important-application-of-mgf" id="toc-two-important-application-of-mgf" class="nav-link" data-scroll-target="#two-important-application-of-mgf"><span class="header-section-number">3.1</span> Two Important Application of MGF</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/contents/chapter-03/measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/contents/chapter-03/measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/measures.html">Measures Related to Distribution</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">STAT2001 Revision Hub</h1>
+<h1 class="title">Measures Related to Distribution</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     
   
@@ -211,39 +250,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-the-stat2001-revision-hub" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 📊 Welcome to the STAT2001 Revision Hub</h1>
-<p>This site is your companion for revising <strong>STAT2001: Introductory Mathematical Statistics</strong> at ANU. Whether you’re preparing for exams or reinforcing weekly concepts, you’ll find concise summaries, worked examples, and practice materials here.</p>
+<section id="expectation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Expectation</h1>
+<p>Now, we want to ask a question about what is the “expected value” of the outcome of a certain random variable.</p>
+<div id="def-expectation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Suppose <span class="math inline">\(Y\)</span> is a discrete random variable with pmf <span class="math inline">\(p(y)\)</span>. Then the <em>expected value</em> (or <em>mean</em>) of <span class="math inline">\(Y\)</span> is <span class="math display">\[
+\mathbb{E}(Y) = \sum_y y p(y)
+\]</span></p>
+<p>The sum is over all possible values <span class="math inline">\(y\)</span> of the rv <span class="math inline">\(Y\)</span>. We may also write <span class="math inline">\(Y\)</span>’s mean as <span class="math inline">\(\mu_Y\)</span> or <span class="math inline">\(\mu\)</span>.</p>
+</div>
+<p><span class="math inline">\(\mu\)</span> is a measure of central tendency, in the sense that it represents the average of a hypothetically infinite number of independent realisations of <span class="math inline">\(Y\)</span>.</p>
 <hr>
-<section id="topics-covered" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="topics-covered"><span class="header-section-number">1.1</span> 📚 Topics Covered</h2>
-<p>The content is structured to mirror the STAT2001 curriculum:</p>
-<ul>
-<li><strong>Probability Foundations</strong>: Set theory, combinatorics, and Bayes’ theorem.</li>
-<li><strong>Random Variables</strong>: Discrete and continuous distributions, including moment-generating functions and correlation.</li>
-<li><strong>Multivariate Distributions</strong>: Joint, marginal, and conditional distributions.</li>
-<li><strong>Sampling Distributions</strong>: Understanding the central limit theorem and its applications.</li>
-<li><strong>Estimation Techniques</strong>: Methods of moments and maximum likelihood estimation.</li>
-<li><strong>Hypothesis Testing</strong>: Formulating and testing statistical hypotheses.</li>
-<li><strong>Bayesian Statistics</strong>: Introduction to Bayesian inference and estimators.</li>
-</ul>
+<div id="exm-11" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Find the mean of the Bernoulli distribution.</p>
+<p>Let <span class="math inline">\(Y \sim \text{Bern}(p)\)</span>. Then</p>
+<p><span class="math display">\[
+\mu = \sum_{y=0}^{1} yp(y) = 0p(0) + 1p(1) = 0(1-p) + 1p = p
+\]</span></p>
+<p>Thus for example, if we toss a fair coin thousands of times, and each time write 1 when a head comes up and 0 otherwise, we will get a sequence like 0,0,1,0,1,1,1,0,… The average of these 1’s and 0’s will be about 1/2, corresponding to the fact that each such number has a Bernoulli distribution with parameter 1/2 and thus a mean of 1/2.</p>
+</div>
+<hr>
+<div id="thm-binomial-expectation" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> If <span class="math inline">\(Y \sim \text{Bin}(n, p)\)</span>. Then <span class="math inline">\(Y\)</span> has expectation <span class="math inline">\(np\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
+\mu &amp; = \sum_{y=0}^{n} y \binom{n}{y} p^y (1- p)^{n-y} \\
+&amp; = \sum_{y=1}^{n} y \frac{n!}{y! (n-y)!} p^y (1-p)^{n-y} \tag{the first term is zero} \\
+&amp; = np \sum_{y=1}^{n} \frac{(n-1)!}{(y-1)!(n-1-(y-1))!}p^{y-1}(1-p)^{n-1-(y-1)} \\
+&amp; = np \sum_{x=0}^{m} \frac{m!}{x! (m - x)!} p^x (1 - p)^{m-x} \tag{$x = y - 1$ and $m = n - 1$} \\
+&amp; = np \tag{since the sum equals 1, by the binomial theorem}
+\end{align*}\]</span></p>
+<p>This makes sense. For example, if we roll a die 60 times, we can expect 60(1/6) = 10 sixes.</p>
+</div>
+<hr>
+<section id="expectations-of-functions-of-rv" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="expectations-of-functions-of-rv"><span class="header-section-number">1.1</span> Expectations of Functions of RV</h2>
+<div id="def-expectation-of-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Suppose that <span class="math inline">\(Y\)</span> is a discrete random variable with pmf <span class="math inline">\(p(y)\)</span>, and <span class="math inline">\(g(t)\)</span> is a function. Then the <em>expected value</em> (or <em>mean</em>) of <span class="math inline">\(g(Y)\)</span> is defined to be <span class="math display">\[
+\mathbb{E}(g(Y)) = \sum_y g(y)p(y)
+\]</span></p>
+</div>
+<p>Here, we have simply taken this as a definition, so no need for a proof.</p>
+<hr>
+<div id="exm-13" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Suppose that <span class="math inline">\(Y \sim \text{Bern}(p)\)</span>. Find <span class="math inline">\(\mathbb{E}[Y^2]\)</span>.</p>
+<p><span class="math display">\[
+\mathbb{E}\left[Y^2\right] = \sum_y y^2 p(y) = 0^2(1-p) + 1^2p = p
+\]</span></p>
+</div>
+<div id="cor-moments-of-bernoulli" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> It is clear to see that the above procedures can be applied to <span class="math inline">\(\mathbb{E}\left[Y^k\right] = p\)</span>.</p>
+</div>
 <hr>
 </section>
-<section id="tools-and-resources" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="tools-and-resources"><span class="header-section-number">1.2</span> 🛠️ Tools and Resources</h2>
-<p>All examples and exercises are implemented using <strong>R</strong>, the primary statistical computing tool for this course. You’ll also find:</p>
-<ul>
-<li>Interactive visualizations to aid understanding.</li>
-<li>Cheatsheets summarizing key formulas and concepts.</li>
-<li>Practice questions with step-by-step solutions.</li>
-</ul>
-<hr>
+<section id="laws-of-expectation" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="laws-of-expectation"><span class="header-section-number">1.2</span> Laws of Expectation</h2>
+<ol type="1">
+<li>If <span class="math inline">\(c\)</span> is constant, then <span class="math inline">\(\mathbb{E}\left[c\right] = c\)</span></li>
+<li><span class="math inline">\(\mathbb{E}\left[c g(Y) \right] = c \mathbb{E}\left[ g(Y) \right]\)</span></li>
+<li><span class="math inline">\(\mathbb{E}\left[ \sum_{i = 1}^{k} g_i(Y) \right] = \sum_{i=1}^k \mathbb{E}\left[ g_i(Y) \right]\)</span></li>
+</ol>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\mathbb{E}[c] = \sum_y cp(y) = c \sum_y p(y) = c \cdot (1) = c
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
+\mathbb{E}\left[ cg(Y) \right] &amp; = \sum_y cg(y) p(y) \\
+&amp; = c \sum_y g(y) p(y) \\
+&amp; = c \mathbb{E}\left[ g(Y) \right] \\
+\end{align*}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\mathbb{E} \left[ \sum_{i=1}^k g_i(Y) \right] = \sum_y \left( \sum_{i=1}^k g_i(Y) \right) p(y) = \sum_{i=1}^k \sum_y \left( g_i(Y) p(Y) \right) = \sum_{i=1}^k \mathbb{E}\left[g_i(Y)\right]
+\]</span></p>
+</div>
 </section>
-<section id="getting-started" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">1.3</span> 📌 Getting Started</h2>
-<p>Navigate to the <a href="./topics.html">Topics</a> page to begin exploring specific areas of the course. For more information about this site, visit the <a href="./about.html">About</a> page.</p>
+<section id="special-expectations" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="special-expectations"><span class="header-section-number">1.3</span> Special Expectations</h2>
+<ol type="1">
+<li>The <span class="math inline">\(k\)</span>-th <em>raw moment</em> of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mu_k' = \mathbb{E}\left[Y^k\right]\)</span></li>
+<li>The <span class="math inline">\(k\)</span>-th <em>central moment</em> of <span class="math inline">\(Y\)</span> is $_k = </li>
+<li>The variance of <span class="math inline">\(Y\)</span> is $(Y) = ^2 = _2 = </li>
+<li>The standard deviation of <span class="math inline">\(Y\)</span> is simply the square root of variance.</li>
+</ol>
+</section>
+</section>
+<section id="variance" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Variance</h1>
+<p>As defined above, this is nothing more than just the second order central moment. However, we don’t always need to compute the variance from scratch. Most of the times, the following two theorems aid in finding the variance.</p>
+<section id="two-important-results" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="two-important-results"><span class="header-section-number">2.1</span> Two Important Results</h2>
+<ol type="1">
+<li><span class="math inline">\(\text{Var}(Y) = \mathbb{E}\left[ Y^2 \right] - \left(\mathbb{E}[Y]\right)^2\)</span></li>
+<li><span class="math inline">\(\text{Var}(a + bY) = b^2 \text{Var}(Y)\)</span></li>
+</ol>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>1:</p>
+<p><span class="math display">\[
+Var(Y) = E((Y - \mu)^2) = E(Y^2) - 2\mu E(Y) + \mu^2 = E(Y^2) - \mu^2
+\]</span></p>
+<p>2:</p>
+<p><span class="math display">\[
+Var(a + bY) = E((a + bY - E(a+ bY))^2) = E(b^2(Y - E(Y))^2) = b^2E((Y - \mu)^2) = b^2 Var(Y)
+\]</span></p>
+</div>
+</section>
+</section>
+<section id="moment-generating-functions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Moment Generating Functions</h1>
+<p>The <em>moment generating function</em> (mgf) of a random variable <span class="math inline">\(Y\)</span> is defined to be</p>
+<p><span class="math display">\[
+m(t) = E(e^{tY})
+\]</span></p>
+<section id="two-important-application-of-mgf" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="two-important-application-of-mgf"><span class="header-section-number">3.1</span> Two Important Application of MGF</h2>
+<ol type="1">
+<li><p>to compute raw moments, according to the formula: <span class="math display">\[
+\mu_k' = m^{(k)}(0)
+\]</span></p></li>
+<li><p>To uniquely identify distributions.</p></li>
+</ol>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>1:</p>
+<p><span class="math display">\[\begin{align*}
+m^{(k)}(t) &amp; = \frac{d^k}{dt^k} E(e^{Yt}) \\
+&amp; = \frac{d^k}{dt^k} \left( \sum_y e^{yt} p(y) \right) \\
+&amp; = \sum_y y^k e^{(yt)} p(y) \\
+\end{align*}\]</span></p>
+<p>Then, evaluating the above at <span class="math inline">\(t = 0\)</span> indicates, <span class="math display">\[
+m^{(k)}(0) = \sum_y y^k e^0 p(y) = E(Y^k) = \mu_k'
+\]</span></p>
+</div>
+<p>Note that proof of 2. is actually much harder than I expected so the proof is skipped. For interested reader, refer to <a href="https://researchers.ms.unimelb.edu.au/~xgge@unimelb/Files/Teaching/Advanced%20Probability%20(Semester%201%202020)/The%20Theory%20of%20Moment%20Generating%20Functions.pdf#page=5.11">this</a>.</p>
 <hr>
-<p><em>Note: This site is an independent student-led initiative and is not officially affiliated with ANU.</em></p>
+<div id="exm-17" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3</strong></span> Use the mgf technique to find the mean and variance of the binomial distribution.</p>
+<p>Let <span class="math inline">\(Y \sim \text{Bin}(n, p)\)</span>. Then <span class="math inline">\(Y\)</span> has mgf,</p>
+<p><span class="math display">\[\begin{align*}
+m(t) &amp; = E(e^{Yt}) \\
+&amp; = \sum_{y = 0}^n e^{yt} \binom{n}{y} p^y (1 - p)^{n-y} \\
+&amp; = \sum_{y = 0}^n \binom{n}{y} (pe^t) (1 - p)^{n - y} \\
+&amp; = \left( (pe^t) + (1 - p) \right) ^n \tag{By the binomial theorem.}
+\end{align*}\]</span></p>
+<p>Thus, <span class="math inline">\(m(t) = (1 - p + pe^t)^n\)</span>.</p>
+<p>Then, <span class="math inline">\(m'(t) = \frac{dm(t)}{dt} = n(1 - p + pe^t)^{n-1}pe^t\)</span>. Then, <span class="math inline">\(m''(t) = n(1 - p + pe^t)pe^t + n(n-1)(1 - p + pe^t)^{n-2}p^2e^2t\)</span>. Hence,</p>
+<p><span class="math display">\[\begin{align*}
+E(Y) = m'(0) = n (1 - p + p)^{n-1} p e^0 = np \\
+m''(0) = np + n(n-1)p^2 \\
+Var(Y) = m''(0) - (m'(0))^2 = np + n(n-1)p^2 - (np)^2 = np - np^2 = np(1-p) \\
+\end{align*}\]</span></p>
+<p>This is the same result as we have derived before.</p>
+</div>
+<hr>
+<div id="exm-18" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> A random variable <span class="math inline">\(Y\)</span> has the mgf <span class="math inline">\(m(t) = \frac{1}{8}(1 + e^t)^3\)</span>. Find the probability that <span class="math inline">\(Y\)</span> equals three.</p>
+<p><span class="math display">\[
+m(t) = (1 - \frac{1}{2} + \frac{1}{2}e^t)^3 = (1 - p + pe^t)^n, \quad \text{where $n = 3$ and $p = 1/2$}
+\]</span></p>
+<p>Thus <span class="math inline">\(m(t)\)</span> is the mgf of a random variable whose distribution is binomial with parameters 3 and <span class="math inline">\(1/2\)</span>. Therefore <span class="math inline">\(Y \sim \text{Bin}(3, 1/2)\)</span>, and so <span class="math inline">\(P(Y = 3) = 1/8\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Some of my takeaway">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some of my takeaway
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I think it is somewhat important to recognise the known mgf form and transform it whenever a similar question is give in the exam.</p>
+</div>
+</div>
+<hr>
 
 
 </section>
@@ -484,7 +667,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Isaac7777-cpu\.github\.io\/stat2001-summaries\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -811,6 +994,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/chapter-03/index.html" class="pagination-link" aria-label="CH03: Discrete R.V.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CH03: Discrete R.V.</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/chapter-03/rv.html" class="pagination-link" aria-label="Known Discrete Distributions">
+        <span class="nav-page-text">Known Discrete Distributions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -819,7 +1014,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/contents/chapter-03/measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/contents/chapter-03/measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
