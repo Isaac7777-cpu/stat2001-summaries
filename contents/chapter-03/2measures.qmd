@@ -1,0 +1,313 @@
+---
+title: "Measures Related to Distribution"
+---
+
+# Expectation
+
+Now, we want to ask a question about what is the "expected value" of the outcome of a certain random variable.
+
+::: {#def-expectation}
+
+Suppose $Y$ is a discrete random variable with pmf $p(y)$. Then the _expected value_ (or _mean_) of $Y$ is
+$$
+\mathbb{E}(Y) = \sum_y y p(y)
+$$
+
+The sum is over all possible values $y$ of the rv $Y$. We may also write $Y$'s mean as $\mu_Y$ or $\mu$. 
+
+:::
+
+$\mu$ is a measure of central tendency, in the sense that it represents the average of a hypothetically infinite number of independent realisations of $Y$.
+
+---
+
+::: {#exm-11}
+
+Find the mean of the Bernoulli distribution.
+
+Let $Y \sim \text{Bern}(p)$. Then
+
+$$
+\mu = \sum_{y=0}^{1} yp(y) = 0p(0) + 1p(1) = 0(1-p) + 1p = p
+$$
+
+Thus for example, if we toss a fair coin thousands of times, and each time write 1 when a head comes up and 0 otherwise, we will get a sequence like 0,0,1,0,1,1,1,0,... The average of these 1's and 0's will be about 1/2, corresponding to the fact that each such number has a Bernoulli distribution with parameter 1/2 and thus a mean of 1/2.
+
+:::
+
+---
+
+::: {#thm-binomial-expectation}
+
+If $Y \sim \text{Bin}(n, p)$. Then $Y$ has expectation $np$.
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+\mu & = \sum_{y=0}^{n} y \binom{n}{y} p^y (1- p)^{n-y} \\
+& = \sum_{y=1}^{n} y \frac{n!}{y! (n-y)!} p^y (1-p)^{n-y} \tag{the first term is zero} \\
+& = np \sum_{y=1}^{n} \frac{(n-1)!}{(y-1)!(n-1-(y-1))!}p^{y-1}(1-p)^{n-1-(y-1)} \\
+& = np \sum_{x=0}^{m} \frac{m!}{x! (m - x)!} p^x (1 - p)^{m-x} \tag{$x = y - 1$ and $m = n - 1$} \\
+& = np \tag{since the sum equals 1, by the binomial theorem}
+\end{align*}
+
+This makes sense. For example, if we roll a die 60 times, we can expect 60(1/6) = 10 sixes.
+
+:::
+
+---
+
+## Expectations of Functions of RV
+
+::: {#def-expectation-of-function}
+
+Suppose that $Y$ is a discrete random variable with pmf $p(y)$, and $g(t)$ is a function. Then the _expected value_ (or _mean_) of $g(Y)$ is defined to be
+$$
+\mathbb{E}(g(Y)) = \sum_y g(y)p(y)
+$$
+
+:::
+
+Here, we have simply taken this as a definition, so no need for a proof.
+
+---
+
+::: {#exm-13}
+
+Suppose that $Y \sim \text{Bern}(p)$. Find $\mathbb{E}[Y^2]$.
+
+$$
+\mathbb{E}\left[Y^2\right] = \sum_y y^2 p(y) = 0^2(1-p) + 1^2p = p
+$$
+
+:::
+
+::: {#cor-moments-of-bernoulli}
+
+It is clear to see that the above procedures can be applied to $\mathbb{E}\left[Y^k\right] = p$.
+
+:::
+
+---
+
+## Laws of Expectation
+
+1. If $c$ is constant, then $\mathbb{E}\left[c\right] = c$
+2. $\mathbb{E}\left[c g(Y) \right] = c \mathbb{E}\left[ g(Y) \right]$
+3. $\mathbb{E}\left[ \sum_{i = 1}^{k} g_i(Y) \right] = \sum_{i=1}^k \mathbb{E}\left[ g_i(Y) \right]$
+
+::: {.proof}
+
+$$
+\mathbb{E}[c] = \sum_y cp(y) = c \sum_y p(y) = c \cdot (1) = c
+$$
+
+:::
+
+
+::: {.proof}
+
+\begin{align*}
+\mathbb{E}\left[ cg(Y) \right] & = \sum_y cg(y) p(y) \\
+& = c \sum_y g(y) p(y) \\
+& = c \mathbb{E}\left[ g(Y) \right] \\
+\end{align*}
+
+:::
+
+::: {.proof}
+
+$$
+\mathbb{E} \left[ \sum_{i=1}^k g_i(Y) \right] = \sum_y \left( \sum_{i=1}^k g_i(Y) \right) p(y) = \sum_{i=1}^k \sum_y \left( g_i(Y) p(Y) \right) = \sum_{i=1}^k \mathbb{E}\left[g_i(Y)\right]
+$$
+
+:::
+
+## Special Expectations
+
+1. The $k$-th _raw moment_ of $Y$ is $\mu_k' = \mathbb{E}\left[Y^k\right]$
+2. The $k$-th _central moment_ of $Y$ is $\mu_k = \mathbb{E} \left[ (Y - \mu)^k \right]
+3. The variance of $Y$ is $\text{Var}(Y) = \sigma^2 = \mu_2 = \mathbb{E}\left[ (Y - \mu)^2 \right]
+4. The standard deviation of $Y$ is simply the square root of variance.
+
+# Variance
+
+As defined above, this is nothing more than just the second order central moment. However, we don't always need to compute the variance from scratch. Most of the times, the following two theorems aid in finding the variance.
+
+## Two Important Results
+
+1. $\text{Var}(Y) = \mathbb{E}\left[ Y^2 \right] - \left(\mathbb{E}[Y]\right)^2$
+2. $\text{Var}(a + bY) = b^2 \text{Var}(Y)$
+
+::: {.proof}
+
+1: 
+
+$$
+Var(Y) = E((Y - \mu)^2) = E(Y^2) - 2\mu E(Y) + \mu^2 = E(Y^2) - \mu^2
+$$
+
+2:
+
+$$
+Var(a + bY) = E((a + bY - E(a+ bY))^2) = E(b^2(Y - E(Y))^2) = b^2E((Y - \mu)^2) = b^2 Var(Y)
+$$
+
+:::
+
+# Moment Generating Functions
+
+The _moment generating function_ (mgf) of a random variable $Y$ is defined to be
+
+$$
+m(t) = E(e^{tY})
+$$
+
+## Two Important Application of MGF
+
+1. to compute raw moments, according to the formula: 
+   $$
+    \mu_k' = m^{(k)}(0)
+   $$
+
+2. To uniquely identify distributions.
+
+::: {.proof}
+1:
+
+\begin{align*}
+m^{(k)}(t) & = \frac{d^k}{dt^k} E(e^{Yt}) \\
+& = \frac{d^k}{dt^k} \left( \sum_y e^{yt} p(y) \right) \\
+& = \sum_y y^k e^{(yt)} p(y) \\
+\end{align*}
+
+Then, evaluating the above at $t = 0$ indicates,
+$$
+m^{(k)}(0) = \sum_y y^k e^0 p(y) = E(Y^k) = \mu_k'
+$$
+
+:::
+
+Note that proof of 2. is actually much harder than I expected so the proof is skipped. For interested reader, refer to [this](https://researchers.ms.unimelb.edu.au/~xgge@unimelb/Files/Teaching/Advanced%20Probability%20(Semester%201%202020)/The%20Theory%20of%20Moment%20Generating%20Functions.pdf#page=5.11).
+
+--- 
+
+::: {#exm-17}
+Use the mgf technique to find the mean and variance of the binomial distribution.
+
+Let $Y \sim \text{Bin}(n, p)$. Then $Y$ has mgf,
+
+\begin{align*}
+m(t) & = E(e^{Yt}) \\
+& = \sum_{y = 0}^n e^{yt} \binom{n}{y} p^y (1 - p)^{n-y} \\
+& = \sum_{y = 0}^n \binom{n}{y} (pe^t) (1 - p)^{n - y} \\
+& = \left( (pe^t) + (1 - p) \right) ^n \tag{By the binomial theorem.}
+\end{align*}
+
+Thus, $m(t) = (1 - p + pe^t)^n$.
+
+Then, $m'(t) = \frac{dm(t)}{dt} = n(1 - p + pe^t)^{n-1}pe^t$. Then, $m''(t) = n(1 - p + pe^t)pe^t + n(n-1)(1 - p + pe^t)^{n-2}p^2e^2t$. Hence,
+
+\begin{align*}
+E(Y) = m'(0) = n (1 - p + p)^{n-1} p e^0 = np \\
+m''(0) = np + n(n-1)p^2 \\
+Var(Y) = m''(0) - (m'(0))^2 = np + n(n-1)p^2 - (np)^2 = np - np^2 = np(1-p) \\
+\end{align*}
+
+This is the same result as we have derived before.
+
+:::
+
+---
+
+::: {#exm-18}
+
+A random variable $Y$ has the mgf $m(t) = \frac{1}{8}(1 + e^t)^3$. Find the probability that $Y$ equals three.
+
+$$
+m(t) = (1 - \frac{1}{2} + \frac{1}{2}e^t)^3 = (1 - p + pe^t)^n, \quad \text{where $n = 3$ and $p = 1/2$}
+$$
+
+Thus $m(t)$ is the mgf of a random variable whose distribution is binomial with parameters 3 and $1/2$. Therefore $Y \sim \text{Bin}(3, 1/2)$, and so $P(Y = 3) = 1/8$.
+
+:::
+
+::: {.callout-tip title="Some of my takeaway"}
+
+I think it is somewhat important to recognise the known mgf form and transform it whenever a similar question is give in the exam.
+
+:::
+
+---
+
+::: {#thm-mgf-of-list-of-independent-vars}
+
+Suppose $Y_1, Y_2, \ldots, Y_n$ are independent and $Y = \sum_i Y_i$. Then, 
+
+$$
+m_Y(t) = m_{Y_1 + Y_2 + \cdots + Y_n} (t)
+$$
+
+:::
+
+# Tchebysheff’s theorem (or Chebyshev’s theorem)
+
+::: {#thm-chebyshev}
+
+Let $Y$ be a rv with mean $\mu$ and variance $\sigma^2$ (assumed to be finite). Also, let $k$ be a positive constant. Then
+$$
+P(\lVert Y - \mu \rVert < k\sigma) \geq 1 - \frac{1}{k^2}
+$$
+
+Equivalently,
+
+$$
+P(\lVert Y - \mu \rVert \geq k\sigma) \leq \frac{1}{k^2}
+$$
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+\sigma^2 = E((Y - \mu)^2) & = \sum_y (y - \mu)^2 p(y) \\
+7 = \sum_{y: \lvert y -\mu \rvert < k\sigma} (y - \mu)^2 p(y) + \sum_{y: \lvert y - \mu \rvert \geq k\sigma} (y-\mu)^2p(y) \\
+& \geq \sum_{y: \lvert y - \mu \rvert < k\sigma} 0 p(y) + \sum_{y: \lvert y - \mu \rvert \geq k\sigma} (k\sigma)^2 p(y) \\
+& = 0 + k^2 \sigma^2 \sum_{y: \lvert y - \mu \rvert \geq k\sigma} p(y) \\
+& = k^2 \sigma^2 P(\lvert Y - \mu \rvert \geq k\sigma) \\
+\end{align*}
+
+Hence, by rearranging,
+
+$$
+P\left(\lvert Y - \mu \rvert \geq k\sigma\right) \leq \frac{1}{k^2}
+$$
+
+:::
+
+# Mode and Median
+
+## Model
+
+The _mode_ of a rv $Y$ is any value $y$ at which $Y$'s pmg, $p(y)$ is a maximum.
+
+It is possible to have multiple modes, and the mode may then also b defined as the set of all such modes.
+
+## Median
+
+The _median_ of a rv $Y$ is any value $y$ such that 
+$$
+P(X \leq Y) \geq \frac{1}{2} \qquad \text{and} \qquad P(Y \geq y) \geq \frac{1}{2}
+$$
+
+There may be more than one median, and the median may then also be defined as the set of all such medians.
+
+# Some Central Interpretations of Central Tendency Measure
+
+|   |        |
+| - | ------ |
+| mean | average of a very large number of independent realisations of $Y$ |
+| median | "middle value", such that $Y$ is at least 50% likely to be above the value and at least 50% likely to be below it. |
+| mode | most likely value of $Y$ |

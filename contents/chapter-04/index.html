@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Known Discrete Distributions – STAT3011 Revision Summaries</title>
+<title>CH04: Continuous R.V. – STAT3011 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/chapter-03/2measures.html" rel="next">
-<link href="../../contents/chapter-03/index.html" rel="prev">
+<link href="../../contents/chapter-02/index.html" rel="next">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -141,7 +174,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/1rv.html">Known Discrete Distributions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">CH04: Continuous R.V.</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -172,7 +205,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">CH04: Continuous R.V.</span></a>
   </div>
 </li>
@@ -186,14 +219,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH03: Discrete R.V.</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Known Discrete Distributions</span></a>
   </div>
 </li>
@@ -217,28 +250,24 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link active" data-scroll-target="#binomial-distribution"><span class="header-section-number">1</span> Binomial Distribution</a></li>
-  <li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution"><span class="header-section-number">2</span> Bernoulli Distribution</a></li>
-  <li><a href="#geometric-distribution" id="toc-geometric-distribution" class="nav-link" data-scroll-target="#geometric-distribution"><span class="header-section-number">3</span> Geometric Distribution</a>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble"><span class="header-section-number">1</span> Preamble</a></li>
+  <li><a href="#cumulative-distribution" id="toc-cumulative-distribution" class="nav-link" data-scroll-target="#cumulative-distribution"><span class="header-section-number">2</span> Cumulative Distribution</a></li>
+  <li><a href="#random-variable" id="toc-random-variable" class="nav-link" data-scroll-target="#random-variable"><span class="header-section-number">3</span> Random Variable</a></li>
+  <li><a href="#probability-density-function" id="toc-probability-density-function" class="nav-link" data-scroll-target="#probability-density-function"><span class="header-section-number">4</span> Probability Density Function</a>
   <ul class="collapse">
-  <li><a href="#application-of-geometric-distribution" id="toc-application-of-geometric-distribution" class="nav-link" data-scroll-target="#application-of-geometric-distribution"><span class="header-section-number">3.1</span> Application of Geometric Distribution</a></li>
-  <li><a href="#mgf-of-geometric" id="toc-mgf-of-geometric" class="nav-link" data-scroll-target="#mgf-of-geometric"><span class="header-section-number">3.2</span> mgf of Geometric</a></li>
+  <li><a href="#two-properties-of-a-continuous-pdf" id="toc-two-properties-of-a-continuous-pdf" class="nav-link" data-scroll-target="#two-properties-of-a-continuous-pdf"><span class="header-section-number">4.1</span> Two Properties of a Continuous pdf</a></li>
+  <li><a href="#cdf-from-pdf" id="toc-cdf-from-pdf" class="nav-link" data-scroll-target="#cdf-from-pdf"><span class="header-section-number">4.2</span> CDF from PDF</a></li>
+  <li><a href="#computing-probability-using-pdf" id="toc-computing-probability-using-pdf" class="nav-link" data-scroll-target="#computing-probability-using-pdf"><span class="header-section-number">4.3</span> Computing Probability using PDF</a></li>
   </ul></li>
-  <li><a href="#hypergeometric-distribution" id="toc-hypergeometric-distribution" class="nav-link" data-scroll-target="#hypergeometric-distribution"><span class="header-section-number">4</span> Hypergeometric Distribution</a></li>
-  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution"><span class="header-section-number">5</span> Poisson Distribution</a>
-  <ul class="collapse">
-  <li><a href="#poisson-approximation-to-the-binomial" id="toc-poisson-approximation-to-the-binomial" class="nav-link" data-scroll-target="#poisson-approximation-to-the-binomial"><span class="header-section-number">5.1</span> Poisson Approximation to the Binomial</a></li>
-  </ul></li>
-  <li><a href="#negative-binomial-distribution" id="toc-negative-binomial-distribution" class="nav-link" data-scroll-target="#negative-binomial-distribution"><span class="header-section-number">6</span> Negative Binomial Distribution</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-03/1rv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-03/1rv.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-04/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-04/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/1rv.html">Known Discrete Distributions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">CH04: Continuous R.V.</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Known Discrete Distributions</h1>
+<h1 class="title">CH04: Continuous R.V.</h1>
 </div>
 
 
@@ -255,257 +284,146 @@ window.Quarto = {
 </header>
 
 
-<section id="binomial-distribution" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">1</span> Binomial Distribution</h2>
-<p>The first is the <em>binomial distribution</em>. This has to do with experiments which involve doing something several times, independently, and observing the number of ‘successes’.</p>
-<hr>
-<div id="exm-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> A die is rolled 7 times. Let <span class="math inline">\(Y\)</span> be the number of 6’s which come up. Find <span class="math inline">\(Y\)</span>’s pmf.</p>
-<p><span class="math display">\[\begin{align*}
-P(Y = 3) &amp; = P(Three 6's and four non-6's, in any order) \\
-&amp; = P(6660000) + P(6606000) + \cdots + P(0000666) \\
-&amp; = \left( \frac{1}{6} \right)^3 \left( \frac{5}{6} \right)^4 + \left( \frac{1}{6}\right)^2 \frac{5}{6} \frac{1}{6} \left( \frac{5}{6}\right)^3 + \cdots + \left( \frac{5}{6}\right)^4 \left( \frac{1}{6} \right)^3 \\
-&amp; = \binom{7}{3} \left( \frac{1}{6} \right)^3 \left( \frac{5}{6} \right)^4 \approx 0.0781
-\end{align*}\]</span></p>
-</div>
-<hr>
-<p>Overall, we can conclude that,</p>
-<div id="thm-binomial-pmf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1</strong></span> A random variable <span class="math inline">\(Y\)</span> has the <em>binomial distribution</em> with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> if its pmf is of the form</p>
-<p><span class="math display">\[
-p(y) = \binom{n}{y} p^y(1-p)^{n-y}, \quad y = 0, 1, 2, \ldots, n
+<section id="preamble" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Preamble</h1>
+<p>Note that we will follow a very similar structure as we have done in <a href="../chapter-03/">the chapter for discrete variable</a>. And, indeed, a lot of the theorems can be directly transported to the continuous case. However, analysis of the continuous variables are slightly harder since, as one might expect, all the summation no becomes integral.</p>
+<p>This chapter will first goes from the definition of continuous random variable with link established via the cumulative distribution functions. Then, we will go over some of the common continuous distributions.</p>
+</section>
+<section id="cumulative-distribution" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Cumulative Distribution</h1>
+<div id="def-cumulative-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> The <em>(cumulative) distribution function (cdf)</em> of a random variable <span class="math inline">\(Y\)</span> is <span class="math display">\[
+F(y) = P(Y \leq y)
 \]</span></p>
 </div>
-<p>We write <span class="math inline">\(Y \sim \text{Bin}(n, p)\)</span>. We call <span class="math inline">\(n\)</span> the number of trials and <span class="math inline">\(p\)</span> the probability of success.</p>
-<hr>
-<div id="exm-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2</strong></span> A coin is going to be tossed 10 times. Find the probability that 3 heads come up. Let <span class="math inline">\(Y\)</span> be the number of heads that come up. Then <span class="math inline">\(Y \sim \text{Bin}(10, 0.5)\)</span>.</p>
-<p>Then this problem is simply evaluating <span class="math inline">\(p(3)\)</span> by using the pm from <a href="#thm-binomial-pmf" class="quarto-xref">Theorem&nbsp;1</a>.</p>
+<div id="thm-three-props-of-cdf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> if <span class="math inline">\(F(y)\)</span> is a cdf then: 1. <span class="math inline">\(F(y) \to 0\)</span> as <span class="math inline">\(y \to - \infty\)</span> 2. <span class="math inline">\(F(y) \to 1\)</span> as <span class="math inline">\(y \to \infty\)</span> 3. <span class="math inline">\(F(y)\)</span> is nondecreasing.</p>
+<p>Note that we assumes that <span class="math inline">\(F(y)\)</span> is right continuous, meaning that <span class="math inline">\(\lim_{\delta \to 0} F(Y + \delta) = F(y)\)</span>.</p>
+</div>
+</section>
+<section id="random-variable" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Random Variable</h1>
+<p>Armed with cdf, we are now ready to define what continuous random variable is.</p>
+<div id="def-cont-rv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> A random variable is said to be <em>continuous</em> if its cdf is continuous (everywhere).</p>
 </div>
 <hr>
-</section>
-<section id="bernoulli-distribution" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="bernoulli-distribution"><span class="header-section-number">2</span> Bernoulli Distribution</h2>
-<p>This is a special case of the binomial distribution when <span class="math inline">\(n = 1\)</span>. Hence, we can define a very simple form of pmf.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div id="thm-bernoulli-pmf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> It is easy to see from <a href="#thm-binomial-pmf" class="quarto-xref">Theorem&nbsp;1</a> that</p>
+<div id="exm-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Let <span class="math inline">\(Y\)</span> be a number chosen randomly between 0 and 2. Find <span class="math inline">\(Y\)</span>’s cdf. Is <span class="math inline">\(Y\)</span> a continuous random variable.</p>
 <p><span class="math display">\[
-p(y) = \begin{cases}
-p &amp; y = 1 \\
-1 - p &amp; y = 0 \\
+F(y) = \begin{cases}
+0 &amp; y &lt; 0 \\
+y/2 &amp; 0 \leq y &lt; 2 \\
+1 &amp; y \geq 2
 \end{cases}
 \]</span></p>
-<p>where <span class="math inline">\(0 \leq p \leq 1\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">2</span>, y<span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> y, <span class="at">F =</span> F)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> F)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(y), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">F</span>(y))) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey80"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p>We write <span class="math inline">\(Y \sim \text{Bern}(p)\)</span> and we cal <span class="math inline">\(p\)</span> the <em>probability of success</em>, as before.</p>
+</div>
+</div>
+<p>Observe that <span class="math inline">\(F(y)\)</span> is continuous everywhere (i.e.&nbsp;for all <span class="math inline">\(y\)</span> between <span class="math inline">\(-\infty\)</span> and <span class="math inline">\(\infty\)</span>). Hence <span class="math inline">\(Y\)</span> is a continuous random variable.</p>
+</div>
+<hr>
 </section>
-<section id="geometric-distribution" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="geometric-distribution"><span class="header-section-number">3</span> Geometric Distribution</h2>
-<p>Here is a motivating example for geometric distribution.</p>
-<hr>
-<div id="exm-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3</strong></span> A die is rolled repeated until the first 6 comes up. Find the pmf of <span class="math inline">\(Y\)</span>, the number of rolls.</p>
-<p>$P(Y = 3) = P() = P(006) = (5/6)^2(1/6) = 0.0231. Similarly, $P(Y = 4) = (5/6)^3(1/6) = 0.00386.</p>
-</div>
-<hr>
-<p>Now, from the above example, we can see that <span class="math inline">\(p(y) = (5/6)^{y-1}(1/6), \quad y = 1, 2, \ldots\)</span>. We say that <span class="math inline">\(Y\)</span> has a geometric distribution (with parameter <span class="math inline">\(1/6\)</span>).</p>
-<div id="thm-geometric-pmf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> A random variable <span class="math inline">\(Y\)</span> has the <em>geometric distribution</em> with parameter <span class="math inline">\(p\)</span> if its pmf is of the form.</p>
-<p><span class="math display">\[
-p(y) = (1 - p)^{y-1}p, \qquad y = 1, 2, 3, \ldots
+<section id="probability-density-function" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Probability Density Function</h1>
+<p>Note that if <span class="math inline">\(Y\)</span> is continuous, then <span class="math inline">\(P(Y = y) = 0 \; \forall y\)</span>. Therefore, we need to redefine something instead of the previously defined pmf as it is now useless.</p>
+<div id="def-pdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Suppose that <span class="math inline">\(Y\)</span> is continuous random variable with cdf <span class="math inline">\(F(y)\)</span>. Then <span class="math inline">\(Y\)</span>’s probability density function is <span class="math display">\[
+f(y) = F'(y) = \frac{dF(y)}{dy}
 \]</span></p>
-<p>where <span class="math inline">\(0 \leq p \leq 1\)</span>.</p>
-</div>
-<p>We write <span class="math inline">\(Y \sim \text{Geo}(p)\)</span>. We call <span class="math inline">\(p\)</span> the <em>probability of success</em>, as before.</p>
-<div id="thm-property" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4</strong></span> Note that the above geometric pmf is <em>proper</em>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
-\sum_{y=1}^\infty (1 - p)^{y-1}p &amp; = p \sum_{x = 0}^{\infty} (1 - p)^x \tag{put $x = y - 1$} \\
-&amp; = p \times \frac{1}{1 - (1 - p)} = 1 \tag{Property 2}
-\end{align*}\]</span></p>
-</div>
-<section id="application-of-geometric-distribution" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="application-of-geometric-distribution"><span class="header-section-number">3.1</span> Application of Geometric Distribution</h3>
-<p>Note that the geometric distribution can be used to model <em>waiting times</em>.</p>
-<div id="exm-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4</strong></span> Suppose that the probability of an engine malfunctioning during any 1-hr period is 0.02. Find the pr that the engine will survive 2 hours.</p>
-<p>Let <span class="math inline">\(Y\)</span> be the number of 1-hr periods until the first malfunction (including the 1-hr period in which that malfunction occurs). Then <span class="math inline">\(Y \sim \text{Geo}(p)\)</span>, where <span class="math inline">\(p = 0.02\)</span></p>
-<p>Example: A malfunction in the 3<sup>rd</sup> 1-hr period means that <span class="math inline">\(Y = 3\)</span>.</p>
-<p><span class="math display">\[\begin{align*}
-P(Y &gt; 2) &amp; = \sum_{y=3}^{\infty} q^{y-1}p \tag{$q = 1 - p = 0.98$} \\
-&amp; = pq^2 \sum_{y=3}^{\infty} q^{y-3} \\
-&amp; = pq^2 \sum_{x=0}^{\infty} q^x \tag{after putting $x=y - 3$} \\
-&amp; = pq^2 \frac{1}{1 - q} = q^2 = 0.98^ = 0.9604 \\
-\end{align*}\]</span></p>
-<p>This may be calculated more simply as: <span class="math display">\[
-P(Y &gt; 2) = 1 - P(Y \leq 2) = 1 - (p(1) + p(2)) = 1 - (p + qp) = q^2
-\]</span></p>
-<p>or even more simply as: <span class="math display">\[
-P(Y &gt; 2) = P(\text{Survive 2 hours}) = P(\text{No failures in first 2 hours}) = q^2
-\]</span></p>
-</div>
-</section>
-<section id="mgf-of-geometric" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="mgf-of-geometric"><span class="header-section-number">3.2</span> mgf of Geometric</h3>
-<div id="thm-geometric-mgf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (MGF of Geometric Distribution)</strong></span> <span class="math display">\[\begin{align*}
-E(e^{Yt}) &amp; = \sum_{y=1}^\infty e^{yt} (1 - p)^{y-1}p \\
-&amp; = pe^t \sum_{y = 1}^\infty e^{(y - 1)t} (1 - p)^{y - 1} \\
-&amp; = p e^t \sum_{y = 1}^\infty ((1 - p)e^t)^(y - 1) \\
-&amp; = \frac{p e^t}{1 - (1 - p)e^t} \tag{Sum of geometric series} \\
-\end{align*}\]</span></p>
-</div>
-</section>
-</section>
-<section id="hypergeometric-distribution" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="hypergeometric-distribution"><span class="header-section-number">4</span> Hypergeometric Distribution</h2>
-<div id="exm-9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5</strong></span> The motivation of this hypergeometric distribution has to do with sampling objects from a box, without replacement, and observing how many have a certain characteristic.</p>
-<p>A box has 9 marbles, of which 3 are white and 6 are black. You randomly select 5 marbles from the box (without replacement). Find the pmf of <span class="math inline">\(Y\)</span>, the number of white marbles amongst the selected 5.</p>
-<p>Number the 9 marbles <span class="math inline">\(1, 2, \ldots, 9\)</span> with the first 3 being white and the last 6 black. Then the sample points may be represented by writing 12345, 12346, …, 56789.</p>
-<p>Note: We don’t write 13245, because this represents the same sample point as 12345. In other words, the distinct sample points correspond to strings of numbers in increasing order. Hence the total number of sample points is <span class="math inline">\(n_S = \binom{9}{5}\)</span>.</p>
-<p>The sample points associated with the event <span class="math inline">\(Y = 2\)</span> are 12456, 12457, …, 23789, and the number of these is $n_2 = . We require 2 numbers to be from 1,2,3, and the other 3 from 4,5,6,7,8,9.</p>
-<p><span class="math display">\[
-P(Y = 2) = \frac{n_2}{n_S} = \frac{\binom{3}{2}\binom{6}{3}}{\binom{9}{5}} = \frac{3(20)}{126} = \frac{10}{21} = 0.4762
-\]</span></p>
-<p><span class="math display">\[
-P(Y=1) = \frac{n_1}{n_S} = \frac{\binom{3}{1} \binom{6}{4}}{\binom{9}{5}} = \frac{3(15)}{126} = \frac{5}{14} = 0.3571
-\]</span></p>
-<p>We see that <span class="math inline">\(Y\)</span> has pmf <span class="math display">\[
-p(y) = \frac{\binom{3}{y}\binom{6}{5-y}}{\binom{9}{5}}, \quad y = 0,1,2,3.
-\]</span></p>
-<p>We say that <span class="math inline">\(Y\)</span> has a hypergeometric distribution (with parameters 9, 3, and 5).</p>
 </div>
 <hr>
-<div id="thm-hypergeometric-pmf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 6</strong></span> A random variable <span class="math inline">\(Y\)</span> has the hypergeometric distribution with parameters <span class="math inline">\(N\)</span>, <span class="math inline">\(r\)</span> and <span class="math inline">\(n\)</span> if its pmf is of the form <span class="math display">\[
-p(y) = \frac{\binom{r}{y}\binom{N - r}{n - y}}{\binom{N}{n}}, \quad y = 0,1,2,\ldots,r,
+<div id="exm-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Find <span class="math inline">\(Y\)</span>’s pdf in <a href="#exm-2" class="quarto-xref">Example&nbsp;1</a>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[
+f(y) = \frac{dF(y)}{dy} = \begin{cases}
+\frac{d0}{dy} = 0, &amp; y &lt; 0 \\
+\frac{d(y/2)}{dy} = 1/2, &amp; 0 &lt; y &lt; 2 \\
+\frac{d1}{dy} = 0, &amp; y &gt; 2 \\
+\end{cases}
 \]</span></p>
-<p>Subject to <span class="math inline">\(0 \leq n - y \leq N - r\)</span> and <span class="math inline">\(N = 1,2,3,\ldots; \; r = 1,2,\ldots,N; n = 1,2,\ldots, N\)</span>.</p>
-<p>The number of black balls sampled, <span class="math inline">\(n-y\)</span>, can’t be less than 0 or more than the total number of black balls in the box, <span class="math inline">\(N - r\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(y <span class="sc">&lt;</span> <span class="dv">2</span>, <span class="fl">0.5</span>, <span class="dv">0</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> y, <span class="at">f =</span> f)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> f)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(y), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">f</span>(y))) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey80"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p>We write <span class="math inline">\(Y \sim \text{Hyp}(N, r, n)\)</span>. We may call <span class="math inline">\(N\)</span> “the number of balls” (parameter), <span class="math inline">\(r\)</span> “the number of white balls”, and <span class="math inline">\(n\)</span> “the number of sampled balls”.</p>
-<hr>
-<div id="exm-ad" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6</strong></span> There are 10 men and 15 women in a room. 8 people are chosen randomly to form a committee. Find the probability that the committee contains 6 women.</p>
-<p>Let <span class="math inline">\(Y = \text{number of women on the committee}\)</span>. Then <span class="math inline">\(Y \sim \text{Hyp}(25, 15, 8)\)</span> and so</p>
-<p><span class="math display">\[
-p(6) = \frac{\binom{15}{6}\binom{10}{2}}{\binom{25}{8}} = 0.2082
-\]</span></p>
 </div>
-</section>
-<section id="poisson-distribution" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="poisson-distribution"><span class="header-section-number">5</span> Poisson Distribution</h2>
-<p>Generally, one can think of the Poisson distribution being when <span class="math inline">\(n \to \infty\)</span> version of the binomial distribution with the expected value being <span class="math inline">\(\lambda\)</span>. The derivation is given in the below.</p>
-<div id="thm-poisson-nature" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 7</strong></span> Poisson distribution is, in essence, a binomial distribution with <span class="math inline">\(n \to \infty\)</span> and <span class="math inline">\(p = \lambda / n\)</span>.</p>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Now, suppose <span class="math inline">\(X \sim \text{Bin}(n, \lambda / n)\)</span>. Then, the above description in the mathematical notation is,</p>
-<p><span class="math display">\[
-\begin{align*}
-\lim_{n \to \infty} p_X(x) &amp; = \lim_{n \to \infty} \binom{n}{x} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
-&amp; = \lim_{n \to \infty} \frac{n!}{x! (n-x)!} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
-&amp; = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left( \frac{n!}{(n - x)!} \frac{1}{n^x} \right) \left(1 - \frac{\lambda}{n} \right)^{n - x} \\
-&amp; = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n - x} \tag{First part evaluate to 1 with L'Hopital's} \\
-&amp; = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n} \left(1 - \frac{\lambda}{n}\right)^{-x} \\
-&amp; = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n} \tag{The second term is one as the power does not depend on $n$} \\
-&amp; = \frac{\lambda^x e^{-\lambda}}{x!}
-\end{align*}
-\]</span></p>
-<p>Then, we have two ways to go from here, simply declare that this is the pmf for Poisson or we can confirm this with the “known” poisson pmf which is, I guess for me, from thin air…</p>
+<p>Note that <span class="math inline">\(f(y)\)</span> is undefined at <span class="math inline">\(y = 0, 2\)</span>.</p>
 </div>
-<hr>
-<div id="cor-poisson-pmf" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> The pmf of Poisson distribution is <span class="math display">\[
-p(x) = \frac{\lambda^x e^{-\lambda}}{x!}
-\]</span></p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is simply a restatement of the results from <a href="#thm-poisson-nature" class="quarto-xref">Theorem&nbsp;7</a>.</p>
-</div>
-<hr>
-<p>Now, I guess the remaining part is to show that the expectation is indeed <span class="math inline">\(\lambda\)</span>.</p>
-<div id="thm-poisson-expectation" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 8</strong></span> X () E(X) = </p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
-E(X) &amp; = \sum_{x = 0}^\infty x \frac{e^{-\lambda} \lambda^x}{x!} \\
-&amp; = e^{-\lambda}\lambda \sum_{x=1}^\infty \frac{\lambda^{x-1}}{(y-1)!} \\
-&amp; = e^{-\lambda} \lambda \sum_{x=0}^\infty \frac{\lambda^x}{x!} \\
-&amp; = e^{-\lambda}\lambda e^{\lambda} = \lambda \\
-\end{align*}\]</span></p>
-</div>
-<div id="exm-poisson-var" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7</strong></span> <span class="math display">\[\begin{align*}
-E(Y(Y - 1)) &amp; = \sum_{y = 0}^\infty y(y-1) \frac{\lambda^y e^{-\lambda}}{y!} \\
-&amp; = \lambda^2 \sum_{y = 2}^\infty \frac{\lambda^{y - 2} e^{-\lambda}}{(y-2)!} \tag{First two terms are 0} \\
-&amp; = \lambda^2 \sum_{x=0}^\infty \frac{\lambda^x e^{-\lambda}}{x!} \\
-&amp; = \lambda^2 \tag{The infinite sum is 1 as it is the sum of pmf of $X \sim Pois(\lambda)$} \\
-\end{align*}\]</span></p>
-</div>
-<p>Therefore, <span class="math inline">\(Var(Y) = E(Y(Y-1)) + E(Y) - (E(Y))^2 = \lambda\)</span>.</p>
-<hr>
-<section id="poisson-approximation-to-the-binomial" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="poisson-approximation-to-the-binomial"><span class="header-section-number">5.1</span> Poisson Approximation to the Binomial</h3>
-<p>The Binomial distribution can be approximated by the poisson distribution with <span class="math inline">\(\lambda = np\)</span> when <span class="math inline">\(n\)</span> is “large” and <span class="math inline">\(p\)</span> is “small”.</p>
-<p>Generally, the Poisson approximation should be considered only when the exact binomial probability is hard or impossible to calculate. As a rule of thumb, the Poisson approximation is ‘good’ if <span class="math inline">\(n\)</span> is at least 20 and <span class="math inline">\(p\)</span> is at most 0.05, or if <span class="math inline">\(n\)</span> is at least 100 and <span class="math inline">\(np\)</span> is at most 10.</p>
-</section>
-</section>
-<section id="negative-binomial-distribution" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="negative-binomial-distribution"><span class="header-section-number">6</span> Negative Binomial Distribution</h2>
-<p>Similar to geometric distribution where we have independent and identical trials. We observe either <em>success</em> or <em>fail</em> on each trial. The probability of success on each trial is <span class="math inline">\(p\)</span>.</p>
-<p>The geometric distribution handles the case where we are interested in the number of trial on which the <em>first</em> success occurs. <span class="math inline">\(Y = 1,2,3,\ldots\)</span> counts the number of trials until the first success.</p>
-<p>What if we are interested in knowing the number of the trial on which the <em>second</em>, <em>third</em>, or <em>fourth</em> success occurs? <span class="math inline">\(Y = r, r+1, r+2, \ldots\)</span> (<span class="math inline">\(r = 1, 2, 3, \ldots\)</span>). <span class="math inline">\(r\)</span> is a parameter (<span class="math inline">\(r =1\)</span> for geometric).</p>
-<div id="thm-negative-bin-pmf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 9</strong></span> The pmf og negative binomial distribution is,</p>
-<p><span class="math display">\[
-p(y) = P(Y = y) = \binom{y - 1}{r - 1} p^{r-1}q^{y-r}
-\]</span> , where <span class="math inline">\(r\)</span> is the number of success; <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> defined as usual.</p>
-<p>By simple counting methods as covered before.</p>
-</div>
-<hr>
-<div id="thm-neg-bin-mean" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 10 (Mean of Negative Binomial)</strong></span> Suppose <span class="math inline">\(Y \sim \text{NegBin}(r, p)\)</span>, then <span class="math inline">\(E(Y) = \frac{r}{p}\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The direct proof is extremely hard. However, the trick of recognising that a negative binomial distribution is, in fact, nothing more than <span class="math inline">\(r\)</span> geometric distribution put in sequence. Therefore, suppose <span class="math inline">\(Y = Y_1 + Y_2 + \cdots + Y_r\)</span>, where each <span class="math inline">\(Y_i\)</span> follows <span class="math inline">\(\text{Geo}(p)\)</span>. Then,</p>
-<p><span class="math display">\[\begin{align*}
-E(Y) &amp; = E(\sum_{i = 1}^r Y_i) \\
-&amp; = \sum_{i=1}^r E(Y_i) \\
-&amp; = \sum_{i = 1}^r \frac{1}{p} = \frac{r}{p} \\
-\end{align*}\]</span></p>
-<p>The last step relies on mgf and expectation from it as shown in <a href="#thm-geometric-mgf" class="quarto-xref">Theorem&nbsp;5</a>.</p>
-</div>
-<div id="thm-neg-bin-var" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11 (Variance of Negative Binomial)</strong></span> If <span class="math inline">\(Y \sim \text{NegBin}(r, p)\)</span>, then <span class="math inline">\(Var(Y) = \frac{r(1-p)}{p^2}\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Similar to above by using independency and directly decomposing the variance of a geometric distribution.</p>
-</div>
-<hr>
-<div id="thm-neg-bin-mgf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 12 (MGF of Negative Binomial)</strong></span> Suppose <span class="math inline">\(Y \sim \text{NegBin}(r, n)\)</span>, then <span class="math display">\[
-m_Y(t) = \left( \frac{pe^t}{1 - (1 - p)e^t} \right)^r
-\]</span></p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The direct proof is relatively hard to see. However, using <a href="#thm-geometric-mgf" class="quarto-xref">Theorem&nbsp;5</a> with <a href="../../contents/chapter-03/2measures.html#thm-mgf-of-list-of-independent-vars">mgf of independent variable</a> is obvious since negative binomial distribution is really just <span class="math inline">\(r\)</span> independent geometric distribution puts in a series.</p>
-</div>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>In fact, many people define this first and simply describe the binomial distribution as a repeated bernoulli trial with bernoulli distribution.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<section id="two-properties-of-a-continuous-pdf" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="two-properties-of-a-continuous-pdf"><span class="header-section-number">4.1</span> Two Properties of a Continuous pdf</h2>
+<div id="thm-two-props-of-cont-pdf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Two Properties of a Continuous PDF)</strong></span> If <span class="math inline">\(f(y)\)</span> is the pdf of a continuous random variable then:</p>
+<ol type="1">
+<li><span class="math inline">\(f(y) \geq 0\)</span> for all <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\int f(y) \, dy = 1\)</span> (By default, the integral is over the whole real line.)</li>
 </ol>
-</section></div></main> <!-- /main -->
+</div>
+</section>
+<section id="cdf-from-pdf" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="cdf-from-pdf"><span class="header-section-number">4.2</span> CDF from PDF</h2>
+<p>In general, the cdf <span class="math inline">\(F(y)\)</span> of a continuous random variable <span class="math inline">\(Y\)</span> can be obtained from its pdf <span class="math inline">\(f(y)\)</span> via the equation</p>
+<p><span class="math display">\[
+F(y) = \int_{-\infty}^{y} f(t) \, dt
+\]</span></p>
+</section>
+<section id="computing-probability-using-pdf" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="computing-probability-using-pdf"><span class="header-section-number">4.3</span> Computing Probability using PDF</h2>
+<p>In general, to compute the probability of a given range for a continuous random variable, we can use</p>
+<p><span class="math display">\[
+P(a &lt; Y &lt; b) = \int_a^b f(y) \, dy
+\]</span></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1069,13 +987,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contents/chapter-03/index.html" class="pagination-link" aria-label="CH03: Discrete R.V.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CH03: Discrete R.V.</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/chapter-03/2measures.html" class="pagination-link" aria-label="Measures Related to Distribution">
-        <span class="nav-page-text">Measures Related to Distribution</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/chapter-02/index.html" class="pagination-link" aria-label="CH02: Probability">
+        <span class="nav-page-text">CH02: Probability</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1087,7 +1002,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-03/1rv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-03/1rv.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-04/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-04/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

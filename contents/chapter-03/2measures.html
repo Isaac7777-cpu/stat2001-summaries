@@ -140,7 +140,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/2measures.html">Measures Related to Distribution</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/2measures.html">Measures Related to Distribution</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,6 +169,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH04: Continuous R.V.</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
@@ -232,12 +238,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#some-central-interpretations-of-central-tendency-measure" id="toc-some-central-interpretations-of-central-tendency-measure" class="nav-link" data-scroll-target="#some-central-interpretations-of-central-tendency-measure"><span class="header-section-number">6</span> Some Central Interpretations of Central Tendency Measure</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/2measures.html">Measures Related to Distribution</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-04/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/index.html">CH03: Discrete R.V.</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-03/2measures.html">Measures Related to Distribution</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Measures Related to Distribution</h1>
 </div>
@@ -434,7 +440,10 @@ Some of my takeaway
 </div>
 <hr>
 <div id="thm-mgf-of-list-of-independent-vars" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> Suppose <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> are independent and <span class="math inline">\(Y = \sum_i Y_i\)</span>. Then,</p>
+<p><span class="math display">\[
+m_Y(t) = m_{Y_1 + Y_2 + \cdots + Y_n} (t)
+\]</span></p>
 </div>
 </section>
 </section>
@@ -1083,7 +1092,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/stat3011-lecture-notes/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/stat3011-lecture-notes/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-03/2measures.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
