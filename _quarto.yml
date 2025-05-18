@@ -43,4 +43,8 @@ format:
     code-fold: true
     code-summary: "Show the code"
     code-results: hold
+
+execute: 
+  freeze: auto
+  cache: true
     
