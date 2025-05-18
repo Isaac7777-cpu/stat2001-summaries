@@ -1,0 +1,157 @@
+---
+title: "CH04: Continuous R.V."
+---
+
+# Preamble 
+
+Note that we will follow a very similar structure as we have done in [the chapter for discrete variable](../chapter-03/). And, indeed, a lot of the theorems can be directly transported to the continuous case. However, analysis of the continuous variables are slightly harder since, as one might expect, all the summation no becomes integral.
+
+This chapter will first goes from the definition of continuous random variable with link established via the cumulative distribution functions. Then, we will go over some of the common continuous distributions.
+
+# Cumulative Distribution
+
+::: {#def-cumulative-distribution}
+
+The _(cumulative) distribution function (cdf)_ of a random variable $Y$ is 
+$$
+F(y) = P(Y \leq y)
+$$
+
+:::
+
+::: {#thm-three-props-of-cdf}
+
+if $F(y)$ is a cdf then:
+1. $F(y) \to 0$ as $y \to - \infty$
+2. $F(y) \to 1$ as $y \to \infty$
+3. $F(y)$ is nondecreasing.
+
+Note that we assumes that $F(y)$ is right continuous, meaning that $\lim_{\delta \to 0} F(Y + \delta) = F(y)$.
+
+:::
+
+# Random Variable
+
+Armed with cdf, we are now ready to define what continuous random variable is.
+
+::: {#def-cont-rv}
+
+A random variable is said to be _continuous_ if its cdf is continuous (everywhere).
+
+:::
+
+---
+
+::: {#exm-2}
+
+Let $Y$ be a number chosen randomly between 0 and 2. Find $Y$'s cdf. Is $Y$ a continuous random variable.
+
+$$
+F(y) = \begin{cases}
+0 & y < 0 \\
+y/2 & 0 \leq y < 2 \\
+1 & y \geq 2 
+\end{cases}
+$$
+
+```{r}
+library(ggplot2)
+
+y <- seq(-1, 3, length.out = 400)
+F <- ifelse(y < 0, 0, ifelse(y < 2, y/2, 1))
+
+df <- data.frame(y = y, F = F)
+
+ggplot(df, aes(x = y, y = F)) +
+  geom_line(color = "blue", linewidth = 1) +
+  labs(x = expression(y), y = expression(F(y))) +
+  scale_x_continuous(breaks = c(0, 2)) +
+  scale_y_continuous(breaks = c(0, 1)) +
+  theme_minimal() +
+  theme(panel.grid.major = element_line(linetype = "dashed", color = "grey80"))
+```
+
+Observe that $F(y)$ is continuous everywhere (i.e. for all $y$ between $-\infty$ and $\infty$). Hence $Y$ is a continuous random variable.
+
+:::
+
+---
+
+# Probability Density Function
+
+Note that if $Y$ is continuous, then $P(Y = y) = 0 \; \forall y$. Therefore, we need to redefine something instead of the previously defined pmf as it is now useless.
+
+::: {#def-pdf}
+
+Suppose that $Y$ is continuous random variable with cdf $F(y)$. Then $Y$'s probability density function is
+$$
+f(y) = F'(y) = \frac{dF(y)}{dy}
+$$
+
+:::
+
+---
+
+::: {#exm-3}
+
+Find $Y$'s pdf in @exm-2.
+
+:::
+
+::: {.solution}
+
+$$
+f(y) = \frac{dF(y)}{dy} = \begin{cases}
+\frac{d0}{dy} = 0, & y < 0 \\
+\frac{d(y/2)}{dy} = 1/2, & 0 < y < 2 \\
+\frac{d1}{dy} = 0, & y > 2 \\
+\end{cases}
+$$
+
+```{r}
+library(ggplot2)
+
+y <- seq(-1, 3, length.out = 400)
+f <- ifelse(y < 0, 0, ifelse(y < 2, 0.5, 0))
+
+df <- data.frame(y = y, f = f)
+
+ggplot(df, aes(x = y, y = f)) +
+  geom_line(color = "blue", linewidth = 1) +
+  labs(x = expression(y), y = expression(f(y))) +
+  scale_x_continuous(breaks = c(0, 2)) +
+  scale_y_continuous(breaks = c(0, 1)) +
+  theme_minimal() +
+  theme(panel.grid.major = element_line(linetype = "dashed", color = "grey80"))
+```
+
+Note that $f(y)$ is undefined at $y = 0, 2$.
+
+:::
+
+## Two Properties of a Continuous pdf
+
+::: {#thm-two-props-of-cont-pdf name="Two Properties of a Continuous PDF"}
+
+If $f(y)$ is the pdf of a continuous random variable then:
+
+1. $f(y) \geq 0$ for all $y$
+2. $\int f(y) \, dy = 1$ (By default, the integral is over the whole real line.)
+
+:::
+
+## CDF from PDF
+
+In general, the cdf $F(y)$ of a continuous random variable $Y$ can be obtained from its pdf $f(y)$ via the equation
+
+$$
+F(y) = \int_{-\infty}^{y} f(t) \, dt
+$$
+
+## Computing Probability using PDF
+
+In general, to compute the probability of a given range for a continuous random variable, we can use
+
+$$
+P(a < Y < b) = \int_a^b f(y) \, dy
+$$
