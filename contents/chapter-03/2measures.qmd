@@ -244,6 +244,11 @@ I think it is somewhat important to recognise the known mgf form and transform i
 
 ::: {#thm-mgf-of-list-of-independent-vars}
 
+Suppose $Y_1, Y_2, \ldots, Y_n$ are independent and $Y = \sum_i Y_i$. Then, 
+
+$$
+m_Y(t) = m_{Y_1 + Y_2 + \cdots + Y_n} (t)
+$$
 
 :::
 

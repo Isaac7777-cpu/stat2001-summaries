@@ -1,5 +1,6 @@
 ---
 title: "Known Discrete Distributions"
+html-math-method: mathjax
 ---
 
 ## Binomial Distribution
@@ -151,7 +152,7 @@ $$
 
 ### mgf of Geometric
 
-::: {#thm-geometric-mgf}
+::: {#thm-geometric-mgf name="MGF of Geometric Distribution"}
 
 \begin{align*}
 E(e^{Yt}) & = \sum_{y=1}^\infty e^{yt} (1 - p)^{y-1}p \\
@@ -237,6 +238,7 @@ Poisson distribution is, in essence, a binomial distribution with $n \to \infty$
 
 Now, suppose $X \sim \text{Bin}(n, \lambda / n)$. Then, the above description in the mathematical notation is,
 
+$$
 \begin{align*}
 \lim_{n \to \infty} p_X(x) & = \lim_{n \to \infty} \binom{n}{x} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
 & = \lim_{n \to \infty} \frac{n!}{x! (n-x)!} \left( \frac{\lambda}{n} \right)^x \left(1 - \frac{\lambda}{n}\right)^{n-x} \\
@@ -246,6 +248,7 @@ Now, suppose $X \sim \text{Bin}(n, \lambda / n)$. Then, the above description in
 & = \frac{\lambda^x}{x!} \lim_{n \to \infty} \left(1 - \frac{\lambda}{n}\right)^{n} \tag{The second term is one as the power does not depend on $n$} \\
 & = \frac{\lambda^x e^{-\lambda}}{x!}
 \end{align*} 
+$$
 
 Then, we have two ways to go from here, simply declare that this is the pmf for Poisson or we can confirm this with the "known" poisson pmf which is, I guess for me, from thin air...
 
@@ -280,7 +283,7 @@ X \sim \text{Poi}(\lambda) \implies E(X) = \lambda
 E(X) & = \sum_{x = 0}^\infty x \frac{e^{-\lambda} \lambda^x}{x!} \\
 & = e^{-\lambda}\lambda \sum_{x=1}^\infty \frac{\lambda^{x-1}}{(y-1)!} \\
 & = e^{-\lambda} \lambda \sum_{x=0}^\infty \frac{\lambda^x}{x!} \\
-& = e^{-\lambda}\lambda e^{\lambda} = \lambda 
+& = e^{-\lambda}\lambda e^{\lambda} = \lambda \\
 \end{align*}
 
 :::
@@ -291,8 +294,9 @@ E(X) & = \sum_{x = 0}^\infty x \frac{e^{-\lambda} \lambda^x}{x!} \\
 E(Y(Y - 1)) & = \sum_{y = 0}^\infty y(y-1) \frac{\lambda^y e^{-\lambda}}{y!} \\
 & = \lambda^2 \sum_{y = 2}^\infty \frac{\lambda^{y - 2} e^{-\lambda}}{(y-2)!} \tag{First two terms are 0} \\
 & = \lambda^2 \sum_{x=0}^\infty \frac{\lambda^x e^{-\lambda}}{x!} \\
-& = \lambda^2 \tag{The infinite sum is 1 as it is the sum of pmf of $X \sim Pois(\lambda)$}
-\end{align*}
+& = \lambda^2 \tag{The infinite sum is 1 as it is the sum of pmf of $X \sim Pois(\lambda)$} \\
+\end{align*} 
+
 :::
 
 Therefore, $Var(Y) = E(Y(Y-1)) + E(Y) - (E(Y))^2 = \lambda$.
@@ -328,28 +332,52 @@ By simple counting methods as covered before.
 
 ---
 
-::: {#exm-neg-bin-mgf}
+::: {#thm-neg-bin-mean name="Mean of Negative Binomial"}
 
-The mgf of negative binomial distribution.
-
-Suppose $Y \sim \text{NegBin}(r, p)$, then,
-
-\begin{align*}
-E(e^{Yt}) & = \sum_{y = r}^\infty e^{yt} \binom{y-1}{r-1} p^r q^{y-r} \\
-& = \sum_{y = r}^\infty e^{yt} \frac{(y - 1)!}{(r - 1)! (y - r)!} p^r q^{y-r} \\
-& = p^r \sum_{y = r}^\infty 
-\end{align*}
-
-:::
-
-::: {#thm-neg-bin-mean}
-
-The direct proof is relatively hard to see. However, using @thm-geometric-mgf with @thm-mgf-of-list-of-independent-vars.
+Suppose $Y \sim \text{NegBin}(r, p)$, then $E(Y) = \frac{r}{p}$.
 
 :::
 
 ::: {.proof}
 
-\begin{}
+The direct proof is extremely hard. However, the trick of recognising that a negative binomial distribution is, in fact, nothing more than $r$ geometric distribution put in sequence. Therefore, suppose $Y = Y_1 + Y_2 + \cdots + Y_r$, where each $Y_i$ follows $\text{Geo}(p)$. Then,
+
+\begin{align*}
+E(Y) & = E(\sum_{i = 1}^r Y_i) \\
+& = \sum_{i=1}^r E(Y_i) \\
+& = \sum_{i = 1}^r \frac{1}{p} = \frac{r}{p} \\
+\end{align*}
+
+The last step relies on mgf and expectation from it as shown in @thm-geometric-mgf.
 
 :::
+
+::: {#thm-neg-bin-var name="Variance of Negative Binomial"}
+
+If $Y \sim \text{NegBin}(r, p)$, then $Var(Y) = \frac{r(1-p)}{p^2}$.
+
+:::
+
+::: {.proof}
+
+Similar to above by using independency and directly decomposing the variance of a geometric distribution.
+
+:::
+
+---
+
+::: {#thm-neg-bin-mgf .theorem name="MGF of Negative Binomial"}
+
+Suppose $Y \sim \text{NegBin}(r, n)$, then 
+$$
+m_Y(t) = \left( \frac{pe^t}{1 - (1 - p)e^t} \right)^r
+$$
+
+:::
+
+::: {.proof}
+
+The direct proof is relatively hard to see. However, using @thm-geometric-mgf with [mgf of independent variable](2measures.qmd#thm-mgf-of-list-of-independent-vars) is obvious since negative binomial distribution is really just $r$ independent geometric distribution puts in a series.
+
+:::
+
