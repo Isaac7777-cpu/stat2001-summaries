@@ -1,0 +1,224 @@
+---
+title: "Expectations"
+---
+
+As foreshadowed in previous discrete section, it is natural to believe that most of the results can be directly imported. (Otherwise, we wouldn't have spend so much time.)
+
+# Expectations
+
+Basically, all the definition regarding expectation in [Chapter 3](../chapter-03/) hold here also, excpet that sums need to be replaced by _integrals_ and the pmf $p(y)$ is replaced by the pdf $f(y)$.
+
+::: {#def-expectation-cont}
+
+If $Y$ is a continuous random variable with pdf $f(y)$, and $g(t)$ is a real-valued function, then the expected value of $g(Y)$ is
+$$
+E(g(Y)) = \int_{-\infty}^{\infty} g(y) f(y) \, dy
+$$
+
+:::
+
+## Results
+
+> I will try my best to include all the proofs for the results here. However, these proofs are done by me likely to contain relatively high amounts of mistakes.
+
+::: {#thm-three-prop name="Three Properties"}
+
+For $c \in \mathbb{R}$, and $Y$ continuous r.v.
+
+1. $E(c) = c$
+2. $E(cg(Y)) = cE(g(Y))$
+3. $E(g_1(Y) + \cdots + g_k(Y)) = \sum_{i=1}^k E(g_i(Y))$
+
+:::
+
+::: {.proof}
+1.
+
+\begin{align*}
+E(c) &= \int_{-\infty}^\infty c f(y) \, dy \\
+&= c \int_{-\infty}^\infty f(y) \, dy \\
+&= c
+\end{align*}
+
+The last step is a result of the fact that the pdf also integrate to 1 by definition.
+
+:::
+
+::: {.proof}
+2.
+
+\begin{align*}
+E(cg(Y)) &= \int_{-\infty}^\infty c g(y) f(y) \, dy \\
+&= c \int_{-\infty}^\infty g(y)f(y) \, dy \\
+&= c E(g(Y))
+\end{align*}
+
+:::
+
+::: {.proof}
+3.
+
+\begin{align*}
+E(\sum_{i=1}^k g_i(Y)) &= \int_{-\infty}^\infty \left( \sum_{i=1}^k g_i(y) f(y) \right) \, dy \\
+&= \sum_{i = 1}^k \left( \int_{-\infty}^\infty g_i(y) f(y) \, dy \right) \\
+& = \sum_{i=1}^k E(g_i(Y)) \\
+\end{align*}
+
+The second line is by linearity of the integration operation.
+
+:::
+
+---
+
+As I have mentioned when we were proving the discrete version of the Chebyshev's Theorem, there is a continuous version that is exactly the same. Now, here is the statement and the proof.
+
+::: {#thm-chebyshev-cont name="Continuous Version of Chebyshev's"}
+
+If $Y$ is continuous r.v., then
+$$
+P(\lvert Y - \mu \rvert < k\sigma) \geq 1 - 1 / k^2
+$$
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+\sigma^2 & = \int_{-\infty}^\infty (Y - \mu)^2 f(y) \, dy \\
+& = \int_{-\infty}^{k\sigma - \mu} (y - \mu)^2f(y) \, dy + \int_{k\sigma + \mu}^\infty (y - \mu)^2 f(y) \, dy \\
+& = \int_{-\infty}^{k\sigma - \mu} (k\sigma)^2 f(y) \, dy + \int_{k\sigma + \mu}^\infty (k\sigma)^2 f(y) \, dy \\
+& = (k\sigma)^2 \left( \int_{-\infty}^{k - \mu} f(y) \, dy + \int_{k + \mu}^\infty f(y) \, dy \right) \\
+& = (k\sigma)^2 P(Y \leq k\sigma - \mu \cup Y \geq k\sigma + \mu) \\
+& = (k\sigma)^2 P(\lvert Y - \mu \rvert \leq k\sigma)
+\end{align*}
+
+Therefore,
+
+$$
+P(\lvert Y - \mu \rvert \leq k\sigma) \leq 1 / k^2
+$$
+
+Therefore, obtaining the following,
+
+$$
+P\left(\lvert Y - \mu \rvert > k \sigma \right) > 1 - \frac{1}{k^2}
+$$
+
+:::
+
+---
+
+## Working Examples
+
+::: {#exm-9}
+Find the mean and variance of the standard uniform distribution
+
+Suppose that $Y \sim U(0, 1)$. Then $Y$ has pdf $f(y) = 1$, $0 < y < 1$. Therefore,
+$$
+\mu = \int_0^1 yf(y) dy = \int_0^1 y 1 dy = \left[ \frac{y^2}{2} \middle\vert _{y=0}^1 \right] = \frac{1}{2}
+$$
+
+Also, 
+$$
+\mu_2' = \int_0^1 y^2 1 \, dy = \left[ \frac{y^3}{3} \middle\vert _{y=0}^1 \right] = \frac{1}{3}
+$$
+
+Therefore,
+$$
+\sigma^2 = \frac{1}{3} \left( \frac{1}{2} \right)^2 = \frac{1}{12}
+$$
+
+Note: We could use the mgf method here, but it is problematic in this case. This is because,
+$$
+m(t) = \frac{e^t - 1}{t} \implies m'(t) = \frac{e^t(t - 1) + 1}{t^2}
+$$
+, which is _undefined_ at $t = 0$. So use _L'Hopital's rule_ (twice) to get
+$$
+\mu = \lim_{t \to 0} m'(t) = \lim_{t \to 0} \frac{\frac{d}{dt}(e^t(t-1) + 1)}{\frac{d}{dt} t^2} = \lim_{t \to 0} \frac{t e^t}{2t} = \lim_{t \to 0} \frac{\frac{d}{dt} (t e^t)}{\frac{d}{dt} (2t)} = \lim_{t \to 0} \frac{e^t(t+1)}{2} = \frac{1}{2}
+$$
+
+::: {.callout-tip title="Note" collapse="true"}
+
+I think the evaluation can be simpler by using the following
+
+$$
+\mu = \lim_{t \to 0} m'(t) = \lim_{t \to 0} \frac{\frac{d}{dt}(e^t(t-1) + 1)}{\frac{d}{dt} t^2} = \lim_{t \to 0} \frac{t e^t}{2t} = \lim_{t \to 0} \frac{e^t}{2} = \frac{1}{2}
+$$
+
+:::
+
+:::
+
+---
+
+::: {#exm-10}
+Find the mean and variance of the exponential distribution.
+
+In this case the mgf method works well[^exp-mgf].
+
+By using the mgf of exponential distribution, we have
+$$
+m'(t) = - (1 - bt)^{-2} (-b) = b(1 - bt)^{-2}
+$$
+
+And
+$$
+m''(t) = (-2) b(1-bt)^{-3} (-b) = 2b^2(1- bt)^{-3}
+$$
+
+Therefore, $\mu_1' = m'(0) = b$ and $\mu_2' = m''(0) = 2b^2$. Hence, variance is $2b^2 - b^2 = b^2$.
+
+::: {.callout-warning title="Alternative Methods"}
+
+Note that it is possible to directly use integration by part to obtain the result, but it is clearly much more tedious.
+
+:::
+
+[^exp-mgf]: Note that we did not really find the mgf before. Therefore, refer to @thm-exp-mgf for the proof.
+
+# Appendix
+
+::: {#thm-gamma-mgf name="mgf of Gamma Distribution"}
+
+Suppose $Y \sim \text{Gam}(\alpha, \beta)$ for some $\alpha, \beta > 0$, then
+
+$$
+m_Y(t) = \begin{cases}
+\left(1 - \beta t \right)^{-\alpha} & t < \beta \\
+\text{does not exist} & t > \beta \\
+\end{cases}
+$$
+
+:::
+
+::: {.proof}
+
+$$
+\begin{align}
+m_Y(t) = E(e^{Yt}) & = \int_0^\infty e^{ty} f_Y(y) \, dy \\
+& = \int_0^\infty e^{yt} \frac{y^{a-1}e^{-y/b}}{b^a \Gamma(a)} \, dy \\
+& = \int_0^\infty \frac{1}{b^a \Gamma(a)} y^{a - 1} e^{-(\frac{1}{b} - t)y} \, dy \\
+& = \frac{\left( \frac{1}{b} - t\right)^{-a}}{b^a} \int_0^\infty \frac{y^{a-1}e^{-y\left( \frac{1}{b} - t\right)^{-1}}}{\left( \frac{1}{b} - t\right)^{-a} \Gamma(a)} \\
+& = \frac{b^a (1 - bt)^{-a}}{b^a} \cdot 1 = (1 - bt)^{-a}
+\end{align}
+$$
+
+The last line is derived by the fact that the integral in the second last line is simply the probability of a gamma distributed random variable having any value between $0$ and $\infty$. Therefore, the integral is $1$.
+
+:::
+
+
+
+::: {#thm-exp-mgf name="mgf of Exponential Distribution"}
+
+$$
+m_X(t) = (1 - bt)^{-1}
+$$
+
+:::
+
+::: {.proof}
+
+The proof is clear from the definition of exponential distribution and @thm-gamma-mgf.
+
+:::
