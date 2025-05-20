@@ -70,7 +70,7 @@ $$
 
 :::
 
-Here, we have simply taken this as a definition, so no need for a proof.
+Here, we have simply taken this as a definition, so no need for a proof. otherwise, refer to [Law of the Unconscious Statistician](https://en.wikipedia.org/wiki/Law_of_the_unconscious_statistician).
 
 ---
 
