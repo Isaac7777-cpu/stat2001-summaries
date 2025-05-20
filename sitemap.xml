@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/about.html</loc>
-    <lastmod>2025-05-12T07:14:10.789Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-02/index.html</loc>
-    <lastmod>2025-05-16T06:51:19.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-03/index.html</loc>
-    <lastmod>2025-05-17T08:58:21.620Z</lastmod>
+    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/topics.html</loc>
+    <lastmod>2025-05-20T00:57:36.152Z</lastmod>
   </url>
   <url>
     <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-04/index.html</loc>
-    <lastmod>2025-05-18T13:07:03.463Z</lastmod>
+    <lastmod>2025-05-20T00:57:36.152Z</lastmod>
   </url>
   <url>
-    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/topics.html</loc>
-    <lastmod>2025-05-12T07:14:10.789Z</lastmod>
+    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-03/index.html</loc>
+    <lastmod>2025-05-20T00:57:36.151Z</lastmod>
   </url>
   <url>
     <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-03/1rv.html</loc>
-    <lastmod>2025-05-18T12:47:55.579Z</lastmod>
+    <lastmod>2025-05-20T00:57:36.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/about.html</loc>
+    <lastmod>2025-05-20T00:57:36.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-02/index.html</loc>
+    <lastmod>2025-05-20T00:57:36.151Z</lastmod>
   </url>
   <url>
     <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-03/2measures.html</loc>
-    <lastmod>2025-05-18T12:08:09.888Z</lastmod>
+    <lastmod>2025-05-20T00:57:36.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/contents/chapter-04/1rv.html</loc>
+    <lastmod>2025-05-20T00:57:36.152Z</lastmod>
   </url>
   <url>
     <loc>https://Isaac7777-cpu.github.io/stat2001-summaries/index.html</loc>
-    <lastmod>2025-05-12T07:14:10.789Z</lastmod>
+    <lastmod>2025-05-20T00:57:36.152Z</lastmod>
   </url>
 </urlset>

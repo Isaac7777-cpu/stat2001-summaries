@@ -1,79 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About This Site",
+    "objectID": "topics.html",
+    "href": "topics.html",
+    "title": "STAT2001 Weekly Topics",
     "section": "",
-    "text": "This website serves as a comprehensive revision resource for students enrolled in STAT2001: Introductory Mathematical Statistics at the Australian National University. It aims to distill complex statistical concepts into digestible summaries and provide practical examples to enhance learning.\n\n\n\n\nTo offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials.\n\n\n\n\n\nThis site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials.\n\n\n\n\nYour feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+    "text": "This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.\n\n\nWeekly Study Plan\n\n\n\n\n\n\n\nWeek\nTopic\nExtra Information\n\n\n\n\n1\nCH1 Statistics; CH2 Probability\nCalculus notes\n\n\n2\nCH2 Probability\nRefresher Quiz 1, Refresher Quiz 2 on combinatorics\n\n\n3\nCH2 Probability\n\n\n\n4\nCH3 Discrete Random Variables\nMakeup Tue 11/3, Formula sheet, Binomial distribution\n\n\n5\nCH4 Continuous Random Variables\nAssessable Quiz due Fri 21/3, Gamma distribution, R and random variables\n\n\n6\nCH5 Multivariate Probability\nAssignment 1 available\n\n\n—\nTeaching Break\n\n\n\n7\nCH6 Functions of Random Variables\nAssignment 1 due\n\n\n8\nCH7 Sampling Distributions & CLT\nMakeup Tue 22/4\n\n\n9*\nCH8 Estimation\nAssignment 2 available\n\n\n10\nCH9 Point Estimation\n\n\n\n11\nCH16 Bayesian Methods; CH10\nAssignment 2 due\n\n\n12\nCH10 Hypothesis Testing\nNon-exhaustive summary\n\n\n\n\n\n\n\nChapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
   },
   {
-    "objectID": "about.html#purpose",
-    "href": "about.html#purpose",
-    "title": "About This Site",
+    "objectID": "topics.html#notes",
+    "href": "topics.html#notes",
+    "title": "STAT2001 Weekly Topics",
     "section": "",
-    "text": "To offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials."
-  },
-  {
-    "objectID": "about.html#whos-behind-this",
-    "href": "about.html#whos-behind-this",
-    "title": "About This Site",
-    "section": "",
-    "text": "This site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials."
-  },
-  {
-    "objectID": "about.html#feedback-and-contributions",
-    "href": "about.html#feedback-and-contributions",
-    "title": "About This Site",
-    "section": "",
-    "text": "Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
-  },
-  {
-    "objectID": "contents/chapter-02/index.html",
-    "href": "contents/chapter-02/index.html",
-    "title": "CH02: Probability",
-    "section": "",
-    "text": "1 Probability functions\nFor a given experiement and associated sample space \\(S\\), a probability function \\(P\\) is a real-valued function whose domain is the power set of the sample space, \\(S\\), and satisfies the following:\n\n\\(P(A) \\geq 0\\) for all \\(A \\subset S\\) (probability can’t be negative)\n\\(P(S) = 1\\) (Something must happen)\nSuppose \\(A_1, A_2, \\ldots\\) is an infinite sequence of disjoint events. Then \\(P(A_1 \\cup A_2 \\cup \\ldots) = P(A_1) + P(A_2) + \\ldots\\)\n\nThese three conditions are known as the three axioms of probabiliyt. They do not completely specify \\(P\\), but merely ensure that \\(P\\) is ‘sensible’. It remains for \\(P\\) to be precisely defined in any given situation. Typically, \\(P\\) is defined by assigning ‘reasonable’ probabilities to each of the same points (or simple events) in \\(S\\).\n\nIf the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.\nSo it is reasonable to assign probability function \\(P\\) in case by \\[\nP(\\{1\\}) = P(\\{2\\}) = \\cdots = P(\\{6\\}) = 1 / 6\n\\]\nEquivalently, we may write \\(P(\\{k\\}) = 1/6\\), \\(k=1, \\ldots, 6\\) or \\(P(\\{k\\}) = 1/6 \\; \\forall k = S\\).\n\n\n\nTheorem 1 \\(P(\\emptyset) = 0\\)\n\n\nProof. Apply Axiom 3 with \\(A_i = \\emptyset\\) for all \\(i\\).\n\\(\\emptyset = \\emptyset \\cup \\emptyset \\cup \\ldots\\) Also \\(\\emptyset \\cap \\emptyset = \\emptyset\\) (i.e. \\(\\emptyset\\) and \\(\\emptyset\\) are disjoint). It follows that \\(P(\\emptyset) = P(\\emptyset \\cup \\emptyset \\cup \\ldots) = P(\\emptyset) + P(\\emptyset) + \\cdots\\). We now subtract \\(P(\\emptyset)\\) from both sides. Hence \\(0 = P(\\emptyset) + P(\\emptyset) + \\cdots\\). Therefore, \\(P(\\emptyset) = 0\\).\n\n\n\nTheorem 2 Axiom 3 also holds for finite sequences. Thus if \\(A_1, A_2, \\ldots, A_n\\) are disjoint events, then\n\\[\nP(A_1 \\cup A_2 \\cup \\ldots \\cup A_n) = P(A_1) + P(A_2) + \\cdots + P(A_n)\n\\]\n\n\nProof. Apply Axiom 3 and Theorem 1, with \\(A_i = \\emptyset\\) for all \\(i = n + 1, n + 2, \\ldots\\).\n\n\n\nTheorem 3 \\[\nP(\\bar{A}) = 1 - P(A)\n\\]\n\n\nProof. \\[\\begin{align*}\n\n1 & = P(S) \\tag{by Axiom 2} \\\\\n  & = P(A \\cup \\bar{A}) \\tag{by the definition of complementation} \\\\\n  & = P(A) + P(\\bar{A}) \\tag{by Theorem 2 with $n = 2$, since $A$ and $\\bar{A}$ are disjoint.}\n\n\\end{align*}\\]",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH02: Probability"
-    ]
-  },
-  {
-    "objectID": "contents/chapter-03/index.html",
-    "href": "contents/chapter-03/index.html",
-    "title": "CH03: Discrete R.V.",
-    "section": "",
-    "text": "Definition 1 A random variable (rv) is a numerical variable whose value depends on the outcome of an experiment.\n\nA random variable must be a number; it cannot be a letter, say. More precisely, a random variable is a “real-valued function for which the domain is a sample space”.\n\nExample 1 A coin is tossed twice and the sequence of \\(H\\)’s and \\(T\\)’s is observed. Let \\(Y\\) be the number of \\(H\\)’s which come up. Show that \\(Y\\) is a random variable. The experiment here has 4 possible outcomes: \\(TT\\), \\(TH\\), \\(HT\\), \\(HH\\).\n\\(Y = 0\\) if the outcome is \\(TT\\)\n\\(Y = 1\\) if the outcome is \\(TH\\) or \\(HT\\)\n\\(Y = 2\\) if the outcome is \\(HH\\)\n\n\n\nThe probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.\n\n\n\nIt is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH03: Discrete R.V."
-    ]
-  },
-  {
-    "objectID": "contents/chapter-03/index.html#probability-distribution",
-    "href": "contents/chapter-03/index.html#probability-distribution",
-    "title": "CH03: Discrete R.V.",
-    "section": "",
-    "text": "The probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH03: Discrete R.V."
-    ]
-  },
-  {
-    "objectID": "contents/chapter-03/index.html#probability-mass-function",
-    "href": "contents/chapter-03/index.html#probability-mass-function",
-    "title": "CH03: Discrete R.V.",
-    "section": "",
-    "text": "It is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH03: Discrete R.V."
-    ]
+    "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
   },
   {
     "objectID": "contents/chapter-04/index.html",
@@ -124,18 +62,40 @@
     ]
   },
   {
-    "objectID": "topics.html",
-    "href": "topics.html",
-    "title": "STAT2001 Weekly Topics",
+    "objectID": "contents/chapter-03/index.html",
+    "href": "contents/chapter-03/index.html",
+    "title": "CH03: Discrete R.V.",
     "section": "",
-    "text": "This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.\n\n\nWeekly Study Plan\n\n\n\n\n\n\n\nWeek\nTopic\nExtra Information\n\n\n\n\n1\nCH1 Statistics; CH2 Probability\nCalculus notes\n\n\n2\nCH2 Probability\nRefresher Quiz 1, Refresher Quiz 2 on combinatorics\n\n\n3\nCH2 Probability\n\n\n\n4\nCH3 Discrete Random Variables\nMakeup Tue 11/3, Formula sheet, Binomial distribution\n\n\n5\nCH4 Continuous Random Variables\nAssessable Quiz due Fri 21/3, Gamma distribution, R and random variables\n\n\n6\nCH5 Multivariate Probability\nAssignment 1 available\n\n\n—\nTeaching Break\n\n\n\n7\nCH6 Functions of Random Variables\nAssignment 1 due\n\n\n8\nCH7 Sampling Distributions & CLT\nMakeup Tue 22/4\n\n\n9*\nCH8 Estimation\nAssignment 2 available\n\n\n10\nCH9 Point Estimation\n\n\n\n11\nCH16 Bayesian Methods; CH10\nAssignment 2 due\n\n\n12\nCH10 Hypothesis Testing\nNon-exhaustive summary\n\n\n\n\n\n\n\nChapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+    "text": "Definition 1 A random variable (rv) is a numerical variable whose value depends on the outcome of an experiment.\n\nA random variable must be a number; it cannot be a letter, say. More precisely, a random variable is a “real-valued function for which the domain is a sample space”.\n\nExample 1 A coin is tossed twice and the sequence of \\(H\\)’s and \\(T\\)’s is observed. Let \\(Y\\) be the number of \\(H\\)’s which come up. Show that \\(Y\\) is a random variable. The experiment here has 4 possible outcomes: \\(TT\\), \\(TH\\), \\(HT\\), \\(HH\\).\n\\(Y = 0\\) if the outcome is \\(TT\\)\n\\(Y = 1\\) if the outcome is \\(TH\\) or \\(HT\\)\n\\(Y = 2\\) if the outcome is \\(HH\\)\n\n\n\nThe probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.\n\n\n\nIt is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
   },
   {
-    "objectID": "topics.html#notes",
-    "href": "topics.html#notes",
-    "title": "STAT2001 Weekly Topics",
+    "objectID": "contents/chapter-03/index.html#probability-distribution",
+    "href": "contents/chapter-03/index.html#probability-distribution",
+    "title": "CH03: Discrete R.V.",
     "section": "",
-    "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+    "text": "The probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html#probability-mass-function",
+    "href": "contents/chapter-03/index.html#probability-mass-function",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "It is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
   },
   {
     "objectID": "contents/chapter-03/1rv.html",
@@ -242,6 +202,46 @@
     ]
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About This Site",
+    "section": "",
+    "text": "This website serves as a comprehensive revision resource for students enrolled in STAT2001: Introductory Mathematical Statistics at the Australian National University. It aims to distill complex statistical concepts into digestible summaries and provide practical examples to enhance learning.\n\n\n\n\nTo offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials.\n\n\n\n\n\nThis site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials.\n\n\n\n\nYour feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+  },
+  {
+    "objectID": "about.html#purpose",
+    "href": "about.html#purpose",
+    "title": "About This Site",
+    "section": "",
+    "text": "To offer clear and concise summaries of each topic covered in STAT2001.\nTo provide practical examples and exercises that reinforce theoretical concepts.\nTo serve as a supplementary resource alongside official course materials."
+  },
+  {
+    "objectID": "about.html#whos-behind-this",
+    "href": "about.html#whos-behind-this",
+    "title": "About This Site",
+    "section": "",
+    "text": "This site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials."
+  },
+  {
+    "objectID": "about.html#feedback-and-contributions",
+    "href": "about.html#feedback-and-contributions",
+    "title": "About This Site",
+    "section": "",
+    "text": "Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+  },
+  {
+    "objectID": "contents/chapter-02/index.html",
+    "href": "contents/chapter-02/index.html",
+    "title": "CH02: Probability",
+    "section": "",
+    "text": "1 Probability functions\nFor a given experiement and associated sample space \\(S\\), a probability function \\(P\\) is a real-valued function whose domain is the power set of the sample space, \\(S\\), and satisfies the following:\n\n\\(P(A) \\geq 0\\) for all \\(A \\subset S\\) (probability can’t be negative)\n\\(P(S) = 1\\) (Something must happen)\nSuppose \\(A_1, A_2, \\ldots\\) is an infinite sequence of disjoint events. Then \\(P(A_1 \\cup A_2 \\cup \\ldots) = P(A_1) + P(A_2) + \\ldots\\)\n\nThese three conditions are known as the three axioms of probabiliyt. They do not completely specify \\(P\\), but merely ensure that \\(P\\) is ‘sensible’. It remains for \\(P\\) to be precisely defined in any given situation. Typically, \\(P\\) is defined by assigning ‘reasonable’ probabilities to each of the same points (or simple events) in \\(S\\).\n\nIf the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.\nSo it is reasonable to assign probability function \\(P\\) in case by \\[\nP(\\{1\\}) = P(\\{2\\}) = \\cdots = P(\\{6\\}) = 1 / 6\n\\]\nEquivalently, we may write \\(P(\\{k\\}) = 1/6\\), \\(k=1, \\ldots, 6\\) or \\(P(\\{k\\}) = 1/6 \\; \\forall k = S\\).\n\n\n\nTheorem 1 \\(P(\\emptyset) = 0\\)\n\n\nProof. Apply Axiom 3 with \\(A_i = \\emptyset\\) for all \\(i\\).\n\\(\\emptyset = \\emptyset \\cup \\emptyset \\cup \\ldots\\) Also \\(\\emptyset \\cap \\emptyset = \\emptyset\\) (i.e. \\(\\emptyset\\) and \\(\\emptyset\\) are disjoint). It follows that \\(P(\\emptyset) = P(\\emptyset \\cup \\emptyset \\cup \\ldots) = P(\\emptyset) + P(\\emptyset) + \\cdots\\). We now subtract \\(P(\\emptyset)\\) from both sides. Hence \\(0 = P(\\emptyset) + P(\\emptyset) + \\cdots\\). Therefore, \\(P(\\emptyset) = 0\\).\n\n\n\nTheorem 2 Axiom 3 also holds for finite sequences. Thus if \\(A_1, A_2, \\ldots, A_n\\) are disjoint events, then\n\\[\nP(A_1 \\cup A_2 \\cup \\ldots \\cup A_n) = P(A_1) + P(A_2) + \\cdots + P(A_n)\n\\]\n\n\nProof. Apply Axiom 3 and Theorem 1, with \\(A_i = \\emptyset\\) for all \\(i = n + 1, n + 2, \\ldots\\).\n\n\n\nTheorem 3 \\[\nP(\\bar{A}) = 1 - P(A)\n\\]\n\n\nProof. \\[\\begin{align*}\n\n1 & = P(S) \\tag{by Axiom 2} \\\\\n  & = P(A \\cup \\bar{A}) \\tag{by the definition of complementation} \\\\\n  & = P(A) + P(\\bar{A}) \\tag{by Theorem 2 with $n = 2$, since $A$ and $\\bar{A}$ are disjoint.}\n\n\\end{align*}\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH02: Probability"
+    ]
+  },
+  {
     "objectID": "contents/chapter-03/2measures.html",
     "href": "contents/chapter-03/2measures.html",
     "title": "Measures Related to Distribution",
@@ -343,6 +343,97 @@
       "Contents",
       "CH03: Discrete R.V.",
       "Measures Related to Distribution"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html",
+    "href": "contents/chapter-04/1rv.html",
+    "title": "Known Continuous Distributions",
+    "section": "",
+    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#uniform-distribution",
+    "href": "contents/chapter-04/1rv.html#uniform-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "",
+    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#normal-distribution",
+    "href": "contents/chapter-04/1rv.html#normal-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "2 Normal Distribution",
+    "text": "2 Normal Distribution\n\nDefinition 2 (Normal Distribution) A random variable \\(Y\\) has the normal distribution with parameters \\(a\\) and \\(b^2\\) if its pdf is of the form\n\\[\nf(y) = \\frac{1}{b\\sqrt{2\\pi}} e^{-\\frac{(y - a)^2}{2b^2}}, \\quad -\\infty &lt; y &lt; \\infty \\, (-\\infty &lt; a &lt; \\infty, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\mathcal{N}(a, b^2)\\).\n\n\n\n2.1 Interactive Widget\n\n\nShow the code\nviewof normal_mu = Inputs.range([-10, 10], { label: \"Minimum (a)\", step: 0.1, value: 0 })\nviewof normal_var = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 1 })\n\nnormal_xs = Array.from({ length: 200 }, (_, i) =&gt; \n  - 4 * 4 + (i / 199) * 8 * 4  // from μ - 4σ to μ + 4σ\n)\n\n// PDF of Normal Distribution\nnormal_pdf = normal_xs.map(x =&gt; ({\n  x,\n  y: (1 / (normal_var * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * ((x - normal_mu) / normal_var) ** 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nnormal_cdf = normal_xs.map(x =&gt; ({\n  x,\n  y: 0.5 * (1 + erf((x - normal_mu) / (normal_var * Math.sqrt(2))))\n}))\n\n// Helper: error function approximation\nfunction erf(x) {\n  // Abramowitz and Stegun formula 7.1.26\n  const sign = x &gt;= 0 ? 1 : -1\n  const a1 = 0.254829592,\n        a2 = -0.284496736,\n        a3 = 1.421413741,\n        a4 = -1.453152027,\n        a5 = 1.061405429,\n        p = 0.3275911\n\n  const t = 1 / (1 + p * Math.abs(x))\n  const y = 1 - (((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t) * Math.exp(-x * x)\n  return sign * y\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...normal_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...normal_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomNormal(normal_mu, normal_var ** (0.5))})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.2 Standardisation\nWithout a computer, the only way to evaluate the probability is using a normal distribution table. However, such table only provides information about the standard normal distribution. Therefore, it becomes important to use standardisation to change any r.v. following normal distribution to the standard normal distribution.\n\nTheorem 2 (Standardisation Normal Technique) If \\(Y \\sim \\mathcal{N}(a, b^2)\\), then \\(Z = \\frac{Y - a}{b} \\sim \\mathcal{N}(0, 1)\\).\n\nWe say that \\(Y\\) has been standardised, and that \\(Z\\) is the standardised version of \\(Y\\).\nNote that this technique is used not only for finding the probability in the exam with normal table, this can also be used to normalise the training data for a machine learning model1.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#gamma-distribution",
+    "href": "contents/chapter-04/1rv.html#gamma-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "3 Gamma Distribution",
+    "text": "3 Gamma Distribution\n\nDefinition 3 (Gamma Distribution Pdf) A random variable \\(Y\\) has the gamma distribution with parameters \\(a\\) and \\(b\\) if its pdf is of the form \\[\nf(y) = \\frac{y^{a-1}e^{-y/b}}{b^a \\Gamma(a)}, \\quad y &gt; 0 \\quad (a, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\text{Gam}(a, b)\\).\n\n\n3.1 Mysterious \\(\\Gamma(\\cdot)\\)\n\\(\\Gamma(\\cdot)\\) here is the gamma function, defined by \\(\\Gamma(k) = \\int_0^\\infty t^{k-1}e^{-t}\\, dt\\).\nSome properties:\n\n\\(\\Gamma(k) = (k - 1) \\Gamma(k - 1)\\) if \\(k &gt; 1\\)\n\\(\\Gamma(k) = (k - 1)!\\) if \\(k\\) is a positive integer (e.g. \\(\\Gamma (4) = 3! = 6\\))\n\\(\\Gamma(1/2) = \\sqrt{\\pi}\\)\n\n\n\nShow the code\nfunction gamma(z) {\n  const g = 7\n  const p = [\n    0.99999999999980993,\n    676.5203681218851,\n   -1259.1392167224028,\n    771.32342877765313,\n   -176.61502916214059,\n    12.507343278686905,\n   -0.13857109526572012,\n    9.9843695780195716e-6,\n    1.5056327351493116e-7\n  ]\n\n  if (z &lt; 0.5) {\n    return Math.PI / (Math.sin(Math.PI * z) * gamma(1 - z))\n  } else {\n    z -= 1\n    let x = p[0]\n    for (let i = 1; i &lt; g + 2; i++) {\n      x += p[i] / (z + i)\n    }\n    const t = z + g + 0.5\n    return Math.sqrt(2 * Math.PI) * t**(z + 0.5) * Math.exp(-t) * x\n  }\n}\n\n// Generate values for plotting\ngam_xs = Array.from({ length: 200 }, (_, i) =&gt; 0.01 + i / 199 * (8 - 0.01))\ngamma_data = gam_xs.map(x =&gt; ({ x, y: gamma(x) }))\n\n// Plot\nPlot.plot({\n  title: `Gamma Function Γ(x), from x = 0.01 to ${8}`,\n  marks: [\n    Plot.line(gamma_data, { x: \"x\", y: \"y\", stroke: \"purple\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\", domain: [0, 8] },\n  y: { label: \"Γ(x)\" },\n  width: 600,\n  height: 300\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Mode of Gamma Distribution\n\nTheorem 3 (Mode of Gamma Distribution) \\[\nMode(Y) = \\begin{cases}\nb(a-1) & a \\geq 1 \\\\\n0 & a &lt; 1\n\\end{cases}\n\\]\n\n\n\n\n3.3 Interactive Widget\n\n\nShow the code\nviewof gamma_a = Inputs.range([0.4, 5], { label: \"Minimum (a)\", step: 0.1, value: 1 })\nviewof gamma_b = Inputs.range([0.1, 5], { label: \"Maximum (b)\", step: 0.1, value: 1 })\n\nfunction gammainc_lower(x, a) {\n  // Lower regularized incomplete gamma function P(a, x)\n  // using a simple series expansion\n  let sum = 1 / a\n  let value = 1 / a\n  for (let n = 1; n &lt; 100; n++) {\n    value *= x / (a + n)\n    sum += value\n    if (value &lt; 1e-8) break\n  }\n  return sum * Math.exp(-x + a * Math.log(x)) / gamma(a)\n}\n\nfunction gammaCDF(x, alpha, theta) {\n  if (x &lt;= 0) return 0\n  return gammainc_lower(x / theta, alpha)\n}\n\nfunction gammaPDF(x, a, t) {\n  if (x &lt; 1e-6) return a &lt; 1 ? Infinity : 0\n  return (1 / (t ** a * gamma(a))) * x ** (a - 1) * Math.exp(-x / t)\n}\n\ngamma_xs = [\n  ...Array.from({ length: 100 }, (_, i) =&gt;\n    1e-6 + Math.exp(Math.log(1e-6) + (i / 100) * Math.log(0.5 / 1e-6))  // log scale from 1e-6 to ~0.5\n  ),\n  ...Array.from({ length: 100 }, (_, i) =&gt; 0.5 + i * 0.1)  // linear from 0.5 to 10.4\n]\n\n\n// PDF of Normal Distribution\ngamma_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, gamma_a, gamma_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\ngamma_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, gamma_a, gamma_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...gamma_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...gamma_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n// import { Plot, binX, ruleY, line } from \"@observablehq/plot\"\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(gamma_a, gamma_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.4 Conclusion on the Gamma Distribution\nNow, it is clear that the gamma distribution is very expressive with two model parameters. In fact, we can define many specific distribution by using this gamma distribution by fixing some of the model parameters.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#the-chi2-distribution",
+    "href": "contents/chapter-04/1rv.html#the-chi2-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "4 The Chi2 Distribution",
+    "text": "4 The Chi2 Distribution\nBeing a special case of the gamma distribution.\n\nDefinition 4 (Chi-Square Distribution) If \\(Y \\sim \\text{Gam}(n/2, 2)\\), we say that \\(Y\\) has the chi-square distribution with parameter \\(n\\).\nDenote as \\(Y \\sim \\chi^2(n)\\).\n\n\nDefinition 5 (Chi-Square Degree of Freedom) \\(n\\) in the above formulation is the degrees of freedom (DOF).\n\n\nTheorem 4 (Mode of Chi-Square Distribution) The mode of \\(Y\\) is \\(n - 2\\) if \\(n \\geq 2\\), and it is 0 if \\(n \\leq 2\\).\n\n\n\n4.1 Interactive Widget\n\n\nShow the code\nviewof chi_dof = Inputs.range([1, 5], { label: \"Minimum (n)\", step: 1, value: 1 })\n\n// PDF of Normal Distribution\nchi_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, chi_dof / 2, 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nchi_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, chi_dof / 2, 2)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\n// @title: Gamma PDF \n\nPlot.plot({\n  title: `PDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...chi_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Normal CDF\n\nPlot.plot({\n  title:  `CDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...chi_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(chi_dof / 2, 2)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#exponential-distribution",
+    "href": "contents/chapter-04/1rv.html#exponential-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "5 Exponential Distribution",
+    "text": "5 Exponential Distribution\nAnother special case of the gamma distribution\n\nDefinition 6 (Exponential Distribution PDF) If \\(Y \\sim \\text{Gam}(1, b)\\), then \\(Y\\) has the exponential distribution with parameter \\(b\\).\nWe write \\(Y \\sim \\text{Exp}(b)\\) with the corresponding pdf being, \\[\nf(y) = \\frac{1}{b}e^{-y/b}, \\quad y &gt; 0\n\\]\n\nBy using Theorem 3, we obtain the following corollary.\n\nCorollary 1 (Mode of Exponential Distribution) \\[\nMode(Y) = 0\n\\]\n\n\nNow, we can establish the following connection with all the other ones have discovered. \\[\n\\text{Exp}(2) = \\text{Gam}(2/2, 2) = \\chi^2(2)\n\\]\n\nThis distribution is useful for modelling times until failure of components and times between successive arrivals in a queue.\n\n\n5.1 Interactive Widget\n\n\nShow the code\nviewof exp_b = Inputs.range([0.1, 5], { label: \"Minimum (n)\", step: 0.1, value: 1 })\n\n// PDF of Normal Distribution\nexp_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, 1, exp_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nexp_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, 1, exp_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...exp_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...exp_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(1, exp_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n5.2 Standard Exponential Distribution\n\nDefinition 7 (Standard Exponential Distribution) A special case of the exponential distribution.\nIf \\(Y \\sim \\text{Exp}(1)\\), we say that \\(Y\\) has the standard exponential distribution.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#footnotes",
+    "href": "contents/chapter-04/1rv.html#footnotes",
+    "title": "Known Continuous Distributions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHowever, it is more common to use min-max normalisation.↩︎",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
     ]
   },
   {
