@@ -112,8 +112,8 @@ We write $Y \sim \mathcal{N}(a, b^2)$.
 ### Interactive Widget
 
 ```{ojs}
-viewof normal_mu = Inputs.range([-10, 10], { label: "Minimum (a)", step: 0.1, value: 0 })
-viewof normal_var = Inputs.range([0, 10], { label: "Maximum (b)", step: 0.1, value: 1 })
+viewof normal_mu = Inputs.range([-10, 10], { label: "mean", step: 0.1, value: 0 })
+viewof normal_var = Inputs.range([0, 10], { label: "variance", step: 0.1, value: 1 })
 
 normal_xs = Array.from({ length: 200 }, (_, i) => 
   - 4 * 4 + (i / 199) * 8 * 4  // from μ - 4σ to μ + 4σ
@@ -298,8 +298,8 @@ $$
 ### Interactive Widget
 
 ```{ojs}
-viewof gamma_a = Inputs.range([0.4, 5], { label: "Minimum (a)", step: 0.1, value: 1 })
-viewof gamma_b = Inputs.range([0.1, 5], { label: "Maximum (b)", step: 0.1, value: 1 })
+viewof gamma_a = Inputs.range([0.4, 5], { label: "a", step: 0.1, value: 1 })
+viewof gamma_b = Inputs.range([0.1, 5], { label: "b", step: 0.1, value: 1 })
 
 function gammainc_lower(x, a) {
   // Lower regularized incomplete gamma function P(a, x)
@@ -429,7 +429,7 @@ The mode of $Y$ is $n - 2$ if $n \geq 2$, and it is 0 if $n \leq 2$.
 ```{ojs}
 // @title: Normal Distribution Controls
 
-viewof chi_dof = Inputs.range([1, 5], { label: "Minimum (n)", step: 1, value: 1 })
+viewof chi_dof = Inputs.range([1, 5], { label: "dof", step: 1, value: 1 })
 
 // PDF of Normal Distribution
 chi_pdf = gamma_xs.map(x => ({
@@ -540,7 +540,7 @@ This distribution is useful for modelling times until failure of components and 
 ```{ojs}
 // @title: Normal Distribution Controls
 
-viewof exp_b = Inputs.range([0.1, 5], { label: "Minimum (n)", step: 0.1, value: 1 })
+viewof exp_b = Inputs.range([0.1, 5], { label: "n", step: 0.1, value: 1 })
 
 // PDF of Normal Distribution
 exp_pdf = gamma_xs.map(x => ({
@@ -609,5 +609,143 @@ Plot.rectY({length: 10000}, Plot.binX({y: "count"}, {x: d3.randomGamma(1, exp_b)
 A special case of the exponential distribution.
 
 If $Y \sim \text{Exp}(1)$, we say that $Y$ has the _standard exponential distribution_.
+
+:::
+
+## Beta Distribution
+
+::: {#def-beta-distribution name="Beta Distribution"}
+
+A random variable $Y$ has the _beta distribution_ with parameters $a$ and $b$ if its pdf is of the form
+$$
+f(y) = \frac{y^{a-1}(1-y)^{b-1}}{B(a, b)}, \quad o < y < 1 \; (a, b > 0)
+$$
+
+We write $Y \sim \text{Beta}(a, b)$.
+
+:::
+
+Here, $B(a, b) = \frac{\Gamma(a) \Gamma(b)}{\Gamma(a + b)}$ is the _beta function_.
+
+### Connection with Uniform Distribution
+
+If $a = b = 1$, then $f(y) = 1$, $0 < y < 1$. Thus $\text{Beta}(1, 1) = U(0, 1)$.
+
+It can be shown that $Mode(Y) = (a - 1)/(a + b -2)$ if $a > 1$ and $b > 1$.
+
+---
+
+### Interactive Widget
+
+
+```{ojs}
+// @title: Normal Distribution Controls
+
+viewof beta_alpha = Inputs.range([0.1, 10], { label: "alpha", step: 0.01, value: 1 })
+viewof beta_beta = Inputs.range([0.1, 10], { label: "beta", step: 0.01, value: 1 })
+
+// --- More points near edges ---
+beta_xs = [
+  ...Array.from({ length: 201 }, (_, i) => i / 200)
+].filter(x => x <= 1)
+
+// --- Beta PDF ---
+function betaPDF(x, a, b) {
+  if (x <= 0 || x >= 1) return 0
+  const numerator = x ** (a - 1) * (1 - x) ** (b - 1)
+  const denominator = gamma(a) * gamma(b) / gamma(a + b)
+  return numerator / denominator
+}
+
+// Regularized incomplete beta function I_x(a, b)
+// This is a simple continued fraction approximation for 0 < x < 1
+// Based on the continued fraction form in NR, adapted for moderate values
+
+function betainc(x, a, b) {
+  if (x <= 0) return 0
+  if (x >= 1) return 1
+
+  const lnBeta = Math.log(gamma(a)) + Math.log(gamma(b)) - Math.log(gamma(a + b))
+  const front = Math.exp(
+    a * Math.log(x) + b * Math.log(1 - x) - lnBeta
+  ) / a
+
+  let f = 1, c = 1, d = 0
+  for (let i = 1; i < 100; i++) {
+    const m = i / 2
+    const numerator = (i % 2 === 1)
+      ? (b - m) * x / (a + 2 * m - 1)
+      : -((a + m - 1) * (a + b + m - 1) * x) / ((a + 2 * m - 2) * (a + 2 * m - 1))
+    d = 1 + numerator * d
+    if (Math.abs(d) < 1e-30) d = 1e-30
+    d = 1 / d
+    c = 1 + numerator / c
+    if (Math.abs(c) < 1e-30) c = 1e-30
+    const delta = c * d
+    f *= delta
+    if (Math.abs(delta - 1) < 1e-8) break
+  }
+
+  return front * f
+}
+
+// --- PDF values ---
+beta_pdf = beta_xs.map(x => ({
+  x,
+  y: betaPDF(x, beta_alpha, beta_beta)
+}))
+
+// Compute the CDF points using the approximation
+beta_cdf = beta_xs.map(x => ({
+  x,
+  y: betainc(x, beta_alpha, beta_beta)
+}))
+```
+
+::: {.panel-tabset}
+
+#### PDF
+
+```{ojs}
+
+Plot.plot({
+  title: `PDF of Beta(${beta_alpha}, ${beta_beta})`,
+  marks: [
+    Plot.line(beta_pdf, { x: "x", y: "y" }),
+    Plot.ruleY([0])
+  ],
+  x: { label: "x" },
+  y: { label: "f(x)", domain: [0, Math.min(5, Math.max(...beta_pdf.map(d => d.y)) * 1.2)] },
+  width: 600,
+  height: 250
+})
+
+```
+
+#### CDF
+
+```{ojs}
+
+Plot.plot({
+  title: `CDF of Beta(${beta_alpha}, ${beta_beta})`,
+  marks: [
+    Plot.line(beta_cdf, {x: "x", y: "y"}),
+    Plot.ruleY([0])
+  ],
+  x: { label: "x" },
+  y: { label: "F(x)", domain: [0, Math.max(...beta_cdf.map(d => d.y)) * 1.2] },
+  width: 600,
+  height: 250
+})
+```
+
+#### Histogram (Interactive)
+
+```{ojs}
+// @title: Histogram of Samples
+
+Plot.rectY({length: 10000}, Plot.binX({y: "count"}, {x: d3.randomBeta(beta_alpha, beta_beta)})).plot()
+
+```
 
 :::
