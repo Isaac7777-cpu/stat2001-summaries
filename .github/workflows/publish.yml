@@ -26,6 +26,7 @@ jobs:
         with:
           packages: |
             any::ggplot2
+            any::rmarkdown
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
