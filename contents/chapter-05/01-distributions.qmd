@@ -1,0 +1,72 @@
+---
+title: "Introduction"
+---
+
+::: {.callout-note title="Motivating Example"}
+
+A die is rolled. Let $X$ = no. of 6's and $Y$ = no. of even numbers. Find the
+_joint probability_ distribution of $X$ and $Y$.
+
+---
+
+| Number on Die | 1   | 2   | 3   | 4   | 5   | 6   |
+| ------------- | --- | --- | --- | --- | --- | --- |
+| Value of X    | 0   | 0   | 0   | 0   | 0   | 1   |
+| Value of Y    | 0   | 1   | 0   | 1   | 0   | 1   |
+: Possible Outcomes {#tbl-q1-possible-outcomes}
+
+Hence,
+
+$$
+\begin{align}
+   P(X = 1, Y = 1) &= P(6) = 1 / 6 \\
+   P(X = 0, Y = 1) &= P(2 \text{ or } 4)  = 1/ 3 \\
+   P(X = 0, Y = 0) &= P(1 \text{ or } 3 \text{ or } 5) = 1/2 \\
+\end{align}
+$$
+
+We say that $X$ and $Y$ have a joint probability distribution. The joint pmf of $X$ and $Y$ is
+
+$$
+p(x, y) = P(X = x, Y = y) = \begin{cases}
+   1/2, & x = y = 0 \\
+   1/3, & x = 0, y = 1 \\
+   1/6, & x = y = 1 \\ 
+\end{cases}
+$$
+
+Note that the joint probability distribution of $X$ and $Y$ can be presented as,
+
+![Another way to present](./example-1-illus.png)
+
+:::
+
+# Discrete Joint PMF
+
+## Properties
+
+1. $0 \leq p(x, y) \leq 1$ for all $x$ and $y$
+2. $\sum_{x, y} p(x, y) = 1$
+
+# Joint CDF
+
+The joint cdf of $X$ and $Y$ is $F(x, y) - P(X \leq x, Y \leq y)$.
+
+## Properties of joint CDFs
+
+1. $F(x, y) \to 0$ as $x \to -\infty$ or $y \to -\infty$ (or both).
+2. $F(x, y) \to 1$ as $x \to \infty$ and $y \to \infty$
+3. $F(x, y)$ is nondecreasing in both $x$ and $y$ directions.
+4. $F(x, y)$ is right-continuous in both $x$ and $y$ directions.
+
+Note that with there properties in mind, the joint cdf of $X$ and $Y$ in our example could be written more simply as 
+
+$$
+F(x, y) = \begin{cases}
+   1/2, & x \geq 0, 0 \leq y < 1 \\
+   5/6, & 0 \geq x < 1, y \geq 1  \\
+\end{cases}
+$$
+
+
+

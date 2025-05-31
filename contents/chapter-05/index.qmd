@@ -1,0 +1,10 @@
+---
+title: "CH05: Multivariate Distributions"
+---
+
+# Learning Goals
+
+- More than one random variable
+- Joint PMF/PDF or CDF
+- Both Discrete and Continuous
+- Expectations, Variance, etc.
