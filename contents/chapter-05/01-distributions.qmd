@@ -68,5 +68,136 @@ F(x, y) = \begin{cases}
 \end{cases}
 $$
 
+# Marginal PMFs
+
+The _marginal pmf_ of $X$ is 
+
+$$
+p(x) = \sum_y p(x, y)
+$$
+
+This pmf defines the marginal probability mass function of $X$. Can also write $p(x)$ as $p_X(x)$.
+
+## Marginal CDF
+
+Then, we can easily define the cdf of $X$ with the above definition of the marginal pmf of $X$ as
+$$
+F(x) = P(X \leq x)
+$$
+
+# Conditional PMF
+
+The _conditional pmf_ of $X$ given that $Y = y$ is 
+$$
+p(x \mid y) = \frac{p(x, y)}{p(y)}
+$$
+
+This density defines the conditional probability distribution fo $X$ given that $Y = y$. 
+
+## Degenerate Distribution
+
+It is possible that the probability of $X$ collapses to only one outcome and it is certain about that outcome with the given y-values.
+
+# Independence of Random Variables
+
+Recall that two events $A$ and $B$ are independent if $P(AB) = P(A)P(B)$. Then, we can similarity define that the two random variables $X$ and $Y$ are _independent_ if for all $x$ and $y$,
+$$
+p(x, y) = p(x) p(y)
+$$
+
+We then write $X \perp Y$ if the two are independent.
+
+# Expectations
+
+$$
+E(g(X, Y)) = \sum_{x, y} g(x, y) p(x, y)
+$$
+
+For example,
+
+$$
+E(XY) = \sum_{x, y} xyp(x, y) = 0 * p(0, 0) + 0 * p(0, 1) + 1 p(1, 1) = p(1, 1) = 1/ 6
+$$
+
+## Covariance and Correlation
+
+::: {#thm-another-expression-of-covariance}
+
+## Another Expression of Covariance
+
+The covariance between $X$ and $Y$ is 
+$$
+Cov(X,Y) = E\{ ( X - E(X))(Y - E(Y)) \}
+$$
+
+:::
+
+What's the covariance between $X$ and $Y$ in our example?
+
+Recall that $X \sim \text{Bern}(1/6)$ and $Y \sim \text{Bern}(1/2)$. Therefore $E(X) = 1/6$ and $E(Y) = 1/2$.  
+It follows that 
+$$
+\begin{align}
+Cov(X, Y) & = \sum_{x, y} \left(x - \frac{1}{6} \right)\left(y - \frac{1}{2}\right) p(x, y) \\
+& =\frac{1}{12} \frac{1}{2} + \left(-\frac{1}{12}\right)\frac{1}{3} + \frac{5}{12}\frac{1}{6} = \frac{1}{12} \\
+\end{align}
+$$
+
+A useful result:
+$$
+Cov(X, Y) = E(XY) - E(X)E(Y)
+$$
+
+::: {.proof}
+
+$$
+\begin{align}
+\text{LHS} &= E\{ (X - \mu_X)(Y - \mu_Y) \} = E \{ XY - X \mu_X - Y \mu_Y + \mu_X \mu_Y \} \\
+& = E(XY) - E(X)\mu_Y - E(Y)\mu_X + \mu_X \mu_Y \\
+& = E(XY) + \mu_X \mu_Y = \text{RHS}
+\end{align}
+$$
+
+:::
+
+## Correlation
+
+The correlation between $X$ and $Y$ is
+$$
+\rho = Cor(X, Y) = \frac{Cov(X, Y)}{SD(X)SD(Y)} = \frac{Cov(X, Y)}{\sqrt{Var(X)} \sqrt{Var(Y)}}
+$$
+
+Note that this is slightly more useful because this coefficient is "normalised" between $-1$ and $1$.
+
+### Meaning
+
+$\rho$ provides information about the relationship between $X$ and $Y$. If $\rho > 0$ then high values of $X$ are associated with high values of $Y$. If $\rho < 0$, then high values of $X$ are associated with low values of $Y$.
+
+$-1 \leq \rho \leq 1$ (In contrast $Cov(X, Y) \in [-\infty, \infty]$.
+
+::: {#thm-independence-and-correlations}
+
+$$X \perp Y \implies \rho = 0$$
+
+:::
+
+::: {.proof}
+
+First, we can show that $Cov(X, Y) = 0$ if the two random variables are independent. 
+
+$$
+\begin{align}
+Cov(X, Y) &= E(XY) - \mu_X \mu_Y \\
+& = E(X)E(Y) - \mu_X \mu_Y = 0
+\end{align}
+$$
+
+Where as the first line is by @thm-another-expression-of-covariance and the second line is by independence of the two random variables.
+
+Now, since $\rho = \frac{Cov(X, Y)}{SD(X)SD(Y)}$, $\rho = 0$.
+
+:::
+
+
 
 
