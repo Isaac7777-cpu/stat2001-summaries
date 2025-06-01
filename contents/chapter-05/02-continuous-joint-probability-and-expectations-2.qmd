@@ -1,0 +1,398 @@
+---
+title: "Joint Continuous Distribution & Expectations (2)"
+---
+
+::: {.callout-note title="Motivating Example 2"}
+
+A committee of two is randomly selected from three teachers, two students, and
+one parent.
+
+Let $X$ be the number of teachers on the committe, and $Y$ the number of
+students.
+
+Find:
+
+- (a) the marginal pmf of $Y$
+- (b) the conditional pmf of $Y$ given that $X = 0$
+- (c) the correlation between $X$ and $Y$
+
+---
+
+(a)
+
+$X$ and $Y$ have joint probability mass function $p(x, y)$ given by
+
+$$
+p(x, y) = \frac{\binom{3}{x} \binom{2}{x} \binom{1}{2 - x - y}}{\binom{6}{2}}
+$$
+
+For $x \in [0, 2]$ and $y \in [0, 2]$ with constraint $1 \leq x + y \leq 2$
+
+Hence, we can fill in the following table remembering that it needs two people
+for the committee.
+
+| X \\ Y | 0            | 1           | 2             |
+| ------ | ------------ | ----------- | ------------- |
+| 0      | \            | 2/15 = 0.13 | 1 / 15 = 0.07 |
+| 1      | 3 / 15 = 0.2 | 6/15 = 0.4  | \             |
+| 2      | 3 / 15 = 0.2 | \           | \             |
+
+Therefore, we get that the marginal probability of $Y$ is
+
+$$
+p_Y(y) = \begin{cases}
+6/15, & y = 0 \\
+8/15, & y = 1 \\
+1/15, & y = 2 \\
+\end{cases}
+$$
+
+---
+
+(b)
+
+The conditional pmf of $Y$ given that $X = 0$ is trivial from the above as,
+
+$$
+p_{Y\mid X}(y|0) = \begin{cases}
+0, & y = 0 \\
+2/3, & y = 1 \\
+1/3, & y = 2 \\
+\end{cases}
+$$
+
+---
+
+(c) The Correlation between $X$ and $Y$
+
+First, find the expectations of $X$ and $Y$ first as,
+
+$$
+\begin{align}
+E(X) &= 1 \times 0.6 + 2 \times 0.2 = 1 \\
+E(Y) &= 1 \times \frac{8}{15} + 2 \times \frac{1}{15} = 0.67 \\
+\end{align}
+$$
+
+Hence,
+
+$$
+\begin{align}
+Cov(X, Y) &= E(XY) - \frac{2}{3} \\
+&= \frac{6}{15} - \frac{2}{3} \\
+&= -\frac{4}{15} = -0.27
+\end{align}
+$$
+
+Now, in order to find the correlation, we also need to find the standard
+deviation of the two random variables.
+
+$$
+\begin{align}
+Var(X) & = E(X^2) - \mu_X^2 = \frac{9}{15} + 2^2 \frac{3}{15} - 1 = \frac{9 + 12 - 15}{15} = \frac{6}{15} \\
+Var(Y) & = E(Y^2) - \mu_Y^2 = \frac{8}{15} + 2^2 \frac{1}{15} - \frac{4}{9} = \frac{12 * 15 - 100}{225} = \frac{80}{225} = \frac{16}{45} = 0.36 \\
+\end{align}
+$$
+
+Therefore, the correlation is,
+
+$$
+Cor(X, Y) = \frac{Cov(X, Y)}{\sqrt{6/15}\sqrt{16/45}} = -\frac{1}{\sqrt{2}} = -0.7071
+$$
+
+:::
+
+# Laws of Multivariate Expectation
+
+1. $E(c) = c$
+2. $E(cg(X, Y)) = cE(g(X, Y))$
+3. $E(g_1(X, Y) + g_2(X, Y) + \cdots + g_k(X, Y)) = E(g_1(X, Y)) + \cdots + E(g_k(X, Y))$
+4. If $X \perp Y$ then $E(g(X)h(Y)) = E(g(X))E(h(Y))$
+
+::: {.proof}
+
+The proof for all these can simply be extended from the single variate situation
+by simply exchanging the pmf to joint pmf.
+
+:::
+
+# Independence
+
+We say that $Y_1, Y_2, \ldots, Y_n$ are _pairwise independent_ iff
+
+$$
+p(y_i, y_j) = p(y_i)p(y_j) \qquad \text{for all $i < j$}
+$$
+
+We say that $Y_1, Y_2, \ldots, Y_n$ are _totally independent_ if
+
+$$
+\begin{align}
+& p(y_i, y_j) = p(y_i)p(y_j) & \text{for all $i < j$} \\
+& p(y_i, y_j, y_k) = p(y_i)p(y_j)p(y_k) & \text{for all $i < j < k$} \\
+& \dots \\
+& p(y_1, y_2, \ldots, y_n) = p(y_1)p(y_2) \ldots p(y_n) &  \\
+\end{align}
+$$
+
+# Multinomial Distribution
+
+This is simply a generalisation of the binomial distribution.
+
+Consider $n$ independent and identical trials, on each of which there are $k$
+possible outcomes. On each trial let $p_i$ be the probability of outcome $i$ and
+let $Y_i$ be the total number of trials with outcome $i$ ($i = 1, \ldots k$).
+
+Then $Y_1, Y_2, \ldots , Y_k$ have a _multinominal distribution_ with joint pmf
+
+$$
+p(y_1, y_2, \ldots, y_k) = \frac{n!}{y_1 !y_2 ! \ldots y_k !} p_1^{y_1}p_2^{y_2}\cdots p_k^{y_k}, \qquad y_i \in \{ 0, 1, \ldots, n\}, \sum_{j = 1}^k y_j = n,
+$$
+
+($p_i \in [0, 1] and p_1 + p_2 + \cdots + p_k = 1$).
+
+We write $Y_1, Y_2, \ldots, Y_k \sim \text{Mult}(n; p_1, p_2, \ldots , p_k)$.
+
+## Multinomial Cefficients
+
+The number of ways of partitioning $n$ distinct objects into $k$ distinct groups
+is
+
+$$
+\binom{n}{y_1 \ldots y_k} = \frac{n!}{y_1 ! y_2 ! \ldots y_k !}, \qquad y_i = \text{count in $i$-th group}
+$$
+
+| Trial | 1   | 2   | 3   | 4   | 5   | \ldots | n   |
+| ----- | --- | --- | --- | --- | --- | ------ | --- |
+| Group | 1   | 3   | 5   | 1   | 1   | \cdots | 2   |
+: An Example Sequence {#tbl-example-seq}
+
+Given the sequence in @tbl-example-seq, we can state the probability as
+$$
+\begin{align}
+P(sequence) &= p_1p_3p_5p_1p_1\cdots p_2 \\
+&= p_1^{y_1} \ldots p_k^{y_k}
+\end{align}
+$$
+
+The probability of obtaining a distinct sequene where we observe $y_1, y_2, \ldots y_k$ is given by 
+$$
+P(y_1, y_2, \ldots , y_k) = \binom{n}{y_1 \ldots y_k} p_1^{y_1}p_2^{y_2} \ldots p_k^{y_k}
+$$
+
+## Example
+
+On 10 rolls of a die, what's the pr there will result 3 even numbers and 2 ones?
+
+Let $Y_1$ be the number of even numbers, $Y_2$ be number of ones, and $Y_3$ be number of threes and fives (non-evens and non-ones).
+
+Then $Y_1, Y_2, Y_3 \sim \text{Multi}(10; 1/2, 1/6, 1/3)$ with pmf
+$$
+p(y_1, y_2, y_3) = \frac{10!}{y_1 ! y_2 ! y_3 !} \left( \frac{1}{2} \right)^{y_1} \left( \frac{1}{6} \right)^{y_2} \left( \frac{1}{3} \right)^{y_3}
+$$
+So,
+$$
+p(3, 2, 5) =\frac{10!}{3! 2! 5!} \left( \frac{1}{2} \right)^3 \left( \frac{1}{6} \right)^2 \left( \frac{1}{3} \right)^5 = 0.03601
+$$
+
+# Three Important Theorems Regarding Linear Combinations of Random Variables
+
+::: {#thm-expectation-of-linear-combination}
+
+<!-- ## Linearity Regarding Expectations -->
+$$
+E \left\{ \sum_{i = 1}^n a_i Y_i \right\} = \sum_{i = 1}^n a_i\mu_i
+$$
+
+:::
+
+::: {#thm-variance}
+
+$$
+Var\left( \sum_{i = 1}^n a_i Y_i \right) = \sum_{i=1}^n a_i^2 \sigma_i^2 + 2 \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n a_i a_j \sigma_{ij} = \sum_{i = 1}^n \sum_{j = 1}^n a_i a_j \sigma_{ij}
+$$
+
+:::
+
+::: {#thm-covariance}
+
+$$
+Cov\left( \sum_{i = 1}^n a_i Y_i, \sum_{i = 1}^n b_i Y_i \right) = \sum_{i=1}^n \sum_{j = 1}^n a_i b_j \sigma_{ij}
+$$
+
+:::
+
+::: {.proof}
+
+The proof of @thm-expectation-of-linear-combination is trivial given the linearity of the expectation. The proof of @thm-variance is also trivial if @thm-covariance is proven. Hence, we would only need to prove @thm-covariance.
+
+$$
+\begin{align}
+\text{LHS} & = E \left[ \left( \sum_{i = 1}^n a_i Y_i - E\left( \sum_{i = 1}^n a_i Y_i \right) \right) \left( \sum_{j = 1}^n b_j Y_j - E\left( \sum_{j=1}^n b_j Y_j \right) \right) \right] \\
+& = E \left[ \left( \sum_{i = 1}^n a_i Y_i - \sum_{i = 1}^n a_i \mu_i \right) \left( \sum_{j = 1}^n b_j Y_j - \sum_{j = 1}^n b_j \mu_j \right) \right] \\
+& = E \left[ \left( \sum_{i = 1}^n a_i (Y_i - \mu_i) \right) \left( \sum_{j = 1}^n b_j (Y_j - \mu_j) \right) \right] \\
+& = \sum_{i = 1}^n \sum_{j = 1}^n a_i b_j E\left\{ (Y_i - \mu_i) (Y_j - \mu_j) \right\} = RHS \\
+\end{align} 
+$$
+
+:::
+
+::: {.callout-note title="Example 4"} 
+
+Suppose that $Y_1$, $Y_2$, and $Y_3$ are three rv's with means 2, -7, and 5, variances 10, 6, and 9, and covariances $\sigma_{12} = -1$, $\sigma_{13} = 3$, and $\sigma_{23} = 0$.
+
+Find:
+
+(a) $E(3Y_1 - 2Y_2 + Y_3)$
+(b) $Var(3Y_1 - 2Y_2 + Y_3)$
+(c) $Cov(3Y_1 - 2Y_2, Y_2 + 8 Y_3)$
+
+---
+
+(a) $E(3Y_1 - 2Y_2 + Y_3)$
+
+$$
+\begin{align}
+E(3Y_1 - 2Y_2 + Y_3) & = 3 \mu_1 - 2\mu_2 + \mu_3 \\
+& = 3 * 2 - 2 * (-7) + 5 = 25 \\
+\end{align}
+$$
+
+---
+
+(b) $Var(3Y_1 - 2Y_2 + Y_3)$
+
+$$
+\begin{align}
+Var(3Y_1 - 2Y_2 + Y_3) & = \sum_{i = 1}^n \sum_{j = 1}^n a_i a_j \sigma_{ij} \\
+& = 3 \times 3 \times 10 + 3 \times (-2) \times (-1) + 3 \times 1 \times 3 \\
+& \qquad + (-2) \times 3 \times (-1) + (-2) \times (-2) \times 6 + (-2) \times 1 \times 0 \\
+& \qquad + 1 \times 3 \times 3 + 0 \times 1 \times 1 \times 9 \\
+& = 105 + 33 + 18  = 156 \\
+\end{align}
+$$
+
+---
+
+(c) $Cov(3Y_1 - 2Y_2, Y_2 + 8 Y_3)$
+
+Now, in order to use @thm-covariance, we need to have the same list of variables. Therefore, we can use the following transformation,
+
+$$
+Cov(3 Y_1 - 2 Y_2, Y_2 + 8 Y_3) = Cov(3 Y_1 - 2 Y_2 + 0 Y_3, 0 Y_1 + Y_2 + 8 Y_3)
+$$
+
+Then, we can apply @thm-covariance as the following,
+
+$$
+\begin{align}
+Cov(3 Y_1 - 2 Y_2, Y_2 + 8 Y_3) &= Cov(3 Y_1 - 2 Y_2 + 0 Y_3, 0 Y_1 + Y_2 + 8 Y_3) \\
+& = 3(1)\sigma_{12} + 3(8)\sigma_{13} + (-2)1\sigma_{22} + (-2)8\sigma_{23} \\
+& = 3(-1) + 24(3) - 2(6) - 16(0) \\
+& = 57
+\end{align}
+$$
+
+:::
+
+::: {.callout-note title="Use the above three theorems to find the mean and variance of the hypergeometric distribution"}
+
+In order to determine the mean with @thm-expectation-of-linear-combination, we first need to decompose the random variable into linear combinations of smaller chuncks. In fact, we need to know the marginal distribution of all these randome variables while importantly, note that each of these trials are clearly not independent. In other words, suppose $X_i$ be the random variable that denotes whether the outcome at trial $i$ is successful (1) or not (0). Then, the marginal distribution of $X_i$ is the following assuming $Y \sim \text{HyperGeom}(N, r, n)$ and $X_1 + \cdots + X_n = Y$
+$$
+\begin{align}
+P(X_i = 1) &= \sum_{\text{all configurations with $X_i = 1$}} p(x_1, x_2, \ldots , x_{i-1}, 1, x_{i+1}, \ldots , x_n) \\
+& = \sum_{\text{all configurations with $X_i = 1$}} P(X_i = 1 \mid X_1 = x_1, \ldots X_{i - 1} = x_{i - 1}, X_{i + 1} = x_{i+1}, \ldots, X_{n} = x_n) P(\text{all other configurations}) \\
+& = \sum_{y' = 0}^{\min(r, n - 1)}{\left(\frac{r - y'}{N - n + 1}\right) \frac{\binom{r}{y'}\binom{N - r}{n - 1 - y'}}{\binom{N}{n - 1}}} \\
+& = \frac{1}{(N - n + 1)\binom{N}{n - 1}} \sum_{y' = 0}^{\min(r, n - 1)}{(r - y') \binom{r}{y'}\binom{N - r}{n - 1 - y'}} \\
+& = \frac{1}{(N - n + 1)\binom{N}{n - 1}} \sum_{y' = 0}^{\min(r, n - 1)}{r \binom{r - 1}{y'}\binom{N - r}{n - 1 - y'}} \\
+& = \frac{r}{(N - n + 1)\binom{N}{n - 1}} \sum_{y' = 0}^{\min(r, n - 1)}{ \binom{r - 1}{y'}\binom{N - r}{n - 1 - y'}} \\
+& = \frac{r}{(N - n + 1)\binom{N}{n - 1}} \binom{N - 1}{n - 1} \\
+& = \frac{r \binom{N-1}{n-1}}{(N-n+1)\frac{N}{N-n+1} \binom{N-1}{n-1}} \\
+& = \frac{r}{N} \\
+\end{align}
+$$ {#eq-hypergeom-marginal}
+
+Note that:
+
+- Going from line 2 to line 3, we have assumed that there are $y'$ number of possible cases from $X_1, \ldots , X_{i - 1}, X_{i + 1}, \ldots, X_n$. 
+- Going from line 3 to line 4 is nothing more than just algebraic manipulations. 
+- Going from line 4 to line 5 requires a relatively simple combinatoric identiy as $(r - k)\binom{r}{k} = r \binom{r-1}{k}$.
+- Going from line 5 to line 6 requires only moving $r$ out from the summation.
+- Going from line 6 to line 7 requires the [Vandermonde's identity](https://en.wikipedia.org/wiki/Vandermonde%27s_identity) but assuming that $r \geq n - 1$ [^assumption]. This identity simply states that $\sum_{k = 0}^{m} \binom{a}{k} \binom{b}{m - k} = \binom{a + b}{m}$. The proof of this identity can be done by considering the binomial expansion of the binomial $(1+x)^a(1+x)^b$, which is essential the same as $(1+x)^{a+b}$.
+- Going from line 7 to line 8 requires this identity: $\binom{N}{n - 1} = \frac{N}{N - n + 1}\binom{N - 1}{n - 1}$. The proof of this identity is relatively obvious from the expansion of the binomial coefficient into the full form.
+- Going from line 8 to line 9 requires only algebraic manipulations.
+
+Then, from this probability, it is clear that for each trial, it still follows a bernoulli distribution $\text{Bern}(r/N)$. Therefore, the mean and variance of each $X_i$ is trivial from existing results. However, the covariances can be derived as,
+$$
+\begin{align}
+Cov(X_i, X_j) & = E(X_i X_j) - E(X_i)E(X_j) \\
+& = \sum_{x_i = 0}^1 \sum_{x_j = 0}^1 x_i x_j P(X_i = x_i, X_j = x_j) - \left( \frac{r}{N} \right)^2 \\
+& = P(X_i = 1, X_j = 1) - \left( \frac{r}{N} \right)^2 \\
+& = \frac{r(r-1)}{N(N-1)} - \left( \frac{r}{N} \right)^2 = \frac{r(r-N)}{N^2(N-1)} \\
+\end{align}
+$$ {#eq-covariance-between-trial}
+Note that:
+
+- Going from second last to last line can be proven with a similar proof above. However, an intuitive way of thinking about it is using the law of total probability and first find $P(X_i)$ and then the condintional probability $P(X_j \mid X_i)$. This argument is possible because we can assume W.L.O.G by the unconditional is taken on the earlier event and the conditional even taken on the later event out of the two events. However, I suppose a more mathematical approach would be use a similar argument as @eq-hypergeom-marginal but replace the first term in the summation in line 3 with $$\frac{\binom{r - y'}{2}\binom{N - (n - 2) - (r - y')}{0}}{\binom{N - n + 2}{2}}$$ which should now be clear that it is simply a special of hypergeometric distribution where we only want positive cases.
+
+Hence, now, we can apply @thm-expectation-of-linear-combination and @thm-variance to obtain the required mean and variance of the hypergeometric distribution.
+
+$$
+\begin{align}
+E(Y) & = E \left( \sum_{i = 1}^n X_i \right) \\
+& = \sum_{i=1}^n E(X_i) \\
+& = \frac{nr}{N} \\
+Var(Y) & = Var\left( \sum_{i=1}^n X_i \right) \\
+& = \sum_{i = 1}^n \sum_{j = 1}^n \sigma_{ij} \\
+& = \left(\sum_{i = 1}^n \sigma_i^2\right) + \left( \sum_{i=1}^{n-1} \sum_{j = 1 + 1}^n \sigma_{ij} \right) \\
+& = n \frac{r}{N} (1 - \frac{r}{N}) + n(n-1) \frac{r(r-N)}{N^2(N-1)} \\
+& = \frac{nr}{N} \left( 1 - \frac{r}{N} + \frac{(n - 1)(r - N)}{N(N - 1)} \right) \\
+& = \frac{nr}{N} \left( \frac{N^2 - N}{N(N - 1)} - \frac{rN - r}{N(N - 1)} + \frac{(n - 1)(r - N)}{N(N - 1)} \right) \\
+& = \frac{nr}{N} \left( \frac{N^2 - rN + rn - nN}{N(N-1)}\right) \\
+& = \frac{nr}{N} \left( \frac{N(N - n) - r(N - n)}{N(N-1)} \right) \\
+& = \frac{nr(N - r)(N - n)}{N^2(N - 1)} \\
+\end{align}
+$$
+
+This confirms with the formula sheet given as well.
+
+:::
+
+::: {.callout-note title="Covariance of Multinomial Distribution"}
+
+Use the above three theorems to find $Cov(Y_i, Y_j)$ when $i \neq j$ and $Y_1, Y_2, \ldots , Y_k \sim \text{Mult}(n; p_1, p_2, \ldots, p_k)$.
+
+---
+
+I don't think there is an easy way to use the above three theorems. Instead a common way to approach this question is to actually consider two set of indicator variables that indicate whether the class is $i$ or $j$ at certain trial.
+
+:::
+
+[^assumption]: I believe this is generally a plausible assumptions to make otherwise it is possible to run out of items when you are performing the trials.
+
+# Continuous Multivariate Probability Distributions
+
+$Y_1, Y_2, \ldots , Y_n$ have a _continuous multivariate probability distribution_ if their joint cdf
+$$
+F(y_1, y_2, \ldots , y_n) = P(Y_1 \leq y_1, Y_2 \leq y_2, \ldots , Y_n \leq y_n)
+$$ is continuous everywhere.
+
+The _joint pdf_ of $Y_1, Y_2, \ldots, Y_n$ is then
+$$
+f(y_1, y_2, \ldots , y_n) = \frac{\partial^n F(y_1, y_2, \ldots y_n)}{\partial y_1 \partial y_2 \ldots \partial y_n}
+$$.
+
+All the definitions and results made for discrete joint distributions also hold for continuous ones, except that _summations_ must be replaced by integrals, and $p$'s need to be replaced by $f$'s.
+
+Thus:
+$$
+\idotsint_{\mathbb{R}^n} f(y_1, y_2, \ldots, y_n) \, dy_1 dy_2 \ldots dy_n = 1
+$$
+
+Also, we can calculate the probability by evaluating the integrals at the corret region. Similar to discrete we define the following (assume that we have two random variables for easiness of demonstrations):
+
+- $f_X(x) = \int f(x, y) \, dy$ (marginal pdf of $X$)
+- $f_{X|Y}(x|y) = \frac{f(x, y)}{f(y)}$ (conditional pdf of $X$ given $Y = y$)
+- $E(g(X, Y)) = \iint g(x, y) f(x, y) \, dx dy$
+- $E(c) = c$, etc.
+
