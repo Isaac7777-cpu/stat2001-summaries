@@ -92,7 +92,7 @@ $$
 p(x \mid y) = \frac{p(x, y)}{p(y)}
 $$
 
-This density defines the conditional probability distribution fo $X$ given that $Y = y$. 
+This density defines the conditional probability distribution for $X$ given that $Y = y$. 
 
 ## Degenerate Distribution
 
