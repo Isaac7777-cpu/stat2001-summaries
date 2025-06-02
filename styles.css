@@ -1,1 +1,15 @@
 /* css styles */
+
+/* This is the styling for proof with a QED appended. */
+.proof {
+  position: relative;
+}
+
+.proof::after {
+  content: "□";         /* Hollow square */
+  font-weight: bold;
+  font-size: 1.2em;      /* Slightly larger than normal text */
+  text-align: right;
+  display: block;
+  margin-top: 0.5em;
+}

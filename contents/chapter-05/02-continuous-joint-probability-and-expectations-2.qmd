@@ -295,7 +295,7 @@ $$
 
 :::
 
-::: {.callout-note title="Use the above three theorems to find the mean and variance of the hypergeometric distribution"}
+::: {.callout-note title="Use the above three theorems to find the mean and variance of the hypergeometric distribution" collapse=true}
 
 In order to determine the mean with @thm-expectation-of-linear-combination, we first need to decompose the random variable into linear combinations of smaller chuncks. In fact, we need to know the marginal distribution of all these randome variables while importantly, note that each of these trials are clearly not independent. In other words, suppose $X_i$ be the random variable that denotes whether the outcome at trial $i$ is successful (1) or not (0). Then, the marginal distribution of $X_i$ is the following assuming $Y \sim \text{HyperGeom}(N, r, n)$ and $X_1 + \cdots + X_n = Y$
 $$
@@ -396,3 +396,410 @@ Also, we can calculate the probability by evaluating the integrals at the corret
 - $E(g(X, Y)) = \iint g(x, y) f(x, y) \, dx dy$
 - $E(c) = c$, etc.
 
+# Conditional Expectation
+
+Now, wtih the definition of the conditional probability, we can define the conditional expectations as the following.
+$$
+E(X \mid Y = y) = \begin{cases}
+\sum_x xp(x \mid y), & \text{if $X$ is discrete} \\
+\int x f(x\mid y) dx, & \text{if $X$ is continuous} \\
+\end{cases}
+$$
+
+::: {.callout-note title="Example 6 --- Multivariate Continuous Random Variables" collapse=true}
+
+Suppose $X$ and $Y$ are two continuous random variables with joint pdf
+$$
+f(x, y) = cxy, \qquad 0 < x < 2y < 4
+$$. Find:
+
+(a) $P(X > 1, Y < 1)$
+(b) $E(Y)$
+(c) $\rho$
+(d) $E(X|Y = 1)$
+
+---
+
+(a) $P(X > 1, Y < 1)$
+
+This question is nothing hard when you recognise the fact that it is simply a multi-variate integral question. However, we first need to determine the constant.
+
+$$
+\begin{align}
+1 & = \int_{x=0}^4 \int_{y=\frac{1}{2}x}^2 cxy \, dydx \\
+& = c\int_{x=0}^4 x \left[ \frac{1}{2}y^2 \right]_{\frac{1}{2}x}^2 dx \\
+& = c \int_{x=0}^4 x \left( 2 - \frac{1}{8} x^2 \right)  dx \\
+& = c \left[ x^2 - \frac{1}{32}x^4 \right]_{0}^4 \\
+& = c \left(16 - \frac{256}{32}\right) = 8c \\
+\end{align}
+$$
+
+Therefore, we know that $c = \frac{1}{8}$. Now, we can proceed to evaluate the integral.
+
+$$
+\begin{align}
+P(X > 1, Y < 1) & = \int_{x=1}^2 \int_{y=\frac{1}{2}x}^1 \frac{xy}{8} \, dy dx \\
+& = \frac{1}{8} \int_{x=1}^2 x \left[ \frac{y^2}{2} \right]_{\frac{1}{2}x}^1 \, dx \\
+& = \frac{1}{8} \int_{x=1}^2 x \left( \frac{1}{2} - \frac{x^2}{8} \right) \, dx \\
+& = \frac{1}{8} \left[ \frac{x^2}{4} - \frac{x^4}{32} \right]_1^2 \\
+& = \frac{9}{256} \approx 0.035
+\end{align}
+$$
+
+---
+
+(b) $E(Y)$
+
+In order to find the expectations, we need to have the marginal distribution. However, it can be combined into one step.
+
+$$
+\begin{align}
+E(Y) & = \int_{y = 0}^2 y \int_{x=0}^{2y} \frac{xy}{8} \, dxdy \\
+& = \int_{y = 0}^2 \frac{y^2}{8} \left[ \frac{x^2}{2} \right]_0^{2y} \, dy \\
+& = \int_{y=0}^2 \frac{y^2}{8} \left( 2y^2 \right) = \int_{y=0}^2 \frac{y^4}{4} \, dy \\
+& = \left[ \frac{y^5}{20} \right]_0^2  = \frac{32}{20} = \frac{8}{5}
+\end{align}
+$$
+
+---
+
+(c) $\rho$
+
+$$
+\begin{align}
+E(Y^2) &= \int_{y = 0}^2 y^2 \frac{y^3}{4} \, dy \\
+& = \frac{2^6}{24} = \frac{8}{3} \\
+Var(Y) & = \frac{8}{3} - \left( \frac{8}{5} \right)^2 \\
+& = \frac{8}{75} \\
+\end{align}
+$$
+
+Also, we need to determine the same things for $X$ as well.
+
+$$
+\begin{align}
+E(X) & = \int_{y = 0}^2 \int_{x=0}^{2y} x f(x, y) \, dxdy \\
+&= \int_{y=0}^2 \frac{y}{8} \int_{x=0}^{2y} x^2 \, dxdy \\
+& = \int_{y = 0}^2 \frac{y}{8} \frac{8y^3}{3} \, dy \\
+& = \left[ \frac{y^5}{15} \right]_0^2 = \frac{32}{15} \\
+E(X^2) & = \int_{y = 0}^2 \int_{x=0}^{2y} x^2 f(x, y) \, dxdy \\
+&= \int_{y=0}^2 \frac{y}{8} \int_{x=0}^{2y} x^3 \, dxdy \\
+& = \int_{y = 0}^2 \frac{y}{8} \frac{16y^4}{4} \, dy = \int_{y = 0}^2 \frac{y^5}{2} \, dy \\
+& = \left[ \frac{y^6}{12} \right]_0^2 = \frac{16}{3} \\
+Var(X) & = E(X^2) - (E(X))^2 \\
+& = \frac{16}{3} - \left( \frac{32}{15} \right)^2 \\
+& = \frac{176}{225} \\
+E(XY) & = \int_{y = 0}^2 \int_{x=0}^{2y} xy f(x, y) \, dxdy \\
+&= \int_{y=0}^2 \frac{y^2}{8} \int_{x=0}^{2y} x^2 \, dxdy \\
+& = \int_{y = 0}^2 \frac{y^2}{8} \frac{8y^3}{3} \, dy = \int_{y = 0}^2 \frac{y^5}{3} \, dy \\
+& = \left[ \frac{y^6}{18} \right]_0^2 \\
+& = \frac{32}{9} \\
+Cov(X, Y) & = E(XY) - E(X)E(Y) \\
+& = \frac{32}{9} - \frac{32}{15}\frac{8}{5} = \frac{32}{225} \\
+\rho & = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}} \\
+& = \frac{\frac{32}{225}}{\sqrt{\frac{176}{225}}\sqrt{\frac{8}{75}}} = 0.4924
+\end{align}
+$$
+
+---
+
+(d) $E(X|Y = 1)$
+
+Let's first calculate the conditional distribution.
+
+$$
+\begin{align}
+f(x \mid y) &= \frac{f(x, y)}{f(y)}  \\
+& = \frac{\frac{xy}{8}}{\frac{y^3}{4}} \\
+& = \frac{x}{2y^2} \, (0 < x < 2y) \\
+\end{align}
+$$
+
+Then, we can find the expectation as,
+
+$$
+\begin{align}
+E(X \mid Y = y) & = \int_0^{2y} \frac{x^2}{2y^2} dx \\
+& = \frac{1}{2y^2} \frac{8y^3}{3} \\
+& = \frac{4y}{3} \\
+\end{align}
+$$
+
+Therefore, $E(X | Y = 1) = \frac{4}{3}$.
+
+:::
+
+## Random Expectations
+
+::: {#def-random-expectations}
+
+## Random Expectations
+
+By $E(X\mid Y)$, we denote the function $E(X\mid Y = y)$ _with $y$ replaced by $Y$._ This would then makes $E(X \mid Y)$ also be a random variable for which we can also apply expectations.
+
+:::
+
+For example, the above would have the random expectations fo $X|Y$ as
+$$
+E(X \mid Y) = \frac{4}{3} Y
+$$. Note that $E(X \mid Y)$ would be a random variable about $Y$ rather than $X$ as we have already taken the expectation over $X$.
+
+## The Law of Iterated Expectation
+
+::: {.callout-important title="Applications"}
+
+This theorem is commonly used in Bayesian Inference as we will discuss in CH16.
+
+:::
+
+::: {#thm-law-of-iterated-expectation}
+
+## Law of Iterated Expectation
+
+$$
+E(X) = E(E(X \mid Y))
+$$
+
+:::
+
+::: {.proof}
+
+$$
+\begin{align}
+E(E(X\mid Y)) & = \int E(X | Y = y) f(y) \, dy = \int \left( \int x f(x \mid y) \, dx \right) f(y) \, dy \\
+& = \iint x f(x, y) \, dxdy = E(X)
+\end{align}
+$$
+
+:::
+
+## Related Definitions and Results
+
+::: {#def-conditional-expectation-on-functions-of-rv}
+
+## Conditional Expectation on Function of Random Variable
+
+$$
+E(g(X) \mid Y = y) = \begin{cases}
+\sum_x g(x) p(x\mid y), & \text{if $X$ is discrete} \\
+\int g(x) f(x \mid y), & \text{if $X$ is continuous} \\
+\end{cases}
+$$
+
+$$
+E(g(X) \mid Y) = E(g(X) \mid Y)
+$$
+
+:::
+
+::: {#def-conditional-variance}
+
+## Variance on Conditional Variable
+
+As before, since we have obtained the expectation, we can also in a similar fashion define the variance with the expectation.
+
+$$
+Var(X \mid Y = y) = E \left[ \left( X - E(X \mid Y = y) \right)^2 \middle\vert Y = y \right]
+$$
+
+:::
+
+:::{#def-conditional-covariance}
+
+## Conditional Covariance
+
+$$
+Cov(X,Z) = E \left[ (X - E(X \mid Y = y))(Z - E(Z \mid Y = y)) \middle \vert Y =y  \right]
+$$
+
+:::
+
+---
+
+Equipped with the three definitions above, we can derivce the following alternative expression of the unconditional variables.
+
+::: {#thm-law-of-iterated-expectation-on-function-of-rv}
+
+## Law of Iterated Expectation (Function of R.V.)
+
+$$
+E(g(X)) = E(E(g(X) \mid Y))
+$$
+
+:::
+
+::: {#thm-iterated-variance}
+
+## Iterated Variance
+
+Similar to @thm-law-of-iterated-expectation-on-function-of-rv, we can use that to derive a "iterated" variance.
+
+$$
+Var(X) = E(Var(X \mid Y)) + Var(E(X \mid Y))
+$$
+
+:::
+
+::: {#thm-iterated-covariance}
+
+## Iterated Covariance
+
+$$
+Cov(X, Z) = E(Cov(X, Z \mid Y)) + Cov(E(X \mid Y), E(Z \mid Y))
+$$
+
+:::
+
+---
+
+### Proofs...?
+
+The proof of @thm-law-of-iterated-expectation-on-function-of-rv is almost equivalent as the proof that is required for @thm-law-of-iterated-expectation. The following will present the proof of @thm-iterated-variance and @thm-iterated-covariance.
+
+#### Proof of @thm-iterated-variance
+
+::: {.proof}
+
+## Proof of @thm-iterated-variance
+
+$$
+\begin{align}
+\text{RHS} &= E\left[ E\left[ \left( X - E\left[X \middle \vert Y\right] \right)^2 \middle \vert Y \right] \right] + E\left[ \left(E\left[X \mid Y\right] - E\left[E\left[X \middle \vert Y\right]\right]\right)^2 \right] \\
+& = E\left[ (X - E(X \mid Y))^2 \right] + E\left[ (E(X \mid Y) - E(X))^2 \right] \\
+& = E \left[ (X-E[X \mid Y])^2 + (E(X \mid Y) - E(X))^2 \right] \\
+& = E \left[ X^2 - 2XE[X\mid Y] + (E[X \mid Y])^2 + (E[X \mid Y])^2 - 2E(X)E(X|Y) + (E[X])^2 \right] \\
+& = E[X^2] - 2 E[XE[X \mid Y]] + 2E[(E[X \mid Y])^2] -2E[X]E[E[X \mid Y]] + (E[X])^2 \\
+& = E[X^2] - (E[X])^2 - 2E[XE[X \mid Y]] + 2E[(E[X\mid Y])^2] \\
+& = Var(X) - 2E[XE[X \mid Y]] + 2E[(E[X \mid Y])^2] \\
+\end{align}
+$$
+
+Now, if we can prove the law two terms sum to zero, we have proven the identity. In fact, we only need to show that $$E[XE[X \mid Y]] = E[(E[X \mid Y])^2]$$. Before, that, we will first show the following lemman is true.
+
+:::{#lem-expectation-pull-out}
+
+$$
+E[X \cdot g(Y)] = E[E[X \mid Y] \cdot g(Y)]
+$$
+
+:::
+
+The following gives the proof for continuous case in @lem-expectation-pull-out and discrete case should follow closely. First, we again apply @thm-law-of-iterated-expectation-on-function-of-rv (The Law of Iterated Expectations).
+$$
+E[X \cdot g(Y)] = E[E[X \cdot g(Y) \mid Y]]
+$$
+
+Now, the following will fill in the proof for @lem-expectation-pull-out.
+$$
+\begin{align}
+E[X \cdot g(Y) \mid Y = y] & = E[X \cdot g(y) \mid Y = y] \\
+& = \int_x xg(y) P[X = x \mid Y = y] \, dx \\
+& = g(y) \int_x x P[X = x \mid Y = y] \, dx \\
+& = g(y) E[X \mid Y = y]
+\end{align}
+$$
+
+Therefore, from the definition of random expectations (@def-random-expectations), we know the following,
+$$
+E[X \cdot g(Y) \mid Y] = g(Y) E[X \mid Y = Y] = g(Y) E[X \mid Y]
+$$
+
+Then, we can simply apply @lem-expectation-pull-out to the following by treating $g(Y) = E[X \mid Y]$,
+$$
+\begin{align}
+E[XE[X \mid Y]] &= E[E[X\cdot E[X \mid Y] \mid Y ]] \\
+&= E[E[X \cdot g(Y) \mid Y]] \qquad (\text{Let $g(Y) = E[X \mid Y]$}) \\
+&= E[g(Y) E[X \mid Y]] = E[(E[X \mid Y])^2]
+\end{align}
+$$ in which the lemman is applied in the second step.
+
+:::
+
+#### Proof of @thm-iterated-covariance
+
+::: {.proof}
+
+## Proof of @thm-iterated-covariance
+
+Similar to above, we will first expand the terms and see if there is any things we can reduce.
+
+$$
+\begin{align}
+\text{RHS} &= E\left[ E\left[ (X - E[X \mid Y])(Z - E[Z \mid Y]) \mid Y \right] \right] + E\left[ (E[X \mid Y] - E[E[X \mid Y]])(E[Z \mid Y] - E[E[Z \mid Y]]) \right] \\
+& = E[(X - E[X \mid Y])(Z - E[Z \mid Y])] + E\left[ (E[X \mid Y] - E[X])(E[Z \mid Y] - E[Z]) \right] \\
+\end{align}
+$$
+
+The last step is arrived by using the law of iterated expectation. Now, let's simply the first term first,
+
+$$
+\begin{align}
+ E\left[ (X - E[X \mid Y])(Z - E[Z \mid Y]) \right] & = E[XZ - X E[Z \mid Y] - ZE[X \mid Y] + E[X\mid Y]E[Z \mid Y]] \\
+& = E[XZ] - E[XE[Z \mid Y]] - E[Z E[X \mid Y]] + E[E[X \mid Y]E[Z \mid Y]] \\
+& = E[XZ - E[X\mid Y]E[Z \mid Y]]
+\end{align}
+$$
+
+Going from line (2) to line (3) is by using @lem-expectation-pull-out as same way as it is applied in the last step in the proof of @thm-iterated-variance above. Then, the original expression is simplified as,
+
+$$
+\begin{align}
+\text{Exp} & = E[XZ - E[X\mid Y]E[Z\mid Y] + (E[X \mid Y] - E[X])(E[Z \mid Y] - E[Z])] \\
+& = E[XZ - E[X \mid Y][Z \mid Y] + E[X\mid Y][Z \mid Y] - E[X]E[Z \mid Y] - E[Z]E[X \mid Y] + E[X]E[Z]] \\
+& = E[XZ] - E[X]E[Z] - E[X]E[E[Z \mid Y] + E[Z]E[E[X\mid Y]]] \\
+& = E[XZ] - E[X]E[Z] - E[X]E[Z] + E[Z]E[X] \\
+& = E[XZ] - E[X]E[Z] = Cov(X, Z) \\
+\end{align}
+$$
+
+:::
+
+::: {.callout-note title="Comment"}
+
+Hence, we can see that the hard part is actually to see @lem-expectation-pull-out which is done in the last proof. Hence, this proof is relatively simple.
+
+:::
+
+### Examples
+
+::: {.callout-note title="Example 7"}
+
+Twenty bolts have just been randomly sampled from the production line in a factory. You are now going to count the number of defectives amongst them.
+
+From experience, you know that the proportion of defective bolts produced in the factory is constant throughout any given day, but varies from day to day in a uniform manner between $0.1$ and $0.3$.
+
+Find: 
+
+(a) How many defective bolts do you expect to find?
+(b) What is the variance of the number of defective bolts?
+
+_Solution:_
+
+---
+
+(a) How many defective bolts do you expect to find?
+
+Let $X$ be the number of defectives amongst the 20, and let $Y$ be the proportion of defectives amongst all bolts produced in the factory today.
+
+Then $(X | Y = y) \sim \text{Bin}(20, y)$, and $Y \sim U(0.1, 0.3)$.
+So $E[X \mid Y = y] = 20y \implies E[X \mid Y] = 20Y$ and $E[Y] = 0.2$.
+
+Therefore, $E[X] = E[E[X \mid Y]] = E[20Y] = 20 \times 0.2 = 4$.
+
+---
+
+(b) What is the variance of the number of defective bolts?
+
+Similarly, we will use @thm-iterated-variance to determine the variance.
+
+First, $$Var[Y] = \frac{0.04}{12} = \frac{1}{300} = 0.0033 \hspace{30pt} E[Y^2] = Var(Y) + (E[Y])^2 = \frac{13}{300} = 0.43$$. Also, we now that $$Var(X \mid Y) = nY(1-Y)$$ since $(X \mid Y = y) \sim \text{Bin}(20, y)$. Therefore,
+$$
+\begin{align}
+Var(X) &= E[Var(X \mid Y)] + Var(E[X \mid Y]) \\
+& = E[20Y(1 - Y)] + Var(20Y) \\
+& = E[20Y] - E[20Y^2] + 400Var(Y) \\
+& = 20 * 0.2 - 20 \left(\frac{13}{300}\right) + 400 \left( \frac{1}{300} \right) = \frac{67}{15} = 4.4667 \\
+\end{align}
+$$
+
+:::
