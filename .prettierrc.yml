@@ -7,6 +7,6 @@ trailingComma: "es5"
 # ...
 overrides:
   # Format QMD files as MD files
-  - files: "**.qmd"
+  - files: "**/*.qmd"
     options:
       parser: "markdown"

@@ -50,7 +50,7 @@ Note that the joint probability distribution of $X$ and $Y$ can be presented as,
 
 # Joint CDF
 
-The joint cdf of $X$ and $Y$ is $F(x, y) - P(X \leq x, Y \leq y)$.
+The joint cdf of $X$ and $Y$ is $F(x, y) = P(X \leq x, Y \leq y)$.
 
 ## Properties of joint CDFs
 
@@ -154,7 +154,7 @@ $$
 \begin{align}
 \text{LHS} &= E\{ (X - \mu_X)(Y - \mu_Y) \} = E \{ XY - X \mu_X - Y \mu_Y + \mu_X \mu_Y \} \\
 & = E(XY) - E(X)\mu_Y - E(Y)\mu_X + \mu_X \mu_Y \\
-& = E(XY) + \mu_X \mu_Y = \text{RHS}
+& = E(XY) - \mu_X \mu_Y = \text{RHS}
 \end{align}
 $$
 
