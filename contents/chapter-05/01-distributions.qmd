@@ -64,7 +64,7 @@ Note that with their properties in mind, the joint cdf of $X$ and $Y$ in our exa
 $$
 F(x, y) = \begin{cases}
    1/2, & x \geq 0, 0 \leq y < 1 \\
-   5/6, & 0 \geq x < 1, y \geq 1  \\
+   5/6, & 0 \leq x < 1, y \geq 1  \\
 \end{cases}
 $$
 
