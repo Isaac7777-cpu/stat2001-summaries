@@ -59,7 +59,7 @@ The joint cdf of $X$ and $Y$ is $F(x, y) - P(X \leq x, Y \leq y)$.
 3. $F(x, y)$ is nondecreasing in both $x$ and $y$ directions.
 4. $F(x, y)$ is right-continuous in both $x$ and $y$ directions.
 
-Note that with there properties in mind, the joint cdf of $X$ and $Y$ in our example could be written more simply as 
+Note that with their properties in mind, the joint cdf of $X$ and $Y$ in our example could be written more simply as 
 
 $$
 F(x, y) = \begin{cases}
