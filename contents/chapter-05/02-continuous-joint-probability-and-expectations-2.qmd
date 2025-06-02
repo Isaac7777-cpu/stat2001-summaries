@@ -802,4 +802,8 @@ Var(X) &= E[Var(X \mid Y)] + Var(E[X \mid Y]) \\
 \end{align}
 $$
 
+---
+
+I think this example question can easily become a bayesian estimate question by throwing another question about the distribution of $Y | X$.
+
 :::
