@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT2001 Weekly Topics – STAT3011 Revision Summaries</title>
+<title>CH05: Multivariate Distributions – STAT3011 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-313af60282ae63108b7c343eeab407e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/chapter-05/01-distributions.html" rel="next">
+<link href="../../contents/chapter-03/2measures.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-313af60282ae63108b7c343eeab407e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -245,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT3011 Revision Summaries</span>
     </a>
   </div>
@@ -256,11 +258,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About This Site</span></a>
   </li>  
 </ul>
@@ -275,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT2001 Weekly Topics</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-05/index.html">CH05: Multivariate Distributions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -285,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -306,13 +308,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH02: Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH03: Discrete R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -321,13 +323,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Known Discrete Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Measures Related to Distribution</span></a>
   </div>
 </li>
@@ -335,22 +337,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-05/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">CH05: Multivariate Distributions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
   </div>
 </li>
@@ -358,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH04: Continuous R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -367,13 +369,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Known Continuous Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectations</span></a>
   </div>
 </li>
@@ -391,25 +393,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#weekly-topics-overview" id="toc-weekly-topics-overview" class="nav-link active" data-scroll-target="#weekly-topics-overview"><span class="header-section-number">1</span> 📘 Weekly Topics Overview</a>
-  <ul class="collapse">
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">1.1</span> 📌 Notes</a></li>
-  </ul></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">1</span> Learning Goals</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/topics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/topics.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-05/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-05/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-02/index.html">Contents</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-05/index.html">CH05: Multivariate Distributions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">STAT2001 Weekly Topics</h1>
+<h1 class="title">CH05: Multivariate Distributions</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     
   
@@ -421,103 +420,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="weekly-topics-overview" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 📘 Weekly Topics Overview</h1>
-<p>This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.</p>
-<hr>
-<table class="table-striped table-hover caption-top table">
-<caption>Weekly Study Plan</caption>
-<colgroup>
-<col style="width: 7%">
-<col style="width: 28%">
-<col style="width: 63%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Week</strong></th>
-<th><strong>Topic</strong></th>
-<th><strong>Extra Information</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>CH1 Statistics; CH2 Probability</td>
-<td>Calculus notes</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>CH2 Probability</td>
-<td>Refresher Quiz 1, Refresher Quiz 2 on combinatorics</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>CH2 Probability</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>CH3 Discrete Random Variables</td>
-<td>Makeup Tue 11/3, Formula sheet, Binomial distribution</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>CH4 Continuous Random Variables</td>
-<td>Assessable Quiz due Fri 21/3, Gamma distribution, R and random variables</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>CH5 Multivariate Probability</td>
-<td>Assignment 1 available</td>
-</tr>
-<tr class="odd">
-<td>—</td>
-<td><strong>Teaching Break</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>CH6 Functions of Random Variables</td>
-<td>Assignment 1 due</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>CH7 Sampling Distributions &amp; CLT</td>
-<td>Makeup Tue 22/4</td>
-</tr>
-<tr class="even">
-<td>9*</td>
-<td>CH8 Estimation</td>
-<td>Assignment 2 available</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>CH9 Point Estimation</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>CH16 Bayesian Methods; CH10</td>
-<td>Assignment 2 due</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>CH10 Hypothesis Testing</td>
-<td>Non-exhaustive summary</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<section id="notes" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="notes"><span class="header-section-number">1.1</span> 📌 Notes</h2>
+<section id="learning-goals" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Learning Goals</h1>
 <ul>
-<li>Chapters refer to the textbook used in the course (check Wattle or course outline for details).</li>
-<li>Makeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.</li>
-<li>This schedule is intended for student revision and is not officially endorsed by ANU.</li>
+<li>More than one random variable</li>
+<li>Joint PMF/PDF or CDF</li>
+<li>Both Discrete and Continuous</li>
+<li>Expectations, Variance, etc.</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -933,6 +845,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/chapter-03/2measures.html" class="pagination-link" aria-label="Measures Related to Distribution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Measures Related to Distribution</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/chapter-05/01-distributions.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -941,7 +865,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/topics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/topics.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-05/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-05/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

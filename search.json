@@ -1,17 +1,31 @@
 [
   {
-    "objectID": "topics.html",
-    "href": "topics.html",
-    "title": "STAT2001 Weekly Topics",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT2001 Revision Hub",
     "section": "",
-    "text": "This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.\n\n\nWeekly Study Plan\n\n\n\n\n\n\n\nWeek\nTopic\nExtra Information\n\n\n\n\n1\nCH1 Statistics; CH2 Probability\nCalculus notes\n\n\n2\nCH2 Probability\nRefresher Quiz 1, Refresher Quiz 2 on combinatorics\n\n\n3\nCH2 Probability\n\n\n\n4\nCH3 Discrete Random Variables\nMakeup Tue 11/3, Formula sheet, Binomial distribution\n\n\n5\nCH4 Continuous Random Variables\nAssessable Quiz due Fri 21/3, Gamma distribution, R and random variables\n\n\n6\nCH5 Multivariate Probability\nAssignment 1 available\n\n\n—\nTeaching Break\n\n\n\n7\nCH6 Functions of Random Variables\nAssignment 1 due\n\n\n8\nCH7 Sampling Distributions & CLT\nMakeup Tue 22/4\n\n\n9*\nCH8 Estimation\nAssignment 2 available\n\n\n10\nCH9 Point Estimation\n\n\n\n11\nCH16 Bayesian Methods; CH10\nAssignment 2 due\n\n\n12\nCH10 Hypothesis Testing\nNon-exhaustive summary\n\n\n\n\n\n\n\nChapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+    "text": "This site is your companion for revising STAT2001: Introductory Mathematical Statistics at ANU. Whether you’re preparing for exams or reinforcing weekly concepts, you’ll find concise summaries, worked examples, and practice materials here.\n\n\n\nThe content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators.\n\n\n\n\n\nAll examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions.\n\n\n\n\n\nNavigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
   },
   {
-    "objectID": "topics.html#notes",
-    "href": "topics.html#notes",
-    "title": "STAT2001 Weekly Topics",
+    "objectID": "index.html#topics-covered",
+    "href": "index.html#topics-covered",
+    "title": "STAT2001 Revision Hub",
     "section": "",
-    "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+    "text": "The content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators."
+  },
+  {
+    "objectID": "index.html#tools-and-resources",
+    "href": "index.html#tools-and-resources",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "All examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "STAT2001 Revision Hub",
+    "section": "",
+    "text": "Navigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
   },
   {
     "objectID": "contents/chapter-04/index.html",
@@ -62,107 +76,103 @@
     ]
   },
   {
-    "objectID": "contents/chapter-04/1rv.html",
-    "href": "contents/chapter-04/1rv.html",
-    "title": "Known Continuous Distributions",
+    "objectID": "contents/chapter-04/2measures.html",
+    "href": "contents/chapter-04/2measures.html",
+    "title": "Expectations",
     "section": "",
-    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
+    "text": "As foreshadowed in previous discrete section, it is natural to believe that most of the results can be directly imported. (Otherwise, we wouldn’t have spend so much time.)",
     "crumbs": [
       "Home",
       "Contents",
       "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
+      "Expectations"
     ]
   },
   {
-    "objectID": "contents/chapter-04/1rv.html#uniform-distribution",
-    "href": "contents/chapter-04/1rv.html#uniform-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "",
-    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
+    "objectID": "contents/chapter-04/2measures.html#results",
+    "href": "contents/chapter-04/2measures.html#results",
+    "title": "Expectations",
+    "section": "1.1 Results",
+    "text": "1.1 Results\n\nI will try my best to include all the proofs for the results here. However, these proofs are done by me likely to contain relatively high amounts of mistakes.\n\n\nTheorem 1 (Three Properties) For \\(c \\in \\mathbb{R}\\), and \\(Y\\) continuous r.v.\n\n\\(E(c) = c\\)\n\\(E(cg(Y)) = cE(g(Y))\\)\n\\(E(g_1(Y) + \\cdots + g_k(Y)) = \\sum_{i=1}^k E(g_i(Y))\\)\n\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(c) &= \\int_{-\\infty}^\\infty c f(y) \\, dy \\\\\n&= c \\int_{-\\infty}^\\infty f(y) \\, dy \\\\\n&= c\n\\end{align*}\\]\nThe last step is a result of the fact that the pdf also integrate to 1 by definition.\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(cg(Y)) &= \\int_{-\\infty}^\\infty c g(y) f(y) \\, dy \\\\\n&= c \\int_{-\\infty}^\\infty g(y)f(y) \\, dy \\\\\n&= c E(g(Y))\n\\end{align*}\\]\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(\\sum_{i=1}^k g_i(Y)) &= \\int_{-\\infty}^\\infty \\left( \\sum_{i=1}^k g_i(y) f(y) \\right) \\, dy \\\\\n&= \\sum_{i = 1}^k \\left( \\int_{-\\infty}^\\infty g_i(y) f(y) \\, dy \\right) \\\\\n& = \\sum_{i=1}^k E(g_i(Y)) \\\\\n\\end{align*}\\]\nThe second line is by linearity of the integration operation.\n\n\nAs I have mentioned when we were proving the discrete version of the Chebyshev’s Theorem, there is a continuous version that is exactly the same. Now, here is the statement and the proof.\n\nTheorem 2 (Continuous Version of Chebyshev’s) If \\(Y\\) is continuous r.v., then \\[\nP(\\lvert Y - \\mu \\rvert &lt; k\\sigma) \\geq 1 - 1 / k^2\n\\]\n\n\nProof. \\[\\begin{align*}\n\\sigma^2 & = \\int_{-\\infty}^\\infty (Y - \\mu)^2 f(y) \\, dy \\\\\n& = \\int_{-\\infty}^{k\\sigma - \\mu} (y - \\mu)^2f(y) \\, dy + \\int_{k\\sigma + \\mu}^\\infty (y - \\mu)^2 f(y) \\, dy \\\\\n& = \\int_{-\\infty}^{k\\sigma - \\mu} (k\\sigma)^2 f(y) \\, dy + \\int_{k\\sigma + \\mu}^\\infty (k\\sigma)^2 f(y) \\, dy \\\\\n& = (k\\sigma)^2 \\left( \\int_{-\\infty}^{k - \\mu} f(y) \\, dy + \\int_{k + \\mu}^\\infty f(y) \\, dy \\right) \\\\\n& = (k\\sigma)^2 P(Y \\leq k\\sigma - \\mu \\cup Y \\geq k\\sigma + \\mu) \\\\\n& = (k\\sigma)^2 P(\\lvert Y - \\mu \\rvert \\leq k\\sigma)\n\\end{align*}\\]\nTherefore,\n\\[\nP(\\lvert Y - \\mu \\rvert \\leq k\\sigma) \\leq 1 / k^2\n\\]\nTherefore, obtaining the following,\n\\[\nP\\left(\\lvert Y - \\mu \\rvert &gt; k \\sigma \\right) &gt; 1 - \\frac{1}{k^2}\n\\]",
     "crumbs": [
       "Home",
       "Contents",
       "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
+      "Expectations"
     ]
   },
   {
-    "objectID": "contents/chapter-04/1rv.html#normal-distribution",
-    "href": "contents/chapter-04/1rv.html#normal-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "2 Normal Distribution",
-    "text": "2 Normal Distribution\n\nDefinition 2 (Normal Distribution) A random variable \\(Y\\) has the normal distribution with parameters \\(a\\) and \\(b^2\\) if its pdf is of the form\n\\[\nf(y) = \\frac{1}{b\\sqrt{2\\pi}} e^{-\\frac{(y - a)^2}{2b^2}}, \\quad -\\infty &lt; y &lt; \\infty \\, (-\\infty &lt; a &lt; \\infty, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\mathcal{N}(a, b^2)\\).\n\n\n\n2.1 Interactive Widget\n\n\nShow the code\nviewof normal_mu = Inputs.range([-10, 10], { label: \"mean\", step: 0.1, value: 0 })\nviewof normal_var = Inputs.range([0, 10], { label: \"variance\", step: 0.1, value: 1 })\n\nnormal_xs = Array.from({ length: 200 }, (_, i) =&gt; \n  - 4 * 4 + (i / 199) * 8 * 4  // from μ - 4σ to μ + 4σ\n)\n\n// PDF of Normal Distribution\nnormal_pdf = normal_xs.map(x =&gt; ({\n  x,\n  y: (1 / (normal_var * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * ((x - normal_mu) / normal_var) ** 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nnormal_cdf = normal_xs.map(x =&gt; ({\n  x,\n  y: 0.5 * (1 + erf((x - normal_mu) / (normal_var * Math.sqrt(2))))\n}))\n\n// Helper: error function approximation\nfunction erf(x) {\n  // Abramowitz and Stegun formula 7.1.26\n  const sign = x &gt;= 0 ? 1 : -1\n  const a1 = 0.254829592,\n        a2 = -0.284496736,\n        a3 = 1.421413741,\n        a4 = -1.453152027,\n        a5 = 1.061405429,\n        p = 0.3275911\n\n  const t = 1 / (1 + p * Math.abs(x))\n  const y = 1 - (((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t) * Math.exp(-x * x)\n  return sign * y\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...normal_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...normal_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomNormal(normal_mu, normal_var ** (0.5))})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.2 Standardisation\nWithout a computer, the only way to evaluate the probability is using a normal distribution table. However, such table only provides information about the standard normal distribution. Therefore, it becomes important to use standardisation to change any r.v. following normal distribution to the standard normal distribution.\n\nTheorem 2 (Standardisation Normal Technique) If \\(Y \\sim \\mathcal{N}(a, b^2)\\), then \\(Z = \\frac{Y - a}{b} \\sim \\mathcal{N}(0, 1)\\).\n\nWe say that \\(Y\\) has been standardised, and that \\(Z\\) is the standardised version of \\(Y\\).\nNote that this technique is used not only for finding the probability in the exam with normal table, this can also be used to normalise the training data for a machine learning model1.",
+    "objectID": "contents/chapter-04/2measures.html#working-examples",
+    "href": "contents/chapter-04/2measures.html#working-examples",
+    "title": "Expectations",
+    "section": "1.2 Working Examples",
+    "text": "1.2 Working Examples\n\nExample 1 Find the mean and variance of the standard uniform distribution\nSuppose that \\(Y \\sim U(0, 1)\\). Then \\(Y\\) has pdf \\(f(y) = 1\\), \\(0 &lt; y &lt; 1\\). Therefore, \\[\n\\mu = \\int_0^1 yf(y) dy = \\int_0^1 y 1 dy = \\left[ \\frac{y^2}{2} \\middle\\vert _{y=0}^1 \\right] = \\frac{1}{2}\n\\]\nAlso, \\[\n\\mu_2' = \\int_0^1 y^2 1 \\, dy = \\left[ \\frac{y^3}{3} \\middle\\vert _{y=0}^1 \\right] = \\frac{1}{3}\n\\]\nTherefore, \\[\n\\sigma^2 = \\frac{1}{3} \\left( \\frac{1}{2} \\right)^2 = \\frac{1}{12}\n\\]\nNote: We could use the mgf method here, but it is problematic in this case. This is because, \\[\nm(t) = \\frac{e^t - 1}{t} \\implies m'(t) = \\frac{e^t(t - 1) + 1}{t^2}\n\\] , which is undefined at \\(t = 0\\). So use L’Hopital’s rule (twice) to get \\[\n\\mu = \\lim_{t \\to 0} m'(t) = \\lim_{t \\to 0} \\frac{\\frac{d}{dt}(e^t(t-1) + 1)}{\\frac{d}{dt} t^2} = \\lim_{t \\to 0} \\frac{t e^t}{2t} = \\lim_{t \\to 0} \\frac{\\frac{d}{dt} (t e^t)}{\\frac{d}{dt} (2t)} = \\lim_{t \\to 0} \\frac{e^t(t+1)}{2} = \\frac{1}{2}\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nI think the evaluation can be simpler by using the following\n\\[\n\\mu = \\lim_{t \\to 0} m'(t) = \\lim_{t \\to 0} \\frac{\\frac{d}{dt}(e^t(t-1) + 1)}{\\frac{d}{dt} t^2} = \\lim_{t \\to 0} \\frac{t e^t}{2t} = \\lim_{t \\to 0} \\frac{e^t}{2} = \\frac{1}{2}\n\\]\n\n\n\n\n\n\nExample 2 Find the mean and variance of the exponential distribution.\nIn this case the mgf method works well1.\nBy using the mgf of exponential distribution, we have \\[\nm'(t) = - (1 - bt)^{-2} (-b) = b(1 - bt)^{-2}\n\\]\nAnd \\[\nm''(t) = (-2) b(1-bt)^{-3} (-b) = 2b^2(1- bt)^{-3}\n\\]\nTherefore, \\(\\mu_1' = m'(0) = b\\) and \\(\\mu_2' = m''(0) = 2b^2\\). Hence, variance is \\(2b^2 - b^2 = b^2\\).\n\n\n\n\n\n\nAlternative Methods\n\n\n\nNote that it is possible to directly use integration by part to obtain the result, but it is clearly much more tedious.\n\n\n\n2 Appendix\n\nTheorem 3 (mgf of Gamma Distribution) Suppose \\(Y \\sim \\text{Gam}(\\alpha, \\beta)\\) for some \\(\\alpha, \\beta &gt; 0\\), then\n\\[\nm_Y(t) = \\begin{cases}\n\\left(1 - \\beta t \\right)^{-\\alpha} & t &lt; \\beta \\\\\n\\text{does not exist} & t &gt; \\beta \\\\\n\\end{cases}\n\\]\n\n\nProof. \\[\n\\begin{align}\nm_Y(t) = E(e^{Yt}) & = \\int_0^\\infty e^{ty} f_Y(y) \\, dy \\\\\n& = \\int_0^\\infty e^{yt} \\frac{y^{a-1}e^{-y/b}}{b^a \\Gamma(a)} \\, dy \\\\\n& = \\int_0^\\infty \\frac{1}{b^a \\Gamma(a)} y^{a - 1} e^{-(\\frac{1}{b} - t)y} \\, dy \\\\\n& = \\frac{\\left( \\frac{1}{b} - t\\right)^{-a}}{b^a} \\int_0^\\infty \\frac{y^{a-1}e^{-y\\left( \\frac{1}{b} - t\\right)^{-1}}}{\\left( \\frac{1}{b} - t\\right)^{-a} \\Gamma(a)} \\\\\n& = \\frac{b^a (1 - bt)^{-a}}{b^a} \\cdot 1 = (1 - bt)^{-a}\n\\end{align}\n\\]\nThe last line is derived by the fact that the integral in the second last line is simply the probability of a gamma distributed random variable having any value between \\(0\\) and \\(\\infty\\). Therefore, the integral is \\(1\\).\n\n\nTheorem 4 (mgf of Exponential Distribution) \\[\nm_X(t) = (1 - bt)^{-1}\n\\]\n\n\nProof. The proof is clear from the definition of exponential distribution and Theorem 3.",
     "crumbs": [
       "Home",
       "Contents",
       "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
+      "Expectations"
     ]
   },
   {
-    "objectID": "contents/chapter-04/1rv.html#gamma-distribution",
-    "href": "contents/chapter-04/1rv.html#gamma-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "3 Gamma Distribution",
-    "text": "3 Gamma Distribution\n\nDefinition 3 (Gamma Distribution Pdf) A random variable \\(Y\\) has the gamma distribution with parameters \\(a\\) and \\(b\\) if its pdf is of the form \\[\nf(y) = \\frac{y^{a-1}e^{-y/b}}{b^a \\Gamma(a)}, \\quad y &gt; 0 \\quad (a, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\text{Gam}(a, b)\\).\n\n\n3.1 Mysterious \\(\\Gamma(\\cdot)\\)\n\\(\\Gamma(\\cdot)\\) here is the gamma function, defined by \\(\\Gamma(k) = \\int_0^\\infty t^{k-1}e^{-t}\\, dt\\).\nSome properties:\n\n\\(\\Gamma(k) = (k - 1) \\Gamma(k - 1)\\) if \\(k &gt; 1\\)\n\\(\\Gamma(k) = (k - 1)!\\) if \\(k\\) is a positive integer (e.g. \\(\\Gamma (4) = 3! = 6\\))\n\\(\\Gamma(1/2) = \\sqrt{\\pi}\\)\n\n\n\nShow the code\nfunction gamma(z) {\n  const g = 7\n  const p = [\n    0.99999999999980993,\n    676.5203681218851,\n   -1259.1392167224028,\n    771.32342877765313,\n   -176.61502916214059,\n    12.507343278686905,\n   -0.13857109526572012,\n    9.9843695780195716e-6,\n    1.5056327351493116e-7\n  ]\n\n  if (z &lt; 0.5) {\n    return Math.PI / (Math.sin(Math.PI * z) * gamma(1 - z))\n  } else {\n    z -= 1\n    let x = p[0]\n    for (let i = 1; i &lt; g + 2; i++) {\n      x += p[i] / (z + i)\n    }\n    const t = z + g + 0.5\n    return Math.sqrt(2 * Math.PI) * t**(z + 0.5) * Math.exp(-t) * x\n  }\n}\n\n// Generate values for plotting\ngam_xs = Array.from({ length: 200 }, (_, i) =&gt; 0.01 + i / 199 * (8 - 0.01))\ngamma_data = gam_xs.map(x =&gt; ({ x, y: gamma(x) }))\n\n// Plot\nPlot.plot({\n  title: `Gamma Function Γ(x), from x = 0.01 to ${8}`,\n  marks: [\n    Plot.line(gamma_data, { x: \"x\", y: \"y\", stroke: \"purple\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\", domain: [0, 8] },\n  y: { label: \"Γ(x)\" },\n  width: 600,\n  height: 300\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Mode of Gamma Distribution\n\nTheorem 3 (Mode of Gamma Distribution) \\[\nMode(Y) = \\begin{cases}\nb(a-1) & a \\geq 1 \\\\\n0 & a &lt; 1\n\\end{cases}\n\\]\n\n\n\n\n3.3 Interactive Widget\n\n\nShow the code\nviewof gamma_a = Inputs.range([0.4, 5], { label: \"a\", step: 0.1, value: 1 })\nviewof gamma_b = Inputs.range([0.1, 5], { label: \"b\", step: 0.1, value: 1 })\n\nfunction gammainc_lower(x, a) {\n  // Lower regularized incomplete gamma function P(a, x)\n  // using a simple series expansion\n  let sum = 1 / a\n  let value = 1 / a\n  for (let n = 1; n &lt; 100; n++) {\n    value *= x / (a + n)\n    sum += value\n    if (value &lt; 1e-8) break\n  }\n  return sum * Math.exp(-x + a * Math.log(x)) / gamma(a)\n}\n\nfunction gammaCDF(x, alpha, theta) {\n  if (x &lt;= 0) return 0\n  return gammainc_lower(x / theta, alpha)\n}\n\nfunction gammaPDF(x, a, t) {\n  if (x &lt; 1e-6) return a &lt; 1 ? Infinity : 0\n  return (1 / (t ** a * gamma(a))) * x ** (a - 1) * Math.exp(-x / t)\n}\n\ngamma_xs = [\n  ...Array.from({ length: 100 }, (_, i) =&gt;\n    1e-6 + Math.exp(Math.log(1e-6) + (i / 100) * Math.log(0.5 / 1e-6))  // log scale from 1e-6 to ~0.5\n  ),\n  ...Array.from({ length: 100 }, (_, i) =&gt; 0.5 + i * 0.1)  // linear from 0.5 to 10.4\n]\n\n\n// PDF of Normal Distribution\ngamma_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, gamma_a, gamma_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\ngamma_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, gamma_a, gamma_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...gamma_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...gamma_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n// import { Plot, binX, ruleY, line } from \"@observablehq/plot\"\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(gamma_a, gamma_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.4 Conclusion on the Gamma Distribution\nNow, it is clear that the gamma distribution is very expressive with two model parameters. In fact, we can define many specific distribution by using this gamma distribution by fixing some of the model parameters.",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
-    ]
-  },
-  {
-    "objectID": "contents/chapter-04/1rv.html#the-chi2-distribution",
-    "href": "contents/chapter-04/1rv.html#the-chi2-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "4 The Chi2 Distribution",
-    "text": "4 The Chi2 Distribution\nBeing a special case of the gamma distribution.\n\nDefinition 4 (Chi-Square Distribution) If \\(Y \\sim \\text{Gam}(n/2, 2)\\), we say that \\(Y\\) has the chi-square distribution with parameter \\(n\\).\nDenote as \\(Y \\sim \\chi^2(n)\\).\n\n\nDefinition 5 (Chi-Square Degree of Freedom) \\(n\\) in the above formulation is the degrees of freedom (DOF).\n\n\nTheorem 4 (Mode of Chi-Square Distribution) The mode of \\(Y\\) is \\(n - 2\\) if \\(n \\geq 2\\), and it is 0 if \\(n \\leq 2\\).\n\n\n\n4.1 Interactive Widget\n\n\nShow the code\nviewof chi_dof = Inputs.range([1, 5], { label: \"dof\", step: 1, value: 1 })\n\n// PDF of Normal Distribution\nchi_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, chi_dof / 2, 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nchi_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, chi_dof / 2, 2)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\n// @title: Gamma PDF \n\nPlot.plot({\n  title: `PDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...chi_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Normal CDF\n\nPlot.plot({\n  title:  `CDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...chi_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(chi_dof / 2, 2)})).plot()",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
-    ]
-  },
-  {
-    "objectID": "contents/chapter-04/1rv.html#exponential-distribution",
-    "href": "contents/chapter-04/1rv.html#exponential-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "5 Exponential Distribution",
-    "text": "5 Exponential Distribution\nAnother special case of the gamma distribution\n\nDefinition 6 (Exponential Distribution PDF) If \\(Y \\sim \\text{Gam}(1, b)\\), then \\(Y\\) has the exponential distribution with parameter \\(b\\).\nWe write \\(Y \\sim \\text{Exp}(b)\\) with the corresponding pdf being, \\[\nf(y) = \\frac{1}{b}e^{-y/b}, \\quad y &gt; 0\n\\]\n\nBy using Theorem 3, we obtain the following corollary.\n\nCorollary 1 (Mode of Exponential Distribution) \\[\nMode(Y) = 0\n\\]\n\n\nNow, we can establish the following connection with all the other ones have discovered. \\[\n\\text{Exp}(2) = \\text{Gam}(2/2, 2) = \\chi^2(2)\n\\]\n\nThis distribution is useful for modelling times until failure of components and times between successive arrivals in a queue.\n\n\n5.1 Interactive Widget\n\n\nShow the code\nviewof exp_b = Inputs.range([0.1, 5], { label: \"n\", step: 0.1, value: 1 })\n\n// PDF of Normal Distribution\nexp_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, 1, exp_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nexp_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, 1, exp_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...exp_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...exp_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(1, exp_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n5.2 Standard Exponential Distribution\n\nDefinition 7 (Standard Exponential Distribution) A special case of the exponential distribution.\nIf \\(Y \\sim \\text{Exp}(1)\\), we say that \\(Y\\) has the standard exponential distribution.",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
-    ]
-  },
-  {
-    "objectID": "contents/chapter-04/1rv.html#beta-distribution",
-    "href": "contents/chapter-04/1rv.html#beta-distribution",
-    "title": "Known Continuous Distributions",
-    "section": "6 Beta Distribution",
-    "text": "6 Beta Distribution\n\nDefinition 8 (Beta Distribution) A random variable \\(Y\\) has the beta distribution with parameters \\(a\\) and \\(b\\) if its pdf is of the form \\[\nf(y) = \\frac{y^{a-1}(1-y)^{b-1}}{B(a, b)}, \\quad o &lt; y &lt; 1 \\; (a, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\text{Beta}(a, b)\\).\n\nHere, \\(B(a, b) = \\frac{\\Gamma(a) \\Gamma(b)}{\\Gamma(a + b)}\\) is the beta function.\n\n6.1 Connection with Uniform Distribution\nIf \\(a = b = 1\\), then \\(f(y) = 1\\), \\(0 &lt; y &lt; 1\\). Thus \\(\\text{Beta}(1, 1) = U(0, 1)\\).\nIt can be shown that \\(Mode(Y) = (a - 1)/(a + b -2)\\) if \\(a &gt; 1\\) and \\(b &gt; 1\\).\n\n\n\n6.2 Interactive Widget\n\n\nShow the code\nviewof beta_alpha = Inputs.range([0.1, 10], { label: \"alpha\", step: 0.01, value: 1 })\nviewof beta_beta = Inputs.range([0.1, 10], { label: \"beta\", step: 0.01, value: 1 })\n\n// --- More points near edges ---\nbeta_xs = [\n  ...Array.from({ length: 201 }, (_, i) =&gt; i / 200)\n].filter(x =&gt; x &lt;= 1)\n\n// --- Beta PDF ---\nfunction betaPDF(x, a, b) {\n  if (x &lt;= 0 || x &gt;= 1) return 0\n  const numerator = x ** (a - 1) * (1 - x) ** (b - 1)\n  const denominator = gamma(a) * gamma(b) / gamma(a + b)\n  return numerator / denominator\n}\n\n// Regularized incomplete beta function I_x(a, b)\n// This is a simple continued fraction approximation for 0 &lt; x &lt; 1\n// Based on the continued fraction form in NR, adapted for moderate values\n\nfunction betainc(x, a, b) {\n  if (x &lt;= 0) return 0\n  if (x &gt;= 1) return 1\n\n  const lnBeta = Math.log(gamma(a)) + Math.log(gamma(b)) - Math.log(gamma(a + b))\n  const front = Math.exp(\n    a * Math.log(x) + b * Math.log(1 - x) - lnBeta\n  ) / a\n\n  let f = 1, c = 1, d = 0\n  for (let i = 1; i &lt; 100; i++) {\n    const m = i / 2\n    const numerator = (i % 2 === 1)\n      ? (b - m) * x / (a + 2 * m - 1)\n      : -((a + m - 1) * (a + b + m - 1) * x) / ((a + 2 * m - 2) * (a + 2 * m - 1))\n    d = 1 + numerator * d\n    if (Math.abs(d) &lt; 1e-30) d = 1e-30\n    d = 1 / d\n    c = 1 + numerator / c\n    if (Math.abs(c) &lt; 1e-30) c = 1e-30\n    const delta = c * d\n    f *= delta\n    if (Math.abs(delta - 1) &lt; 1e-8) break\n  }\n\n  return front * f\n}\n\n// --- PDF values ---\nbeta_pdf = beta_xs.map(x =&gt; ({\n  x,\n  y: betaPDF(x, beta_alpha, beta_beta)\n}))\n\n// Compute the CDF points using the approximation\nbeta_cdf = beta_xs.map(x =&gt; ({\n  x,\n  y: betainc(x, beta_alpha, beta_beta)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Beta(${beta_alpha}, ${beta_beta})`,\n  marks: [\n    Plot.line(beta_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...beta_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title: `CDF of Beta(${beta_alpha}, ${beta_beta})`,\n  marks: [\n    Plot.line(beta_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...beta_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomBeta(beta_alpha, beta_beta)})).plot()",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
-    ]
-  },
-  {
-    "objectID": "contents/chapter-04/1rv.html#footnotes",
-    "href": "contents/chapter-04/1rv.html#footnotes",
-    "title": "Known Continuous Distributions",
+    "objectID": "contents/chapter-04/2measures.html#footnotes",
+    "href": "contents/chapter-04/2measures.html#footnotes",
+    "title": "Expectations",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nHowever, it is more common to use min-max normalisation.↩︎",
+    "text": "Footnotes\n\n\nNote that we did not really find the mgf before. Therefore, refer to Theorem 4 for the proof.↩︎",
     "crumbs": [
       "Home",
       "Contents",
       "CH04: Continuous R.V.",
-      "Known Continuous Distributions"
+      "Expectations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/index.html",
+    "href": "contents/chapter-05/index.html",
+    "title": "CH05: Multivariate Distributions",
+    "section": "",
+    "text": "1 Learning Goals\n\nMore than one random variable\nJoint PMF/PDF or CDF\nBoth Discrete and Continuous\nExpectations, Variance, etc.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html",
+    "href": "contents/chapter-03/index.html",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "Definition 1 A random variable (rv) is a numerical variable whose value depends on the outcome of an experiment.\n\nA random variable must be a number; it cannot be a letter, say. More precisely, a random variable is a “real-valued function for which the domain is a sample space”.\n\nExample 1 A coin is tossed twice and the sequence of \\(H\\)’s and \\(T\\)’s is observed. Let \\(Y\\) be the number of \\(H\\)’s which come up. Show that \\(Y\\) is a random variable. The experiment here has 4 possible outcomes: \\(TT\\), \\(TH\\), \\(HT\\), \\(HH\\).\n\\(Y = 0\\) if the outcome is \\(TT\\)\n\\(Y = 1\\) if the outcome is \\(TH\\) or \\(HT\\)\n\\(Y = 2\\) if the outcome is \\(HH\\)\n\n\n\nThe probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.\n\n\n\nIt is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html#probability-distribution",
+    "href": "contents/chapter-03/index.html#probability-distribution",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "The probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
+    ]
+  },
+  {
+    "objectID": "contents/chapter-03/index.html#probability-mass-function",
+    "href": "contents/chapter-03/index.html#probability-mass-function",
+    "title": "CH03: Discrete R.V.",
+    "section": "",
+    "text": "It is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH03: Discrete R.V."
     ]
   },
   {
@@ -270,18 +280,6 @@
     ]
   },
   {
-    "objectID": "contents/chapter-02/index.html",
-    "href": "contents/chapter-02/index.html",
-    "title": "CH02: Probability",
-    "section": "",
-    "text": "1 Probability functions\nFor a given experiement and associated sample space \\(S\\), a probability function \\(P\\) is a real-valued function whose domain is the power set of the sample space, \\(S\\), and satisfies the following:\n\n\\(P(A) \\geq 0\\) for all \\(A \\subset S\\) (probability can’t be negative)\n\\(P(S) = 1\\) (Something must happen)\nSuppose \\(A_1, A_2, \\ldots\\) is an infinite sequence of disjoint events. Then \\(P(A_1 \\cup A_2 \\cup \\ldots) = P(A_1) + P(A_2) + \\ldots\\)\n\nThese three conditions are known as the three axioms of probabiliyt. They do not completely specify \\(P\\), but merely ensure that \\(P\\) is ‘sensible’. It remains for \\(P\\) to be precisely defined in any given situation. Typically, \\(P\\) is defined by assigning ‘reasonable’ probabilities to each of the same points (or simple events) in \\(S\\).\n\nIf the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.\nSo it is reasonable to assign probability function \\(P\\) in case by \\[\nP(\\{1\\}) = P(\\{2\\}) = \\cdots = P(\\{6\\}) = 1 / 6\n\\]\nEquivalently, we may write \\(P(\\{k\\}) = 1/6\\), \\(k=1, \\ldots, 6\\) or \\(P(\\{k\\}) = 1/6 \\; \\forall k = S\\).\n\n\n\nTheorem 1 \\(P(\\emptyset) = 0\\)\n\n\nProof. Apply Axiom 3 with \\(A_i = \\emptyset\\) for all \\(i\\).\n\\(\\emptyset = \\emptyset \\cup \\emptyset \\cup \\ldots\\) Also \\(\\emptyset \\cap \\emptyset = \\emptyset\\) (i.e. \\(\\emptyset\\) and \\(\\emptyset\\) are disjoint). It follows that \\(P(\\emptyset) = P(\\emptyset \\cup \\emptyset \\cup \\ldots) = P(\\emptyset) + P(\\emptyset) + \\cdots\\). We now subtract \\(P(\\emptyset)\\) from both sides. Hence \\(0 = P(\\emptyset) + P(\\emptyset) + \\cdots\\). Therefore, \\(P(\\emptyset) = 0\\).\n\n\n\nTheorem 2 Axiom 3 also holds for finite sequences. Thus if \\(A_1, A_2, \\ldots, A_n\\) are disjoint events, then\n\\[\nP(A_1 \\cup A_2 \\cup \\ldots \\cup A_n) = P(A_1) + P(A_2) + \\cdots + P(A_n)\n\\]\n\n\nProof. Apply Axiom 3 and Theorem 1, with \\(A_i = \\emptyset\\) for all \\(i = n + 1, n + 2, \\ldots\\).\n\n\n\nTheorem 3 \\[\nP(\\bar{A}) = 1 - P(A)\n\\]\n\n\nProof. \\[\\begin{align*}\n\n1 & = P(S) \\tag{by Axiom 2} \\\\\n  & = P(A \\cup \\bar{A}) \\tag{by the definition of complementation} \\\\\n  & = P(A) + P(\\bar{A}) \\tag{by Theorem 2 with $n = 2$, since $A$ and $\\bar{A}$ are disjoint.}\n\n\\end{align*}\\]",
-    "crumbs": [
-      "Home",
-      "Contents",
-      "CH02: Probability"
-    ]
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About This Site",
@@ -308,6 +306,18 @@
     "title": "About This Site",
     "section": "",
     "text": "Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the Contact page.\n\nDisclaimer: This site is independently developed and is not officially endorsed by the Australian National University."
+  },
+  {
+    "objectID": "contents/chapter-02/index.html",
+    "href": "contents/chapter-02/index.html",
+    "title": "CH02: Probability",
+    "section": "",
+    "text": "1 Probability functions\nFor a given experiement and associated sample space \\(S\\), a probability function \\(P\\) is a real-valued function whose domain is the power set of the sample space, \\(S\\), and satisfies the following:\n\n\\(P(A) \\geq 0\\) for all \\(A \\subset S\\) (probability can’t be negative)\n\\(P(S) = 1\\) (Something must happen)\nSuppose \\(A_1, A_2, \\ldots\\) is an infinite sequence of disjoint events. Then \\(P(A_1 \\cup A_2 \\cup \\ldots) = P(A_1) + P(A_2) + \\ldots\\)\n\nThese three conditions are known as the three axioms of probabiliyt. They do not completely specify \\(P\\), but merely ensure that \\(P\\) is ‘sensible’. It remains for \\(P\\) to be precisely defined in any given situation. Typically, \\(P\\) is defined by assigning ‘reasonable’ probabilities to each of the same points (or simple events) in \\(S\\).\n\nIf the die is fair, then all of the possible outcomes 1, 2, 3, 4, 5, 6 are equally likely.\nSo it is reasonable to assign probability function \\(P\\) in case by \\[\nP(\\{1\\}) = P(\\{2\\}) = \\cdots = P(\\{6\\}) = 1 / 6\n\\]\nEquivalently, we may write \\(P(\\{k\\}) = 1/6\\), \\(k=1, \\ldots, 6\\) or \\(P(\\{k\\}) = 1/6 \\; \\forall k = S\\).\n\n\n\nTheorem 1 \\(P(\\emptyset) = 0\\)\n\n\nProof. Apply Axiom 3 with \\(A_i = \\emptyset\\) for all \\(i\\).\n\\(\\emptyset = \\emptyset \\cup \\emptyset \\cup \\ldots\\) Also \\(\\emptyset \\cap \\emptyset = \\emptyset\\) (i.e. \\(\\emptyset\\) and \\(\\emptyset\\) are disjoint). It follows that \\(P(\\emptyset) = P(\\emptyset \\cup \\emptyset \\cup \\ldots) = P(\\emptyset) + P(\\emptyset) + \\cdots\\). We now subtract \\(P(\\emptyset)\\) from both sides. Hence \\(0 = P(\\emptyset) + P(\\emptyset) + \\cdots\\). Therefore, \\(P(\\emptyset) = 0\\).\n\n\n\nTheorem 2 Axiom 3 also holds for finite sequences. Thus if \\(A_1, A_2, \\ldots, A_n\\) are disjoint events, then\n\\[\nP(A_1 \\cup A_2 \\cup \\ldots \\cup A_n) = P(A_1) + P(A_2) + \\cdots + P(A_n)\n\\]\n\n\nProof. Apply Axiom 3 and Theorem 1, with \\(A_i = \\emptyset\\) for all \\(i = n + 1, n + 2, \\ldots\\).\n\n\n\nTheorem 3 \\[\nP(\\bar{A}) = 1 - P(A)\n\\]\n\n\nProof. \\[\\begin{align*}\n\n1 & = P(S) \\tag{by Axiom 2} \\\\\n  & = P(A \\cup \\bar{A}) \\tag{by the definition of complementation} \\\\\n  & = P(A) + P(\\bar{A}) \\tag{by Theorem 2 with $n = 2$, since $A$ and $\\bar{A}$ are disjoint.}\n\n\\end{align*}\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH02: Probability"
+    ]
   },
   {
     "objectID": "contents/chapter-03/1rv.html",
@@ -414,119 +424,303 @@
     ]
   },
   {
-    "objectID": "contents/chapter-03/index.html",
-    "href": "contents/chapter-03/index.html",
-    "title": "CH03: Discrete R.V.",
+    "objectID": "contents/chapter-05/01-distributions.html",
+    "href": "contents/chapter-05/01-distributions.html",
+    "title": "Introduction",
     "section": "",
-    "text": "Definition 1 A random variable (rv) is a numerical variable whose value depends on the outcome of an experiment.\n\nA random variable must be a number; it cannot be a letter, say. More precisely, a random variable is a “real-valued function for which the domain is a sample space”.\n\nExample 1 A coin is tossed twice and the sequence of \\(H\\)’s and \\(T\\)’s is observed. Let \\(Y\\) be the number of \\(H\\)’s which come up. Show that \\(Y\\) is a random variable. The experiment here has 4 possible outcomes: \\(TT\\), \\(TH\\), \\(HT\\), \\(HH\\).\n\\(Y = 0\\) if the outcome is \\(TT\\)\n\\(Y = 1\\) if the outcome is \\(TH\\) or \\(HT\\)\n\\(Y = 2\\) if the outcome is \\(HH\\)\n\n\n\nThe probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.\n\n\n\nIt is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "text": "Motivating Example\n\n\n\nA die is rolled. Let \\(X\\) = no. of 6’s and \\(Y\\) = no. of even numbers. Find the joint probability distribution of \\(X\\) and \\(Y\\).\n\n\n\n\nTable 1: Possible Outcomes\n\n\n\n\n\nNumber on Die\n1\n2\n3\n4\n5\n6\n\n\n\n\nValue of X\n0\n0\n0\n0\n0\n1\n\n\nValue of Y\n0\n1\n0\n1\n0\n1\n\n\n\n\n\n\nHence,\n\\[\n\\begin{align}\n   P(X = 1, Y = 1) &= P(6) = 1 / 6 \\\\\n   P(X = 0, Y = 1) &= P(2 \\text{ or } 4)  = 1/ 3 \\\\\n   P(X = 0, Y = 0) &= P(1 \\text{ or } 3 \\text{ or } 5) = 1/2 \\\\\n\\end{align}\n\\]\nWe say that \\(X\\) and \\(Y\\) have a joint probability distribution. The joint pmf of \\(X\\) and \\(Y\\) is\n\\[\np(x, y) = P(X = x, Y = y) = \\begin{cases}\n   1/2, & x = y = 0 \\\\\n   1/3, & x = 0, y = 1 \\\\\n   1/6, & x = y = 1 \\\\\n\\end{cases}\n\\]\nNote that the joint probability distribution of \\(X\\) and \\(Y\\) can be presented as,\n\n\n\nAnother way to present",
     "crumbs": [
       "Home",
       "Contents",
-      "CH03: Discrete R.V."
+      "CH05: Multivariate Distributions",
+      "Introduction"
     ]
   },
   {
-    "objectID": "contents/chapter-03/index.html#probability-distribution",
-    "href": "contents/chapter-03/index.html#probability-distribution",
-    "title": "CH03: Discrete R.V.",
+    "objectID": "contents/chapter-05/01-distributions.html#properties",
+    "href": "contents/chapter-05/01-distributions.html#properties",
+    "title": "Introduction",
+    "section": "1.1 Properties",
+    "text": "1.1 Properties\n\n\\(0 \\leq p(x, y) \\leq 1\\) for all \\(x\\) and \\(y\\)\n\\(\\sum_{x, y} p(x, y) = 1\\)",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/01-distributions.html#properties-of-joint-cdfs",
+    "href": "contents/chapter-05/01-distributions.html#properties-of-joint-cdfs",
+    "title": "Introduction",
+    "section": "2.1 Properties of joint CDFs",
+    "text": "2.1 Properties of joint CDFs\n\n\\(F(x, y) \\to 0\\) as \\(x \\to -\\infty\\) or \\(y \\to -\\infty\\) (or both).\n\\(F(x, y) \\to 1\\) as \\(x \\to \\infty\\) and \\(y \\to \\infty\\)\n\\(F(x, y)\\) is nondecreasing in both \\(x\\) and \\(y\\) directions.\n\\(F(x, y)\\) is right-continuous in both \\(x\\) and \\(y\\) directions.\n\nNote that with their properties in mind, the joint cdf of \\(X\\) and \\(Y\\) in our example could be written more simply as\n\\[\nF(x, y) = \\begin{cases}\n   1/2, & x \\geq 0, 0 \\leq y &lt; 1 \\\\\n   5/6, & 0 \\leq x &lt; 1, y \\geq 1  \\\\\n\\end{cases}\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/01-distributions.html#marginal-cdf",
+    "href": "contents/chapter-05/01-distributions.html#marginal-cdf",
+    "title": "Introduction",
+    "section": "3.1 Marginal CDF",
+    "text": "3.1 Marginal CDF\nThen, we can easily define the cdf of \\(X\\) with the above definition of the marginal pmf of \\(X\\) as \\[\nF(x) = P(X \\leq x)\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/01-distributions.html#degenerate-distribution",
+    "href": "contents/chapter-05/01-distributions.html#degenerate-distribution",
+    "title": "Introduction",
+    "section": "4.1 Degenerate Distribution",
+    "text": "4.1 Degenerate Distribution\nIt is possible that the probability of \\(X\\) collapses to only one outcome and it is certain about that outcome with the given y-values.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/01-distributions.html#covariance-and-correlation",
+    "href": "contents/chapter-05/01-distributions.html#covariance-and-correlation",
+    "title": "Introduction",
+    "section": "6.1 Covariance and Correlation",
+    "text": "6.1 Covariance and Correlation\n\nTheorem 1 (Another Expression of Covariance) The covariance between \\(X\\) and \\(Y\\) is \\[\nCov(X,Y) = E\\{ ( X - E(X))(Y - E(Y)) \\}\n\\]\n\nWhat’s the covariance between \\(X\\) and \\(Y\\) in our example?\nRecall that \\(X \\sim \\text{Bern}(1/6)\\) and \\(Y \\sim \\text{Bern}(1/2)\\). Therefore \\(E(X) = 1/6\\) and \\(E(Y) = 1/2\\).\nIt follows that \\[\n\\begin{align}\nCov(X, Y) & = \\sum_{x, y} \\left(x - \\frac{1}{6} \\right)\\left(y - \\frac{1}{2}\\right) p(x, y) \\\\\n& =\\frac{1}{12} \\frac{1}{2} + \\left(-\\frac{1}{12}\\right)\\frac{1}{3} + \\frac{5}{12}\\frac{1}{6} = \\frac{1}{12} \\\\\n\\end{align}\n\\]\nA useful result: \\[\nCov(X, Y) = E(XY) - E(X)E(Y)\n\\]\n\nProof. \\[\n\\begin{align}\n\\text{LHS} &= E\\{ (X - \\mu_X)(Y - \\mu_Y) \\} = E \\{ XY - X \\mu_X - Y \\mu_Y + \\mu_X \\mu_Y \\} \\\\\n& = E(XY) - E(X)\\mu_Y - E(Y)\\mu_X + \\mu_X \\mu_Y \\\\\n& = E(XY) - \\mu_X \\mu_Y = \\text{RHS}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/01-distributions.html#correlation",
+    "href": "contents/chapter-05/01-distributions.html#correlation",
+    "title": "Introduction",
+    "section": "6.2 Correlation",
+    "text": "6.2 Correlation\nThe correlation between \\(X\\) and \\(Y\\) is \\[\n\\rho = Cor(X, Y) = \\frac{Cov(X, Y)}{SD(X)SD(Y)} = \\frac{Cov(X, Y)}{\\sqrt{Var(X)} \\sqrt{Var(Y)}}\n\\]\nNote that this is slightly more useful because this coefficient is “normalised” between \\(-1\\) and \\(1\\).\n\n6.2.1 Meaning\n\\(\\rho\\) provides information about the relationship between \\(X\\) and \\(Y\\). If \\(\\rho &gt; 0\\) then high values of \\(X\\) are associated with high values of \\(Y\\). If \\(\\rho &lt; 0\\), then high values of \\(X\\) are associated with low values of \\(Y\\).\n\\(-1 \\leq \\rho \\leq 1\\) (In contrast \\(Cov(X, Y) \\in [-\\infty, \\infty]\\).\n\nTheorem 2 \\[X \\perp Y \\implies \\rho = 0\\]\n\n\nProof. First, we can show that \\(Cov(X, Y) = 0\\) if the two random variables are independent.\n\\[\n\\begin{align}\nCov(X, Y) &= E(XY) - \\mu_X \\mu_Y \\\\\n& = E(X)E(Y) - \\mu_X \\mu_Y = 0\n\\end{align}\n\\]\nWhere as the first line is by Theorem 1 and the second line is by independence of the two random variables.\nNow, since \\(\\rho = \\frac{Cov(X, Y)}{SD(X)SD(Y)}\\), \\(\\rho = 0\\).",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html",
+    "title": "Joint Continuous Distribution & Expectations (2)",
     "section": "",
-    "text": "The probability that a discrete random variable \\(Y\\) takes on a particular value \\(y\\) is the sum of the probabilities of all sample points in the sample space \\(S\\) that are associated with \\(y\\).\nWe write this probability \\(P(Y = y)\\).\nThe probability distribution of a discrete random variable \\(Y\\) is any information which provides \\(P(Y = y)\\) for each possible value \\(y\\) of \\(Y\\). This information may take the form of a list, table function (formula) or graph.",
+    "text": "Motivating Example 2\n\n\n\nA committee of two is randomly selected from three teachers, two students, and one parent.\nLet \\(X\\) be the number of teachers on the committe, and \\(Y\\) the number of students.\nFind:\n\n\nthe marginal pmf of \\(Y\\)\n\n\nthe conditional pmf of \\(Y\\) given that \\(X = 0\\)\n\n\nthe correlation between \\(X\\) and \\(Y\\)\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have joint probability mass function \\(p(x, y)\\) given by\n\\[\np(x, y) = \\frac{\\binom{3}{x} \\binom{2}{x} \\binom{1}{2 - x - y}}{\\binom{6}{2}}\n\\]\nFor \\(x \\in [0, 2]\\) and \\(y \\in [0, 2]\\) with constraint \\(1 \\leq x + y \\leq 2\\)\nHence, we can fill in the following table remembering that it needs two people for the committee.\n\n\n\nX \\ Y\n0\n1\n2\n\n\n\n\n0\n\\\n2/15 = 0.13\n1 / 15 = 0.07\n\n\n1\n3 / 15 = 0.2\n6/15 = 0.4\n\\\n\n\n2\n3 / 15 = 0.2\n\\\n\\\n\n\n\nTherefore, we get that the marginal probability of \\(Y\\) is\n\\[\np_Y(y) = \\begin{cases}\n6/15, & y = 0 \\\\\n8/15, & y = 1 \\\\\n1/15, & y = 2 \\\\\n\\end{cases}\n\\]\n\n\n\n\nThe conditional pmf of \\(Y\\) given that \\(X = 0\\) is trivial from the above as,\n\\[\np_{Y\\mid X}(y|0) = \\begin{cases}\n0, & y = 0 \\\\\n2/3, & y = 1 \\\\\n1/3, & y = 2 \\\\\n\\end{cases}\n\\]\n\n\nThe Correlation between \\(X\\) and \\(Y\\)\n\nFirst, find the expectations of \\(X\\) and \\(Y\\) first as,\n\\[\n\\begin{align}\nE(X) &= 1 \\times 0.6 + 2 \\times 0.2 = 1 \\\\\nE(Y) &= 1 \\times \\frac{8}{15} + 2 \\times \\frac{1}{15} = 0.67 \\\\\n\\end{align}\n\\]\nHence,\n\\[\n\\begin{align}\nCov(X, Y) &= E(XY) - \\frac{2}{3} \\\\\n&= \\frac{6}{15} - \\frac{2}{3} \\\\\n&= -\\frac{4}{15} = -0.27\n\\end{align}\n\\]\nNow, in order to find the correlation, we also need to find the standard deviation of the two random variables.\n\\[\n\\begin{align}\nVar(X) & = E(X^2) - \\mu_X^2 = \\frac{9}{15} + 2^2 \\frac{3}{15} - 1 = \\frac{9 + 12 - 15}{15} = \\frac{6}{15} \\\\\nVar(Y) & = E(Y^2) - \\mu_Y^2 = \\frac{8}{15} + 2^2 \\frac{1}{15} - \\frac{4}{9} = \\frac{12 * 15 - 100}{225} = \\frac{80}{225} = \\frac{16}{45} = 0.36 \\\\\n\\end{align}\n\\]\nTherefore, the correlation is,\n\\[\nCor(X, Y) = \\frac{Cov(X, Y)}{\\sqrt{6/15}\\sqrt{16/45}} = -\\frac{1}{\\sqrt{2}} = -0.7071\n\\]",
     "crumbs": [
       "Home",
       "Contents",
-      "CH03: Discrete R.V."
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
     ]
   },
   {
-    "objectID": "contents/chapter-03/index.html#probability-mass-function",
-    "href": "contents/chapter-03/index.html#probability-mass-function",
-    "title": "CH03: Discrete R.V.",
-    "section": "",
-    "text": "It is conventional to denote rv’s by upper case letters (e.g., \\(Y\\), \\(X\\), \\(U\\)) and possible values of those rv’s by the corrsponding lower case letters (e.g., \\(y\\), \\(x\\), \\(u\\)).\n\\(P(Y = y)\\) is called the probability mass function (pmf) of \\(Y\\) and is often written \\(p(y)\\) or \\(p_Y(y)\\).\n\n\n\n\\(0 \\leq p(y) \\leq 1\\) for all \\(y\\)\n\\(\\sum_y p(y) = 1\\)\n\n\n\nExample 2 A coin is repeatedly tossed until the first head comes up. Let \\(Y\\) be the number of tosses. Derive the pmf of \\(Y\\), and check that it satisfies the two properties of discrete pmf’s.\nThen \\(Y\\) has pmf, \\[\np(y) = \\left( \\frac{1}{2} \\right)^y\n\\]\nWe should also observe that Property 1 is satisfied, since 1/2, 1/4, 1/8, … are all between o and 1. Also,\n\\[\n\\sum_y p(y) = \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1\n\\]\nThus Property 2 is also satisfied.\n\\(Y\\) is a discrete rv in this example because \\(\\{1,2,3,\\ldots\\}\\) is a countably infinite set (its elements can be listed). A pmf uniquely defines a rv or pr dsn. Thus a rv can t have 2 or more different pmf’s. Note that not all functions are valid pmf’s.",
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#multinomial-cefficients",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#multinomial-cefficients",
+    "title": "Joint Continuous Distribution & Expectations (2)",
+    "section": "3.1 Multinomial Cefficients",
+    "text": "3.1 Multinomial Cefficients\nThe number of ways of partitioning \\(n\\) distinct objects into \\(k\\) distinct groups is\n\\[\n\\binom{n}{y_1 \\ldots y_k} = \\frac{n!}{y_1 ! y_2 ! \\ldots y_k !}, \\qquad y_i = \\text{count in $i$-th group}\n\\]\n\n\n\nTable 1: An Example Sequence\n\n\n\n\n\nTrial\n1\n2\n3\n4\n5\n\nn\n\n\n\n\nGroup\n1\n3\n5\n1\n1\n\n2\n\n\n\n\n\n\nGiven the sequence in Table 1, we can state the probability as \\[\n\\begin{align}\nP(sequence) &= p_1p_3p_5p_1p_1\\cdots p_2 \\\\\n&= p_1^{y_1} \\ldots p_k^{y_k}\n\\end{align}\n\\]\nThe probability of obtaining a distinct sequene where we observe \\(y_1, y_2, \\ldots y_k\\) is given by \\[\nP(y_1, y_2, \\ldots , y_k) = \\binom{n}{y_1 \\ldots y_k} p_1^{y_1}p_2^{y_2} \\ldots p_k^{y_k}\n\\]",
     "crumbs": [
       "Home",
       "Contents",
-      "CH03: Discrete R.V."
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
     ]
   },
   {
-    "objectID": "contents/chapter-04/2measures.html",
-    "href": "contents/chapter-04/2measures.html",
-    "title": "Expectations",
-    "section": "",
-    "text": "As foreshadowed in previous discrete section, it is natural to believe that most of the results can be directly imported. (Otherwise, we wouldn’t have spend so much time.)",
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#example",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#example",
+    "title": "Joint Continuous Distribution & Expectations (2)",
+    "section": "3.2 Example",
+    "text": "3.2 Example\nOn 10 rolls of a die, what’s the pr there will result 3 even numbers and 2 ones?\nLet \\(Y_1\\) be the number of even numbers, \\(Y_2\\) be number of ones, and \\(Y_3\\) be number of threes and fives (non-evens and non-ones).\nThen \\(Y_1, Y_2, Y_3 \\sim \\text{Multi}(10; 1/2, 1/6, 1/3)\\) with pmf \\[\np(y_1, y_2, y_3) = \\frac{10!}{y_1 ! y_2 ! y_3 !} \\left( \\frac{1}{2} \\right)^{y_1} \\left( \\frac{1}{6} \\right)^{y_2} \\left( \\frac{1}{3} \\right)^{y_3}\n\\] So, \\[\np(3, 2, 5) =\\frac{10!}{3! 2! 5!} \\left( \\frac{1}{2} \\right)^3 \\left( \\frac{1}{6} \\right)^2 \\left( \\frac{1}{3} \\right)^5 = 0.03601\n\\]",
     "crumbs": [
       "Home",
       "Contents",
-      "CH04: Continuous R.V.",
-      "Expectations"
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
     ]
   },
   {
-    "objectID": "contents/chapter-04/2measures.html#results",
-    "href": "contents/chapter-04/2measures.html#results",
-    "title": "Expectations",
-    "section": "1.1 Results",
-    "text": "1.1 Results\n\nI will try my best to include all the proofs for the results here. However, these proofs are done by me likely to contain relatively high amounts of mistakes.\n\n\nTheorem 1 (Three Properties) For \\(c \\in \\mathbb{R}\\), and \\(Y\\) continuous r.v.\n\n\\(E(c) = c\\)\n\\(E(cg(Y)) = cE(g(Y))\\)\n\\(E(g_1(Y) + \\cdots + g_k(Y)) = \\sum_{i=1}^k E(g_i(Y))\\)\n\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(c) &= \\int_{-\\infty}^\\infty c f(y) \\, dy \\\\\n&= c \\int_{-\\infty}^\\infty f(y) \\, dy \\\\\n&= c\n\\end{align*}\\]\nThe last step is a result of the fact that the pdf also integrate to 1 by definition.\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(cg(Y)) &= \\int_{-\\infty}^\\infty c g(y) f(y) \\, dy \\\\\n&= c \\int_{-\\infty}^\\infty g(y)f(y) \\, dy \\\\\n&= c E(g(Y))\n\\end{align*}\\]\n\n\nProof. \n\n\n\n\\[\\begin{align*}\nE(\\sum_{i=1}^k g_i(Y)) &= \\int_{-\\infty}^\\infty \\left( \\sum_{i=1}^k g_i(y) f(y) \\right) \\, dy \\\\\n&= \\sum_{i = 1}^k \\left( \\int_{-\\infty}^\\infty g_i(y) f(y) \\, dy \\right) \\\\\n& = \\sum_{i=1}^k E(g_i(Y)) \\\\\n\\end{align*}\\]\nThe second line is by linearity of the integration operation.\n\n\nAs I have mentioned when we were proving the discrete version of the Chebyshev’s Theorem, there is a continuous version that is exactly the same. Now, here is the statement and the proof.\n\nTheorem 2 (Continuous Version of Chebyshev’s) If \\(Y\\) is continuous r.v., then \\[\nP(\\lvert Y - \\mu \\rvert &lt; k\\sigma) \\geq 1 - 1 / k^2\n\\]\n\n\nProof. \\[\\begin{align*}\n\\sigma^2 & = \\int_{-\\infty}^\\infty (Y - \\mu)^2 f(y) \\, dy \\\\\n& = \\int_{-\\infty}^{k\\sigma - \\mu} (y - \\mu)^2f(y) \\, dy + \\int_{k\\sigma + \\mu}^\\infty (y - \\mu)^2 f(y) \\, dy \\\\\n& = \\int_{-\\infty}^{k\\sigma - \\mu} (k\\sigma)^2 f(y) \\, dy + \\int_{k\\sigma + \\mu}^\\infty (k\\sigma)^2 f(y) \\, dy \\\\\n& = (k\\sigma)^2 \\left( \\int_{-\\infty}^{k - \\mu} f(y) \\, dy + \\int_{k + \\mu}^\\infty f(y) \\, dy \\right) \\\\\n& = (k\\sigma)^2 P(Y \\leq k\\sigma - \\mu \\cup Y \\geq k\\sigma + \\mu) \\\\\n& = (k\\sigma)^2 P(\\lvert Y - \\mu \\rvert \\leq k\\sigma)\n\\end{align*}\\]\nTherefore,\n\\[\nP(\\lvert Y - \\mu \\rvert \\leq k\\sigma) \\leq 1 / k^2\n\\]\nTherefore, obtaining the following,\n\\[\nP\\left(\\lvert Y - \\mu \\rvert &gt; k \\sigma \\right) &gt; 1 - \\frac{1}{k^2}\n\\]",
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#random-expectations",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#random-expectations",
+    "title": "Joint Continuous Distribution & Expectations (2)",
+    "section": "6.1 Random Expectations",
+    "text": "6.1 Random Expectations\n\nDefinition 1 (Random Expectations) By \\(E(X\\mid Y)\\), we denote the function \\(E(X\\mid Y = y)\\) with \\(y\\) replaced by \\(Y\\). This would then makes \\(E(X \\mid Y)\\) also be a random variable for which we can also apply expectations.\n\nFor example, the above would have the random expectations fo \\(X|Y\\) as \\[\nE(X \\mid Y) = \\frac{4}{3} Y\n\\]. Note that \\(E(X \\mid Y)\\) would be a random variable about \\(Y\\) rather than \\(X\\) as we have already taken the expectation over \\(X\\).",
     "crumbs": [
       "Home",
       "Contents",
-      "CH04: Continuous R.V.",
-      "Expectations"
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
     ]
   },
   {
-    "objectID": "contents/chapter-04/2measures.html#working-examples",
-    "href": "contents/chapter-04/2measures.html#working-examples",
-    "title": "Expectations",
-    "section": "1.2 Working Examples",
-    "text": "1.2 Working Examples\n\nExample 1 Find the mean and variance of the standard uniform distribution\nSuppose that \\(Y \\sim U(0, 1)\\). Then \\(Y\\) has pdf \\(f(y) = 1\\), \\(0 &lt; y &lt; 1\\). Therefore, \\[\n\\mu = \\int_0^1 yf(y) dy = \\int_0^1 y 1 dy = \\left[ \\frac{y^2}{2} \\middle\\vert _{y=0}^1 \\right] = \\frac{1}{2}\n\\]\nAlso, \\[\n\\mu_2' = \\int_0^1 y^2 1 \\, dy = \\left[ \\frac{y^3}{3} \\middle\\vert _{y=0}^1 \\right] = \\frac{1}{3}\n\\]\nTherefore, \\[\n\\sigma^2 = \\frac{1}{3} \\left( \\frac{1}{2} \\right)^2 = \\frac{1}{12}\n\\]\nNote: We could use the mgf method here, but it is problematic in this case. This is because, \\[\nm(t) = \\frac{e^t - 1}{t} \\implies m'(t) = \\frac{e^t(t - 1) + 1}{t^2}\n\\] , which is undefined at \\(t = 0\\). So use L’Hopital’s rule (twice) to get \\[\n\\mu = \\lim_{t \\to 0} m'(t) = \\lim_{t \\to 0} \\frac{\\frac{d}{dt}(e^t(t-1) + 1)}{\\frac{d}{dt} t^2} = \\lim_{t \\to 0} \\frac{t e^t}{2t} = \\lim_{t \\to 0} \\frac{\\frac{d}{dt} (t e^t)}{\\frac{d}{dt} (2t)} = \\lim_{t \\to 0} \\frac{e^t(t+1)}{2} = \\frac{1}{2}\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\nI think the evaluation can be simpler by using the following\n\\[\n\\mu = \\lim_{t \\to 0} m'(t) = \\lim_{t \\to 0} \\frac{\\frac{d}{dt}(e^t(t-1) + 1)}{\\frac{d}{dt} t^2} = \\lim_{t \\to 0} \\frac{t e^t}{2t} = \\lim_{t \\to 0} \\frac{e^t}{2} = \\frac{1}{2}\n\\]\n\n\n\n\n\n\nExample 2 Find the mean and variance of the exponential distribution.\nIn this case the mgf method works well1.\nBy using the mgf of exponential distribution, we have \\[\nm'(t) = - (1 - bt)^{-2} (-b) = b(1 - bt)^{-2}\n\\]\nAnd \\[\nm''(t) = (-2) b(1-bt)^{-3} (-b) = 2b^2(1- bt)^{-3}\n\\]\nTherefore, \\(\\mu_1' = m'(0) = b\\) and \\(\\mu_2' = m''(0) = 2b^2\\). Hence, variance is \\(2b^2 - b^2 = b^2\\).\n\n\n\n\n\n\nAlternative Methods\n\n\n\nNote that it is possible to directly use integration by part to obtain the result, but it is clearly much more tedious.\n\n\n\n2 Appendix\n\nTheorem 3 (mgf of Gamma Distribution) Suppose \\(Y \\sim \\text{Gam}(\\alpha, \\beta)\\) for some \\(\\alpha, \\beta &gt; 0\\), then\n\\[\nm_Y(t) = \\begin{cases}\n\\left(1 - \\beta t \\right)^{-\\alpha} & t &lt; \\beta \\\\\n\\text{does not exist} & t &gt; \\beta \\\\\n\\end{cases}\n\\]\n\n\nProof. \\[\n\\begin{align}\nm_Y(t) = E(e^{Yt}) & = \\int_0^\\infty e^{ty} f_Y(y) \\, dy \\\\\n& = \\int_0^\\infty e^{yt} \\frac{y^{a-1}e^{-y/b}}{b^a \\Gamma(a)} \\, dy \\\\\n& = \\int_0^\\infty \\frac{1}{b^a \\Gamma(a)} y^{a - 1} e^{-(\\frac{1}{b} - t)y} \\, dy \\\\\n& = \\frac{\\left( \\frac{1}{b} - t\\right)^{-a}}{b^a} \\int_0^\\infty \\frac{y^{a-1}e^{-y\\left( \\frac{1}{b} - t\\right)^{-1}}}{\\left( \\frac{1}{b} - t\\right)^{-a} \\Gamma(a)} \\\\\n& = \\frac{b^a (1 - bt)^{-a}}{b^a} \\cdot 1 = (1 - bt)^{-a}\n\\end{align}\n\\]\nThe last line is derived by the fact that the integral in the second last line is simply the probability of a gamma distributed random variable having any value between \\(0\\) and \\(\\infty\\). Therefore, the integral is \\(1\\).\n\n\nTheorem 4 (mgf of Exponential Distribution) \\[\nm_X(t) = (1 - bt)^{-1}\n\\]\n\n\nProof. The proof is clear from the definition of exponential distribution and Theorem 3.",
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#the-law-of-iterated-expectation",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#the-law-of-iterated-expectation",
+    "title": "Joint Continuous Distribution & Expectations (2)",
+    "section": "6.2 The Law of Iterated Expectation",
+    "text": "6.2 The Law of Iterated Expectation\n\n\n\n\n\n\nApplications\n\n\n\nThis theorem is commonly used in Bayesian Inference as we will discuss in CH16.\n\n\n\nTheorem 4 (Law of Iterated Expectation) \\[\nE(X) = E(E(X \\mid Y))\n\\]\n\n\nProof. \\[\n\\begin{align}\nE(E(X\\mid Y)) & = \\int E(X | Y = y) f(y) \\, dy = \\int \\left( \\int x f(x \\mid y) \\, dx \\right) f(y) \\, dy \\\\\n& = \\iint x f(x, y) \\, dxdy = E(X)\n\\end{align}\n\\]",
     "crumbs": [
       "Home",
       "Contents",
-      "CH04: Continuous R.V.",
-      "Expectations"
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
     ]
   },
   {
-    "objectID": "contents/chapter-04/2measures.html#footnotes",
-    "href": "contents/chapter-04/2measures.html#footnotes",
-    "title": "Expectations",
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#related-definitions-and-results",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#related-definitions-and-results",
+    "title": "Joint Continuous Distribution & Expectations (2)",
+    "section": "6.3 Related Definitions and Results",
+    "text": "6.3 Related Definitions and Results\n\nDefinition 2 (Conditional Expectation on Function of Random Variable) \\[\nE(g(X) \\mid Y = y) = \\begin{cases}\n\\sum_x g(x) p(x\\mid y), & \\text{if $X$ is discrete} \\\\\n\\int g(x) f(x \\mid y), & \\text{if $X$ is continuous} \\\\\n\\end{cases}\n\\]\n\\[\nE(g(X) \\mid Y) = E(g(X) \\mid Y)\n\\]\n\n\nDefinition 3 (Variance on Conditional Variable) As before, since we have obtained the expectation, we can also in a similar fashion define the variance with the expectation.\n\\[\nVar(X \\mid Y = y) = E \\left[ \\left( X - E(X \\mid Y = y) \\right)^2 \\middle\\vert Y = y \\right]\n\\]\n\n\nDefinition 4 (Conditional Covariance) \\[\nCov(X,Z) = E \\left[ (X - E(X \\mid Y = y))(Z - E(Z \\mid Y = y)) \\middle \\vert Y =y  \\right]\n\\]\n\n\nEquipped with the three definitions above, we can derivce the following alternative expression of the unconditional variables.\n\nTheorem 5 (Law of Iterated Expectation (Function of R.V.)) \\[\nE(g(X)) = E(E(g(X) \\mid Y))\n\\]\n\n\nTheorem 6 (Iterated Variance) Similar to Theorem 5, we can use that to derive a “iterated” variance.\n\\[\nVar(X) = E(Var(X \\mid Y)) + Var(E(X \\mid Y))\n\\]\n\n\nTheorem 7 (Iterated Covariance) \\[\nCov(X, Z) = E(Cov(X, Z \\mid Y)) + Cov(E(X \\mid Y), E(Z \\mid Y))\n\\]\n\n\n\n6.3.1 Proofs…?\nThe proof of Theorem 5 is almost equivalent as the proof that is required for Theorem 4. The following will present the proof of Theorem 6 and Theorem 7.\n\n6.3.1.1 Proof of Theorem 6\n\nProof (Proof of Theorem 6). \\[\n\\begin{align}\n\\text{RHS} &= E\\left[ E\\left[ \\left( X - E\\left[X \\middle \\vert Y\\right] \\right)^2 \\middle \\vert Y \\right] \\right] + E\\left[ \\left(E\\left[X \\mid Y\\right] - E\\left[E\\left[X \\middle \\vert Y\\right]\\right]\\right)^2 \\right] \\\\\n& = E\\left[ (X - E(X \\mid Y))^2 \\right] + E\\left[ (E(X \\mid Y) - E(X))^2 \\right] \\\\\n& = E \\left[ (X-E[X \\mid Y])^2 + (E(X \\mid Y) - E(X))^2 \\right] \\\\\n& = E \\left[ X^2 - 2XE[X\\mid Y] + (E[X \\mid Y])^2 + (E[X \\mid Y])^2 - 2E(X)E(X|Y) + (E[X])^2 \\right] \\\\\n& = E[X^2] - 2 E[XE[X \\mid Y]] + 2E[(E[X \\mid Y])^2] -2E[X]E[E[X \\mid Y]] + (E[X])^2 \\\\\n& = E[X^2] - (E[X])^2 - 2E[XE[X \\mid Y]] + 2E[(E[X\\mid Y])^2] \\\\\n& = Var(X) - 2E[XE[X \\mid Y]] + 2E[(E[X \\mid Y])^2] \\\\\n\\end{align}\n\\]\nNow, if we can prove the law two terms sum to zero, we have proven the identity. In fact, we only need to show that \\[E[XE[X \\mid Y]] = E[(E[X \\mid Y])^2]\\]. Before, that, we will first show the following lemman is true.\n\nLemma 1 \\[\nE[X \\cdot g(Y)] = E[E[X \\mid Y] \\cdot g(Y)]\n\\]\n\nThe following gives the proof for continuous case in Lemma 1 and discrete case should follow closely. First, we again apply Theorem 5 (The Law of Iterated Expectations). \\[\nE[X \\cdot g(Y)] = E[E[X \\cdot g(Y) \\mid Y]]\n\\]\nNow, the following will fill in the proof for Lemma 1. \\[\n\\begin{align}\nE[X \\cdot g(Y) \\mid Y = y] & = E[X \\cdot g(y) \\mid Y = y] \\\\\n& = \\int_x xg(y) P[X = x \\mid Y = y] \\, dx \\\\\n& = g(y) \\int_x x P[X = x \\mid Y = y] \\, dx \\\\\n& = g(y) E[X \\mid Y = y]\n\\end{align}\n\\]\nTherefore, from the definition of random expectations (Definition 1), we know the following, \\[\nE[X \\cdot g(Y) \\mid Y] = g(Y) E[X \\mid Y = Y] = g(Y) E[X \\mid Y]\n\\]\nThen, we can simply apply Lemma 1 to the following by treating \\(g(Y) = E[X \\mid Y]\\), \\[\n\\begin{align}\nE[XE[X \\mid Y]] &= E[E[X\\cdot E[X \\mid Y] \\mid Y ]] \\\\\n&= E[E[X \\cdot g(Y) \\mid Y]] \\qquad (\\text{Let $g(Y) = E[X \\mid Y]$}) \\\\\n&= E[g(Y) E[X \\mid Y]] = E[(E[X \\mid Y])^2]\n\\end{align}\n\\] in which the lemman is applied in the second step.\n\n\n\n6.3.1.2 Proof of Theorem 7\n\nProof (Proof of Theorem 7). Similar to above, we will first expand the terms and see if there is any things we can reduce.\n\\[\n\\begin{align}\n\\text{RHS} &= E\\left[ E\\left[ (X - E[X \\mid Y])(Z - E[Z \\mid Y]) \\mid Y \\right] \\right] + E\\left[ (E[X \\mid Y] - E[E[X \\mid Y]])(E[Z \\mid Y] - E[E[Z \\mid Y]]) \\right] \\\\\n& = E[(X - E[X \\mid Y])(Z - E[Z \\mid Y])] + E\\left[ (E[X \\mid Y] - E[X])(E[Z \\mid Y] - E[Z]) \\right] \\\\\n\\end{align}\n\\]\nThe last step is arrived by using the law of iterated expectation. Now, let’s simply the first term first,\n\\[\n\\begin{align}\nE\\left[ (X - E[X \\mid Y])(Z - E[Z \\mid Y]) \\right] & = E[XZ - X E[Z \\mid Y] - ZE[X \\mid Y] + E[X\\mid Y]E[Z \\mid Y]] \\\\\n& = E[XZ] - E[XE[Z \\mid Y]] - E[Z E[X \\mid Y]] + E[E[X \\mid Y]E[Z \\mid Y]] \\\\\n& = E[XZ - E[X\\mid Y]E[Z \\mid Y]]\n\\end{align}\n\\]\nGoing from line (2) to line (3) is by using Lemma 1 as same way as it is applied in the last step in the proof of Theorem 6 above. Then, the original expression is simplified as,\n\\[\n\\begin{align}\n\\text{Exp} & = E[XZ - E[X\\mid Y]E[Z\\mid Y] + (E[X \\mid Y] - E[X])(E[Z \\mid Y] - E[Z])] \\\\\n& = E[XZ - E[X \\mid Y][Z \\mid Y] + E[X\\mid Y][Z \\mid Y] - E[X]E[Z \\mid Y] - E[Z]E[X \\mid Y] + E[X]E[Z]] \\\\\n& = E[XZ] - E[X]E[Z] - E[X]E[E[Z \\mid Y] + E[Z]E[E[X\\mid Y]]] \\\\\n& = E[XZ] - E[X]E[Z] - E[X]E[Z] + E[Z]E[X] \\\\\n& = E[XZ] - E[X]E[Z] = Cov(X, Z) \\\\\n\\end{align}\n\\]\n\n\n\n\n\n\n\nComment\n\n\n\nHence, we can see that the hard part is actually to see Lemma 1 which is done in the last proof. Hence, this proof is relatively simple.\n\n\n\n\n\n6.3.2 Examples\n\n\n\n\n\n\nExample 7\n\n\n\nTwenty bolts have just been randomly sampled from the production line in a factory. You are now going to count the number of defectives amongst them.\nFrom experience, you know that the proportion of defective bolts produced in the factory is constant throughout any given day, but varies from day to day in a uniform manner between \\(0.1\\) and \\(0.3\\).\nFind:\n\nHow many defective bolts do you expect to find?\nWhat is the variance of the number of defective bolts?\n\nSolution:\n\n\nHow many defective bolts do you expect to find?\n\nLet \\(X\\) be the number of defectives amongst the 20, and let \\(Y\\) be the proportion of defectives amongst all bolts produced in the factory today.\nThen \\((X | Y = y) \\sim \\text{Bin}(20, y)\\), and \\(Y \\sim U(0.1, 0.3)\\). So \\(E[X \\mid Y = y] = 20y \\implies E[X \\mid Y] = 20Y\\) and \\(E[Y] = 0.2\\).\nTherefore, \\(E[X] = E[E[X \\mid Y]] = E[20Y] = 20 \\times 0.2 = 4\\).\n\n\nWhat is the variance of the number of defective bolts?\n\nSimilarly, we will use Theorem 6 to determine the variance.\nFirst, \\[Var[Y] = \\frac{0.04}{12} = \\frac{1}{300} = 0.0033 \\hspace{30pt} E[Y^2] = Var(Y) + (E[Y])^2 = \\frac{13}{300} = 0.43\\]. Also, we now that \\[Var(X \\mid Y) = nY(1-Y)\\] since \\((X \\mid Y = y) \\sim \\text{Bin}(20, y)\\). Therefore, \\[\n\\begin{align}\nVar(X) &= E[Var(X \\mid Y)] + Var(E[X \\mid Y]) \\\\\n& = E[20Y(1 - Y)] + Var(20Y) \\\\\n& = E[20Y] - E[20Y^2] + 400Var(Y) \\\\\n& = 20 * 0.2 - 20 \\left(\\frac{13}{300}\\right) + 400 \\left( \\frac{1}{300} \\right) = \\frac{67}{15} = 4.4667 \\\\\n\\end{align}\n\\]\n\nI think this example question can easily become a bayesian estimate question by throwing another question about the distribution of \\(Y | X\\).",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#footnotes",
+    "href": "contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html#footnotes",
+    "title": "Joint Continuous Distribution & Expectations (2)",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nNote that we did not really find the mgf before. Therefore, refer to Theorem 4 for the proof.↩︎",
+    "text": "Footnotes\n\n\nI believe this is generally a plausible assumptions to make otherwise it is possible to run out of items when you are performing the trials.↩︎",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH05: Multivariate Distributions",
+      "Joint Continuous Distribution & Expectations (2)"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html",
+    "href": "contents/chapter-04/1rv.html",
+    "title": "Known Continuous Distributions",
+    "section": "",
+    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
     "crumbs": [
       "Home",
       "Contents",
       "CH04: Continuous R.V.",
-      "Expectations"
+      "Known Continuous Distributions"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT2001 Revision Hub",
+    "objectID": "contents/chapter-04/1rv.html#uniform-distribution",
+    "href": "contents/chapter-04/1rv.html#uniform-distribution",
+    "title": "Known Continuous Distributions",
     "section": "",
-    "text": "This site is your companion for revising STAT2001: Introductory Mathematical Statistics at ANU. Whether you’re preparing for exams or reinforcing weekly concepts, you’ll find concise summaries, worked examples, and practice materials here.\n\n\n\nThe content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators.\n\n\n\n\n\nAll examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions.\n\n\n\n\n\nNavigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
+    "text": "Definition 1 Continuous random variable \\(Y \\sim U(a, b)\\) if its pdf is, \\[\nf(y) = \\frac{1}{b - a}, \\qquad a &lt; y &lt; b (a &lt; b)\n\\]\n\n\n\nTheorem 1 Suppose that \\(Y \\sim U(a, b)\\). Find \\(Y\\)’s cdf.\n\\[\nF(y) = \\int_a^y \\frac{1}{b-a} \\, dt = \\frac{y - a}{b - a}, \\qquad a &lt; y &lt; b\n\\]\n\n\n\n\n\n\nShow the code\nimport { Inputs } from \"@observablehq/inputs\"\nimport { Plot } from \"@observablehq/plot\"\n\nviewof ua = Inputs.range([0, 10], { label: \"Minimum (a)\", step: 0.1, value: 2 })\nviewof ub = Inputs.range([0, 10], { label: \"Maximum (b)\", step: 0.1, value: 8 })\n\nuniform_xs = Array.from({ length: 100 }, (_, i) =&gt; ua - 1 + (i / 99) * (ub - ua + 2))\n\nuniform_pdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &gt;= ua && x &lt;= ub ? 1 / (ub - ua) : 0\n}))\n\nuniform_cdf = uniform_xs.map(x =&gt; ({\n  x,\n  y: x &lt; ua ? 0 : x &gt; ub ? 1 : (x - ua) / (ub - ua)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistorgram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...uniform_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Uniform(${ua}, ${ub})`,\n  marks: [\n    Plot.line(uniform_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...uniform_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomUniform(ua, ub)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
   },
   {
-    "objectID": "index.html#topics-covered",
-    "href": "index.html#topics-covered",
-    "title": "STAT2001 Revision Hub",
-    "section": "",
-    "text": "The content is structured to mirror the STAT2001 curriculum:\n\nProbability Foundations: Set theory, combinatorics, and Bayes’ theorem.\nRandom Variables: Discrete and continuous distributions, including moment-generating functions and correlation.\nMultivariate Distributions: Joint, marginal, and conditional distributions.\nSampling Distributions: Understanding the central limit theorem and its applications.\nEstimation Techniques: Methods of moments and maximum likelihood estimation.\nHypothesis Testing: Formulating and testing statistical hypotheses.\nBayesian Statistics: Introduction to Bayesian inference and estimators."
+    "objectID": "contents/chapter-04/1rv.html#normal-distribution",
+    "href": "contents/chapter-04/1rv.html#normal-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "2 Normal Distribution",
+    "text": "2 Normal Distribution\n\nDefinition 2 (Normal Distribution) A random variable \\(Y\\) has the normal distribution with parameters \\(a\\) and \\(b^2\\) if its pdf is of the form\n\\[\nf(y) = \\frac{1}{b\\sqrt{2\\pi}} e^{-\\frac{(y - a)^2}{2b^2}}, \\quad -\\infty &lt; y &lt; \\infty \\, (-\\infty &lt; a &lt; \\infty, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\mathcal{N}(a, b^2)\\).\n\n\n\n2.1 Interactive Widget\n\n\nShow the code\nviewof normal_mu = Inputs.range([-10, 10], { label: \"mean\", step: 0.1, value: 0 })\nviewof normal_var = Inputs.range([0, 10], { label: \"variance\", step: 0.1, value: 1 })\n\nnormal_xs = Array.from({ length: 200 }, (_, i) =&gt; \n  - 4 * 4 + (i / 199) * 8 * 4  // from μ - 4σ to μ + 4σ\n)\n\n// PDF of Normal Distribution\nnormal_pdf = normal_xs.map(x =&gt; ({\n  x,\n  y: (1 / (normal_var * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * ((x - normal_mu) / normal_var) ** 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nnormal_cdf = normal_xs.map(x =&gt; ({\n  x,\n  y: 0.5 * (1 + erf((x - normal_mu) / (normal_var * Math.sqrt(2))))\n}))\n\n// Helper: error function approximation\nfunction erf(x) {\n  // Abramowitz and Stegun formula 7.1.26\n  const sign = x &gt;= 0 ? 1 : -1\n  const a1 = 0.254829592,\n        a2 = -0.284496736,\n        a3 = 1.421413741,\n        a4 = -1.453152027,\n        a5 = 1.061405429,\n        p = 0.3275911\n\n  const t = 1 / (1 + p * Math.abs(x))\n  const y = 1 - (((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t) * Math.exp(-x * x)\n  return sign * y\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.max(...normal_pdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Normal(${normal_mu}, ${normal_var})`,\n  marks: [\n    Plot.line(normal_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...normal_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomNormal(normal_mu, normal_var ** (0.5))})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.2 Standardisation\nWithout a computer, the only way to evaluate the probability is using a normal distribution table. However, such table only provides information about the standard normal distribution. Therefore, it becomes important to use standardisation to change any r.v. following normal distribution to the standard normal distribution.\n\nTheorem 2 (Standardisation Normal Technique) If \\(Y \\sim \\mathcal{N}(a, b^2)\\), then \\(Z = \\frac{Y - a}{b} \\sim \\mathcal{N}(0, 1)\\).\n\nWe say that \\(Y\\) has been standardised, and that \\(Z\\) is the standardised version of \\(Y\\).\nNote that this technique is used not only for finding the probability in the exam with normal table, this can also be used to normalise the training data for a machine learning model1.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
   },
   {
-    "objectID": "index.html#tools-and-resources",
-    "href": "index.html#tools-and-resources",
-    "title": "STAT2001 Revision Hub",
-    "section": "",
-    "text": "All examples and exercises are implemented using R, the primary statistical computing tool for this course. You’ll also find:\n\nInteractive visualizations to aid understanding.\nCheatsheets summarizing key formulas and concepts.\nPractice questions with step-by-step solutions."
+    "objectID": "contents/chapter-04/1rv.html#gamma-distribution",
+    "href": "contents/chapter-04/1rv.html#gamma-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "3 Gamma Distribution",
+    "text": "3 Gamma Distribution\n\nDefinition 3 (Gamma Distribution Pdf) A random variable \\(Y\\) has the gamma distribution with parameters \\(a\\) and \\(b\\) if its pdf is of the form \\[\nf(y) = \\frac{y^{a-1}e^{-y/b}}{b^a \\Gamma(a)}, \\quad y &gt; 0 \\quad (a, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\text{Gam}(a, b)\\).\n\n\n3.1 Mysterious \\(\\Gamma(\\cdot)\\)\n\\(\\Gamma(\\cdot)\\) here is the gamma function, defined by \\(\\Gamma(k) = \\int_0^\\infty t^{k-1}e^{-t}\\, dt\\).\nSome properties:\n\n\\(\\Gamma(k) = (k - 1) \\Gamma(k - 1)\\) if \\(k &gt; 1\\)\n\\(\\Gamma(k) = (k - 1)!\\) if \\(k\\) is a positive integer (e.g. \\(\\Gamma (4) = 3! = 6\\))\n\\(\\Gamma(1/2) = \\sqrt{\\pi}\\)\n\n\n\nShow the code\nfunction gamma(z) {\n  const g = 7\n  const p = [\n    0.99999999999980993,\n    676.5203681218851,\n   -1259.1392167224028,\n    771.32342877765313,\n   -176.61502916214059,\n    12.507343278686905,\n   -0.13857109526572012,\n    9.9843695780195716e-6,\n    1.5056327351493116e-7\n  ]\n\n  if (z &lt; 0.5) {\n    return Math.PI / (Math.sin(Math.PI * z) * gamma(1 - z))\n  } else {\n    z -= 1\n    let x = p[0]\n    for (let i = 1; i &lt; g + 2; i++) {\n      x += p[i] / (z + i)\n    }\n    const t = z + g + 0.5\n    return Math.sqrt(2 * Math.PI) * t**(z + 0.5) * Math.exp(-t) * x\n  }\n}\n\n// Generate values for plotting\ngam_xs = Array.from({ length: 200 }, (_, i) =&gt; 0.01 + i / 199 * (8 - 0.01))\ngamma_data = gam_xs.map(x =&gt; ({ x, y: gamma(x) }))\n\n// Plot\nPlot.plot({\n  title: `Gamma Function Γ(x), from x = 0.01 to ${8}`,\n  marks: [\n    Plot.line(gamma_data, { x: \"x\", y: \"y\", stroke: \"purple\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\", domain: [0, 8] },\n  y: { label: \"Γ(x)\" },\n  width: 600,\n  height: 300\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Mode of Gamma Distribution\n\nTheorem 3 (Mode of Gamma Distribution) \\[\nMode(Y) = \\begin{cases}\nb(a-1) & a \\geq 1 \\\\\n0 & a &lt; 1\n\\end{cases}\n\\]\n\n\n\n\n3.3 Interactive Widget\n\n\nShow the code\nviewof gamma_a = Inputs.range([0.4, 5], { label: \"a\", step: 0.1, value: 1 })\nviewof gamma_b = Inputs.range([0.1, 5], { label: \"b\", step: 0.1, value: 1 })\n\nfunction gammainc_lower(x, a) {\n  // Lower regularized incomplete gamma function P(a, x)\n  // using a simple series expansion\n  let sum = 1 / a\n  let value = 1 / a\n  for (let n = 1; n &lt; 100; n++) {\n    value *= x / (a + n)\n    sum += value\n    if (value &lt; 1e-8) break\n  }\n  return sum * Math.exp(-x + a * Math.log(x)) / gamma(a)\n}\n\nfunction gammaCDF(x, alpha, theta) {\n  if (x &lt;= 0) return 0\n  return gammainc_lower(x / theta, alpha)\n}\n\nfunction gammaPDF(x, a, t) {\n  if (x &lt; 1e-6) return a &lt; 1 ? Infinity : 0\n  return (1 / (t ** a * gamma(a))) * x ** (a - 1) * Math.exp(-x / t)\n}\n\ngamma_xs = [\n  ...Array.from({ length: 100 }, (_, i) =&gt;\n    1e-6 + Math.exp(Math.log(1e-6) + (i / 100) * Math.log(0.5 / 1e-6))  // log scale from 1e-6 to ~0.5\n  ),\n  ...Array.from({ length: 100 }, (_, i) =&gt; 0.5 + i * 0.1)  // linear from 0.5 to 10.4\n]\n\n\n// PDF of Normal Distribution\ngamma_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, gamma_a, gamma_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\ngamma_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, gamma_a, gamma_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...gamma_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Gamma(${gamma_a}, ${gamma_b})`,\n  marks: [\n    Plot.line(gamma_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...gamma_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n// import { Plot, binX, ruleY, line } from \"@observablehq/plot\"\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(gamma_a, gamma_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.4 Conclusion on the Gamma Distribution\nNow, it is clear that the gamma distribution is very expressive with two model parameters. In fact, we can define many specific distribution by using this gamma distribution by fixing some of the model parameters.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
   },
   {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "STAT2001 Revision Hub",
+    "objectID": "contents/chapter-04/1rv.html#the-chi2-distribution",
+    "href": "contents/chapter-04/1rv.html#the-chi2-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "4 The Chi2 Distribution",
+    "text": "4 The Chi2 Distribution\nBeing a special case of the gamma distribution.\n\nDefinition 4 (Chi-Square Distribution) If \\(Y \\sim \\text{Gam}(n/2, 2)\\), we say that \\(Y\\) has the chi-square distribution with parameter \\(n\\).\nDenote as \\(Y \\sim \\chi^2(n)\\).\n\n\nDefinition 5 (Chi-Square Degree of Freedom) \\(n\\) in the above formulation is the degrees of freedom (DOF).\n\n\nTheorem 4 (Mode of Chi-Square Distribution) The mode of \\(Y\\) is \\(n - 2\\) if \\(n \\geq 2\\), and it is 0 if \\(n \\leq 2\\).\n\n\n\n4.1 Interactive Widget\n\n\nShow the code\nviewof chi_dof = Inputs.range([1, 5], { label: \"dof\", step: 1, value: 1 })\n\n// PDF of Normal Distribution\nchi_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, chi_dof / 2, 2)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nchi_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, chi_dof / 2, 2)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\n// @title: Gamma PDF \n\nPlot.plot({\n  title: `PDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...chi_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Normal CDF\n\nPlot.plot({\n  title:  `CDF of Chi(${chi_dof})`,\n  marks: [\n    Plot.line(chi_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...chi_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(chi_dof / 2, 2)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#exponential-distribution",
+    "href": "contents/chapter-04/1rv.html#exponential-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "5 Exponential Distribution",
+    "text": "5 Exponential Distribution\nAnother special case of the gamma distribution\n\nDefinition 6 (Exponential Distribution PDF) If \\(Y \\sim \\text{Gam}(1, b)\\), then \\(Y\\) has the exponential distribution with parameter \\(b\\).\nWe write \\(Y \\sim \\text{Exp}(b)\\) with the corresponding pdf being, \\[\nf(y) = \\frac{1}{b}e^{-y/b}, \\quad y &gt; 0\n\\]\n\nBy using Theorem 3, we obtain the following corollary.\n\nCorollary 1 (Mode of Exponential Distribution) \\[\nMode(Y) = 0\n\\]\n\n\nNow, we can establish the following connection with all the other ones have discovered. \\[\n\\text{Exp}(2) = \\text{Gam}(2/2, 2) = \\chi^2(2)\n\\]\n\nThis distribution is useful for modelling times until failure of components and times between successive arrivals in a queue.\n\n\n5.1 Interactive Widget\n\n\nShow the code\nviewof exp_b = Inputs.range([0.1, 5], { label: \"n\", step: 0.1, value: 1 })\n\n// PDF of Normal Distribution\nexp_pdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaPDF(x, 1, exp_b)\n}))\n\n// CDF of Normal Distribution using the error function approximation\nexp_cdf = gamma_xs.map(x =&gt; ({\n  x,\n  y: gammaCDF(x, 1, exp_b)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...exp_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title:  `CDF of Exp(${exp_b})`,\n  marks: [\n    Plot.line(exp_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...exp_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomGamma(1, exp_b)})).plot()\n\n\n\n\n\n\n\n\n\n\n\n\n5.2 Standard Exponential Distribution\n\nDefinition 7 (Standard Exponential Distribution) A special case of the exponential distribution.\nIf \\(Y \\sim \\text{Exp}(1)\\), we say that \\(Y\\) has the standard exponential distribution.",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#beta-distribution",
+    "href": "contents/chapter-04/1rv.html#beta-distribution",
+    "title": "Known Continuous Distributions",
+    "section": "6 Beta Distribution",
+    "text": "6 Beta Distribution\n\nDefinition 8 (Beta Distribution) A random variable \\(Y\\) has the beta distribution with parameters \\(a\\) and \\(b\\) if its pdf is of the form \\[\nf(y) = \\frac{y^{a-1}(1-y)^{b-1}}{B(a, b)}, \\quad o &lt; y &lt; 1 \\; (a, b &gt; 0)\n\\]\nWe write \\(Y \\sim \\text{Beta}(a, b)\\).\n\nHere, \\(B(a, b) = \\frac{\\Gamma(a) \\Gamma(b)}{\\Gamma(a + b)}\\) is the beta function.\n\n6.1 Connection with Uniform Distribution\nIf \\(a = b = 1\\), then \\(f(y) = 1\\), \\(0 &lt; y &lt; 1\\). Thus \\(\\text{Beta}(1, 1) = U(0, 1)\\).\nIt can be shown that \\(Mode(Y) = (a - 1)/(a + b -2)\\) if \\(a &gt; 1\\) and \\(b &gt; 1\\).\n\n\n\n6.2 Interactive Widget\n\n\nShow the code\nviewof beta_alpha = Inputs.range([0.1, 10], { label: \"alpha\", step: 0.01, value: 1 })\nviewof beta_beta = Inputs.range([0.1, 10], { label: \"beta\", step: 0.01, value: 1 })\n\n// --- More points near edges ---\nbeta_xs = [\n  ...Array.from({ length: 201 }, (_, i) =&gt; i / 200)\n].filter(x =&gt; x &lt;= 1)\n\n// --- Beta PDF ---\nfunction betaPDF(x, a, b) {\n  if (x &lt;= 0 || x &gt;= 1) return 0\n  const numerator = x ** (a - 1) * (1 - x) ** (b - 1)\n  const denominator = gamma(a) * gamma(b) / gamma(a + b)\n  return numerator / denominator\n}\n\n// Regularized incomplete beta function I_x(a, b)\n// This is a simple continued fraction approximation for 0 &lt; x &lt; 1\n// Based on the continued fraction form in NR, adapted for moderate values\n\nfunction betainc(x, a, b) {\n  if (x &lt;= 0) return 0\n  if (x &gt;= 1) return 1\n\n  const lnBeta = Math.log(gamma(a)) + Math.log(gamma(b)) - Math.log(gamma(a + b))\n  const front = Math.exp(\n    a * Math.log(x) + b * Math.log(1 - x) - lnBeta\n  ) / a\n\n  let f = 1, c = 1, d = 0\n  for (let i = 1; i &lt; 100; i++) {\n    const m = i / 2\n    const numerator = (i % 2 === 1)\n      ? (b - m) * x / (a + 2 * m - 1)\n      : -((a + m - 1) * (a + b + m - 1) * x) / ((a + 2 * m - 2) * (a + 2 * m - 1))\n    d = 1 + numerator * d\n    if (Math.abs(d) &lt; 1e-30) d = 1e-30\n    d = 1 / d\n    c = 1 + numerator / c\n    if (Math.abs(c) &lt; 1e-30) c = 1e-30\n    const delta = c * d\n    f *= delta\n    if (Math.abs(delta - 1) &lt; 1e-8) break\n  }\n\n  return front * f\n}\n\n// --- PDF values ---\nbeta_pdf = beta_xs.map(x =&gt; ({\n  x,\n  y: betaPDF(x, beta_alpha, beta_beta)\n}))\n\n// Compute the CDF points using the approximation\nbeta_cdf = beta_xs.map(x =&gt; ({\n  x,\n  y: betainc(x, beta_alpha, beta_beta)\n}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPDFCDFHistogram (Interactive)\n\n\n\n\nShow the code\nPlot.plot({\n  title: `PDF of Beta(${beta_alpha}, ${beta_beta})`,\n  marks: [\n    Plot.line(beta_pdf, { x: \"x\", y: \"y\" }),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"f(x)\", domain: [0, Math.min(5, Math.max(...beta_pdf.map(d =&gt; d.y)) * 1.2)] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  title: `CDF of Beta(${beta_alpha}, ${beta_beta})`,\n  marks: [\n    Plot.line(beta_cdf, {x: \"x\", y: \"y\"}),\n    Plot.ruleY([0])\n  ],\n  x: { label: \"x\" },\n  y: { label: \"F(x)\", domain: [0, Math.max(...beta_cdf.map(d =&gt; d.y)) * 1.2] },\n  width: 600,\n  height: 250\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\n// @title: Histogram of Samples\n\nPlot.rectY({length: 10000}, Plot.binX({y: \"count\"}, {x: d3.randomBeta(beta_alpha, beta_beta)})).plot()",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-04/1rv.html#footnotes",
+    "href": "contents/chapter-04/1rv.html#footnotes",
+    "title": "Known Continuous Distributions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHowever, it is more common to use min-max normalisation.↩︎",
+    "crumbs": [
+      "Home",
+      "Contents",
+      "CH04: Continuous R.V.",
+      "Known Continuous Distributions"
+    ]
+  },
+  {
+    "objectID": "topics.html",
+    "href": "topics.html",
+    "title": "STAT2001 Weekly Topics",
     "section": "",
-    "text": "Navigate to the Topics page to begin exploring specific areas of the course. For more information about this site, visit the About page.\n\nNote: This site is an independent student-led initiative and is not officially affiliated with ANU."
+    "text": "This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.\n\n\nWeekly Study Plan\n\n\n\n\n\n\n\nWeek\nTopic\nExtra Information\n\n\n\n\n1\nCH1 Statistics; CH2 Probability\nCalculus notes\n\n\n2\nCH2 Probability\nRefresher Quiz 1, Refresher Quiz 2 on combinatorics\n\n\n3\nCH2 Probability\n\n\n\n4\nCH3 Discrete Random Variables\nMakeup Tue 11/3, Formula sheet, Binomial distribution\n\n\n5\nCH4 Continuous Random Variables\nAssessable Quiz due Fri 21/3, Gamma distribution, R and random variables\n\n\n6\nCH5 Multivariate Probability\nAssignment 1 available\n\n\n—\nTeaching Break\n\n\n\n7\nCH6 Functions of Random Variables\nAssignment 1 due\n\n\n8\nCH7 Sampling Distributions & CLT\nMakeup Tue 22/4\n\n\n9*\nCH8 Estimation\nAssignment 2 available\n\n\n10\nCH9 Point Estimation\n\n\n\n11\nCH16 Bayesian Methods; CH10\nAssignment 2 due\n\n\n12\nCH10 Hypothesis Testing\nNon-exhaustive summary\n\n\n\n\n\n\n\nChapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
+  },
+  {
+    "objectID": "topics.html#notes",
+    "href": "topics.html#notes",
+    "title": "STAT2001 Weekly Topics",
+    "section": "",
+    "text": "Chapters refer to the textbook used in the course (check Wattle or course outline for details).\nMakeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.\nThis schedule is intended for student revision and is not officially endorsed by ANU."
   }
 ]
