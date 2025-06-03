@@ -2,3 +2,82 @@
 title: "Sampling Distributions and Central Limit Theorem"
 ---
 
+# Some Theorems Regarding the Normal Distribution
+
+::: {#thm-sample-mean-of-normal-rv}
+
+Suppose that $Y_1, Y_2, \ldots, Y_n \sim^{\text{iid}} N(\mu, \sigma^2)$. Let $$\bar{Y} = \frac{1}{n} \sum_{i = 1}^n y_i \hspace{20pt} \text{(the sample mean)}$$. Then $$\bar{Y} \sim N(\mu , \frac{\sigma^2}{n})$$
+
+:::
+
+::: {.proof}
+
+In [Chapter 6](../chapter-06/index.qmd), we showed that linear combinations of normal rv's are also normal. So it only remains to find the mean and variance of $\bar{Y}$.
+
+$$
+\begin{align}
+E[\bar{Y}] & = E\left[\frac{1}{n} \sum_{i = 1}^n Y_i\right] \\
+& = \frac{1}{n} \sum_{i = 1}^n \mu = \frac{1}{n}n\mu = \mu
+Var(\bar{Y}) &= \frac{1}{n^2}\sum_{i=1}^n Var(Y_i) \\
+&= \frac{1}{n^2} \sum_{i = 1}^n \sigma^2 \\ 
+& = \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n} \\
+\end{align}
+$$
+
+:::
+
+# Sampling Distribution
+
+::: {#cor-standardised-normal-rv}
+
+## Standardised Sample Mean
+
+$$
+Z = \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)
+$$
+
+:::
+
+$Z$ may be called the _standardised sample mean_. The sample mean $\bar{Y}$ is an example of a _statistic_
+
+::: {#def-statistic}
+
+## Statistic
+
+A _statistic_ is any function of the observable random variables in a sample and known constants.
+
+:::
+
+The probability distribution of a statistic is sometimes referred to as the _sampling distribution_ of that statistic. For example, $\bar{Y} - \mu$ is nto a statistic unless $\mu$ is known. Similarly, $Z$ in @cor-standardised-normal-rv is not a statistic unless both $\mu$ and $\sigma$ are known.
+
+::: {#exm-1}
+
+A bottling machine discharges volumes of drink that are independent and normally distributed with standard deviation 1 ml.  
+Find the sampling distribution of the mean volume of 9 randomly selected bottles that are filled by the machine.  
+Hence find the probability that this sample mean will be within 0.3 ml of the mean volume of all bottles filled by the machine.
+
+---
+
+Let $Y_i$ be the volume of the $i$ th bottle in the sample, $i = 1, \ldots, n$ where $n = 9$. Then $Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)$, where $\sigma^2 = 1$ and $\mu$ is unknown. So $\bar{Y} \sim N(\mu, 1/9)$. Hence
+
+$$
+\begin{align}
+P(\lvert \bar{Y} - \mu \rvert < 0.3) & = P(\left\lvert \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right\rvert < \frac{0.3}{1/3}) = P(\lvert Z \rvert < 0.9) \\
+& = 1 - 2P(Z > 0.9) = 0.6318
+\end{align}
+$$
+
+It is important to note that we do not need any knowledge of $\mu$. In fact, this is an example of a pivotal statistics.
+
+:::
+
+---
+
+::: {#thm-sample-variance}
+
+Suppose that $Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)$. Let
+$$
+S^2 = \frac{1}{n-1}\sum_{i = 1}^n (Y_i - \bar{Y})^2
+$$
+
+:::

@@ -70,8 +70,10 @@ two numbers that come up?
 
 Let $Y_i$ be the number on the $i$th die. We wish to find the expected value of
 $D \ lvert Y_1 - Y_2 \rvert$. We first obtain the pmf of $D$, according to
-$$p(d) = \sum_{y_1, y_2: \lvert y_1 - y_2 \rvert d} p(y_1, y_2).$$ This is best
-done graphically (see @fig-example3-graph).
+$$
+p(d) = \sum_{y_1, y_2: \lvert y_1 - y_2 \rvert d} p(y_1, y_2).
+$$ 
+This is best done graphically (see @fig-example3-graph).
 
 ```{r}
 #| label: fig-example3-graph
