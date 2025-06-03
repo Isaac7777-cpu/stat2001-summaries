@@ -39,6 +39,7 @@ cat "$OUTDIR/head.yml" "$OUTDIR/sidebar.indented.yml" "$OUTDIR/tail.yml" > "$OUT
 echo "✅ Clean result written to: $OUT"
 
 # ▶️ Step 4: Compare and update if changed
+# Cannot return non-zero otherwise Github would confuse
 if cmp -s "$OUT" "$SRC"; then
   echo "🟢 No sidebar changes detected. $SRC is up to date."
 else
