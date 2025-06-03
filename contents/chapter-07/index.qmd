@@ -78,6 +78,10 @@ It is important to note that we do not need any knowledge of $\mu$. In fact, thi
 Suppose that $Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)$. Let
 $$
 S^2 = \frac{1}{n-1}\sum_{i = 1}^n (Y_i - \bar{Y})^2
-$$
+$$ (The sample variance)
+
+Then:
+(a) $$ \frac{(n - 1}S^2})}{\sigma62} \sim \chi^2(n-1) $$
+(b) $$ S^2 \perp \bar{Y} $$
 
 :::

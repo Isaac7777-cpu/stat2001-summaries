@@ -54,12 +54,12 @@ jobs:
         run: rm -f __autogen/sidebar-changed.flag
 
       - name: Compress __autogen output
-        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        if: steps.update_sidebar.outputs.sidebar_changed == 'true'
         run: |
           zip -r sidebar-autogen.zip __autogen/
 
       - name: Upload sidebar artifacts
-        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        if: steps.update_sidebar.outputs.sidebar_changed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: sidebar-autogen
