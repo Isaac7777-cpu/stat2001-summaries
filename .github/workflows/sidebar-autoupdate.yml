@@ -30,11 +30,16 @@ jobs:
         run: |
           chmod +x scripts/grab_contents_v2.sh
           chmod +x scripts/edit-quarto-yaml.sh
-          bash scripts/edit-quarto-yaml.sh
+          bash scripts/edit-quarto-yaml.sh > __autogen/sidebar.log 2 >&1
+          if [ -f __autogen/sidebar-changed.flag ]; then
+            echo "sidebar_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "sidebar_changed=false" >> "$GITHUB_OUTPUT"
+          fi
         id: update_sidebar
 
       - name: Commit and push if sidebar changed
-        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        if: steps.update_sidebar.outputs.sidebar_changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -43,13 +48,17 @@ jobs:
           git push origin HEAD
 
       - name: Cleanup marker
-        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        if: steps.update_sidebar.outputs.sidebar_changed == 'true'
         run: rm -f __autogen/sidebar-changed.flag
 
+      - name: Compress __autogen output
+        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        run: |
+          zip -r sidebar-autogen.zip __autogen/
+
       - name: Upload sidebar artifacts
+        if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: sidebar-autogen
-          path: |
-            _quarto.yml
-            __autogen/
+          path: sidebar-autogen.zip
