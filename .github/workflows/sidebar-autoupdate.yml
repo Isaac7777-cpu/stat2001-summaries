@@ -7,7 +7,8 @@ on:
     paths:
       - 'contents/**'
       - 'scripts/grab_contents.sh'
-      - 'edit-quarto-yaml.sh'
+      - 'scripts/grab_contents_v2.sh'
+      - 'scripts/edit-quarto-yaml.sh'
 
 jobs:
   update-sidebar:
