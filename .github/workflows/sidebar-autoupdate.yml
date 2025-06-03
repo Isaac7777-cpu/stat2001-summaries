@@ -1,4 +1,6 @@
 name: Auto Sidebar Updater
+permissions: 
+  contents: write
 
 on:
   push:
@@ -32,6 +34,8 @@ jobs:
 
       - name: Commit and push if sidebar changed
         if: ${{ hashFiles('__autogen/sidebar-changed.flag') != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add _quarto.yml
           git commit -m "Auto-update sidebar from contents/" || echo "Nothing to commit"
