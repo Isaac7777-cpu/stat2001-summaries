@@ -40,6 +40,8 @@ website:
           - contents/chapter-05/02-continuous-joint-probability-and-expectations-2.qmd
       - text: "chapter-06"
         href: contents/chapter-06/index.qmd
+      - text: "chapter-07"
+        href: contents/chapter-07/index.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
