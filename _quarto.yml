@@ -17,9 +17,28 @@ website:
       - about.qmd
   sidebar:
     style: "docked"
-    search: true
-    contents: contents
-    background: light
+    background: dark
+    collapse-level: 1
+    contents:
+      - text: "chapter-02"
+        href: contents/chapter-02/index.qmd
+      - section: "chapter-03"
+        href: contents/chapter-03/index.qmd
+        contents:
+          - contents/chapter-03/1rv.qmd
+          - contents/chapter-03/2measures.qmd
+      - section: "chapter-04"
+        href: contents/chapter-04/index.qmd
+        contents:
+          - contents/chapter-04/1rv.qmd
+          - contents/chapter-04/2measures.qmd
+      - section: "chapter-05"
+        href: contents/chapter-05/index.qmd
+        contents:
+          - contents/chapter-05/01-distributions.qmd
+          - contents/chapter-05/02-continuous-joint-probability-and-expectations-2.qmd
+      - text: "chapter-06"
+        href: contents/chapter-06/index.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
