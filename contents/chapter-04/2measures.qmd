@@ -168,6 +168,8 @@ $$
 
 Therefore, $\mu_1' = m'(0) = b$ and $\mu_2' = m''(0) = 2b^2$. Hence, variance is $2b^2 - b^2 = b^2$.
 
+:::
+
 ::: {.callout-warning title="Alternative Methods"}
 
 Note that it is possible to directly use integration by part to obtain the result, but it is clearly much more tedious.

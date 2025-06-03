@@ -31,7 +31,8 @@ jobs:
         run: |
           chmod +x scripts/grab_contents_v2.sh
           chmod +x scripts/edit-quarto-yaml.sh
-          bash scripts/edit-quarto-yaml.sh > __autogen/sidebar.log 2 >&1
+          mkdir -p __autogen
+          bash scripts/edit-quarto-yaml.sh > __autogen/sidebar.log 2>&1
           if [ -f __autogen/sidebar-changed.flag ]; then
             echo "sidebar_changed=true" >> "$GITHUB_OUTPUT"
           else
