@@ -176,4 +176,57 @@ This reuslt does confirm to our intuitions because there are "more ways" to get 
 
 :::
 
-# Multivariate Case
+# Convolution in the Multivariate Setting {-}
+
+When the sum involves vectors rather than scalars, the same convolution idea extends component-wise.
+Let
+\begin{equation*}
+\mathbf X=(X_1,\ldots,X_d), \qquad \mathbf Y=(Y_1,\ldots,Y_d)
+\end{equation*}
+be independent $\mathbb R^d$-valued random vectors with joint densities $f_{\mathbf X}$ and $f_{\mathbf Y}$.  Define their sum
+\begin{equation*}
+\mathbf Z=\mathbf X+\mathbf Y\;:=\;(X_1+Y_1,\ldots,X_d+Y_d).
+\end{equation*}
+The density of $\mathbf Z$ is the $d$-dimensional convolution
+\begin{equation*}
+f_{\mathbf Z}(\mathbf z)
+=\int_{\mathbb R^{d}} f_{\mathbf X}(\mathbf t)\,f_{\mathbf Y}(\mathbf z-\mathbf t)\,d\mathbf t
+\;=\;(f_{\mathbf X}*f_{\mathbf Y})(\mathbf z).\tag{C.1}\label{eq:C1}
+\end{equation*}
+For discrete vectors the integral is replaced by a $d$-fold sum.
+
+## $n$-fold sums
+
+Because convolution is associative, the density of $\mathbf S_n=\sum_{k=1}^{n}\mathbf X_k$ (independent, not necessarily identically distributed) is
+\begin{equation*}
+f_{\mathbf S_n}=f_{\mathbf X_1}f_{\mathbf X_2}\cdots*f_{\mathbf X_n}.\tag{C.2}\label{eq:C2}
+\end{equation*}
+If all $\mathbf X_k$ share a common density $f$ we simply write $f^{*n}$ (the $n$-fold convolution power).
+
+## Characteristic-function shortcut
+
+For any vector $\boldsymbol t\in\mathbb R^d$ the characteristic function is
+\begin{equation*}
+\varphi_{\mathbf X}(\boldsymbol t)=\mathbb E\bigl[e^{i\langle\boldsymbol t,\mathbf X\rangle}\bigr]
+\end{equation*}
+Independence gives
+\begin{equation*}
+\varphi_{\mathbf S_n}(\boldsymbol t)=\prod_{k=1}^{n}\varphi_{\mathbf X_k}(\boldsymbol t),
+\end{equation*}
+whose inverse Fourier transform reproduces \eqref{eq:C2}.  This frequency-space view powers the multivariate Central Limit Theorem and stable-law theory.
+
+## Example ▸ Covariance additivity of Gaussians
+
+If
+$\mathbf X_k\sim\mathcal N_d(\boldsymbol\mu_k,\Sigma_k)$ are independent, then by \eqref{eq:C2}
+\begin{equation*}
+\mathbf S_n\sim\mathcal N_d\Bigl(\sum_{k=1}^{n}\boldsymbol\mu_k\,,\;\sum_{k=1}^{n}\Sigma_k\Bigr).
+\end{equation*}
+The mean vectors and covariance matrices simply add.
+
+## Further reading 
+-	P. Billingsley, Probability & Measure, §17 — product measures & convolution.
+-	G. Folland, Real Analysis, Ch. 8 — Fourier transform on $\mathbb R^d$.
+-	Gnedenko & Kolmogorov, Limit Distributions for Sums …, Ch. 3 — multivariate limits.
+- Hall, Philip. “The Distribution of Means for Samples of Size N Drawn from a Population in Which the Variate Takes Values Between 0 and 1, All Such Values Being Equally Probable.” Biometrika, vol. 19, no. 3/4, 1927, pp. 240–45. JSTOR, https://doi.org/10.2307/2331961. Accessed 4 June 2025.
+- Bates, Grace E. “Joint Distributions of Time Intervals for the Occurrence of Successive Accidents in a Generalized Polya Scheme.” The Annals of Mathematical Statistics, vol. 26, no. 4, 1955, pp. 705–20. JSTOR, http://www.jstor.org/stable/2236383. Accessed 4 June 2025.

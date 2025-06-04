@@ -13,3 +13,7 @@
   display: block;
   margin-top: 0.5em;
 }
+
+h2 {
+  text-transform: none;
+}
