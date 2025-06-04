@@ -320,7 +320,7 @@ The solution to this problem is unique and required interval $(a, b)$ satisfies 
 
 [^1]: This proof is in reference to [this material](https://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf) published by the Duke University which I found on Google somehow. If this material should not be public, please contact me with details [here](../../contact.qmd)
 
-## The $t$ Distribution
+## The $T$ Distribution
 
 ::: {#def-t-distribution}
 
@@ -424,4 +424,158 @@ $$
 Now, by tables, $P(T < -1.397) = 0.1$ and $P(T < -1.860) = 0.05$. Therefore, $P(T < -1.5)$ is between $0.05$ and $0.10$. So $1 - 2P(T < -1.5)$ is between $0.8$ and $0.9$.
 
 :::
+
+## The $F$ Distribution
+
+::: {#def-f-distribution}
+
+Suppose that $U \sim \chi^2(a)$, $V \sim \chi^2(b)$ and $U \perp V$. We say that the random variable $Y = \frac{U / a}{V / b}$ ahs the _$F$-distribution_ with $a$ numerator and $b$ denominator degrees of freedom.
+
+We write $Y \sim F(a, b)$ or $Y \sim F_{a, b}$.
+
+:::
+
+::: {#thm-f-pdf}
+
+The pdf of an $F$ distribution is
+$$
+f(y) = \frac{\Gamma(\frac{a+b}{2})}{\Gamma(a/2)\Gamma(b/2)} a^{\frac{a}{2}}b^{\frac{b}{2}} y^{\frac{a}{2} - 1} (b + ay) ^{-\frac{1}{2}(a + b)} \; , \hspace{20pt} y > 0
+$$
+
+:::
+
+---
+
+::: {#thm-inverse-f}
+
+$$
+Y \sim F(a, b) \implies 1/Y \sim F(b, a)
+$$
+
+:::
+
+::: {.proof}
+
+Easily proved.
+
+:::
+
+---
+
+::: {#thm-ratio-of-sample-variance}
+
+## Sampling Distribution of Ratio of Sample Variance
+
+Suppose that:
+$$
+\begin{align}
+X_1, X_2, \ldots, X_n &\sim^{\text{iid}} \mathcal{N}(\mu_X, \sigma_X^2) \\
+Y_1, Y_2, \ldots, Y_n &\sim^{\text{iid}} \mathcal{N}(\mu_Y, \sigma_Y^2) \\
+(X_1, X_2, \ldots, X_n) &\perp (Y_1, Y_2, \ldots , Y_m) \\
+\end{align}
+$$
+
+Then
+$$
+W = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_{Y}^2} \sim F(n-1, ,m-1)
+$$ where
+$$
+\begin{align}
+\overline{X} & = \frac{1}{n}\sum_{i=1}^n X_i \\
+\overline{Y} & = \frac{1}{m}\sum_{i=1}^m Y_i \\
+S_X^2 & = \frac{1}{n-1}\sum_{i=1}^n(X_i - \overline{X})^2 \\
+S_Y^2 & = \frac{1}{m-1}\sum_{i=1}^m(Y_i - \overline{Y})^2 \\
+\end{align}
+$$
+
+:::
+
+::: {.proof}
+
+By @thm-sample-variance,
+$$
+\begin{align}
+\frac{(n-1)S_X^2}{\sigma_X^2} & \sim \chi^2(n-1) \\
+\frac{(m-1)S_Y^2}{\sigma_Y^2} & \sim \chi^2(m-1) \\
+\end{align}
+$$
+
+Both are indepndent of each other because the two samples are independent. Hence, by definition,
+$$
+W = \frac{\frac{(n-1)S_X^2}{\sigma_X^2}}{\frac{(m-1)S_Y^2}{\sigma_Y^2}} \sim F(n-1, m-1)
+$$
+
+:::
+
+---
+
+::: {#exm-4}
+
+Same setting as @exm-1. Suppose that another sample of $5$ bottles is to be taken from the outpu of the same bottling machine. Find the probability that the sample variance of the volumes in these $5$ bottles will be at least $7$ times as large as the sample variance of the volumes in the $9$ bottles that were initially sampled.
+
+$$
+\begin{align}
+P(S_X^2 \geq Y S_Y^2) & = P\left( \frac{S_X^2}{S_Y^2} > 7 \right) \\
+& = P\left( \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} > 7 \right) \\ 
+& = P(U > 7) \\
+& \approx P(U > 7.01)
+= 0.010
+\end{align}
+$$
+
+Note that we can simply introduce $\sigma_X$ and $\sigma_Y$ because the two samples are know to from the same distribution and should, therefore, have the same population variance.
+
+:::
+
+# The Central Limit Theorem (CLT)
+
+::: {#thm-clt}
+
+## Central Limit Theorem
+
+Suppose that $Y_i, Y_2, \ldots , Y_n \sim^{\text{iid}} (\mu, \sigma^2)$, where $-\infty < \mu < \infty$ and $\sigma$ positively bounded. Let
+$$
+U_n = \frac{\overline{Y} - \mu}{\sigma / \sqrt{n}} \implies U_n \xrightarrow{\text{d}} \mathcal{N}(0, 1) as n \to \infty
+$$
+
+Note that we do not need to assume any distribution in this case, making it suitable for any sample without any assumed prior.
+
+---
+
+::: {#exm-5}
+
+200 numbers are randomly (uniformly) chosen from 0 and 1. Find the probability that the average of these number is greater than 0.53.
+
+---
+
+***Solution 1***
+
+Let $Y_i$ be the $i$ th number, $i = 1, \ldots , n$, where $n = 200$. Then $Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} U(0, 1)$. Thus $\mu = 1/2$ and $\sigma^2 = 1/12$. Since we know the population expectation, we can directly apply the CLT and find that,
+$$
+P(\overline{Y} > 0.53) = P\left(\frac{\overline{Y} - \mu}{\sigma / \sqrt{n}} > \frac{0.53 - 0.5}{\sqrt{1/12} \sqrt{200}}\right) \approx P(Z > 1.47) = 0.0708
+$$
+using normal tables.
+
+:::
+
+::: {.callout-note title="How good is the normal approximation?" collapse=false}
+
+::: {layout="[-1,1,-1]" layout-align="center"}
+
+```{r}
+source("../../scripts/plot_bates.R")
+print(bates_plot)
+```
+
+:::
+
+We can clearly see that this in fact as $n$ becomes larger, it would become a better and better approximations. This is in fact called the Bates distribution, found by using convolution operator. Essetially, one can show that
+$$
+f_{X_1 + X_2}(z) = \int_0^1 f_{X_1}(x)f_{X_2}(z - x) \, \mathrm{dx}
+$$
+
+:::
+
+
+
 

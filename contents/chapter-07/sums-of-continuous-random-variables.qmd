@@ -1,0 +1,179 @@
+---
+title: "Sum of Continuous Random Variables [Optional]"
+description: "As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let's give take a deeper dive into it."
+---
+
+# Preamable & Disclaimer
+
+As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let's give take a deeper dive into it.
+
+This article is based on [this article](https://courses.cs.washington.edu/courses/cse312/20su/files/student_drive/5.5.pdf) on wayback machine, reimbursed for mordern website.
+
+# Convolution
+
+Typically, we define the convolution for continuous function as,
+$$
+(f * g)(z) = \int_{-\infty}^\infty f(z - y) g(y) dy = \int_{-\infty}^\infty f(x) g(z - x) dx
+$$
+And for discrete case as,
+$$
+(f * g)(z) = \sum_x p_X(x) p_Y(z - x)
+$$
+
+# Sum of Two Random Variables
+
+Now, let's start with the sum of two random variables as we have already discussed about in chapter 6. However, let's change the setting a bit to the discrete uniform case.
+
+::: {#nte-motivating-example .callout-note title="Motivating Example"}
+
+Let $X, Y \sim \mathrm{Unif}(1, 4)$ be independent rolls of a fair 4-sided die. What is the PMF of $Z = X+Y$?
+
+---
+
+***Solution:***
+
+For current setting, the range of $Z$ is
+$$
+\Omega_Z = \{2, 3, 4, 5, 6, 7, 8 \}
+$$
+
+Now, if I want to find the probability of certain $z$ happens, we can simply sum over all the possible values for $X$ in particular, and zero-weight the situations with unreachable $Y$ values using the "probability" of that impossible event of $Y$ (probability = 0). For example, if we want $P(Z = 3)$, we can do,
+$$
+\begin{align}
+P(Z = 3) & = P(X = 1, Y = 2) + P(X = 2, Y = 1) + P(X = 3, Y = 0) + P(X = 4, Y = -1) \\
+& = P(X = 1)P( Y = 2) + P(X = 2)P(Y = 1) \\
+& \qquad + P(X = 3)P(Y = 0) + P(X = 4)P(Y = -1) \\
+& = \frac{2}{16}
+\end{align}
+$$
+where the first line is all ways to get a $3$ going over the sample space of $X$, and the second line uses independence. Note that it is not possible that $Y = 0$ or $Y = -1$, but we write this to remind ourselves that we are going over the whole sample space of $X$. More generally, to find $p_Z(z) = P(Z = z)$ for any value of $z$, we can use the similar approach,
+$$
+\begin{align}
+p_Z(z) & = P(Z = z) \\
+& = \sum_{x \in \Omega_X} P(X = x, Y = z - x) \\
+& = \sum_{x \in \Omega_X} P(X = x)P(Y = z - x) \\
+& = \sum_{x \in \Omega_X} p_X(x)p_Y(z-x) \\
+\end{align}
+$$
+
+The intuition is that if we want $Z = z$, we sum over all possibilities of $X = x$ but require that $Y = z - x$ so that we get the desired sum of $z$. It is very possible that $p_Y(z - x) = 0$ as above.
+
+:::
+
+Now, it turns out that the intuition above is extremely general -- not only works for discrete, but also continuous.
+
+::: {#thm-convolution-form}
+
+## Convolution
+
+Let $X, Y$ be _independent_ RVs, and $Z = X + Y$.
+
+- Discrete version: If $X$ and $Y$ are discrete: $$p_Z(z) = \sum_{x \in \Omega_X} p_X(x)p_Y(z - x) = (p_X * p_Y)(z)$$
+- Continuous version: If $X$ and $Y$ are continuous: $$f_Z(z) = \int_{x\in\Omega_X} f_X(x) f_Y(z - x) \, dx = (f_X * f_Y)(z)$$
+
+Note: You can swap the roles of $X$ and $Y$. Note the similarity!
+
+:::
+
+::: {.proof}
+
+The proof of the discrete case is essential the same as @nte-motivating-example. Therefore, we will focus on the continuous case here. Let's start with the CDF and differentiate:
+\begin{align}
+F_Z(z) &= P(Z \leq z) \\
+&= P(X + Y \leq z) \\
+&= \int_{x \in \Omega_X} P(X+Y \leq z \mid X = x)f_X(x)\, dx \tag{LTP} \\
+&= \int_{x \in \Omega_X} P(Y \leq z - x \mid) \, dx \tag{Algebra} \\
+&= \int_{x \in \Omega_X} P(Y \leq z - x) f_X(x) \, dx \tag{$X$ and $Y$ are independent} \\
+& = \int_{x \in \Omega_X} F_Y(z - x) f_X(x) \, dx \tag{def of CDF of $Y$} \\
+\end{align}
+
+Now we can take the derivative (with respect to $z$) of the CDF to get the density ($F_Y$ becomes $f_Y$):
+
+$$
+f_Z(z) = \frac{d}{dz} F_Z(z) = \int_{x \in \Omega_X} f_X(x)f_Y(z - x) \, dx
+$$
+
+:::
+
+---
+
+Now, let's work on some other examples.
+
+---
+
+::: {#nte-example-2 title="Sum of Poisson Distribution" collapse=false}
+
+Suppose $X$ and $Y$ are two independent random variables such that $X \sim \mathrm{Poi}(\lambda_1)$ and $Y \sim \mathrm{Poi}(\lambda_2)$, and let $Z = X + Y$. Prove that $Z \sim \mathrm{Poi}(\lambda_1 + \lambda_2)$.
+
+---
+
+Now, $\Omega_X = \Omega_Y = \{ 0, 1, 2, \ldots \}$ and so $\Omega_Z = \{ 0, 1, 2, \ldots \}$ as well. For $n \in \Omega_Z$: Note that the convolution formula says:
+\begin{equation}
+p_Z(n) = \sum_{k \in \Omega_X}p_X(k)p_Y(n-k) = \sum_{k=0}^\infty p_X(k)p_Y(n-k)
+\end{equation}
+
+However, if we simply plugin the PMGs, we will get the wrong answer because we need to sum things that are non-zero. This means that we require both $k$ and $n-k$ be in the common sample space. Therefore, we can sum up to at most $n$.
+\begin{align*}
+p_Z(n) & = \sum_{k=0}^n p_X(k)p_Y(n-k) \tag{Convolution Formula} \\
+& = \sum_{k=0}^n e^{-\lambda_1}\frac{\lambda_1^k}{k!} \cdot e^{\lambda_2} \frac{\lambda^{n-k}}{(n-k)!} \\
+& = e^{-(\lambda_1 + \lambda_2)} \sum_{k=0}^n \frac{1}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
+& = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \frac{n!}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
+& = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} \lambda_1^k(1- \lambda_2)^{n-k} \\
+& = e^{-(\lambda_1 + \lambda_2)}\frac{(\lambda_1 + \lambda_2)^n}{n!} \\
+\end{align*}
+
+Thus, $Z \sim \mathrm{Poi}(\lambda_1 + \lambda_2)$, as the PMF above matches that of a Poisson distribution. Note we wouldn't have been able to do that last step if our sum as still $k = 0$ to $\infty$. 
+
+:::
+
+---
+
+Now, although we have already used the CDF method in Chapter 6 to derive the results, we can try to see if this method is somewhat easier.
+
+---
+
+::: {#exm-sum-of-unif}
+
+## Sum of Uniform Variables
+
+Suppose $X, Y \sim^{\mathrm{iid}}U(0, 1)$ and $Z = X + Y$. Find $f_Z(z)$.
+
+---
+
+***Solution***
+
+We always begin by calculating the range: we have $\Omega_Z = [0, 2]$. Again, we shouldn't expect $Z$ to be uniform, since we should expect a number around $1$, but not $0$, or $2$.
+
+For a $U \sim U(0, 1)$, we know $\Omega_U = [0,1]$ and that 
+\begin{equation}
+f_U(u) = \begin{cases}
+1 & 0 \leq u \leq 1 \\
+0 & \text{otherwise} \\
+\end{cases}
+\end{equation}
+
+- If $z \in [0, 1]$, we already have $z - x \leq 1$ since $z \leq 1$ (and $x \in p0, 1]$). We also need $z - x \geq 0$ for the density to be nonzero: $x \leq z$. Hence our integral becomes:
+\begin{align*}
+f_Z(z) & = \int_0^z f_Y(z - x)\,dx + \int_z^1 f_Y(z - x) \, dx \\
+& = \int_0^z 1 \, dx + 0 = [x]_0^z = z \\
+\end{align*}
+- If $z \in [1, 2]$, we already have $z - x \geq 0$ since $z \geq 1$ (and $x \in [0, 1]$). We now need the other condition $z - x \leq 1$ for the density to be nonzero: $x \geq z - 1$. Hence, our integral becomes:
+\begin{align*}
+f_Z(z) & = \int_0^{z-1} f_Y(z-x) \, dx + \int_{z-1}^1 f_Y(z - x)\, dx \\
+& = 0 + \int_{z-1}^1 1 \, dx = [x]_{z-1}^1 = 2 - z \\
+\end{align*}
+
+Thus putting these two cases together gives:
+\begin{equation*}
+f_Z(z) = \begin{cases}
+z & 0 \leq z \leq 1 \\
+2 - z & 1 \leq z \leq 2 \\
+0 & \text{otherwise} \\
+\end{cases}
+\end{equation*}
+
+This reuslt does confirm to our intuitions because there are "more ways" to get a value of 1 for example than any other point.
+
+:::
+
+# Multivariate Case
