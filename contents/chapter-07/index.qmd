@@ -297,7 +297,131 @@ Similar setting as @exm-1. Find an interval which we can be 90% sure will contai
 
 We will solve $P(a < S^2 < b) = 0.9$ for $a$ and $b$.
 
+$$
+0.9 = P\left(\frac{(9-1)a}{1} < \frac{(n-1)S^2}{\sigma^2} < \frac{(9-1)b}{1}\right) = P(8a < U < 8b)
+$$ where $U \sim \chi^2(8)$.
+
+Then, using the $\chi^2$ table, we obtain,
+$$
+0.9 = P(2.73264 < U < 15.5073)
+$$. Therefore, we know that $a = 0.34158$ and $b = 1.9384125$. Hence, the required interval is $(0.34158, 1.93841)$.
+
+:::
+
+::: {#rem-is-this-the-only-solution}
+
+## Is the above really the only solution?
+
+Well, not really, it is relatively easy to find another interval. For example, we can find the interval starting from $0$. In fact, a related problem is: "Find the shortest interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes." 
+
+The solution to this problem is unique and required interval $(a, b)$ satisfies two equations: $P(a < S^2 < b) = 0.9$ and $f_{S^2}(a) = f_{S^2}(b)$. This solution will have to be found numerically, e.g. trial and error or the Newton Raphson algorithm. This seemingly difficult problem is caused by the asymmetric of the probability density function.
+
 :::
 
 [^1]: This proof is in reference to [this material](https://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf) published by the Duke University which I found on Google somehow. If this material should not be public, please contact me with details [here](../../contact.qmd)
+
+## The $t$ Distribution
+
+::: {#def-t-distribution}
+
+## $t$ Distribution
+
+Suppose that $Z \sim \mathcal{N}(0, 1)$, $Y \sim \chi^2(k)$ and $Z \perp U$. We say that the random variable
+$$
+Y = \frac{Z}{\sqrt{U/k}}
+$$ where $k$ being the only parameters has the _$t$-distribution_ with $k$ degrees of freedom. The pdf of $Y$ is
+$$
+f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}(1 + \frac{y^2}{k})^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty < y \infty
+$$
+
+We write $Y \sim t(k)$ or $Y \sim t_k$
+
+:::
+
+::: {#thm-t-pdf}
+
+## Pdf of $t$ Distribution
+
+$$
+f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}\left(1 + \frac{y^2}{k}\right)^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty < y \infty
+$$
+
+:::
+
+The $t$ pdf looks like a standard normal pdf but with 'fatter' tails. The $t$ distribution converges to the standard normal distribution as $k$ tends to infinity.
+
+:::{#thm-t-convergence}
+
+## Convergence of the $t$ Distribution
+
+$t$ distribution converges to standard normal distributions as degree of freedom tends to infinity.
+
+:::
+
+:::{.proof}
+
+## Convergence to Standard Normal
+
+The pdf of $Y$ can be written $f(y) = c_k A_k(y) B_k(y)$, where $c_k$ is a constant (which does not depend on y), $$
+A_k(y) = \left[ \left(1 + \frac{y^2}{k} \right)^k \right]^{-\frac{1}{2}} \qquad B_k(y) = \left( 1 + \frac{y^2}{k} \right) ^{-1/2}
+$$
+Now, as $k \to \infty$, $B_k(y) \to 1$ and $A_k(y) \to \left[ e^{y^2} \right]^{-1/2} = e^{-\frac{1}{2} y^2}$. Therefore, as $k \to \infty$, the pdf of $Y \sim t(k)$ converges porportionally to $e^{-\frac{1}{2}y^2}$, which is the kernel of the $\mathcal{N}(0, 1)$.
+
+In fact it is also possible to show that $c_k \to 1 / \sqrt{2\pi}$. However, I think since we know that the results will be a probability density function, the only plausible $c_k$ really can only be $1 / \sqrt{2\pi}$.
+
+:::
+
+::: {#thm-standardise-with-sample-statistics}
+
+## Standardise with Sample Statistic
+
+Suppose that $Y_1, Y_2. \ldots , Y_n \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2)$. Let $$
+T = \frac{\overline{Y} - \mu}{S / \sqrt{n}}
+$$
+Then, $T \sim t(n-1)$.
+
+:::
+
+::: {.proof}
+
+Observe the following facts:
+
+1. The standardised random variable with known variance by @cor-standardised-normal-rv is,
+$$Z = \frac{\overline{Y} - \mu}{\sigma / \sqrt{n}}$$ 
+2. The sampling distribution of the sample variance by @thm-sample-variance is
+ $$U = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$$
+3. $Z \perp U$ by @thm-sample-variance
+
+It follows by definition of the $t$ distribution that 
+$$
+Y = \frac{Z}{\sqrt{U/(n-1)}} \sim t(n - 1)
+$$
+But
+$$
+T = \frac{\overline{Y} - \mu}{S / \sqrt{n}} = \frac{\frac{\overline{Y} - \mu}{\sigma / \sqrt{n}}}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} / (n - 1)}}  = Y \sim t(n-1)
+$$
+
+:::
+
+---
+
+:::{#exm-3}
+
+## T-statistic in action
+
+Setting as @exm-1. Find the probability that the mean of the $9$ sample volumes will be distant from the population mean by no more than half the sample standard deviation of those $9$ volumes.
+
+$$
+\begin{align}
+P\left(\left\lvert \overline{Y} - \mu \right\rvert < \frac{1}{2} S\right) & = P\left(-\frac{1}{2} S < \overline{Y} - \mu < \frac{1}{2} S \right) \\
+& = P\left(-\frac{1}{2} < \frac{\overline{Y} - \mu}{S} < \frac{1}{2} \right) \\
+& = P\left(-\frac{3}{2} < \frac{\overline{Y} - \mu}{S / \sqrt{n}} < \frac{3}{2} \right) \\
+& = P\left( -\frac{3}{2} < T < \frac{3}{2} \right) \\
+& = 1 - P(T < -1.5)
+\end{align}
+$$
+
+Now, by tables, $P(T < -1.397) = 0.1$ and $P(T < -1.860) = 0.05$. Therefore, $P(T < -1.5)$ is between $0.05$ and $0.10$. So $1 - 2P(T < -1.5)$ is between $0.8$ and $0.9$.
+
+:::
 

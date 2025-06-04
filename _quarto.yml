@@ -4,7 +4,7 @@ project:
     - googlec46eb400cb975613.html
 
 website:
-  title: "STAT3011 Revision Summaries"
+  title: "STAT2001 Revision Summaries"
   repo-url: https://github.com/Isaac7777-cpu/stat2001-summaries
   repo-actions: [edit, source, issue]
   repo-branch: master
