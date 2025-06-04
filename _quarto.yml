@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - googlec46eb400cb975613.html
 
 website:
   title: "STAT3011 Revision Summaries"
