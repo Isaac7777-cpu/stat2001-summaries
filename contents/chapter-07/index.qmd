@@ -81,7 +81,223 @@ S^2 = \frac{1}{n-1}\sum_{i = 1}^n (Y_i - \bar{Y})^2
 $$ (The sample variance)
 
 Then:
-(a) $$ \frac{(n - 1}S^2})}{\sigma62} \sim \chi^2(n-1) $$
+
+(a) $$ \frac{(n - 1)S^2}{\sigma^2} \sim \chi^2(n-1) $$
 (b) $$ S^2 \perp \bar{Y} $$
 
 :::
+
+---
+
+::: {.callout-note title="Proof for (a)" collapse=true}
+
+::: {.proof}
+
+## a.
+
+Although the proof is not assessable, but let's give some intuitions why it works here. Note that this proof take idea from [Mike Spivey](https://math.stackexchange.com/users/2370/mike-spivey) answer to [this question](https://math.stackexchange.com/questions/47009/proof-of-fracn-1s2-sigma2-sim-chi2-n-1) posted on StackExchange. Also, for this proof, let's assume b. is true.
+
+From [Chapter 6](../chapter-06/index.qmd), we know that the square of a normal distribution random variable will follow $\chi^2$ distribution while sum of $\chi^2$ distribution is still a $\chi^2$ distribution but with higher degree of freedom. 
+
+With this intuition in mind, the only confusing point is why it is of $n-1$ degree-of-freedom rather than $n$. Now, we can first suppose that we know the parameters being $\mathcal{N}(\mu, \sigma^2)$. Then, we can first consider $\sum_{i=1}^n \left(\frac{Y_i - \mu}{\sigma}\right)^2$
+$$
+\begin{align}
+\sum_{i=1}^n \left( \frac{Y_i - \mu}{\sigma} \right)^2 & = \sum_{i=1}^n \left( \frac{(Y_i - \bar{Y}) + (\bar{Y} - \mu)}{\sigma} \right)^2 \\ 
+& = \sum_{i=1}^n \left( \frac{Y_i - \bar{Y}}{\sigma} \right)^2 + \sum_{i=1}^n \left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \sum_{i=1}^n \frac{2(Y_i - \bar{Y})(\bar{Y} - \mu)}{\sigma^2} \\
+& = \frac{n-1}{\sigma^2} \left( \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2 \right) + n\left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \frac{2(\bar{Y} - \mu)}{\sigma^2} \sum_{i=1}^n (Y_i - \bar{Y}) \\
+& = \frac{n-1}{\sigma^2}S^2 + n \left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \frac{2(\bar{Y} - \mu)(n\bar{Y} - n\bar{Y})}{\sigma^2} \\
+& = \frac{n-1}{\sigma^2}S^2 + \left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2 \\
+\end{align}
+$$
+
+Now, since we assumed b. is true, so $\frac{n-1}{\sigma^2}S^2$ and $\left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2$ would be independent. Therefore, if we denote the above as $V = U + W$ so $U$ and $W$ are indpendent, then 
+$$
+m_V(t) = m_U(t)m_W(t)
+$$
+
+Now, then since the $$\frac{\bar{Y} - \mu}{\sigma /\sqrt{n}} \sim \mathcal{N}(0, 1) \implies \left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2 \sim \chi^2(1) \implies W \sim \chi^2(1)$$. Also, since 
+$$
+\begin{align}
+Y_i \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2) & \implies \left( \frac{Y_i - \mu}{\sigma} \right) \sim^{\text{iid}} \mathcal{N}(0, 1) \\
+& \implies \left(\frac{Y_i - \mu}{\sigma} \right)^2 \sim^{\text{iid}} \chi^2(1) \\
+& \implies \sum_{i=1}^n \left(\frac{Y_i - \mu}{\sigma} \right)^2 \sim \chi^2(n) \\
+& \implies V \sim \chi^2(n) \\
+\end{align}
+$$
+Hence, arriving at the mgf of $U$ being,
+$$
+\begin{align}
+m_U(t) & = \frac{m_V(t)}{m_W(t)} \\
+& = \frac{(1 - 2t)^{-n/2}}{(1 - 2t)^{-1/2}} \\
+& = (1 - 2t)^{(-n / 2) + (1/2)} \\
+& = (1 - 2t)^{-(n - 1) / 2} \\
+\end{align}
+$$
+Hence, we see that this moment generating function is the same as $\chi^2(n - 1)$. Hence, we know that $U \sim \chi^2(n-1)$.
+
+:::
+
+:::
+
+---
+
+In order to prove (b), we need to first prove the following,
+
+:::{#lem-independence-with-centered-rvs}
+
+## Independece of Centered Random Variables
+
+Suppose $Y_1, Y_2, \ldots , Y_n$ is a random sample iid from a normal distribution with mean, $\mu$ and variance, $\sigma^2$. It follows that the sample mean $\bar{Y}$, is independent of $Y_i - \overline{Y}$, $i = 1, 2, \ldots, n$.
+
+:::
+
+::: {.callout-note collapse=true}
+
+
+## A Relatively Hard Proof for @lem-independence-with-centered-rvs[^1]
+
+Let's first give some intuitions how to even start...
+
+> The idea of the following proof is essentially but using the fact that if the pdf of joint distribution of $X_1, \ldots, X_N$ can be written as, $$f(x_1, x_2, \ldots, x_n) \propto g(x_1) h(x_2, \ldots x_n)$$, then we can say that $X_1$ is independent of $\{ X_2, X_3, \ldots ,X_n\}$. Clearly, in this case $X_1$ would be the sample mean, but how do we choose the others? 
+
+::: {.proof}
+
+## @lem-independence-with-centered-rvs
+
+The joint distribution of $Y_1, Y_2, \ldots, Y_n$ is $$f_Y(y_1, y_2, \ldots, y_n) = \frac{1}{(2\pi)^{\frac{n}{2}}\sigma^n} exp \left\{ -\frac{1}{2} \sum_{i = 1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 \right\}$$ Transform the random variables, $Y_i, i = 1,2, \ldots , n$ to
+$$
+\begin{align*}
+X_1 &= \overline{Y}                 & \quad \overline{Y} &= X_1 \\
+X_2 &= Y_2 - \overline{Y}           & \quad Y_2 &= X_2 + X_1 \\
+X_3 &= Y_3 - \overline{Y}           & \quad Y_3 &= X_3 + X_1 \\
+\vdots &\;= \vdots             & \quad \vdots &= \vdots \\
+X_n &= Y_n - \overline{Y}           & \quad Y_n &= X_n + X_1
+\end{align*}
+$$
+
+Then, the pdf is found through using the Jacobian of the transformation. In this context, the Jacobian (mapping from $X$ to $Y$ as we want to find the joint distribution of $X$ and segregated it as suggested above) is,
+$$
+[J_{ij}] = \left[\frac{\partial (Y_1, Y_2, \ldots Y_n)}{\partial (X_1, X_2, \ldots, X_n)}\right] = \begin{bmatrix}
+\frac{\partial Y_1}{\partial X_1} & \frac{\partial Y_1}{\partial X_2} & \cdots & \frac{\partial Y_1}{\partial X_n} \\
+\frac{\partial Y_2}{\partial X_1} & \frac{\partial Y_2}{\partial X_2} & \cdots & \frac{\partial Y_2}{\partial X_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial Y_n}{\partial X_1} & \frac{\partial Y_n}{\partial X_2} & \cdots & \frac{\partial Y_n}{\partial X_n} \\
+\end{bmatrix} = \begin{bmatrix}
+1 & -1  & -1 & \cdots & 1 \\
+1 & 1  & 0 & \cdots & 0 \\
+1 & 0  & 1 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & 0  & 0 & \cdots & 0 \\
+\end{bmatrix}
+$$
+
+Now, it only remains to find the determinant of $J$. First, use row operations to achieve the following form,
+$$
+J \sim \begin{bmatrix}
+1 & -1 & -1 & \cdots & -1 \\
+0 & 2 & 1 & \cdots & 1 \\
+0 & 1 & 2 & \cdots & 1 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 1 & 1 & \cdots & 2 \\
+\end{bmatrix}
+$$
+
+Therefore, we only need find the determinant of the bottom right $(n-1) \times (n-1)$ sub-matrix,
+$$
+\lvert B\rvert \triangleq
+\left\lvert 
+\begin{bmatrix}
+2 & 1 & \cdots & 1 \\
+1 & 2 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & 2 \\
+\end{bmatrix}
+\right\rvert
+$$
+
+Now, the easiest way is to realise the following,
+$$
+B = 2I_{n-1} + (\mathbf{1}\mathbf{1}^\top - I_{n-q}) = I_{n-1} + \mathbf{1}\mathbf{1}^\top
+$$ as a special case of the householder matrix.
+
+Then, we realise the following eigendecompositions,
+
+1. $\mathbf{1} = \begin{bmatrix} 1 & 1 & \cdots & 1 \end{bmatrix}^\top$ is an eigen-vector of $\mathbf{1}\mathbf{1}^\top$ with eigen-value $n-1$.
+2. Other orthogonal vectors to $\mathbf{1}$ would also be eigenvectors, but with eigenvalues of 0. We generally have $n - 1$ linearly independent such vectors. One example set is by considering using $\{ \mathbf{e}_j - \mathbf{e}_1 \}$.
+
+Therefore, $B$ has eigenvalues,
+$$
+\lambda_1 = 1 + (n - 1) = n, \qquad \lambda_2 = \cdots = \lambda_{n-1} = 1
+$$
+
+Hence,
+$$
+\det B = n \cdot 1^{n-2} = n
+$$
+
+Therefore, $\lvert J \rvert = n$. Now, with a bit of detour, we know the pdf of joint distribution of $Y_1, Y_2, \ldots , Y_n$ is 
+$$
+\begin{align}
+f_{X_1, X_2, \ldots , X_n}(x_1, x_2, \ldots , x_n) &= f_Y(y_1, y_2, \ldots, y_n) \lvert J \rvert \\
+& = n f_X(y_1, x_1 + x_2, \ldots, x_1 + x_n) \\
+& = \text{constants} \cdot \exp \left\{ -\frac{1}{2} \sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 \right\}
+\end{align}
+$$
+Now, something similar comes up again as above...
+$$
+\begin{align}
+\sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 & = \frac{1}{\sigma^2} \sum_{i=1}^n (y_i - \mu)^2 \\
+& = \frac{1}{\sigma^2} \left[ (y_1 - \overline{y})^2 + \sum_{i=2}^n (y_i - \overline{y})^2 + n(\overline{y} - \mu)^2 \right]
+\end{align}
+$$
+Note that since $\sum_{i = 1}^n(y_i - \overline{y})$, it follows that
+$$
+y_1 - \overline{y} = - \sum_{i=2}^n (y_i - \overline{y})
+$$
+
+Therefore, the above simpliifies to
+
+$$
+\begin{align}
+\sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 & = \frac{1}{\sigma^2} \left[ \left( \sum_{i=1}^n (y_i - \overline{y}) \right) ^2 + \sum_{i = 2}^n (y_i - \overline{y})^2 + n(\overline{y} - \mu)^2 \right] \\
+& = \frac{1}{\sigma^2} \left[ \left( \sum_{i = 2}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 + n(x_1 - \mu)^2 \right] \\
+\end{align}
+$$
+
+Therefore, the pdf of $X_1, X_2, \ldots, X_n$, simplifies to
+$$
+\begin{align}
+f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots , x_n) & = \text{constants} \cdot \exp \left\{ -\frac{1}{2\sigma^2} \left[ \left( \sum_{i=2}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 + n(x_1 - \mu)^2 \right] \right\} \\
+& \propto \exp \left\{ \frac{1}{2\sigma^2} \left[ \left( \sum_{i=1}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 \right] \right\} \exp \left\{ -\frac{n}{2\sigma^2} (x_1 - \mu)^2 \right\} \\
+& \propto h(x_2, x_3, \ldots , x_n) \cdot g(x_1) \\
+\end{align}
+$$
+
+Now, this follows with $X_1$ being independent of $X_2, \ldots, X_n$ as their joint probability distribution can be factored into a product of functions that depend only their repsectie set of statistics. Therefore, $X_1 = \overline{Y}$ is independent of $X_i = Y_i - \overline{Y}$, $i = 2, 3, \ldots, n$.
+
+Finally, since $Y_1 - \overline{Y} = -\sum_{i=2}^n (Y_i - \overline{Y})^2$, it follows that $Y_1 - \overline{Y}$ is a function of random variables that are independent of $X_1 = \overline{Y}$, and so indpendent to $X_1$.
+
+:::
+
+:::
+
+::: {.proof}
+
+## b.
+
+Now, all the hardwork is actually done in the proof of @lem-independence-with-centered-rvs. The remaining parts requires to prove b. is essentially recognising that $S^2$ is a function $Y_i - \overline{Y}$ for $i = 1, 2, \ldots , n$. Therefore, $\overline{X}$ and $S^2$ is independent.
+
+:::
+
+::: {#exm-2}
+
+Similar setting as @exm-1. Find an interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes. 
+
+---
+
+We will solve $P(a < S^2 < b) = 0.9$ for $a$ and $b$.
+
+:::
+
+[^1]: This proof is in reference to [this material](https://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf) published by the Duke University which I found on Google somehow. If this material should not be public, please contact me with details [here](../../contact.qmd)
+
