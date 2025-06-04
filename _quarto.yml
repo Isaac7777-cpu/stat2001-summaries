@@ -51,6 +51,7 @@ website:
         href: https://www.linkedin.com/in/isaac-leong-40b3b6276?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQ7KeJzrBS6Kd8acL8AxrAw%3D%3D
 format:
   html:
+    include-in-header: scripts/mathjax.html
     theme:
       light:
         - lux

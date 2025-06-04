@@ -6,9 +6,9 @@
 }
 
 .proof::after {
-  content: "□";         /* Hollow square */
+  content: "□"; /* Hollow square */
   font-weight: bold;
-  font-size: 1.2em;      /* Slightly larger than normal text */
+  font-size: 1.2em; /* Slightly larger than normal text */
   text-align: right;
   display: block;
   margin-top: 0.5em;
