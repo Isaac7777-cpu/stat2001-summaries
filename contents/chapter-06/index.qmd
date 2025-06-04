@@ -139,6 +139,8 @@ This consists of two steps:
 
 :::
 
+---
+
 ::: {#exm-4}
 
 Suppose that $Y \sim U(0, 2)$. Find the pdf of $X = 3Y - 1$.
