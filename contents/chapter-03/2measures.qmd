@@ -128,8 +128,8 @@ $$
 ### Special Expectations
 
 1. The $k$-th _raw moment_ of $Y$ is $\mu_k' = \mathbb{E}\left[Y^k\right]$
-2. The $k$-th _central moment_ of $Y$ is $\mu_k = \mathbb{E} \left[ (Y - \mu)^k \right]
-3. The variance of $Y$ is $\text{Var}(Y) = \sigma^2 = \mu_2 = \mathbb{E}\left[ (Y - \mu)^2 \right]
+2. The $k$-th _central moment_ of $Y$ is $\mu_k = \mathbb{E} \left[ (Y - \mu)^k \right]$
+3. The variance of $Y$ is $\text{Var}(Y) = \sigma^2 = \mu_2 = \mathbb{E}\left[ (Y - \mu)^2 \right]$
 4. The standard deviation of $Y$ is simply the square root of variance.
 
 ## Variance
