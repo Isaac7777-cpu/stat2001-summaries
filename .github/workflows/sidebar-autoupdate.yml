@@ -35,7 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add _quarto.yml
+          git add scripts/mathjax-macros.html
           git commit -m "Auto-import macros from _macros.tex/" || echo "Nothing to commit"
           git push origin HEAD
 
