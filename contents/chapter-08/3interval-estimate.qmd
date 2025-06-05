@@ -299,3 +299,50 @@ Note that this is only an approximate CI. However, the closeness of the approxim
 :::
 
 :::
+
+## Discrete Cases
+
+::: {.callout-note title="Motivating Example towards Wilson CI" collapse="false"}
+
+::: {#exm-9}
+
+Suppose that we toss a bent coin 100 times and get 72 heads. Find the 95% confidence interval for the probability of a head.
+
+---
+
+:::{.solution}
+
+Let $Y =$ number of heads out of the $n = 100$ tosses and $p =$ probability of a head on a single toss.
+
+Then $Y \sim \Binomial(n, p)$, with realised value $y = 72$. Now $Y \approx \NormalDist(np, np(1 - p))$ as a result of central limit theorem as $n = 100$ is large. Therefore, applying standardisation,
+\begin{equation*}
+\frac{Y - np}{\sqrt{np(1-p)}} \approx \NormalDist(0, 1)
+\end{equation*}
+
+\begin{align*}
+1 - \alpha &\approx \P{-z_{\alpha / 2} < \frac{Y - np}{\sqrt{np(1 - p)}} < z_{\alpha/2}} \\
+&\approx \P{-z_{\alpha / 2} < \frac{Y - np}{\sqrt{n\hat{p}(1 - \hat{p})}} < z_{\alpha/2}} \\
+&\approx \P{\frac{Y}{n} - z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} < p < \frac{Y}{n} + z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}} \\
+\end{align*}
+
+So a $100(1 - \alpha)\%$ CI for $p$ is $\left( \hat{p} \pm z_{\alpha / 2}\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \right)$.
+
+IN our case $\hat{p} = y/n = 72/100 = 0.72$, and so the required $95\%$ CI is $\left( 0.72 \pm 1.96\sqrt{\frac{0.72(1-0.72)}{100}} \right) = (0.72 \pm 0.09) = (0.63, 0.81)$.
+
+Since this interval is entirely above $0.5$, we can reasonably suspect that the coin is not fair and that heads are more likely to come up than tails.
+
+:::
+
+:::
+
+The CI above is called **the standard CI for a binomial proportion.**
+It is only one amongst many that have been proposed in the statistical
+literature. The following is another one which is more complicated
+but arguably better.
+
+:::
+
+### Wilson CI for a Binomial Proportion
+
+Now, in fact the following is another way of estimation the interval.
+
