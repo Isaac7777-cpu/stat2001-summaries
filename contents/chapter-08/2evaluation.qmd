@@ -12,3 +12,8 @@ What we need are some criteria for assessing the quality of estimators. The bias
 \end{equation}
 
 If $\bias{\hat{\theta}} = 0$, we say that $\hat{\theta}$ is unbiased for $\theta$.
+
+In Example 1, what is the bias of $\hat{p}$?
+\begin{equation*}
+\E{\hat{p}} = \E{\frac{Y}{n}} = \frac{1}{n} \E{Y} = \frac{1}{n} np = p
+\end{equation*}
