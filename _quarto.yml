@@ -53,7 +53,9 @@ website:
         href: https://www.linkedin.com/in/isaac-leong-40b3b6276?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQ7KeJzrBS6Kd8acL8AxrAw%3D%3D
 format:
   html:
-    include-in-header: scripts/mathjax.html
+    include-in-header: 
+      - scripts/mathjax.html
+      - scripts/mathjax-macros.html  # this is auto-generated macro extension
     theme:
       light:
         - lux
@@ -74,4 +76,8 @@ format:
 execute: 
   freeze: auto
   cache: true
+
+scripts:
+  pre-render: 
+    - scripts/convert_macros.sh
     

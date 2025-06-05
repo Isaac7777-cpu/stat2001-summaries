@@ -1,0 +1,39 @@
+% macros.tex — personal LaTeX macros for probability/statistics
+% Works with LaTeX PDF documents; for Quarto/MathJax use JSON-style equivalents
+
+%%%% 1. Common Metrics & Operators %%%%
+\newcommand{\Prob}{\mathbb{P}}               % Probability
+\newcommand{\E}{\mathbb{E}}                  % Expectation
+\newcommand{\Var}{\mathrm{Var}}             % Variance
+\newcommand{\Cov}{\mathrm{Cov}}             % Covariance
+\newcommand{\Corr}{\mathrm{Corr}}           % Correlation
+\newcommand{\sd}{\mathrm{SD}}               % Standard deviation
+\newcommand{\indep}{\perp\!\!\!\perp}    % Independence symbol
+
+%%%% 2. Common Distributions %%%%
+% Discrete
+\newcommand{\Bernoulli}{\mathrm{Bernoulli}}  % Bernoulli(p)
+\newcommand{\Binomial}{\mathrm{Binomial}}    % Binomial(n, p)
+\newcommand{\Geometric}{\mathrm{Geo}}  % Geometric(p)
+\newcommand{\Poisson}{\mathrm{Poi}}      % Poisson(lambda)
+% Continuous
+\newcommand{\NormalDist}{\mathcal{N}}            % Normal(mu, sigma^2)
+\newcommand{\ExponentialDist}{\mathrm{Exp}}      % Exponential(lambda)
+\newcommand{\UniformDist}{\mathrm{Uniform}}      % Uniform(a, b)
+\newcommand{\GammaDist}{\mathrm{Gamma}}      % Gamma(alpha, beta)
+\newcommand{\BetaDist}{\mathrm{Beta}}        % Beta(alpha, beta)
+\newcommand{\ChiSqDist}{\chi^2}                  % Chi-squared(k)
+
+%%%% 3. Common Symbols %%%%
+\newcommand{\abs}[1]{\left|#1\right|}        % Absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}  % Norm
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}  % Ceiling
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor} % Floor
+\newcommand{\set}[1]{\left\{#1\right\}}    % Set notation
+\newcommand{\indic}[1]{\mathbb{I}\left\{#1\right\}} % Indicator
+
+%%%% 4. Vectors, Bold Symbols %%%%
+\usepackage{bm}                                % bold math (vectors)
+\newcommand{\v}[1]{\bm{#1}}                   % vector: \v{x} for bold x
+\newcommand{\mat}[1]{\mathbf{#1}}            % matrix: \mat{A} for bold upright A
+\newcommand{\trans}{\mathsf{T}}              % transpose symbol: A^\trans
