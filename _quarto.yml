@@ -8,7 +8,6 @@ website:
   repo-url: https://github.com/Isaac7777-cpu/stat2001-summaries
   repo-actions: [edit, source, issue]
   repo-branch: master
-  # repo-subdir: stat3011-lecture-notes/
   page-navigation: true
   navbar:
     left:
