@@ -1,6 +1,8 @@
 ---
 title: "Known Continuous Distributions"
-format: html
+format: 
+  html: default
+  ipynb: default
 ---
 
 ## Uniform Distribution
