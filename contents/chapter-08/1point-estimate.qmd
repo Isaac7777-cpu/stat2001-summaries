@@ -2,11 +2,11 @@
 title: Point Estimation
 ---
 
-# What is a Point Estimator?
+## What is a Point Estimator?
 
 ::: {#def-point-estimator}
 
-## Point Estimator
+### Point Estimator
 
 A single estimate of a parameter e.g. $\mean{Y}$ estimates $\mu$ and $S^2$ estimates $\sigma^2$
 
@@ -16,7 +16,7 @@ A single estimate of a parameter e.g. $\mean{Y}$ estimates $\mu$ and $S^2$ estim
 
 ::: {#exm-1}
 
-## Example 1
+### Example 1
 
 We have a bent coin and are interest in $p$, the probability of heads coming up on a single toss. How can we estimate $p$?
 

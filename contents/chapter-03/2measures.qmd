@@ -2,7 +2,7 @@
 title: "Measures Related to Distribution"
 ---
 
-# Expectation
+## Expectation
 
 Now, we want to ask a question about what is the "expected value" of the outcome of a certain random variable.
 
@@ -59,7 +59,7 @@ This makes sense. For example, if we roll a die 60 times, we can expect 60(1/6) 
 
 ---
 
-## Expectations of Functions of RV
+### Expectations of Functions of RV
 
 ::: {#def-expectation-of-function}
 
@@ -92,7 +92,7 @@ It is clear to see that the above procedures can be applied to $\mathbb{E}\left[
 
 ---
 
-## Laws of Expectation
+### Laws of Expectation
 
 1. If $c$ is constant, then $\mathbb{E}\left[c\right] = c$
 2. $\mathbb{E}\left[c g(Y) \right] = c \mathbb{E}\left[ g(Y) \right]$
@@ -125,18 +125,18 @@ $$
 
 :::
 
-## Special Expectations
+### Special Expectations
 
 1. The $k$-th _raw moment_ of $Y$ is $\mu_k' = \mathbb{E}\left[Y^k\right]$
 2. The $k$-th _central moment_ of $Y$ is $\mu_k = \mathbb{E} \left[ (Y - \mu)^k \right]
 3. The variance of $Y$ is $\text{Var}(Y) = \sigma^2 = \mu_2 = \mathbb{E}\left[ (Y - \mu)^2 \right]
 4. The standard deviation of $Y$ is simply the square root of variance.
 
-# Variance
+## Variance
 
 As defined above, this is nothing more than just the second order central moment. However, we don't always need to compute the variance from scratch. Most of the times, the following two theorems aid in finding the variance.
 
-## Two Important Results
+### Two Important Results
 
 1. $\text{Var}(Y) = \mathbb{E}\left[ Y^2 \right] - \left(\mathbb{E}[Y]\right)^2$
 2. $\text{Var}(a + bY) = b^2 \text{Var}(Y)$
@@ -157,7 +157,7 @@ $$
 
 :::
 
-# Moment Generating Functions
+## Moment Generating Functions
 
 The _moment generating function_ (mgf) of a random variable $Y$ is defined to be
 
@@ -165,7 +165,7 @@ $$
 m(t) = E(e^{tY})
 $$
 
-## Two Important Application of MGF
+### Two Important Application of MGF
 
 1. to compute raw moments, according to the formula: 
    $$
@@ -252,7 +252,7 @@ $$
 
 :::
 
-# Tchebysheff’s theorem (or Chebyshev’s theorem)
+## Tchebysheff’s theorem (or Chebyshev’s theorem)
 
 ::: {#thm-chebyshev}
 
@@ -287,15 +287,15 @@ $$
 
 :::
 
-# Mode and Median
+## Mode and Median
 
-## Model
+### Model
 
 The _mode_ of a rv $Y$ is any value $y$ at which $Y$'s pmg, $p(y)$ is a maximum.
 
 It is possible to have multiple modes, and the mode may then also b defined as the set of all such modes.
 
-## Median
+### Median
 
 The _median_ of a rv $Y$ is any value $y$ such that 
 $$
@@ -304,7 +304,7 @@ $$
 
 There may be more than one median, and the median may then also be defined as the set of all such medians.
 
-# Some Central Interpretations of Central Tendency Measure
+## Some Central Interpretations of Central Tendency Measure
 
 |   |        |
 | - | ------ |

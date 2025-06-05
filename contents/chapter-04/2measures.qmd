@@ -4,7 +4,7 @@ title: "Expectations"
 
 As foreshadowed in previous discrete section, it is natural to believe that most of the results can be directly imported. (Otherwise, we wouldn't have spend so much time.)
 
-# Expectations
+## Expectations
 
 Basically, all the definition regarding expectation in [Chapter 3](../chapter-03/) hold here also, excpet that sums need to be replaced by _integrals_ and the pmf $p(y)$ is replaced by the pdf $f(y)$.
 
@@ -17,7 +17,7 @@ $$
 
 :::
 
-## Results
+### Results
 
 > I will try my best to include all the proofs for the results here. However, these proofs are done by me likely to contain relatively high amounts of mistakes.
 
@@ -108,7 +108,7 @@ $$
 
 ---
 
-## Working Examples
+### Working Examples
 
 ::: {#exm-9}
 Find the mean and variance of the standard uniform distribution
@@ -178,7 +178,7 @@ Note that it is possible to directly use integration by part to obtain the resul
 
 [^exp-mgf]: Note that we did not really find the mgf before. Therefore, refer to @thm-exp-mgf for the proof.
 
-# Appendix
+## Appendix
 
 ::: {#thm-gamma-mgf name="mgf of Gamma Distribution"}
 

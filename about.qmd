@@ -4,13 +4,13 @@ format: html
 page-layout: full
 ---
 
-# ℹ️ About This Site
+## ℹ️ About This Site
 
 This website serves as a comprehensive revision resource for students enrolled in **STAT2001: Introductory Mathematical Statistics** at the Australian National University. It aims to distill complex statistical concepts into digestible summaries and provide practical examples to enhance learning.
 
 ---
 
-## 🎯 Purpose
+### 🎯 Purpose
 
 - To offer clear and concise summaries of each topic covered in STAT2001.
 - To provide practical examples and exercises that reinforce theoretical concepts.
@@ -18,13 +18,13 @@ This website serves as a comprehensive revision resource for students enrolled i
 
 ---
 
-## 👤 Who's Behind This?
+### 👤 Who's Behind This?
 
 This site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials.
 
 ---
 
-## 📬 Feedback and Contributions
+### 📬 Feedback and Contributions
 
 Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the [Contact](contact.qmd) page.
 

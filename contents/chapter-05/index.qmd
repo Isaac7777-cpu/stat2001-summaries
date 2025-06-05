@@ -2,7 +2,7 @@
 title: "Multivariate Distributions"
 ---
 
-# Learning Goals
+## Learning Goals 
 
 - More than one random variable
 - Joint PMF/PDF or CDF

@@ -3,12 +3,12 @@ title: "Functions of Random Variables"
 echo: false
 ---
 
-# Learning Goals
+## Learning Goals
 
 - Transformations of Random Variables
 - Find pdf and cdf of functions of randome variables
 
-# Discrete Case
+## Discrete Case
 
 ::: {.callout-note title="Motivating Example"}
 
@@ -34,7 +34,7 @@ In general, we get the following,
 
 ::: {#thm-discrete-functions}
 
-## Transformations on a Discrete Variables
+### Transformations on a Discrete Variables
 
 If $Y$ is a discrete random variable, then $X = g(Y)$ has pmf
 $$p_X(x) = \sum_{y: g(y) = x} p_Y(y)$$
@@ -120,7 +120,7 @@ $$
 
 :::
 
-# Continuous Case
+## Continuous Case
 
 There are three main strategies we will look at:
 
@@ -128,7 +128,7 @@ There are three main strategies we will look at:
 2. The _transformation method (or rule)_
 3. The _mgf method_
 
-## The CDF Method
+### The CDF Method
 
 ::: {.callout-important}
 
@@ -279,7 +279,7 @@ $$
 
 ::: {#exm-non-monotonic-transformation}
 
-## Example: Non-monotonic Transformation
+### Example: Non-monotonic Transformation
 
 Let $Y \sim U(0, 1)$. Find the pdf of $X = Y(1 - Y)$.
 $$
@@ -298,13 +298,13 @@ Now, the pdf is $f(x) = F'(x) = 2(1 - 4x)^{-1/2}$.
 
 :::
 
-## The Transformation Method
+### The Transformation Method
 
 Suppose that $Y$ is a continuous random variable with pdf $f(y)$, and $x = g(y)$ is a function which is strictly monotonic, for all possible values $y$ of $Y$. Then $X = g(Y)$ has pdf$$f(x) = f(y) \left\lvert \frac{dy}{dx} \right\rvert$$ where $y = g^{-1}(x)$.    (This is the inverse function of $g$) 
 
 ::: {#exm-6}
 
-## Example 6
+### Example 6
 
 Suppose that $Y \sim U(0, 2)$.
 
@@ -316,7 +316,7 @@ Here $x = 3y - 1$ is strictly increasing. Therefore $y = \frac{x + 1}{3}$ and $\
 
 ::: {#exm-7}
 
-## Example 7
+### Example 7
 
 $Y \sim \mathcal{N}(a, b^2)$. Find the distribution of $Z = \frac{Y - a}{b}$.
 
@@ -334,7 +334,7 @@ Thus $Z \sim \mathcal{N}(0, 1)$.
 
 :::
 
-### Special Example of Non-monotonic Transformation
+#### Special Example of Non-monotonic Transformation
 
 Suppose $Z \sim \mathcal{N}(0, 1)$. Find the distribution of $X = Z^2$. 
 
@@ -342,7 +342,7 @@ In this case, $x = z^2$ is neither strictly increasing nor strictly decreasing. 
 
 ::: {#rem-why-transformation-work}
 
-## Why Transformation Work
+### Why Transformation Work
 
 Now, we can separate this into two cases --- strictly increasing and strictly decreasing.
 
@@ -383,7 +383,7 @@ Note that $\frac{dy}{dx} < 0$ as it is decreasing. Now, we have used the CDF met
 
 ::: {#exm-distribution-standard-normal-square}
 
-## The Distribution of The Square of a Standard Normal
+### The Distribution of The Square of a Standard Normal
 
 Now, we can come back to our original problem of finding the pdf of $X = Z^2$. From @rem-why-transformation-work above and combined with @exm-non-monotonic-transformation, we may conject the following formula.
 $$
@@ -403,7 +403,7 @@ This is the pdf of the gamma distribution with $a = 1/2$, $b = 2$ such that $X \
 
 :::
 
-## The Moment Generating Function Method
+### The Moment Generating Function Method
 
 Recall that the mgf of a r.v. can uniquely identify the distribution of the random variable $X$. Recall its definition being
 $$
@@ -413,7 +413,7 @@ $$
 ::: {#exm-distribution-standard-normal-squared-mgf}
 
 
-## The Distribution of The Square of a Standard Normal --- Revisited
+### The Distribution of The Square of a Standard Normal --- Revisited
 
 Now, we will try to use the mgf method for the same problem as above.
 
@@ -493,7 +493,7 @@ html`<p><strong>Area P(-y ≤ Z ≤ y):</strong> ${(normalCDF(x) - normalCDF(-x)
 
 ::: {#rem-alternative-to-arrive-chi-square}
 
-## Yet Another Method to Arrive to Chi-Square Distribution
+### Yet Another Method to Arrive to Chi-Square Distribution
 
 Therefore, from the above graph, we can obtain the following,
 
@@ -520,7 +520,7 @@ $$
 
 :::
 
-### Two Useful Results when Applying the MGF Technique
+#### Two Useful Results when Applying the MGF Technique
 
 1. If $X = a + bY$, then 
 $$
@@ -572,7 +572,7 @@ $$
 
 :::
 
-# Order Statistics
+## Order Statistics
 
 Suppose that $Y_1, Y_2, \ldots, Y_n$ are iid rv's.
 
@@ -604,11 +604,11 @@ $$
 
 :::
 
-## General Formula
+### General Formula
 
 ::: {#thm-general-formula-for-order-statistics}
 
-## General Formula for Order Statistics
+### General Formula for Order Statistics
 
 If $Y_1, Y_2, \ldots, Y_n$ are continuous and iid, then the pdf of the $k$th order statistic $U_k$ is
 $$
@@ -644,7 +644,7 @@ In the second last step, the two summations would cancel out because they form a
 
 :::
 
-# Range Restricted Distribution
+## Range Restricted Distribution
 
 ::: {.callout-note title="Motivating Example"}
 

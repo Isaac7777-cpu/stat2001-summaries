@@ -2,7 +2,7 @@
 title: "Probability"
 ---
 
-# Probability functions
+## Probability functions
 
 For a given experiement and associated sample space $S$, a probability function $P$ is a real-valued function whose domain is the power set of the sample space, $S$, and satisfies the following:
 
