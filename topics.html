@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STAT2001 Weekly Topics – STAT3011 Revision Summaries</title>
+<title>STAT2001 Weekly Topics – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,9 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-313af60282ae63108b7c343eeab407e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-99aa88af4315488fe574dc7b771741d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +71,62 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS",
+      }
+    },
+    tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ]}
+  });
+</script>
+
+<!-- This is what works with Quarto and MathJax 3+ -->
+<script>
+  MathJax = {
+    tex: {
+      tags: "ams", // should be 'ams', 'none', or 'all'
+    },
+  };
+</script>
+<script>
+  MathJax = MathJax || {};
+  MathJax.tex = MathJax.tex || {};
+  MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
+    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    indep: "\\perp\\!\\!\\!\\perp",
+    Bernoulli: "\\mathrm{Bern}",
+    Binomial: "\\mathrm{Bin}",
+    Geometric: "\\mathrm{Geo}",
+    Poisson: "\\mathrm{Poi}",
+    NormalDist: "\\mathcal{N}",
+    ExponentialDist: "\\mathrm{Exp}",
+    UniformDist: "\\mathrm{Uniform}",
+    GammaDist: "\\mathrm{Gamma}",
+    BetaDist: "\\mathrm{Beta}",
+    ChiSqDist: "\\chi^2",
+    iid: "\\mathrm{iid}",
+    abs: ["\\left|#1\\right|", 1],
+    norm: ["\\left\\lVert#1\\right\\rVert", 1],
+    ceil: ["\\left\\lceil#1\\right\\rceil", 1],
+    floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
+    set: ["\\left\\{#1\\right\\}", 1],
+    indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
+    mean: ["\\overline{#1}", 1],
+    sumrv: ["\\dot{#1}", 1],
+    vec: ["\\bm{#1}", 1],
+    trans: ["{#1}^\\top", 1],
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -246,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">STAT3011 Revision Summaries</span>
+    <span class="navbar-title">STAT2001 Revision Summaries</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -263,6 +319,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About This Site</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./topics.html" aria-current="page"> 
+<span class="menu-text">STAT2001 Weekly Topics</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -278,9 +338,6 @@ ul.task-list li input[type="checkbox"] {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">STAT2001 Weekly Topics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -288,43 +345,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Contents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH02: Probability</span></a>
+ <span class="menu-text">chapter-02</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH06: Functions of Random Variables</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH03: Discrete R.V.</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+ <span class="menu-text">chapter-03</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
@@ -339,38 +376,15 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH05: Multivariate Distributions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH04: Continuous R.V.</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+ <span class="menu-text">chapter-04</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
@@ -385,6 +399,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-05</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-06</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-07</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>

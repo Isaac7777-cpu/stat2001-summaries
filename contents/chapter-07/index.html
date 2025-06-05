@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Sampling Distributions and Central Limit Theorem – STAT2001 Revision Summaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/chapter-07/sums-of-continuous-random-variables.html" rel="next">
+<link href="../../contents/chapter-06/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS",
+      }
+    },
+    tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ]}
+  });
+</script>
+
+<!-- This is what works with Quarto and MathJax 3+ -->
+<script>
+  MathJax = {
+    tex: {
+      tags: "ams", // should be 'ams', 'none', or 'all'
+    },
+  };
+</script>
+<script>
+  MathJax = MathJax || {};
+  MathJax.tex = MathJax.tex || {};
+  MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
+    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    indep: "\\perp\\!\\!\\!\\perp",
+    Bernoulli: "\\mathrm{Bern}",
+    Binomial: "\\mathrm{Bin}",
+    Geometric: "\\mathrm{Geo}",
+    Poisson: "\\mathrm{Poi}",
+    NormalDist: "\\mathcal{N}",
+    ExponentialDist: "\\mathrm{Exp}",
+    UniformDist: "\\mathrm{Uniform}",
+    GammaDist: "\\mathrm{Gamma}",
+    BetaDist: "\\mathrm{Beta}",
+    ChiSqDist: "\\chi^2",
+    iid: "\\mathrm{iid}",
+    abs: ["\\left|#1\\right|", 1],
+    norm: ["\\left\\lVert#1\\right\\rVert", 1],
+    ceil: ["\\left\\lceil#1\\right\\rceil", 1],
+    floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
+    set: ["\\left\\{#1\\right\\}", 1],
+    indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
+    mean: ["\\overline{#1}", 1],
+    sumrv: ["\\dot{#1}", 1],
+    vec: ["\\bm{#1}", 1],
+    trans: ["{#1}^\\top", 1],
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STAT2001 Revision Summaries</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About This Site</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../topics.html"> 
+<span class="menu-text">STAT2001 Weekly Topics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-07/index.html">chapter-07</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-02</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-03</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Known Discrete Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures Related to Distribution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-04</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Known Continuous Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expectations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-05</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-06</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-07/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">chapter-07</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#some-theorems-regarding-the-normal-distribution" id="toc-some-theorems-regarding-the-normal-distribution" class="nav-link active" data-scroll-target="#some-theorems-regarding-the-normal-distribution"><span class="header-section-number">1</span> Some Theorems Regarding the Normal Distribution</a></li>
+  <li><a href="#sampling-distribution" id="toc-sampling-distribution" class="nav-link" data-scroll-target="#sampling-distribution"><span class="header-section-number">2</span> Sampling Distribution</a>
+  <ul class="collapse">
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">2.1</span> The <span class="math inline">\(T\)</span> Distribution</a></li>
+  <li><a href="#the-f-distribution" id="toc-the-f-distribution" class="nav-link" data-scroll-target="#the-f-distribution"><span class="header-section-number">2.2</span> The <span class="math inline">\(F\)</span> Distribution</a></li>
+  </ul></li>
+  <li><a href="#the-central-limit-theorem-clt" id="toc-the-central-limit-theorem-clt" class="nav-link" data-scroll-target="#the-central-limit-theorem-clt"><span class="header-section-number">3</span> The Central Limit Theorem (CLT)</a>
+  <ul class="collapse">
+  <li><a href="#alternative" id="toc-alternative" class="nav-link" data-scroll-target="#alternative"><span class="header-section-number">3.1</span> Alternative</a></li>
+  <li><a href="#normal-approximation-to-binomialn-p" id="toc-normal-approximation-to-binomialn-p" class="nav-link" data-scroll-target="#normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></a>
+  <ul class="collapse">
+  <li><a href="#the-continuity-correction" id="toc-the-continuity-correction" class="nav-link" data-scroll-target="#the-continuity-correction"><span class="header-section-number">3.2.1</span> The Continuity Correction</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sampling Distributions and Central Limit Theorem</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="some-theorems-regarding-the-normal-distribution" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Some Theorems Regarding the Normal Distribution</h1>
+<div id="thm-sample-mean-of-normal-rv" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots, Y_n \sim^{\text{iid}} N(\mu, \sigma^2)\)</span>. Let <span class="math display">\[\bar{Y} = \frac{1}{n} \sum_{i = 1}^n y_i \hspace{20pt} \text{(the sample mean)}\]</span>. Then <span class="math display">\[\bar{Y} \sim N(\mu , \frac{\sigma^2}{n})\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>In <a href="../../contents/chapter-06/index.html">Chapter 6</a>, we showed that linear combinations of normal rv’s are also normal. So it only remains to find the mean and variance of <span class="math inline">\(\bar{Y}\)</span>.</p>
+<p><span class="math display">\[
+\begin{align}
+E[\bar{Y}] &amp; = E\left[\frac{1}{n} \sum_{i = 1}^n Y_i\right] \\
+&amp; = \frac{1}{n} \sum_{i = 1}^n \mu = \frac{1}{n}n\mu = \mu
+Var(\bar{Y}) &amp;= \frac{1}{n^2}\sum_{i=1}^n Var(Y_i) \\
+&amp;= \frac{1}{n^2} \sum_{i = 1}^n \sigma^2 \\
+&amp; = \frac{1}{n^2}n\sigma^2 = \frac{\sigma^2}{n} \\
+\end{align}
+\]</span></p>
+</div>
+</section>
+<section id="sampling-distribution" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Sampling Distribution</h1>
+<div id="cor-standardised-normal-rv" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1 (Standardised Sample Mean)</strong></span> <span class="math display">\[
+Z = \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)
+\]</span></p>
+</div>
+<p><span class="math inline">\(Z\)</span> may be called the <em>standardised sample mean</em>. The sample mean <span class="math inline">\(\bar{Y}\)</span> is an example of a <em>statistic</em></p>
+<div id="def-statistic" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Statistic)</strong></span> A <em>statistic</em> is any function of the observable random variables in a sample and known constants.</p>
+</div>
+<p>The probability distribution of a statistic is sometimes referred to as the <em>sampling distribution</em> of that statistic. For example, <span class="math inline">\(\bar{Y} - \mu\)</span> is nto a statistic unless <span class="math inline">\(\mu\)</span> is known. Similarly, <span class="math inline">\(Z\)</span> in <a href="#cor-standardised-normal-rv" class="quarto-xref">Corollary&nbsp;1</a> is not a statistic unless both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are known.</p>
+<div id="exm-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> A bottling machine discharges volumes of drink that are independent and normally distributed with standard deviation 1 ml.<br>
+Find the sampling distribution of the mean volume of 9 randomly selected bottles that are filled by the machine.<br>
+Hence find the probability that this sample mean will be within 0.3 ml of the mean volume of all bottles filled by the machine.</p>
+<hr>
+<p>Let <span class="math inline">\(Y_i\)</span> be the volume of the <span class="math inline">\(i\)</span> th bottle in the sample, <span class="math inline">\(i = 1, \ldots, n\)</span> where <span class="math inline">\(n = 9\)</span>. Then <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\sigma^2 = 1\)</span> and <span class="math inline">\(\mu\)</span> is unknown. So <span class="math inline">\(\bar{Y} \sim N(\mu, 1/9)\)</span>. Hence</p>
+<p><span class="math display">\[
+\begin{align}
+P(\lvert \bar{Y} - \mu \rvert &lt; 0.3) &amp; = P(\left\lvert \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right\rvert &lt; \frac{0.3}{1/3}) = P(\lvert Z \rvert &lt; 0.9) \\
+&amp; = 1 - 2P(Z &gt; 0.9) = 0.6318
+\end{align}
+\]</span></p>
+<p>It is important to note that we do not need any knowledge of <span class="math inline">\(\mu\)</span>. In fact, this is an example of a pivotal statistics.</p>
+</div>
+<hr>
+<div id="thm-sample-variance" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)\)</span>. Let <span class="math display">\[
+S^2 = \frac{1}{n-1}\sum_{i = 1}^n (Y_i - \bar{Y})^2
+\]</span> (The sample variance)</p>
+<p>Then:</p>
+<ol type="a">
+<li><span class="math display">\[ \frac{(n - 1)S^2}{\sigma^2} \sim \chi^2(n-1) \]</span></li>
+<li><span class="math display">\[ S^2 \perp \bar{Y} \]</span></li>
+</ol>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Proof for (a)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof for (a)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (a.). </span>Although the proof is not assessable, but let’s give some intuitions why it works here. Note that this proof take idea from <a href="https://math.stackexchange.com/users/2370/mike-spivey">Mike Spivey</a> answer to <a href="https://math.stackexchange.com/questions/47009/proof-of-fracn-1s2-sigma2-sim-chi2-n-1">this question</a> posted on StackExchange. Also, for this proof, let’s assume b. is true.</p>
+<p>From <a href="../../contents/chapter-06/index.html">Chapter 6</a>, we know that the square of a normal distribution random variable will follow <span class="math inline">\(\chi^2\)</span> distribution while sum of <span class="math inline">\(\chi^2\)</span> distribution is still a <span class="math inline">\(\chi^2\)</span> distribution but with higher degree of freedom.</p>
+<p>With this intuition in mind, the only confusing point is why it is of <span class="math inline">\(n-1\)</span> degree-of-freedom rather than <span class="math inline">\(n\)</span>. Now, we can first suppose that we know the parameters being <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span>. Then, we can first consider <span class="math inline">\(\sum_{i=1}^n \left(\frac{Y_i - \mu}{\sigma}\right)^2\)</span> <span class="math display">\[
+\begin{align}
+\sum_{i=1}^n \left( \frac{Y_i - \mu}{\sigma} \right)^2 &amp; = \sum_{i=1}^n \left( \frac{(Y_i - \bar{Y}) + (\bar{Y} - \mu)}{\sigma} \right)^2 \\
+&amp; = \sum_{i=1}^n \left( \frac{Y_i - \bar{Y}}{\sigma} \right)^2 + \sum_{i=1}^n \left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \sum_{i=1}^n \frac{2(Y_i - \bar{Y})(\bar{Y} - \mu)}{\sigma^2} \\
+&amp; = \frac{n-1}{\sigma^2} \left( \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2 \right) + n\left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \frac{2(\bar{Y} - \mu)}{\sigma^2} \sum_{i=1}^n (Y_i - \bar{Y}) \\
+&amp; = \frac{n-1}{\sigma^2}S^2 + n \left( \frac{\bar{Y} - \mu}{\sigma} \right)^2 + \frac{2(\bar{Y} - \mu)(n\bar{Y} - n\bar{Y})}{\sigma^2} \\
+&amp; = \frac{n-1}{\sigma^2}S^2 + \left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2 \\
+\end{align}
+\]</span></p>
+<p>Now, since we assumed b. is true, so <span class="math inline">\(\frac{n-1}{\sigma^2}S^2\)</span> and <span class="math inline">\(\left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2\)</span> would be independent. Therefore, if we denote the above as <span class="math inline">\(V = U + W\)</span> so <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are indpendent, then <span class="math display">\[
+m_V(t) = m_U(t)m_W(t)
+\]</span></p>
+<p>Now, then since the <span class="math display">\[\frac{\bar{Y} - \mu}{\sigma /\sqrt{n}} \sim \mathcal{N}(0, 1) \implies \left( \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \right)^2 \sim \chi^2(1) \implies W \sim \chi^2(1)\]</span>. Also, since <span class="math display">\[
+\begin{align}
+Y_i \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2) &amp; \implies \left( \frac{Y_i - \mu}{\sigma} \right) \sim^{\text{iid}} \mathcal{N}(0, 1) \\
+&amp; \implies \left(\frac{Y_i - \mu}{\sigma} \right)^2 \sim^{\text{iid}} \chi^2(1) \\
+&amp; \implies \sum_{i=1}^n \left(\frac{Y_i - \mu}{\sigma} \right)^2 \sim \chi^2(n) \\
+&amp; \implies V \sim \chi^2(n) \\
+\end{align}
+\]</span> Hence, arriving at the mgf of <span class="math inline">\(U\)</span> being, <span class="math display">\[
+\begin{align}
+m_U(t) &amp; = \frac{m_V(t)}{m_W(t)} \\
+&amp; = \frac{(1 - 2t)^{-n/2}}{(1 - 2t)^{-1/2}} \\
+&amp; = (1 - 2t)^{(-n / 2) + (1/2)} \\
+&amp; = (1 - 2t)^{-(n - 1) / 2} \\
+\end{align}
+\]</span> Hence, we see that this moment generating function is the same as <span class="math inline">\(\chi^2(n - 1)\)</span>. Hence, we know that <span class="math inline">\(U \sim \chi^2(n-1)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<p>In order to prove (b), we need to first prove the following,</p>
+<div id="lem-independence-with-centered-rvs" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Independece of Centered Random Variables)</strong></span> Suppose <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> is a random sample iid from a normal distribution with mean, <span class="math inline">\(\mu\)</span> and variance, <span class="math inline">\(\sigma^2\)</span>. It follows that the sample mean <span class="math inline">\(\bar{Y}\)</span>, is independent of <span class="math inline">\(Y_i - \overline{Y}\)</span>, <span class="math inline">\(i = 1, 2, \ldots, n\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Relatively Hard Proof for <a href="#lem-independence-with-centered-rvs" class="quarto-xref">Lemma&nbsp;1</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let’s first give some intuitions how to even start…</p>
+<blockquote class="blockquote">
+<p>The idea of the following proof is essentially but using the fact that if the pdf of joint distribution of <span class="math inline">\(X_1, \ldots, X_N\)</span> can be written as, <span class="math display">\[f(x_1, x_2, \ldots, x_n) \propto g(x_1) h(x_2, \ldots x_n)\]</span>, then we can say that <span class="math inline">\(X_1\)</span> is independent of <span class="math inline">\(\{ X_2, X_3, \ldots ,X_n\}\)</span>. Clearly, in this case <span class="math inline">\(X_1\)</span> would be the sample mean, but how do we choose the others?</p>
+</blockquote>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (<a href="#lem-independence-with-centered-rvs" class="quarto-xref">Lemma&nbsp;1</a>). </span>The joint distribution of <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> is <span class="math display">\[f_Y(y_1, y_2, \ldots, y_n) = \frac{1}{(2\pi)^{\frac{n}{2}}\sigma^n} exp \left\{ -\frac{1}{2} \sum_{i = 1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 \right\}\]</span> Transform the random variables, <span class="math inline">\(Y_i, i = 1,2, \ldots , n\)</span> to <span class="math display">\[
+\begin{align*}
+X_1 &amp;= \overline{Y}                 &amp; \quad \overline{Y} &amp;= X_1 \\
+X_2 &amp;= Y_2 - \overline{Y}           &amp; \quad Y_2 &amp;= X_2 + X_1 \\
+X_3 &amp;= Y_3 - \overline{Y}           &amp; \quad Y_3 &amp;= X_3 + X_1 \\
+\vdots &amp;\;= \vdots             &amp; \quad \vdots &amp;= \vdots \\
+X_n &amp;= Y_n - \overline{Y}           &amp; \quad Y_n &amp;= X_n + X_1
+\end{align*}
+\]</span></p>
+<p>Then, the pdf is found through using the Jacobian of the transformation. In this context, the Jacobian (mapping from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> as we want to find the joint distribution of <span class="math inline">\(X\)</span> and segregated it as suggested above) is, <span class="math display">\[
+[J_{ij}] = \left[\frac{\partial (Y_1, Y_2, \ldots Y_n)}{\partial (X_1, X_2, \ldots, X_n)}\right] = \begin{bmatrix}
+\frac{\partial Y_1}{\partial X_1} &amp; \frac{\partial Y_1}{\partial X_2} &amp; \cdots &amp; \frac{\partial Y_1}{\partial X_n} \\
+\frac{\partial Y_2}{\partial X_1} &amp; \frac{\partial Y_2}{\partial X_2} &amp; \cdots &amp; \frac{\partial Y_2}{\partial X_n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial Y_n}{\partial X_1} &amp; \frac{\partial Y_n}{\partial X_2} &amp; \cdots &amp; \frac{\partial Y_n}{\partial X_n} \\
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; -1  &amp; -1 &amp; \cdots &amp; 1 \\
+1 &amp; 1  &amp; 0 &amp; \cdots &amp; 0 \\
+1 &amp; 0  &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; 0  &amp; 0 &amp; \cdots &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+<p>Now, it only remains to find the determinant of <span class="math inline">\(J\)</span>. First, use row operations to achieve the following form, <span class="math display">\[
+J \sim \begin{bmatrix}
+1 &amp; -1 &amp; -1 &amp; \cdots &amp; -1 \\
+0 &amp; 2 &amp; 1 &amp; \cdots &amp; 1 \\
+0 &amp; 1 &amp; 2 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 1 &amp; 1 &amp; \cdots &amp; 2 \\
+\end{bmatrix}
+\]</span></p>
+<p>Therefore, we only need find the determinant of the bottom right <span class="math inline">\((n-1) \times (n-1)\)</span> sub-matrix, <span class="math display">\[
+\lvert B\rvert \triangleq
+\left\lvert
+\begin{bmatrix}
+2 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; 2 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; 1 &amp; \cdots &amp; 2 \\
+\end{bmatrix}
+\right\rvert
+\]</span></p>
+<p>Now, the easiest way is to realise the following, <span class="math display">\[
+B = 2I_{n-1} + (\mathbf{1}\mathbf{1}^\top - I_{n-q}) = I_{n-1} + \mathbf{1}\mathbf{1}^\top
+\]</span> as a special case of the householder matrix.</p>
+<p>Then, we realise the following eigendecompositions,</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbf{1} = \begin{bmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 \end{bmatrix}^\top\)</span> is an eigen-vector of <span class="math inline">\(\mathbf{1}\mathbf{1}^\top\)</span> with eigen-value <span class="math inline">\(n-1\)</span>.</li>
+<li>Other orthogonal vectors to <span class="math inline">\(\mathbf{1}\)</span> would also be eigenvectors, but with eigenvalues of 0. We generally have <span class="math inline">\(n - 1\)</span> linearly independent such vectors. One example set is by considering using <span class="math inline">\(\{ \mathbf{e}_j - \mathbf{e}_1 \}\)</span>.</li>
+</ol>
+<p>Therefore, <span class="math inline">\(B\)</span> has eigenvalues, <span class="math display">\[
+\lambda_1 = 1 + (n - 1) = n, \qquad \lambda_2 = \cdots = \lambda_{n-1} = 1
+\]</span></p>
+<p>Hence, <span class="math display">\[
+\det B = n \cdot 1^{n-2} = n
+\]</span></p>
+<p>Therefore, <span class="math inline">\(\lvert J \rvert = n\)</span>. Now, with a bit of detour, we know the pdf of joint distribution of <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> is <span class="math display">\[
+\begin{align}
+f_{X_1, X_2, \ldots , X_n}(x_1, x_2, \ldots , x_n) &amp;= f_Y(y_1, y_2, \ldots, y_n) \lvert J \rvert \\
+&amp; = n f_X(y_1, x_1 + x_2, \ldots, x_1 + x_n) \\
+&amp; = \text{constants} \cdot \exp \left\{ -\frac{1}{2} \sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 \right\}
+\end{align}
+\]</span> Now, something similar comes up again as above… <span class="math display">\[
+\begin{align}
+\sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 &amp; = \frac{1}{\sigma^2} \sum_{i=1}^n (y_i - \mu)^2 \\
+&amp; = \frac{1}{\sigma^2} \left[ (y_1 - \overline{y})^2 + \sum_{i=2}^n (y_i - \overline{y})^2 + n(\overline{y} - \mu)^2 \right]
+\end{align}
+\]</span> Note that since <span class="math inline">\(\sum_{i = 1}^n(y_i - \overline{y})\)</span>, it follows that <span class="math display">\[
+y_1 - \overline{y} = - \sum_{i=2}^n (y_i - \overline{y})
+\]</span></p>
+<p>Therefore, the above simpliifies to</p>
+<p><span class="math display">\[
+\begin{align}
+\sum_{i=1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 &amp; = \frac{1}{\sigma^2} \left[ \left( \sum_{i=1}^n (y_i - \overline{y}) \right) ^2 + \sum_{i = 2}^n (y_i - \overline{y})^2 + n(\overline{y} - \mu)^2 \right] \\
+&amp; = \frac{1}{\sigma^2} \left[ \left( \sum_{i = 2}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 + n(x_1 - \mu)^2 \right] \\
+\end{align}
+\]</span></p>
+<p>Therefore, the pdf of <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>, simplifies to <span class="math display">\[
+\begin{align}
+f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots , x_n) &amp; = \text{constants} \cdot \exp \left\{ -\frac{1}{2\sigma^2} \left[ \left( \sum_{i=2}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 + n(x_1 - \mu)^2 \right] \right\} \\
+&amp; \propto \exp \left\{ \frac{1}{2\sigma^2} \left[ \left( \sum_{i=1}^n x_i \right)^2 + \sum_{i=2}^n x_i^2 \right] \right\} \exp \left\{ -\frac{n}{2\sigma^2} (x_1 - \mu)^2 \right\} \\
+&amp; \propto h(x_2, x_3, \ldots , x_n) \cdot g(x_1) \\
+\end{align}
+\]</span></p>
+<p>Now, this follows with <span class="math inline">\(X_1\)</span> being independent of <span class="math inline">\(X_2, \ldots, X_n\)</span> as their joint probability distribution can be factored into a product of functions that depend only their repsectie set of statistics. Therefore, <span class="math inline">\(X_1 = \overline{Y}\)</span> is independent of <span class="math inline">\(X_i = Y_i - \overline{Y}\)</span>, <span class="math inline">\(i = 2, 3, \ldots, n\)</span>.</p>
+<p>Finally, since <span class="math inline">\(Y_1 - \overline{Y} = -\sum_{i=2}^n (Y_i - \overline{Y})^2\)</span>, it follows that <span class="math inline">\(Y_1 - \overline{Y}\)</span> is a function of random variables that are independent of <span class="math inline">\(X_1 = \overline{Y}\)</span>, and so indpendent to <span class="math inline">\(X_1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (b.). </span>Now, all the hardwork is actually done in the proof of <a href="#lem-independence-with-centered-rvs" class="quarto-xref">Lemma&nbsp;1</a>. The remaining parts requires to prove b. is essentially recognising that <span class="math inline">\(S^2\)</span> is a function <span class="math inline">\(Y_i - \overline{Y}\)</span> for <span class="math inline">\(i = 1, 2, \ldots , n\)</span>. Therefore, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> is independent.</p>
+</div>
+<div id="exm-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Similar setting as <a href="#exm-1" class="quarto-xref">Example&nbsp;1</a>. Find an interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes.</p>
+<hr>
+<p>We will solve <span class="math inline">\(P(a &lt; S^2 &lt; b) = 0.9\)</span> for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p><span class="math display">\[
+0.9 = P\left(\frac{(9-1)a}{1} &lt; \frac{(n-1)S^2}{\sigma^2} &lt; \frac{(9-1)b}{1}\right) = P(8a &lt; U &lt; 8b)
+\]</span> where <span class="math inline">\(U \sim \chi^2(8)\)</span>.</p>
+<p>Then, using the <span class="math inline">\(\chi^2\)</span> table, we obtain, <span class="math display">\[
+0.9 = P(2.73264 &lt; U &lt; 15.5073)
+\]</span> Therefore, we know that <span class="math inline">\(a = 0.34158\)</span> and <span class="math inline">\(b = 1.9384125\)</span>. Hence, the required interval is <span class="math inline">\((0.34158, 1.93841)\)</span>.</p>
+</div>
+<div id="rem-is-this-the-only-solution" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Is the above really the only solution?). </span>Well, not really, it is relatively easy to find another interval. For example, we can find the interval starting from <span class="math inline">\(0\)</span>. In fact, a related problem is: “Find the shortest interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes.”</p>
+<p>The solution to this problem is unique and required interval <span class="math inline">\((a, b)\)</span> satisfies two equations: <span class="math inline">\(P(a &lt; S^2 &lt; b) = 0.9\)</span> and <span class="math inline">\(f_{S^2}(a) = f_{S^2}(b)\)</span>. This solution will have to be found numerically, e.g.&nbsp;trial and error or the Newton Raphson algorithm. This seemingly difficult problem is caused by the asymmetric of the probability density function.</p>
+</div>
+<section id="the-t-distribution" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">2.1</span> The <span class="math inline">\(T\)</span> Distribution</h2>
+<div id="def-t-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (<span class="math inline">\(t\)</span> Distribution)</strong></span> Suppose that <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>, <span class="math inline">\(Y \sim \chi^2(k)\)</span> and <span class="math inline">\(Z \perp U\)</span>. We say that the random variable <span class="math display">\[
+Y = \frac{Z}{\sqrt{U/k}}
+\]</span> where <span class="math inline">\(k\)</span> being the only parameters has the <em><span class="math inline">\(t\)</span>-distribution</em> with <span class="math inline">\(k\)</span> degrees of freedom. The pdf of <span class="math inline">\(Y\)</span> is <span class="math display">\[
+f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}(1 + \frac{y^2}{k})^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty &lt; y \infty
+\]</span></p>
+<p>We write <span class="math inline">\(Y \sim t(k)\)</span> or <span class="math inline">\(Y \sim t_k\)</span></p>
+</div>
+<div id="thm-t-pdf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Pdf of <span class="math inline">\(t\)</span> Distribution)</strong></span> <span class="math display">\[
+f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}\left(1 + \frac{y^2}{k}\right)^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty &lt; y \infty
+\]</span></p>
+</div>
+<p>The <span class="math inline">\(t\)</span> pdf looks like a standard normal pdf but with ‘fatter’ tails. The <span class="math inline">\(t\)</span> distribution converges to the standard normal distribution as <span class="math inline">\(k\)</span> tends to infinity.</p>
+<div id="thm-t-convergence" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Convergence of the <span class="math inline">\(t\)</span> Distribution)</strong></span> <span class="math inline">\(t\)</span> distribution converges to standard normal distributions as degree of freedom tends to infinity.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Convergence to Standard Normal). </span>The pdf of <span class="math inline">\(Y\)</span> can be written <span class="math inline">\(f(y) = c_k A_k(y) B_k(y)\)</span>, where <span class="math inline">\(c_k\)</span> is a constant (which does not depend on y), <span class="math display">\[
+A_k(y) = \left[ \left(1 + \frac{y^2}{k} \right)^k \right]^{-\frac{1}{2}} \qquad B_k(y) = \left( 1 + \frac{y^2}{k} \right) ^{-1/2}
+\]</span> Now, as <span class="math inline">\(k \to \infty\)</span>, <span class="math inline">\(B_k(y) \to 1\)</span> and <span class="math inline">\(A_k(y) \to \left[ e^{y^2} \right]^{-1/2} = e^{-\frac{1}{2} y^2}\)</span>. Therefore, as <span class="math inline">\(k \to \infty\)</span>, the pdf of <span class="math inline">\(Y \sim t(k)\)</span> converges porportionally to <span class="math inline">\(e^{-\frac{1}{2}y^2}\)</span>, which is the kernel of the <span class="math inline">\(\mathcal{N}(0, 1)\)</span>.</p>
+<p>In fact it is also possible to show that <span class="math inline">\(c_k \to 1 / \sqrt{2\pi}\)</span>. However, I think since we know that the results will be a probability density function, the only plausible <span class="math inline">\(c_k\)</span> really can only be <span class="math inline">\(1 / \sqrt{2\pi}\)</span>.</p>
+</div>
+<div id="thm-standardise-with-sample-statistics" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (Standardise with Sample Statistic)</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2. \ldots , Y_n \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2)\)</span>. Let <span class="math display">\[
+T = \frac{\overline{Y} - \mu}{S / \sqrt{n}}
+\]</span> Then, <span class="math inline">\(T \sim t(n-1)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Observe the following facts:</p>
+<ol type="1">
+<li>The standardised random variable with known variance by <a href="#cor-standardised-normal-rv" class="quarto-xref">Corollary&nbsp;1</a> is, <span class="math display">\[Z = \frac{\overline{Y} - \mu}{\sigma / \sqrt{n}}\]</span></li>
+<li>The sampling distribution of the sample variance by <a href="#thm-sample-variance" class="quarto-xref">Theorem&nbsp;2</a> is <span class="math display">\[U = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)\]</span></li>
+<li><span class="math inline">\(Z \perp U\)</span> by <a href="#thm-sample-variance" class="quarto-xref">Theorem&nbsp;2</a></li>
+</ol>
+<p>It follows by definition of the <span class="math inline">\(t\)</span> distribution that <span class="math display">\[
+Y = \frac{Z}{\sqrt{U/(n-1)}} \sim t(n - 1)
+\]</span> But <span class="math display">\[
+T = \frac{\overline{Y} - \mu}{S / \sqrt{n}} = \frac{\frac{\overline{Y} - \mu}{\sigma / \sqrt{n}}}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} / (n - 1)}}  = Y \sim t(n-1)
+\]</span></p>
+</div>
+<hr>
+<div id="exm-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (T-statistic in action)</strong></span> Setting as <a href="#exm-1" class="quarto-xref">Example&nbsp;1</a>. Find the probability that the mean of the <span class="math inline">\(9\)</span> sample volumes will be distant from the population mean by no more than half the sample standard deviation of those <span class="math inline">\(9\)</span> volumes.</p>
+<p><span class="math display">\[
+\begin{align}
+P\left(\left\lvert \overline{Y} - \mu \right\rvert &lt; \frac{1}{2} S\right) &amp; = P\left(-\frac{1}{2} S &lt; \overline{Y} - \mu &lt; \frac{1}{2} S \right) \\
+&amp; = P\left(-\frac{1}{2} &lt; \frac{\overline{Y} - \mu}{S} &lt; \frac{1}{2} \right) \\
+&amp; = P\left(-\frac{3}{2} &lt; \frac{\overline{Y} - \mu}{S / \sqrt{n}} &lt; \frac{3}{2} \right) \\
+&amp; = P\left( -\frac{3}{2} &lt; T &lt; \frac{3}{2} \right) \\
+&amp; = 1 - P(T &lt; -1.5)
+\end{align}
+\]</span></p>
+<p>Now, by tables, <span class="math inline">\(P(T &lt; -1.397) = 0.1\)</span> and <span class="math inline">\(P(T &lt; -1.860) = 0.05\)</span>. Therefore, <span class="math inline">\(P(T &lt; -1.5)\)</span> is between <span class="math inline">\(0.05\)</span> and <span class="math inline">\(0.10\)</span>. So <span class="math inline">\(1 - 2P(T &lt; -1.5)\)</span> is between <span class="math inline">\(0.8\)</span> and <span class="math inline">\(0.9\)</span>.</p>
+</div>
+</section>
+<section id="the-f-distribution" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">2.2</span> The <span class="math inline">\(F\)</span> Distribution</h2>
+<div id="def-f-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Suppose that <span class="math inline">\(U \sim \chi^2(a)\)</span>, <span class="math inline">\(V \sim \chi^2(b)\)</span> and <span class="math inline">\(U \perp V\)</span>. We say that the random variable <span class="math inline">\(Y = \frac{U / a}{V / b}\)</span> ahs the <em><span class="math inline">\(F\)</span>-distribution</em> with <span class="math inline">\(a\)</span> numerator and <span class="math inline">\(b\)</span> denominator degrees of freedom.</p>
+<p>We write <span class="math inline">\(Y \sim F(a, b)\)</span> or <span class="math inline">\(Y \sim F_{a, b}\)</span>.</p>
+</div>
+<div id="thm-f-pdf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6</strong></span> The pdf of an <span class="math inline">\(F\)</span> distribution is <span class="math display">\[
+f(y) = \frac{\Gamma(\frac{a+b}{2})}{\Gamma(a/2)\Gamma(b/2)} a^{\frac{a}{2}}b^{\frac{b}{2}} y^{\frac{a}{2} - 1} (b + ay) ^{-\frac{1}{2}(a + b)} \; , \hspace{20pt} y &gt; 0
+\]</span></p>
+</div>
+<hr>
+<div id="thm-inverse-f" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7</strong></span> <span class="math display">\[
+Y \sim F(a, b) \implies 1/Y \sim F(b, a)
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Easily proved.</p>
+</div>
+<hr>
+<div id="thm-ratio-of-sample-variance" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8 (Sampling Distribution of Ratio of Sample Variance)</strong></span> Suppose that: <span class="math display">\[
+\begin{align}
+X_1, X_2, \ldots, X_n &amp;\sim^{\text{iid}} \mathcal{N}(\mu_X, \sigma_X^2) \\
+Y_1, Y_2, \ldots, Y_n &amp;\sim^{\text{iid}} \mathcal{N}(\mu_Y, \sigma_Y^2) \\
+(X_1, X_2, \ldots, X_n) &amp;\perp (Y_1, Y_2, \ldots , Y_m) \\
+\end{align}
+\]</span></p>
+<p>Then <span class="math display">\[
+W = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_{Y}^2} \sim F(n-1, ,m-1)
+\]</span> where <span class="math display">\[
+\begin{align}
+\overline{X} &amp; = \frac{1}{n}\sum_{i=1}^n X_i \\
+\overline{Y} &amp; = \frac{1}{m}\sum_{i=1}^m Y_i \\
+S_X^2 &amp; = \frac{1}{n-1}\sum_{i=1}^n(X_i - \overline{X})^2 \\
+S_Y^2 &amp; = \frac{1}{m-1}\sum_{i=1}^m(Y_i - \overline{Y})^2 \\
+\end{align}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-sample-variance" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math display">\[
+\begin{align}
+\frac{(n-1)S_X^2}{\sigma_X^2} &amp; \sim \chi^2(n-1) \\
+\frac{(m-1)S_Y^2}{\sigma_Y^2} &amp; \sim \chi^2(m-1) \\
+\end{align}
+\]</span></p>
+<p>Both are indepndent of each other because the two samples are independent. Hence, by definition, <span class="math display">\[
+W = \frac{\frac{(n-1)S_X^2}{\sigma_X^2}}{\frac{(m-1)S_Y^2}{\sigma_Y^2}} \sim F(n-1, m-1)
+\]</span></p>
+</div>
+<hr>
+<div id="exm-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> Same setting as <a href="#exm-1" class="quarto-xref">Example&nbsp;1</a>. Suppose that another sample of <span class="math inline">\(5\)</span> bottles is to be taken from the outpu of the same bottling machine. Find the probability that the sample variance of the volumes in these <span class="math inline">\(5\)</span> bottles will be at least <span class="math inline">\(7\)</span> times as large as the sample variance of the volumes in the <span class="math inline">\(9\)</span> bottles that were initially sampled.</p>
+<p><span class="math display">\[
+\begin{align}
+P(S_X^2 \geq Y S_Y^2) &amp; = P\left( \frac{S_X^2}{S_Y^2} &gt; 7 \right) \\
+&amp; = P\left( \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} &gt; 7 \right) \\
+&amp; = P(U &gt; 7) \\
+&amp; \approx P(U &gt; 7.01)
+= 0.010
+\end{align}
+\]</span></p>
+<p>Note that we can simply introduce <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> because the two samples are know to from the same distribution and should, therefore, have the same population variance.</p>
+</div>
+</section>
+</section>
+<section id="the-central-limit-theorem-clt" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> The Central Limit Theorem (CLT)</h1>
+<div id="thm-clt" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 9 (Central Limit Theorem)</strong></span> Suppose that <span class="math inline">\(Y_i, Y_2, \ldots , Y_n \sim^{\text{iid}} (\mu, \sigma^2)\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma\)</span> positively bounded. Let <span class="math display">\[
+U_n = \frac{\overline{Y} - \mu}{\sigma / \sqrt{n}} \implies U_n \xrightarrow{\text{d}} \mathcal{N}(0, 1) as n \to \infty
+\]</span></p>
+<p>Note that we do not need to assume any distribution in this case, making it suitable for any sample without any assumed prior.</p>
+</div>
+<hr>
+<div id="exm-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5</strong></span> 200 numbers are randomly (uniformly) chosen from 0 and 1. Find the probability that the average of these number is greater than 0.53.</p>
+<hr>
+<p><strong><em>Solution 1</em></strong></p>
+<p>Let <span class="math inline">\(Y_i\)</span> be the <span class="math inline">\(i\)</span> th number, <span class="math inline">\(i = 1, \ldots , n\)</span>, where <span class="math inline">\(n = 200\)</span>. Then <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} U(0, 1)\)</span>. Thus <span class="math inline">\(\mu = 1/2\)</span> and <span class="math inline">\(\sigma^2 = 1/12\)</span>. Since we know the population expectation, we can directly apply the CLT and find that, <span class="math display">\[
+P(\overline{Y} &gt; 0.53) = P\left(\frac{\overline{Y} - \mu}{\sigma / \sqrt{n}} &gt; \frac{0.53 - 0.5}{\sqrt{1/12} \sqrt{200}}\right) \approx P(Z &gt; 1.47) = 0.0708
+\]</span> using normal tables.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="How good is the normal approximation?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How good is the normal approximation?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../../scripts/plot_bates.R"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bates_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,1,-1]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<p>We can clearly see that this in fact as <span class="math inline">\(n\)</span> becomes larger, it would become a better and better approximations. This is in fact called the Bates distribution, found by using convolution operator. Essetially, one can show that <span class="math display">\[
+f_{X_1 + X_2}(z) = \int_0^1 f_{X_1}(x)f_{X_2}(z - x) \, \mathrm{dx}
+\]</span></p>
+</div>
+</div>
+</div>
+<section id="alternative" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="alternative"><span class="header-section-number">3.1</span> Alternative</h2>
+<p>Yet another way to think about the CLT is <span class="math inline">\(\sumrv{Y} \approx \NormalDist(n\mu, n\sigma^2)\)</span>, where <span class="math inline">\(\sumrv{Y} = Y_1 + Y_2 + \ldots + Y_n\)</span></p>
+<div id="exm-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6</strong></span> A dies is about to be rolled 50 times, and each time you will win as many dollars as the number which comes up. Find the probability that you will win a total of at least $200.</p>
+<hr>
+<p><strong><em>Solution</em></strong></p>
+<p>let <span class="math inline">\(Y_i\)</span> be the number of dollars you will win on the <span class="math inline">\(i\)</span>-th roll. Then <span class="math inline">\(Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)\)</span>, where: <span class="math display">\[\begin{align}
+\mu &amp; = \E{Y_i} = 3.5 \\
+\sigma^2 &amp; = \Var{Y_i} = 2.9167 \\
+\end{align}\]</span></p>
+<p>Therefore, <span class="math inline">\(\P{\sumrv{Y} \geq 200} \approx \P{U &gt; 200}\)</span>, where <span class="math inline">\(U \sim \NormalDist(50 (3.5), 50(2.9167)) = \NormalDist(175, 145.83)\)</span>.</p>
+<p>Then <span class="math inline">\(\P{\dot{Y} \geq 200} \approx \P{Z &gt; \frac{200 - 175}{\sqrt{145.83}}} = \P{Z &gt; 2.07) = 0.0192\)</span></p>
+</div>
+</section>
+<section id="normal-approximation-to-binomialn-p" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></h2>
+<p>Suppose that <span class="math inline">\(Y \sim \Binomial(n, p)\)</span>, then <span class="math inline">\(Y = Y_1 + Y_2 + \ldots + Y_n\)</span>, where <span class="math inline">\(Y_1, \ldots Y_2 \sim^\iid \Bernoulli(p)\)</span>. So <span class="math inline">\(Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)\)</span>, where: <span class="math display">\[\begin{gather*}
+\mu = \E{Y_i} = p \\
+\sigma^2 = \Var{Y_i} = p(1 - p) \\
+\end{gather*}\]</span> It follows by the CLT that <span class="math inline">\(Y \approx \NormalDist(np, np(1 - p))\)</span>.</p>
+<hr>
+<div id="exm-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Normal Approximation (to everything?))</strong></span> A die is rolled <span class="math inline">\(n = 120\)</span> times. Find the probability that at least 27 sixes come up.</p>
+<hr>
+<p><strong><em>Solution</em></strong></p>
+<p>Let <span class="math inline">\(Y\)</span> be the number of <span class="math inline">\(6\)</span>’s. Then <span class="math inline">\(U \triangleq Y \sim \Binomial(120, 1/6)\)</span>. So <span class="math inline">\(Y \approx \NormalDist(120 (1/6), 120 (1/6)(5/6)\)</span></p>
+<p>Hence, <span class="math display">\[\begin{align*}
+\P{Z \geq 27} &amp; \approx \P{U &gt; 27} \\
+&amp; = \P{Z &gt; \frac{27 - 20}{\sqrt{16.67}}} = \P{Z &gt; 1.71} = 0.0436 \\
+\end{align*}\]</span></p>
+</div>
+<section id="the-continuity-correction" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="the-continuity-correction"><span class="header-section-number">3.2.1</span> The Continuity Correction</h3>
+<p>However, we need to take a closer look at the approximation made when we are applying to discrete cases. In <a href="#fig-normal-approximation" class="quarto-xref">Figure&nbsp;1</a> below, the shaded red area is the area calculated as <span class="math inline">\(\P{U &gt; 27}\)</span> after normal approximation while the blue boxes underlay is the actual binomial distribution probability. Therefore, we can see that almost half of the column for <span class="math inline">\(x = 27\)</span> is missed when we directly use the <span class="math inline">\(\NormalDist\)</span>. Hence, a better approximation would then be <span class="math display">\[\begin{equation*}
+P(Y \geq 27) = P(U &gt; 26.5)
+\end{equation*}\]</span></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 參數設定</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> n <span class="sc">*</span> p</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># x 值</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>x_binom <span class="ot">&lt;-</span> <span class="dv">27</span><span class="sc">:</span><span class="dv">40</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>x_norm <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">26</span>, <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 分布</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>binom_probs <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(x_binom, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>norm_density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x_norm, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 資料框：每個都加上 'type' 欄位</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>df_binom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_binom, <span class="at">y =</span> binom_probs, <span class="at">type =</span> <span class="st">"Binomial PMF"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>df_norm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_norm, <span class="at">y =</span> norm_density, <span class="at">type =</span> <span class="st">"Normal PDF"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>df_shade <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_norm[x_norm <span class="sc">&gt;=</span> <span class="dv">27</span>],</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> norm_density[x_norm <span class="sc">&gt;=</span> <span class="dv">27</span>],</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">"Normal Tail"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Exact Binomial tail probability: P(Y ≥ 27)</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>p_binom <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">27</span><span class="sc">:</span>n, <span class="at">size =</span> n, <span class="at">prob =</span> p))</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Normal approximation without continuity correction: P(U ≥ 27)</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>p_norm_naive <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">27</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Normal approximation with continuity correction: P(U ≥ 26.5)</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>p_norm_corrected <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">26.5</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(sprintf("Binomial: P(Y ≥ 27) ≈ %.5f\n", p_binom))</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(sprintf("Normal Approx (naive): P(U ≥ 27) ≈ %.5f\n", p_norm_naive))</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># cat(sprintf("Normal Approx (corrected): P(U ≥ 26.5) ≈ %.5f\n", p_norm_corrected))</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 畫圖</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> df_binom, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> type), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> df_norm, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> type), <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">27</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> df_shade, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> type), <span class="at">alpha =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">27.5</span>, <span class="at">y =</span> <span class="fu">max</span>(df_norm<span class="sc">$</span>y)<span class="sc">*</span><span class="fl">0.9</span>, <span class="at">label =</span> <span class="st">"x = 27"</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">35</span>, <span class="at">y =</span> <span class="fl">0.03</span>,</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Binomial: P(Y ≥ 27) ≈ %.5f"</span>, p_binom),</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">35</span>, <span class="at">y =</span> <span class="fl">0.026</span>,</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Normal: P(U ≥ 27) ≈ %.5f"</span>, p_norm_naive),</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">35</span>, <span class="at">y =</span> <span class="fl">0.022</span>,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Normal: P(U ≥ 26.5) ≈ %.5f"</span>, p_norm_corrected),</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Distribution"</span>,</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Binomial PMF"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Normal Tail"</span> <span class="ot">=</span> <span class="st">"pink"</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Distribution"</span>,</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Normal PDF"</span> <span class="ot">=</span> <span class="st">"red"</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Binomial (n = 120, p = 1/6) and Normal Approximation"</span>,</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"Probability / Density"</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-normal-approximation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-normal-approximation-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Why we need to have continuity correction?
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> n <span class="sc">*</span> p</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This proof is in reference to <a href="https://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf">this material</a> published by the Duke University which I found on Google somehow. If this material should not be public, please contact me with details <a href="../../contact.html">here</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Isaac7777-cpu\.github\.io\/stat2001-summaries\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/chapter-06/index.html" class="pagination-link" aria-label="chapter-06">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">chapter-06</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="pagination-link" aria-label="Sum of Continuous Random Variables [Optional]">
+        <span class="nav-page-text">Sum of Continuous Random Variables [Optional]</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Isaac Leong</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Isaac7777-cpu/stat2001-summaries">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/isaac-leong-40b3b6276?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQ7KeJzrBS6Kd8acL8AxrAw%3D%3D">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
