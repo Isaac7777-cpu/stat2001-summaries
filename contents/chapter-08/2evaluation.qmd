@@ -10,3 +10,5 @@ What we need are some criteria for assessing the quality of estimators. The bias
 \begin{equation}
 \bias{\hat{\theta}} = \E{\hat{\theta}} - \theta
 \end{equation}
+
+If $\bias{\hat{\theta}} = 0$, we say that $\hat{\theta}$ is unbiased for $\theta$.
