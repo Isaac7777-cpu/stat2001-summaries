@@ -41,18 +41,18 @@ Note that the joint probability distribution of $X$ and $Y$ can be presented as,
 
 :::
 
-# Discrete Joint PMF
+## Discrete Joint PMF
 
-## Properties
+### Properties
 
 1. $0 \leq p(x, y) \leq 1$ for all $x$ and $y$
 2. $\sum_{x, y} p(x, y) = 1$
 
-# Joint CDF
+## Joint CDF
 
 The joint cdf of $X$ and $Y$ is $F(x, y) = P(X \leq x, Y \leq y)$.
 
-## Properties of joint CDFs
+### Properties of joint CDFs
 
 1. $F(x, y) \to 0$ as $x \to -\infty$ or $y \to -\infty$ (or both).
 2. $F(x, y) \to 1$ as $x \to \infty$ and $y \to \infty$
@@ -68,7 +68,7 @@ F(x, y) = \begin{cases}
 \end{cases}
 $$
 
-# Marginal PMFs
+## Marginal PMFs
 
 The _marginal pmf_ of $X$ is 
 
@@ -78,14 +78,14 @@ $$
 
 This pmf defines the marginal probability mass function of $X$. Can also write $p(x)$ as $p_X(x)$.
 
-## Marginal CDF
+### Marginal CDF
 
 Then, we can easily define the cdf of $X$ with the above definition of the marginal pmf of $X$ as
 $$
 F(x) = P(X \leq x)
 $$
 
-# Conditional PMF
+## Conditional PMF
 
 The _conditional pmf_ of $X$ given that $Y = y$ is 
 $$
@@ -94,11 +94,11 @@ $$
 
 This density defines the conditional probability distribution for $X$ given that $Y = y$. 
 
-## Degenerate Distribution
+### Degenerate Distribution
 
 It is possible that the probability of $X$ collapses to only one outcome and it is certain about that outcome with the given y-values.
 
-# Independence of Random Variables
+## Independence of Random Variables
 
 Recall that two events $A$ and $B$ are independent if $P(AB) = P(A)P(B)$. Then, we can similarity define that the two random variables $X$ and $Y$ are _independent_ if for all $x$ and $y$,
 $$
@@ -107,7 +107,7 @@ $$
 
 We then write $X \perp Y$ if the two are independent.
 
-# Expectations
+## Expectations
 
 $$
 E(g(X, Y)) = \sum_{x, y} g(x, y) p(x, y)
@@ -119,11 +119,11 @@ $$
 E(XY) = \sum_{x, y} xyp(x, y) = 0 * p(0, 0) + 0 * p(0, 1) + 1 p(1, 1) = p(1, 1) = 1/ 6
 $$
 
-## Covariance and Correlation
+### Covariance and Correlation
 
 ::: {#thm-another-expression-of-covariance}
 
-## Another Expression of Covariance
+### Another Expression of Covariance
 
 The covariance between $X$ and $Y$ is 
 $$
@@ -160,7 +160,7 @@ $$
 
 :::
 
-## Correlation
+### Correlation
 
 The correlation between $X$ and $Y$ is
 $$
@@ -169,7 +169,7 @@ $$
 
 Note that this is slightly more useful because this coefficient is "normalised" between $-1$ and $1$.
 
-### Meaning
+#### Meaning
 
 $\rho$ provides information about the relationship between $X$ and $Y$. If $\rho > 0$ then high values of $X$ are associated with high values of $Y$. If $\rho < 0$, then high values of $X$ are associated with low values of $Y$.
 

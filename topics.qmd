@@ -4,7 +4,7 @@ format: html
 page-layout: full
 ---
 
-# 📘 Weekly Topics Overview
+## 📘 Weekly Topics Overview
 
 This page summarizes the weekly structure of STAT2001: Introductory Mathematical Statistics, including chapter coverage and additional notes. Use this as a guide to plan your revision and track key assessments and resources.
 
@@ -30,7 +30,7 @@ This page summarizes the weekly structure of STAT2001: Introductory Mathematical
 
 ---
 
-## 📌 Notes
+### 📌 Notes
 
 - Chapters refer to the textbook used in the course (check Wattle or course outline for details).
 - Makeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.

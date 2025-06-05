@@ -2,7 +2,7 @@
 title: "CH03: Discrete R.V."
 ---
 
-# Random Variable
+## Random Variable
 
 ::: {#def-random-variable}
 
@@ -22,7 +22,7 @@ $Y = 2$ if the outcome is $HH$
 
 :::
 
-## Probability Distribution
+### Probability Distribution
 
 The probability that a discrete random variable $Y$ takes on a particular value $y$ is the sum of the probabilities of all sample points in the sample space $S$ that are associated with $y$.
 
@@ -30,13 +30,13 @@ We write this probability $P(Y = y)$.
 
 The probability distribution of a discrete random variable $Y$ is any information which provides $P(Y = y)$ for each possible value $y$ of $Y$. This information may take the form of a list, table function (formula) or graph.
 
-## Probability Mass Function
+### Probability Mass Function
 
 It is conventional to denote rv's by upper case letters (e.g., $Y$, $X$, $U$) and possible values of those rv's by the corrsponding lower case letters (e.g., $y$, $x$, $u$).
 
 $P(Y = y)$ is called the _probability mass function_ (pmf) of $Y$ and is often written $p(y)$ or $p_Y(y)$.
 
-### Two Properties of Discrete PMF's
+#### Two Properties of Discrete PMF's
 
 1. $0 \leq p(y) \leq 1$  for all $y$
 2. $\sum_y p(y) = 1$

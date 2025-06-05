@@ -4,13 +4,13 @@ format: html
 page-layout: full
 ---
 
-# 📬 Contact
+## 📬 Contact
 
 ![An unrelated photo that I think tastes pretty good](./assets/me.jpg){width=150px}[^1]
 
 ---
 
-## My Details
+### My Details
 
 - **📧 Email:** isaac.leong@example.com  
 - **💼 LinkedIn:** [linkedin.com/in/isaac-leong](https://www.linkedin.com/in/isaac-leong)  

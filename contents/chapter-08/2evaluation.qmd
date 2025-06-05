@@ -2,7 +2,7 @@
 title: Evaluation Metrics
 ---
 
-# Bias
+## Bias
 
 The question now arises: How good is $\hat{p}$ as an estimator of $p$?
 
@@ -30,7 +30,7 @@ Well, precise means that we don't want to have a highly variational estimator. I
 
 :::
 
-# Precision
+## Precision
 
 _Analogy_: Target at a firing range:
 
@@ -117,7 +117,7 @@ Therefore, we can clearly see that only @fig-accurate-and-precision-1 be the goo
 \Var{\hat{p}} = \Var{\frac{Y}{n}} = \frac{1}{n^2} \Var{Y} = \frac{1}{n^2}np(1 - p) = \frac{p(1 - p)}{n}
 \end{equation*}
 
-# Mean Square Error
+## Mean Square Error
 
 Another measure of an estimator's quality is the mean square error. The mean square error (MSE) of an estimator $\hat{\theta}$ of $\theta$ is
 \begin{equation*}
@@ -141,7 +141,7 @@ In fact, this idea of MSE is highly used in machine learning training where the 
 
 :::{#thm-mse-var-bias}
 
-# MSE, Variance and Bias
+## MSE, Variance and Bias
 \begin{equation}
 \mse{\hat{p}} = \Var{\hat{p}} + (\bias{\hat{p}})^2 = \frac{p(1-p)}{n}
 \end{equation}
@@ -235,14 +235,53 @@ Ideally, we should choose which estimator to use ($U$, $V$ or $W$) _before_ obse
 
 :::
 
-# Two Important Results for Estimation
+## Two Important Results for Estimation
 
 ::: {#thm-unbiased-sample-mean-and-variance}
 
-Suppose that $Y_1, Y_2, \ldots ,Y_n \sim^\iid (\mu, \sigma^2)$ and define $\mean{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ (sample mean) and $S^2 = f\rac{1}{n-1} \sum_{i=1}^n (Y_i - \mean{Y})^2$ (sample variance). Then
+Suppose that $Y_1, Y_2, \ldots ,Y_n \sim^\iid (\mu, \sigma^2)$ and define $\mean{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ (sample mean) and $S^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i - \mean{Y})^2$ (sample variance). Then
 
 (a) $\E{\mean{Y}} = \mu$ (population mean)
 (b) $\E{S^2} = \sigma^2$ (population variance)
+
+:::  
+
+::: {.proof}
+
+## a
+
+\begin{equation*}
+\E{\mean{Y}} = \frac{1}{n} \sum_{i=1}^n \E{Y_i} = \frac{1}{n} \sum_i^n \mu = \mu
+\end{equation*}
+
+:::
+
+::: {.proof}
+
+## b
+
+First, realise the following,
+\begin{equation*}
+S^2 = \frac{1}{n-1} \sum_{i=1}^n D_i^2 \hspace{10pt} \text{where $D_i = Y - Y_i$}
+\end{equation*}
+
+Then, we can first find the second raw moment of $D_i^2$,
+
+\begin{align*}
+\E{D_i^2} & = \Var{D_i} \tag{since $\E{D_i} = 0$} \\
+& = \Var{Y_i} + \Var{\mean{Y}} - 2\Cov{Y_i, \mean{Y}} \\
+& = \sigma^2 + \frac{\sigma^2}{n} - 2 \cdot \frac{\sigma^2}{n} \tag{Note 1} \\
+& = \frac{n-1}{n} \sigma^2 \\
+\end{align*}
+
+Hence,
+\begin{equation*}
+\E{S^2} = \frac{1}{n-1} \sum_{i=1}^n \E{D_i^2} = \frac{1}{n-1} (n \cdot \frac{n-1}{n}\sigma^2) = \sigma^2
+\end{equation*}
+
+Note 1:
+
+Note that we have previously shown $\mean{Y} \perp (Y_i - \mean{Y})$ for $\iid$ $Y_i$'s in 
 
 :::
 

@@ -1,0 +1,50 @@
+---
+title: Point Estimation
+---
+
+## What is a Point Estimator?
+
+::: {#def-point-estimator}
+
+### Point Estimator
+
+A single estimate of a parameter e.g. $\mean{Y}$ estimates $\mu$ and $S^2$ estimates $\sigma^2$
+
+:::
+
+::: {.callout-note title="Motivating Example" collapse="false"}
+
+::: {#exm-1}
+
+### Example 1
+
+We have a bent coin and are interest in $p$, the probability of heads coming up on a single toss. How can we estimate $p$?
+
+---
+
+***Solution***
+
+First we need some _data_ (observable random variable or variables).
+
+For example, we toss the coin $n$ times and observe the number of heads that comes up.
+
+The data is then that number, and we may call it $Y$.
+
+We next need a _model_ for data, e.g. $Y \sim \Binomial(n, p)$. Here $p$ may be called the _target parameter_ or _estimand_. We now need to choose an estimator of $p$, which may really be any _statistic_. For example, we may, conforming to our intuitions, use the statistic $X \triangleq Y/n$ as the estimator.
+
+Finally, we need to actually carry out the experiment and do the calculations.
+
+---
+
+For example, we toss the coin $n = 10$ times and get 6 heads. Then, the realised value of the data $Y$ is $y = 6$, and the realised value of our estimator $X$ is $x = y/n = 6/10 / 0.6$. We call $x$ an estimate of $p$. Because $x$ is a single number, we may also call it a _point estimate_ of $p$. Likewise, we may call $X$ a _point estimator_ of $p$. (Note that this is random over repeated sampling).
+
+A common practice is to denote both the estimator and estimate of a parameter $\theta$ by $\hat{\theta}$. Thus in our example:
+
+(a) the _estimator_ of $p$ is $\hat{p} = X = Y / n$ (a random variable)
+(b) the _estimate_ of $p$ is $\hat{p} = x = y/n = 0.6$ (a constant)
+
+This may be a bit confusing because the same symbol is used for a random variable and a constant. But usually the symbol's meaning is clear from the context.
+
+:::
+
+:::

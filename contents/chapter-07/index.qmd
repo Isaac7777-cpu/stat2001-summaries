@@ -2,7 +2,7 @@
 title: "Sampling Distributions and Central Limit Theorem"
 ---
 
-# Some Theorems Regarding the Normal Distribution
+## Some Theorems Regarding the Normal Distribution
 
 ::: {#thm-sample-mean-of-normal-rv}
 
@@ -26,11 +26,11 @@ $$
 
 :::
 
-# Sampling Distribution
+## Sampling Distribution
 
 ::: {#cor-standardised-normal-rv}
 
-## Standardised Sample Mean
+### Standardised Sample Mean
 
 $$
 Z = \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)
@@ -42,7 +42,7 @@ $Z$ may be called the _standardised sample mean_. The sample mean $\bar{Y}$ is a
 
 ::: {#def-statistic}
 
-## Statistic
+### Statistic
 
 A _statistic_ is any function of the observable random variables in a sample and known constants.
 
@@ -94,7 +94,7 @@ Then:
 
 ::: {.proof}
 
-## a.
+### a.
 
 Although the proof is not assessable, but let's give some intuitions why it works here. Note that this proof take idea from [Mike Spivey](https://math.stackexchange.com/users/2370/mike-spivey) answer to [this question](https://math.stackexchange.com/questions/47009/proof-of-fracn-1s2-sigma2-sim-chi2-n-1) posted on StackExchange. Also, for this proof, let's assume b. is true.
 
@@ -146,7 +146,7 @@ In order to prove (b), we need to first prove the following,
 
 :::{#lem-independence-with-centered-rvs}
 
-## Independece of Centered Random Variables
+### Independece of Centered Random Variables
 
 Suppose $Y_1, Y_2, \ldots , Y_n$ is a random sample iid from a normal distribution with mean, $\mu$ and variance, $\sigma^2$. It follows that the sample mean $\bar{Y}$, is independent of $Y_i - \overline{Y}$, $i = 1, 2, \ldots, n$.
 
@@ -155,7 +155,7 @@ Suppose $Y_1, Y_2, \ldots , Y_n$ is a random sample iid from a normal distributi
 ::: {.callout-note collapse=true}
 
 
-## A Relatively Hard Proof for @lem-independence-with-centered-rvs[^1]
+### A Relatively Hard Proof for @lem-independence-with-centered-rvs[^1]
 
 Let's first give some intuitions how to even start...
 
@@ -163,7 +163,7 @@ Let's first give some intuitions how to even start...
 
 ::: {.proof}
 
-## @lem-independence-with-centered-rvs
+### @lem-independence-with-centered-rvs
 
 The joint distribution of $Y_1, Y_2, \ldots, Y_n$ is $$f_Y(y_1, y_2, \ldots, y_n) = \frac{1}{(2\pi)^{\frac{n}{2}}\sigma^n} exp \left\{ -\frac{1}{2} \sum_{i = 1}^n \left( \frac{y_i - \mu}{\sigma} \right)^2 \right\}$$ Transform the random variables, $Y_i, i = 1,2, \ldots , n$ to
 $$
@@ -285,7 +285,7 @@ Finally, since $Y_1 - \overline{Y} = -\sum_{i=2}^n (Y_i - \overline{Y})^2$, it f
 
 ::: {.proof}
 
-## b.
+### b.
 
 Now, all the hardwork is actually done in the proof of @lem-independence-with-centered-rvs. The remaining parts requires to prove b. is essentially recognising that $S^2$ is a function $Y_i - \overline{Y}$ for $i = 1, 2, \ldots , n$. Therefore, $\overline{X}$ and $S^2$ is independent.
 
@@ -314,7 +314,7 @@ Therefore, we know that $a = 0.34158$ and $b = 1.9384125$. Hence, the required i
 
 ::: {#rem-is-this-the-only-solution}
 
-## Is the above really the only solution?
+### Is the above really the only solution?
 
 Well, not really, it is relatively easy to find another interval. For example, we can find the interval starting from $0$. In fact, a related problem is: "Find the shortest interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes." 
 
@@ -324,11 +324,11 @@ The solution to this problem is unique and required interval $(a, b)$ satisfies 
 
 [^1]: This proof is in reference to [this material](https://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf) published by the Duke University which I found on Google somehow. If this material should not be public, please contact me with details [here](../../contact.qmd)
 
-## The $T$ Distribution
+### The $T$ Distribution
 
 ::: {#def-t-distribution}
 
-## $t$ Distribution
+### $t$ Distribution
 
 Suppose that $Z \sim \mathcal{N}(0, 1)$, $Y \sim \chi^2(k)$ and $Z \perp U$. We say that the random variable
 $$
@@ -345,7 +345,7 @@ We write $Y \sim t(k)$ or $Y \sim t_k$
 
 ::: {#thm-t-pdf}
 
-## Pdf of $t$ Distribution
+### Pdf of $t$ Distribution
 
 $$
 f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}\left(1 + \frac{y^2}{k}\right)^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty < y \infty
@@ -357,7 +357,7 @@ The $t$ pdf looks like a standard normal pdf but with 'fatter' tails. The $t$ di
 
 :::{#thm-t-convergence}
 
-## Convergence of the $t$ Distribution
+### Convergence of the $t$ Distribution
 
 $t$ distribution converges to standard normal distributions as degree of freedom tends to infinity.
 
@@ -365,7 +365,7 @@ $t$ distribution converges to standard normal distributions as degree of freedom
 
 :::{.proof}
 
-## Convergence to Standard Normal
+### Convergence to Standard Normal
 
 The pdf of $Y$ can be written $f(y) = c_k A_k(y) B_k(y)$, where $c_k$ is a constant (which does not depend on y), 
 $$
@@ -379,7 +379,7 @@ In fact it is also possible to show that $c_k \to 1 / \sqrt{2\pi}$. However, I t
 
 ::: {#thm-standardise-with-sample-statistics}
 
-## Standardise with Sample Statistic
+### Standardise with Sample Statistic
 
 Suppose that $Y_1, Y_2. \ldots , Y_n \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2)$. Let 
 $$
@@ -414,7 +414,7 @@ $$
 
 :::{#exm-3}
 
-## T-statistic in action
+### T-statistic in action
 
 Setting as @exm-1. Find the probability that the mean of the $9$ sample volumes will be distant from the population mean by no more than half the sample standard deviation of those $9$ volumes.
 
@@ -432,7 +432,7 @@ Now, by tables, $P(T < -1.397) = 0.1$ and $P(T < -1.860) = 0.05$. Therefore, $P(
 
 :::
 
-## The $F$ Distribution
+### The $F$ Distribution
 
 ::: {#def-f-distribution}
 
@@ -471,7 +471,7 @@ Easily proved.
 
 ::: {#thm-ratio-of-sample-variance}
 
-## Sampling Distribution of Ratio of Sample Variance
+### Sampling Distribution of Ratio of Sample Variance
 
 Suppose that:
 $$
@@ -535,11 +535,11 @@ Note that we can simply introduce $\sigma_X$ and $\sigma_Y$ because the two samp
 
 :::
 
-# The Central Limit Theorem (CLT)
+## The Central Limit Theorem (CLT)
 
 ::: {#thm-clt}
 
-## Central Limit Theorem
+### Central Limit Theorem
 
 Suppose that $Y_i, Y_2, \ldots , Y_n \sim^{\text{iid}} (\mu, \sigma^2)$, where $-\infty < \mu < \infty$ and $\sigma$ positively bounded. Let
 $$
@@ -586,7 +586,7 @@ $$
 
 :::
 
-## Alternative
+### Alternative
 
 Yet another way to think about the CLT is $\sumrv{Y} \approx \NormalDist(n\mu, n\sigma^2)$, where $\sumrv{Y} = Y_1 + Y_2 + \ldots + Y_n$ 
 
@@ -610,7 +610,7 @@ Then $\P{\dot{Y} \geq 200} \approx \P{Z > \frac{200 - 175}{\sqrt{145.83}}} = \P{
 
 :::
 
-## Normal Approximation to $\Binomial(n, p)$
+### Normal Approximation to $\Binomial(n, p)$
 
 Suppose that $Y \sim \Binomial(n, p)$, then $Y = Y_1 + Y_2 + \ldots + Y_n$, where $Y_1, \ldots Y_2 \sim^\iid \Bernoulli(p)$. So $Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)$, where: 
 \begin{gather*}
@@ -623,7 +623,7 @@ It follows by the CLT that $Y \approx \NormalDist(np, np(1 - p))$.
 
 ::: {#exm-7}
 
-## Normal Approximation (to everything?)
+### Normal Approximation (to everything?)
 
 A die is rolled $n = 120$ times. Find the probability that at least 27 sixes come up.
 
@@ -641,7 +641,7 @@ Hence,
 
 :::
 
-### The Continuity Correction
+#### The Continuity Correction
 
 However, we need to take a closer look at the approximation made when we are applying to discrete cases. In @fig-normal-approximation below, the shaded red area is the area calculated as $\P{U > 27}$ after normal approximation while the blue boxes underlay is the actual binomial distribution probability. Therefore, we can see that almost half of the column for $x = 27$ is missed when we directly use the $\NormalDist$. Hence, a better approximation would then be 
 \begin{equation*}

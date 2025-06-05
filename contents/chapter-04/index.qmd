@@ -2,13 +2,13 @@
 title: "CH04: Continuous R.V."
 ---
 
-# Preamble 
+## Preamble 
 
 Note that we will follow a very similar structure as we have done in [the chapter for discrete variable](../chapter-03/). And, indeed, a lot of the theorems can be directly transported to the continuous case. However, analysis of the continuous variables are slightly harder since, as one might expect, all the summation no becomes integral.
 
 This chapter will first goes from the definition of continuous random variable with link established via the cumulative distribution functions. Then, we will go over some of the common continuous distributions.
 
-# Cumulative Distribution
+## Cumulative Distribution
 
 ::: {#def-cumulative-distribution}
 
@@ -30,7 +30,7 @@ Note that we assumes that $F(y)$ is right continuous, meaning that $\lim_{\delta
 
 :::
 
-# Random Variable
+## Random Variable
 
 Armed with cdf, we are now ready to define what continuous random variable is.
 
@@ -77,7 +77,7 @@ Observe that $F(y)$ is continuous everywhere (i.e. for all $y$ between $-\infty$
 
 ---
 
-# Probability Density Function
+## Probability Density Function
 
 Note that if $Y$ is continuous, then $P(Y = y) = 0 \; \forall y$. Therefore, we need to redefine something instead of the previously defined pmf as it is now useless.
 
@@ -129,7 +129,7 @@ Note that $f(y)$ is undefined at $y = 0, 2$.
 
 :::
 
-## Two Properties of a Continuous pdf
+### Two Properties of a Continuous pdf
 
 ::: {#thm-two-props-of-cont-pdf name="Two Properties of a Continuous PDF"}
 
@@ -140,7 +140,7 @@ If $f(y)$ is the pdf of a continuous random variable then:
 
 :::
 
-## CDF from PDF
+### CDF from PDF
 
 In general, the cdf $F(y)$ of a continuous random variable $Y$ can be obtained from its pdf $f(y)$ via the equation
 
@@ -148,7 +148,7 @@ $$
 F(y) = \int_{-\infty}^{y} f(t) \, dt
 $$
 
-## Computing Probability using PDF
+### Computing Probability using PDF
 
 In general, to compute the probability of a given range for a continuous random variable, we can use
 

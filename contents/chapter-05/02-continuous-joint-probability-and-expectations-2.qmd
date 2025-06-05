@@ -102,7 +102,7 @@ $$
 
 :::
 
-# Laws of Multivariate Expectation
+## Laws of Multivariate Expectation
 
 1. $E(c) = c$
 2. $E(cg(X, Y)) = cE(g(X, Y))$
@@ -116,7 +116,7 @@ by simply exchanging the pmf to joint pmf.
 
 :::
 
-# Independence
+## Independence
 
 We say that $Y_1, Y_2, \ldots, Y_n$ are _pairwise independent_ iff
 
@@ -135,7 +135,7 @@ $$
 \end{align}
 $$
 
-# Multinomial Distribution
+## Multinomial Distribution
 
 This is simply a generalisation of the binomial distribution.
 
@@ -153,7 +153,7 @@ $$
 
 We write $Y_1, Y_2, \ldots, Y_k \sim \text{Mult}(n; p_1, p_2, \ldots , p_k)$.
 
-## Multinomial Cefficients
+### Multinomial Cefficients
 
 The number of ways of partitioning $n$ distinct objects into $k$ distinct groups
 is
@@ -180,7 +180,7 @@ $$
 P(y_1, y_2, \ldots , y_k) = \binom{n}{y_1 \ldots y_k} p_1^{y_1}p_2^{y_2} \ldots p_k^{y_k}
 $$
 
-## Example
+### Example
 
 On 10 rolls of a die, what's the pr there will result 3 even numbers and 2 ones?
 
@@ -195,11 +195,11 @@ $$
 p(3, 2, 5) =\frac{10!}{3! 2! 5!} \left( \frac{1}{2} \right)^3 \left( \frac{1}{6} \right)^2 \left( \frac{1}{3} \right)^5 = 0.03601
 $$
 
-# Three Important Theorems Regarding Linear Combinations of Random Variables
+## Three Important Theorems Regarding Linear Combinations of Random Variables
 
 ::: {#thm-expectation-of-linear-combination}
 
-<!-- ## Linearity Regarding Expectations -->
+<!-- ### Linearity Regarding Expectations -->
 $$
 E \left\{ \sum_{i = 1}^n a_i Y_i \right\} = \sum_{i = 1}^n a_i\mu_i
 $$
@@ -370,7 +370,7 @@ I don't think there is an easy way to use the above three theorems. Instead a co
 
 [^assumption]: I believe this is generally a plausible assumptions to make otherwise it is possible to run out of items when you are performing the trials.
 
-# Continuous Multivariate Probability Distributions
+## Continuous Multivariate Probability Distributions
 
 $Y_1, Y_2, \ldots , Y_n$ have a _continuous multivariate probability distribution_ if their joint cdf
 $$
@@ -396,7 +396,7 @@ Also, we can calculate the probability by evaluating the integrals at the corret
 - $E(g(X, Y)) = \iint g(x, y) f(x, y) \, dx dy$
 - $E(c) = c$, etc.
 
-# Conditional Expectation
+## Conditional Expectation
 
 Now, wtih the definition of the conditional probability, we can define the conditional expectations as the following.
 $$
@@ -529,11 +529,11 @@ Therefore, $E(X | Y = 1) = \frac{4}{3}$.
 
 :::
 
-## Random Expectations
+### Random Expectations
 
 ::: {#def-random-expectations}
 
-## Random Expectations
+### Random Expectations
 
 By $E(X\mid Y)$, we denote the function $E(X\mid Y = y)$ _with $y$ replaced by $Y$._ This would then makes $E(X \mid Y)$ also be a random variable for which we can also apply expectations.
 
@@ -544,7 +544,7 @@ $$
 E(X \mid Y) = \frac{4}{3} Y
 $$. Note that $E(X \mid Y)$ would be a random variable about $Y$ rather than $X$ as we have already taken the expectation over $X$.
 
-## The Law of Iterated Expectation
+### The Law of Iterated Expectation
 
 ::: {.callout-important title="Applications"}
 
@@ -554,7 +554,7 @@ This theorem is commonly used in Bayesian Inference as we will discuss in CH16.
 
 ::: {#thm-law-of-iterated-expectation}
 
-## Law of Iterated Expectation
+### Law of Iterated Expectation
 
 $$
 E(X) = E(E(X \mid Y))
@@ -573,11 +573,11 @@ $$
 
 :::
 
-## Related Definitions and Results
+### Related Definitions and Results
 
 ::: {#def-conditional-expectation-on-functions-of-rv}
 
-## Conditional Expectation on Function of Random Variable
+### Conditional Expectation on Function of Random Variable
 
 $$
 E(g(X) \mid Y = y) = \begin{cases}
@@ -594,7 +594,7 @@ $$
 
 ::: {#def-conditional-variance}
 
-## Variance on Conditional Variable
+### Variance on Conditional Variable
 
 As before, since we have obtained the expectation, we can also in a similar fashion define the variance with the expectation.
 
@@ -606,7 +606,7 @@ $$
 
 :::{#def-conditional-covariance}
 
-## Conditional Covariance
+### Conditional Covariance
 
 $$
 Cov(X,Z) = E \left[ (X - E(X \mid Y = y))(Z - E(Z \mid Y = y)) \middle \vert Y =y  \right]
@@ -620,7 +620,7 @@ Equipped with the three definitions above, we can derivce the following alternat
 
 ::: {#thm-law-of-iterated-expectation-on-function-of-rv}
 
-## Law of Iterated Expectation (Function of R.V.)
+### Law of Iterated Expectation (Function of R.V.)
 
 $$
 E(g(X)) = E(E(g(X) \mid Y))
@@ -630,7 +630,7 @@ $$
 
 ::: {#thm-iterated-variance}
 
-## Iterated Variance
+### Iterated Variance
 
 Similar to @thm-law-of-iterated-expectation-on-function-of-rv, we can use that to derive a "iterated" variance.
 
@@ -642,7 +642,7 @@ $$
 
 ::: {#thm-iterated-covariance}
 
-## Iterated Covariance
+### Iterated Covariance
 
 $$
 Cov(X, Z) = E(Cov(X, Z \mid Y)) + Cov(E(X \mid Y), E(Z \mid Y))
@@ -652,15 +652,15 @@ $$
 
 ---
 
-### Proofs...?
+#### Proofs...?
 
 The proof of @thm-law-of-iterated-expectation-on-function-of-rv is almost equivalent as the proof that is required for @thm-law-of-iterated-expectation. The following will present the proof of @thm-iterated-variance and @thm-iterated-covariance.
 
-#### Proof of @thm-iterated-variance
+##### Proof of @thm-iterated-variance
 
 ::: {.proof}
 
-## Proof of @thm-iterated-variance
+### Proof of @thm-iterated-variance
 
 $$
 \begin{align}
@@ -715,11 +715,11 @@ $$ in which the lemman is applied in the second step.
 
 :::
 
-#### Proof of @thm-iterated-covariance
+##### Proof of @thm-iterated-covariance
 
 ::: {.proof}
 
-## Proof of @thm-iterated-covariance
+### Proof of @thm-iterated-covariance
 
 Similar to above, we will first expand the terms and see if there is any things we can reduce.
 
@@ -760,7 +760,7 @@ Hence, we can see that the hard part is actually to see @lem-expectation-pull-ou
 
 :::
 
-### Examples
+#### Examples
 
 ::: {.callout-note title="Example 7"}
 

@@ -3,13 +3,13 @@ title: "Sum of Continuous Random Variables [Optional]"
 description: "As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let's give take a deeper dive into it."
 ---
 
-# Preamable & Disclaimer
+## Preamable & Disclaimer
 
 As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let's give take a deeper dive into it.
 
 This article is based on [this article](https://courses.cs.washington.edu/courses/cse312/20su/files/student_drive/5.5.pdf) on wayback machine, reimbursed for mordern website.
 
-# Convolution
+## Convolution
 
 Typically, we define the convolution for continuous function as,
 $$
@@ -20,7 +20,7 @@ $$
 (f * g)(z) = \sum_x p_X(x) p_Y(z - x)
 $$
 
-# Sum of Two Random Variables
+## Sum of Two Random Variables
 
 Now, let's start with the sum of two random variables as we have already discussed about in chapter 6. However, let's change the setting a bit to the discrete uniform case.
 
@@ -64,7 +64,7 @@ Now, it turns out that the intuition above is extremely general -- not only work
 
 ::: {#thm-convolution-form}
 
-## Convolution
+### Convolution
 
 Let $X, Y$ be _independent_ RVs, and $Z = X + Y$.
 
@@ -134,7 +134,7 @@ Now, although we have already used the CDF method in Chapter 6 to derive the res
 
 ::: {#exm-sum-of-unif}
 
-## Sum of Uniform Variables
+### Sum of Uniform Variables
 
 Suppose $X, Y \sim^{\mathrm{iid}}U(0, 1)$ and $Z = X + Y$. Find $f_Z(z)$.
 
@@ -176,7 +176,7 @@ This result does confirm to our intuitions because there are "more ways" to get 
 
 :::
 
-# Convolution in the Multivariate Setting {-}
+## Convolution in the Multivariate Setting {-}
 
 When the sum involves vectors rather than scalars, the same convolution idea extends component-wise.
 Let
@@ -195,7 +195,7 @@ f_{\mathbf Z}(\mathbf z)
 \end{equation*}
 For discrete vectors the integral is replaced by a $d$-fold sum.
 
-## $n$-fold sums
+### $n$-fold sums
 
 Because convolution is associative, the density of $\mathbf S_n=\sum_{k=1}^{n}\mathbf X_k$ (independent, not necessarily identically distributed) is
 \begin{equation*}
@@ -203,7 +203,7 @@ f_{\mathbf S_n}=f_{\mathbf X_1}f_{\mathbf X_2}\cdots*f_{\mathbf X_n}.\tag{C.2}\l
 \end{equation*}
 If all $\mathbf X_k$ share a common density $f$ we simply write $f^{*n}$ (the $n$-fold convolution power).
 
-## Characteristic-function shortcut
+### Characteristic-function shortcut
 
 For any vector $\boldsymbol t\in\mathbb R^d$ the characteristic function is
 \begin{equation*}
@@ -215,7 +215,7 @@ Independence gives
 \end{equation*}
 whose inverse Fourier transform reproduces \eqref{eq:C2}.  This frequency-space view powers the multivariate Central Limit Theorem and stable-law theory.
 
-## Example ▸ Covariance additivity of Gaussians
+### Example ▸ Covariance additivity of Gaussians
 
 If
 $\mathbf X_k\sim\mathcal N_d(\boldsymbol\mu_k,\Sigma_k)$ are independent, then by \eqref{eq:C2}
@@ -224,7 +224,7 @@ $\mathbf X_k\sim\mathcal N_d(\boldsymbol\mu_k,\Sigma_k)$ are independent, then b
 \end{equation*}
 The mean vectors and covariance matrices simply add.
 
-## Further reading 
+### Further reading 
 -	P. Billingsley, Probability & Measure, §17 — product measures & convolution.
 -	G. Folland, Real Analysis, Ch. 8 — Fourier transform on $\mathbb R^d$.
 -	Gnedenko & Kolmogorov, Limit Distributions for Sums …, Ch. 3 — multivariate limits.
