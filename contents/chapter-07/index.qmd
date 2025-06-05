@@ -78,7 +78,8 @@ It is important to note that we do not need any knowledge of $\mu$. In fact, thi
 Suppose that $Y_1, Y_2, \ldots , Y_n \sim^{\text{iid}} N(\mu, \sigma^2)$. Let
 $$
 S^2 = \frac{1}{n-1}\sum_{i = 1}^n (Y_i - \bar{Y})^2
-$$ (The sample variance)
+$$ 
+(The sample variance)
 
 Then:
 
@@ -218,7 +219,8 @@ $$
 Now, the easiest way is to realise the following,
 $$
 B = 2I_{n-1} + (\mathbf{1}\mathbf{1}^\top - I_{n-q}) = I_{n-1} + \mathbf{1}\mathbf{1}^\top
-$$ as a special case of the householder matrix.
+$$ 
+as a special case of the householder matrix.
 
 Then, we realise the following eigendecompositions,
 
@@ -299,12 +301,14 @@ We will solve $P(a < S^2 < b) = 0.9$ for $a$ and $b$.
 
 $$
 0.9 = P\left(\frac{(9-1)a}{1} < \frac{(n-1)S^2}{\sigma^2} < \frac{(9-1)b}{1}\right) = P(8a < U < 8b)
-$$ where $U \sim \chi^2(8)$.
+$$ 
+where $U \sim \chi^2(8)$.
 
 Then, using the $\chi^2$ table, we obtain,
 $$
 0.9 = P(2.73264 < U < 15.5073)
-$$. Therefore, we know that $a = 0.34158$ and $b = 1.9384125$. Hence, the required interval is $(0.34158, 1.93841)$.
+$$
+Therefore, we know that $a = 0.34158$ and $b = 1.9384125$. Hence, the required interval is $(0.34158, 1.93841)$.
 
 :::
 
@@ -329,7 +333,8 @@ The solution to this problem is unique and required interval $(a, b)$ satisfies 
 Suppose that $Z \sim \mathcal{N}(0, 1)$, $Y \sim \chi^2(k)$ and $Z \perp U$. We say that the random variable
 $$
 Y = \frac{Z}{\sqrt{U/k}}
-$$ where $k$ being the only parameters has the _$t$-distribution_ with $k$ degrees of freedom. The pdf of $Y$ is
+$$ 
+where $k$ being the only parameters has the _$t$-distribution_ with $k$ degrees of freedom. The pdf of $Y$ is
 $$
 f(y) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(k/2)}(1 + \frac{y^2}{k})^{-\frac{1}{2}(k+1)} \hspace{10pt} , \hspace{10pt} \infty < y \infty
 $$
@@ -362,7 +367,8 @@ $t$ distribution converges to standard normal distributions as degree of freedom
 
 ## Convergence to Standard Normal
 
-The pdf of $Y$ can be written $f(y) = c_k A_k(y) B_k(y)$, where $c_k$ is a constant (which does not depend on y), $$
+The pdf of $Y$ can be written $f(y) = c_k A_k(y) B_k(y)$, where $c_k$ is a constant (which does not depend on y), 
+$$
 A_k(y) = \left[ \left(1 + \frac{y^2}{k} \right)^k \right]^{-\frac{1}{2}} \qquad B_k(y) = \left( 1 + \frac{y^2}{k} \right) ^{-1/2}
 $$
 Now, as $k \to \infty$, $B_k(y) \to 1$ and $A_k(y) \to \left[ e^{y^2} \right]^{-1/2} = e^{-\frac{1}{2} y^2}$. Therefore, as $k \to \infty$, the pdf of $Y \sim t(k)$ converges porportionally to $e^{-\frac{1}{2}y^2}$, which is the kernel of the $\mathcal{N}(0, 1)$.
@@ -375,7 +381,8 @@ In fact it is also possible to show that $c_k \to 1 / \sqrt{2\pi}$. However, I t
 
 ## Standardise with Sample Statistic
 
-Suppose that $Y_1, Y_2. \ldots , Y_n \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2)$. Let $$
+Suppose that $Y_1, Y_2. \ldots , Y_n \sim^{\text{iid}} \mathcal{N}(\mu, \sigma^2)$. Let 
+$$
 T = \frac{\overline{Y} - \mu}{S / \sqrt{n}}
 $$
 Then, $T \sim t(n-1)$.
@@ -478,7 +485,8 @@ $$
 Then
 $$
 W = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_{Y}^2} \sim F(n-1, ,m-1)
-$$ where
+$$ 
+where
 $$
 \begin{align}
 \overline{X} & = \frac{1}{n}\sum_{i=1}^n X_i \\
@@ -540,6 +548,8 @@ $$
 
 Note that we do not need to assume any distribution in this case, making it suitable for any sample without any assumed prior.
 
+:::
+
 ---
 
 ::: {#exm-5}
@@ -576,6 +586,150 @@ $$
 
 :::
 
+## Alternative
 
+Yet another way to think about the CLT is $\sumrv{Y} \approx \NormalDist(n\mu, n\sigma^2)$, where $\sumrv{Y} = Y_1 + Y_2 + \ldots + Y_n$ 
 
+::: {#exm-6}
 
+A dies is about to be rolled 50 times, and each time you will win as many dollars as the number which comes up. Find the probability that you will win a total of at least \$200.
+
+---
+
+***Solution***
+
+let $Y_i$ be the number of dollars you will win on the $i$-th roll. Then $Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)$, where:
+\begin{align}
+\mu & = \E{Y_i} = 3.5 \\
+\sigma^2 & = \Var{Y_i} = 2.9167 \\
+\end{align}
+
+Therefore, $\P{\sumrv{Y} \geq 200} \approx \P{U > 200}$, where $U \sim \NormalDist(50 (3.5), 50(2.9167)) = \NormalDist(175, 145.83)$.
+
+Then $\P{\dot{Y} \geq 200} \approx \P{Z > \frac{200 - 175}{\sqrt{145.83}}} = \P{Z > 2.07) = 0.0192$
+
+:::
+
+## Normal Approximation to $\Binomial(n, p)$
+
+Suppose that $Y \sim \Binomial(n, p)$, then $Y = Y_1 + Y_2 + \ldots + Y_n$, where $Y_1, \ldots Y_2 \sim^\iid \Bernoulli(p)$. So $Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)$, where: 
+\begin{gather*}
+\mu = \E{Y_i} = p \\
+\sigma^2 = \Var{Y_i} = p(1 - p) \\
+\end{gather*}
+It follows by the CLT that $Y \approx \NormalDist(np, np(1 - p))$.
+
+---
+
+::: {#exm-7}
+
+## Normal Approximation (to everything?)
+
+A die is rolled $n = 120$ times. Find the probability that at least 27 sixes come up.
+
+---
+
+***Solution***
+
+Let $Y$ be the number of $6$'s. Then $U \triangleq Y \sim \Binomial(120, 1/6)$. So $Y \approx \NormalDist(120 (1/6), 120 (1/6)(5/6)$
+
+Hence,
+\begin{align*}
+\P{Z \geq 27} & \approx \P{U > 27} \\
+& = \P{Z > \frac{27 - 20}{\sqrt{16.67}}} = \P{Z > 1.71} = 0.0436 \\
+\end{align*}
+
+:::
+
+### The Continuity Correction
+
+However, we need to take a closer look at the approximation made when we are applying to discrete cases. In @fig-normal-approximation below, the shaded red area is the area calculated as $\P{U > 27}$ after normal approximation while the blue boxes underlay is the actual binomial distribution probability. Therefore, we can see that almost half of the column for $x = 27$ is missed when we directly use the $\NormalDist$. Hence, a better approximation would then be 
+\begin{equation*}
+P(Y \geq 27) = P(U > 26.5)
+\end{equation*}
+
+```{r}
+#| label: fig-normal-approximation
+#| fig-cap: Why we need to have continuity correction?
+
+library(ggplot2)
+
+# 參數設定
+n <- 120
+p <- 1/6
+mu <- n * p
+sigma <- sqrt(n * p * (1 - p))
+
+# x 值
+x_binom <- 27:40
+x_norm <- seq(26, 40, length.out = 400)
+
+# 分布
+binom_probs <- dbinom(x_binom, size = n, prob = p)
+norm_density <- dnorm(x_norm, mean = mu, sd = sigma)
+
+# 資料框：每個都加上 'type' 欄位
+df_binom <- data.frame(x = x_binom, y = binom_probs, type = "Binomial PMF")
+df_norm <- data.frame(x = x_norm, y = norm_density, type = "Normal PDF")
+df_shade <- data.frame(x = x_norm[x_norm >= 27],
+                       y = norm_density[x_norm >= 27],
+                       type = "Normal Tail")
+
+# 1. Exact Binomial tail probability: P(Y ≥ 27)
+p_binom <- sum(dbinom(27:n, size = n, prob = p))
+
+# 2. Normal approximation without continuity correction: P(U ≥ 27)
+p_norm_naive <- pnorm(27, mean = mu, sd = sigma, lower.tail = FALSE)
+
+# 3. Normal approximation with continuity correction: P(U ≥ 26.5)
+p_norm_corrected <- pnorm(26.5, mean = mu, sd = sigma, lower.tail = FALSE)
+
+# Print results
+# cat(sprintf("Binomial: P(Y ≥ 27) ≈ %.5f\n", p_binom))
+# cat(sprintf("Normal Approx (naive): P(U ≥ 27) ≈ %.5f\n", p_norm_naive))
+# cat(sprintf("Normal Approx (corrected): P(U ≥ 26.5) ≈ %.5f\n", p_norm_corrected))
+
+# 畫圖
+ggplot() +
+  geom_col(data = df_binom, aes(x = x, y = y, fill = type), color = "black", width = 0.9, alpha=0.5) +
+  geom_line(data = df_norm, aes(x = x, y = y, color = type), linewidth = 1.2) +
+  geom_vline(xintercept = 27, linetype = "dashed", color = "black") +
+  geom_area(data = df_shade, aes(x = x, y = y, fill = type), alpha = 0.95) +
+  annotate("text", x = 27.5, y = max(df_norm$y)*0.9, label = "x = 27", hjust = 0, size = 4) +
+  annotate("text", x = 35, y = 0.03,
+           label = sprintf("Binomial: P(Y ≥ 27) ≈ %.5f", p_binom),
+           hjust = 0, size = 4) +
+  annotate("text", x = 35, y = 0.026,
+           label = sprintf("Normal: P(U ≥ 27) ≈ %.5f", p_norm_naive),
+           hjust = 0, size = 4) +
+  annotate("text", x = 35, y = 0.022,
+           label = sprintf("Normal: P(U ≥ 26.5) ≈ %.5f", p_norm_corrected),
+           hjust = 0, size = 4) + 
+  scale_fill_manual(
+    name = "Distribution",
+    values = c(
+      "Binomial PMF" = "skyblue",
+      "Normal Tail" = "pink"
+    )
+  ) +
+  scale_color_manual(
+    name = "Distribution",
+    values = c(
+      "Normal PDF" = "red"
+    )
+  ) +
+  labs(
+    title = "Binomial (n = 120, p = 1/6) and Normal Approximation",
+    x = "x", y = "Probability / Density"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "top")
+```
+
+```{r}
+# Parameters
+n <- 120
+p <- 1/6
+mu <- n * p
+sigma <- sqrt(n * p * (1 - p))
+```

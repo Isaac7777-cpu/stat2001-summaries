@@ -78,6 +78,5 @@ execute:
   cache: true
 
 scripts:
-  pre-render: 
-    - scripts/convert_macros.sh
+  pre-render: scripts/convert_macros.sh
     
