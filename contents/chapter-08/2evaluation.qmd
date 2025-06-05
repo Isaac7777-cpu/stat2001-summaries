@@ -17,3 +17,148 @@ In Example 1, what is the bias of $\hat{p}$?
 \begin{equation*}
 \E{\hat{p}} = \E{\frac{Y}{n}} = \frac{1}{n} \E{Y} = \frac{1}{n} np = p
 \end{equation*}
+Therefore,
+\begin{equation*}
+\bias{\hat{p}} = \E{\hat{p}} - p = p - p = 0
+\end{equation*}
+
+Hence, we know that $\hat{p}$ is an accurate estimator. But, is $\hat{p}$ also precise?
+
+::: {.callout-warning title="... but wait, what does it mean to be precise?" collapse="true"}
+
+Well, precise means that we don't want to have a highly variational estimator. In other words, we would like the estimator to have an estimate to be relatively close to the target on every sample as well.
+
+:::
+
+# Precision
+
+_Analogy_: Target at a firing range:
+
+```{r}
+#| label: fig-accurate-and-precision
+#| fig-cap:  Accuracy vs. Precision
+#| fig-subcap:
+#|   - Accurate & Precise
+#|   - Accurate & Imprecise
+#|   - Inaccurate & Precise
+#|   - Inaccurate & Imprecise
+#| layout-nrow: 1
+#| fig-width: 4
+#| warning: false
+
+library(MASS)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+mu_accurate <- c(0, 0)
+mu_inaccurate <- c(-3, 3)
+sigma_accurate <- matrix(data = c(.5, 0, 0, .5), nrow = 2, ncol = 2)
+sigma_inaccurate <- matrix(data = c(5, 0, 0, 5), nrow = 2, ncol = 2)
+
+sample_size <- 30
+
+points1 <- mvrnorm(n = sample_size, mu = mu_accurate, Sigma = sigma_accurate)
+points2 <- mvrnorm(n = sample_size, mu = mu_accurate, Sigma = sigma_inaccurate)
+points3 <- mvrnorm(n = sample_size, mu = mu_inaccurate, Sigma = sigma_accurate)
+points4 <- mvrnorm(n = sample_size, mu = mu_inaccurate, Sigma = sigma_inaccurate)
+
+# Combine into a data frame
+df <- rbind(
+  data.frame(x = points1[,1], y = points1[,2], group = "Accurate & Precise"),
+  data.frame(x = points2[,1], y = points2[,2], group = "Accurate & Imprecise"),
+  data.frame(x = points3[,1], y = points3[,2], group = "Inaccurate & Precise"),
+  data.frame(x = points4[,1], y = points4[,2], group = "Inaccurate & Imprecise")
+)
+
+mv <- 7
+
+# Create one plot per group
+p1 <- ggplot(filter(df, group == "Accurate & Precise"), aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  coord_fixed() +
+  scale_x_continuous(limits = c(-mv, mv)) +
+  scale_y_continuous(limits = c(-mv, mv)) +
+  theme_minimal() +
+  ggtitle("Accurate & Precise")
+
+p2 <- ggplot(filter(df, group == "Accurate & Imprecise"), aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  coord_fixed() +
+  scale_x_continuous(limits = c(-mv, mv)) +
+  scale_y_continuous(limits = c(-mv, mv)) +
+  theme_minimal() +
+  ggtitle("Accurate & Imprecise")
+
+p3 <- ggplot(filter(df, group == "Inaccurate & Precise"), aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  coord_fixed() +
+  scale_x_continuous(limits = c(-mv, mv)) +
+  scale_y_continuous(limits = c(-mv, mv)) +
+  theme_minimal() +
+  ggtitle("Inaccurate & Precise")
+
+p4 <- ggplot(filter(df, group == "Inaccurate & Imprecise"), aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  coord_fixed() +
+  scale_x_continuous(limits = c(-mv, mv)) +
+  scale_y_continuous(limits = c(-mv, mv)) +
+  theme_minimal() +
+  ggtitle("Inaccurate & Imprecise")
+
+p1
+p2
+p3
+p4
+```
+
+Therefore, we can clearly see that only @fig-accurate-and-precision-1 be the good one. However, which other is the best? Well, this is an unanswered question. However, we can see that maybe a more "clustered" one is better? Therefore, we can define the following variance measure,
+\begin{equation*}
+\Var{\hat{p}} = \Var{\frac{Y}{n}} = \frac{1}{n^2} \Var{Y} = \frac{1}{n^2}np(1 - p) = \frac{p(1 - p)}{n}
+\end{equation*}
+
+# Mean Square Error
+
+Another measure of an estimator's quality is the mean square error. The mean square error (MSE) of an estimator $\hat{\theta}$ of $\theta$ is
+\begin{equation*}
+\mse{\theta} = \E{\left( \hat{\theta} - \theta \right)^2}
+\end{equation*}
+Now, that it turns out that $\mse{\hat{\theta}} = \Var{\hat{\theta}} + \left( \bias{\hat{\theta}} \right)^2$. 
+
+Thus $MSE$ is a combined measure of accuracy and precision. (It will be small only if both the mean and variance are small.)
+
+In our example, $\mse{\hat{p}} = \Var{\hat{p}} + (\bias{\hat{p}})^2 = \frac{p(1-p)}{n}$.
+
+::: {.callout-note title="Why do we need all this?" collapse="false"}
+
+In our example, the estimator for $p$ is relatively 'obvious' estimator of $p$. However, in many situations, there will be several plausible estimators to consider. One must then decide which one is the 'best'. This will typically be done by comparing the bias, variance, and MSE of the candidate estimators.
+
+In fact, this idea of MSE is highly used in machine learning training where the loss of the neural network is directly calculated by using MSE.
+
+:::
+
+---
+
+:::{#thm-mse-var-bias}
+
+# MSE, Variance and Bias
+\begin{equation}
+\mse{\hat{p}} = \Var{\hat{p}} + (\bias{\hat{p}})^2 = \frac{p(1-p)}{n}
+\end{equation}
+
+:::
+
+::: {.proof}
+
+The proof requires simply algebraic manipulation.
+
+\begin{align*} 
+\mse{\hat{theta}} & = \E{\left( \hat{\theta} - \theta \right)^2} \\
+& = \E{\left( \hat{\theta} - \E{\hat{\theta}} + \E{\hat{\theta}} - \theta \right)^2} \\
+& = \E{\left( \hat{\theta} - \E{\hat{\theta}} \right)^2 + \left(\E{\hat{\theta}} - \theta \right)^2 + 2 \left( \hat{\theta} - \E{\hat{\theta}} \right) \left( \E{\hat{\theta}} - \theta \right) } \\
+& = \E{\left( \hat{\theta} - \E{\hat{\theta}} \right)^2 } + \left(\E{\hat{\theta}} - \theta \right)^2 + 2 \underbrace{\left( \E{\hat{\theta}} - \E{\hat{\theta}} \right)}_{=0} \left( \E{\hat{\theta}} - \theta \right) \\
+& = \Var{\hat{\theta}} + \left( \bias{\hat{\theta}} \right)^2
+\end{align*}
+
+:::
+

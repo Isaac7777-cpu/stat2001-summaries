@@ -1,11 +1,5 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 MASS
 ggplot2
 dplyr
 tidyr
+patchwork
