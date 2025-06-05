@@ -67,11 +67,13 @@ format:
       light:
         - lux
         - brand
+        - scripts/style/styles.scss
       dark:
         - cyborg
         - brand
-        - ./scripts/custom-dark.scss
-    css: styles.css
+        - scripts/style/custom-dark.scss
+        - scripts/style/styles.scss
+    css: scripts/style/styles.css
     toc: true
     toc-expand: 1
     number-sections: true
@@ -84,6 +86,8 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     page-layout: article
+    date: last-modified
+    date-format: "dddd MMM D, YYYY"
 format-links: true
 
 comments: 
