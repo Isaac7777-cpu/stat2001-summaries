@@ -2,14 +2,14 @@
   MathJax = MathJax || {};
   MathJax.tex = MathJax.tex || {};
   MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\\\!\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\\\!\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\\\!\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\\\!\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\\\!\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\\\!\\left({#1}\\right)", 1],
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
@@ -30,8 +30,8 @@
     indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
     mean: ["\\overline{#1}", 1],
     sumrv: ["\\dot{#1}", 1],
-    bias: ["\\operatorname{B}\\\\!\\left({#1}\\right)", 1],
-    mse: ["\\operatorname{MSE}\\\\!\\left({#1}\\right)", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
