@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python scripts/convert_macros.py > scripts/mathjax-macros.html
+python3 scripts/convert_macros.py > scripts/mathjax-macros.html

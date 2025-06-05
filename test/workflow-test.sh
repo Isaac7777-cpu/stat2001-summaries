@@ -12,8 +12,8 @@ mkdir -p "$OUTDIR"
 rm -f "$OUTDIR"/*.yml
 
 # ▶️ Generate new sidebar
-chmod +x scripts/grab_contents.sh
-scripts/grab_contents.sh > "$OUTDIR/sidebar.yml"
+chmod +x scripts/grab_contents_v2.sh
+scripts/grab_contents_v2.sh > "$OUTDIR/sidebar.yml"
 echo "✅ Sidebar written to $OUTDIR/sidebar.yml"
 
 # ▶️ Extract head: everything before sidebar:
