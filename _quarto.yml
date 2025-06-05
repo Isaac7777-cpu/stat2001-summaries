@@ -44,6 +44,15 @@ website:
         href: contents/chapter-07/index.qmd
         contents:
           - contents/chapter-07/sums-of-continuous-random-variables.qmd
+      - section: "CH08 : Estimation"
+        href: contents/chapter-08/index.qmd
+        contents:
+          - contents/chapter-08/1point-estimate.qmd
+          - contents/chapter-08/2evaluation.qmd
+          - contents/chapter-08/3interval-estimate.qmd
+          - contents/chapter-08/4monte-carle-method.qmd
+      - text: "chapter-09"
+        href: contents/chapter-09/index.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
