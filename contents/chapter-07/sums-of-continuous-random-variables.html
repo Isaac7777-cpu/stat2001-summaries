@@ -611,7 +611,7 @@ p_Z(n) = \sum_{k \in \Omega_X}p_X(k)p_Y(n-k) = \sum_{k=0}^\infty p_X(k)p_Y(n-k)
 \end{equation}\]</span></p>
 <p>However, if we simply plugin the PMGs, we will get the wrong answer because we need to sum things that are non-zero. This means that we require both <span class="math inline">\(k\)</span> and <span class="math inline">\(n-k\)</span> be in the common sample space. Therefore, we can sum up to at most <span class="math inline">\(n\)</span>. <span class="math display">\[\begin{align*}
 p_Z(n) &amp; = \sum_{k=0}^n p_X(k)p_Y(n-k) \tag{Convolution Formula} \\
-&amp; = \sum_{k=0}^n e^{-\lambda_1}\frac{\lambda_1^k}{k!} \cdot e^{\lambda_2} \frac{\lambda^{n-k}}{(n-k)!} \\
+&amp; = \sum_{k=0}^n e^{-\lambda_1}\frac{\lambda_1^k}{k!} \cdot e^{-\lambda_2} \frac{\lambda_2^{n-k}}{(n-k)!} \\
 &amp; = e^{-(\lambda_1 + \lambda_2)} \sum_{k=0}^n \frac{1}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
 &amp; = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \frac{n!}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
 &amp; = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} \lambda_1^k(1- \lambda_2)^{n-k} \\
@@ -650,7 +650,7 @@ z &amp; 0 \leq z \leq 1 \\
 0 &amp; \text{otherwise} \\
 \end{cases}
 \end{equation*}\]</span></p>
-<p>This reuslt does confirm to our intuitions because there are “more ways” to get a value of 1 for example than any other point.</p>
+<p>This result does confirm to our intuitions because there are “more ways” to get a value of 1 for example than any other point.</p>
 </div>
 </section>
 <section id="convolution-in-the-multivariate-setting" class="level1 unnumbered">
