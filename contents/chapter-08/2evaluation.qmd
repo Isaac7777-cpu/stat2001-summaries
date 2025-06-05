@@ -1,0 +1,12 @@
+---
+title: Evaluation Metrics
+---
+
+# Bias
+
+The question now arises: How good is $\hat{p}$ as an estimator of $p$?
+
+What we need are some criteria for assessing the quality of estimators. The bias of an estimator $\hat{\theta}$ of $\theta$ is
+\begin{equation}
+\bias{\hat{\theta}} = \E{\hat{\theta}} - \theta
+\end{equation}
