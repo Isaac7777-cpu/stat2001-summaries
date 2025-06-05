@@ -237,7 +237,7 @@ Ideally, we should choose which estimator to use ($U$, $V$ or $W$) _before_ obse
 
 ## Two Important Results for Estimation
 
-::: {#thm-unbiased-sample-mean-and-variance}
+::: {#thm-expected-sample-mean-and-variance}
 
 Suppose that $Y_1, Y_2, \ldots ,Y_n \sim^\iid (\mu, \sigma^2)$ and define $\mean{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ (sample mean) and $S^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i - \mean{Y})^2$ (sample variance). Then
 
@@ -279,10 +279,56 @@ Hence,
 \E{S^2} = \frac{1}{n-1} \sum_{i=1}^n \E{D_i^2} = \frac{1}{n-1} (n \cdot \frac{n-1}{n}\sigma^2) = \sigma^2
 \end{equation*}
 
+---
+
 Note 1:
 
-Note that we have previously shown $\mean{Y} \perp (Y_i - \mean{Y})$ for $\iid$ $Y_i$'s in 
+Note that we have previously shown $\mean{Y} \perp (Y_i - \mean{Y})$ for $\iid$ $Y_i$'s in [Chpater 7 Section 2](../chapter-07/index.qmd#sampling-distribution). Now, then, we have
+\begin{align*}
+0 = \Cov{Y_i - \mean{Y}, \mean{Y}} & = \Cov{Y_i, \mean{Y}} - \Cov{\mean{Y}, \mean{Y}} \\
+& = \Cov{Y_i, \mean{Y}} - \Var{\mean{Y}} \\
+& = \Cov{Y_i, \mean{Y}} - \frac{\sigma^2}{n} \\
+\end{align*}
+
+::: {.separator}
+:::
+
+***Alternatively***
+
+In fact, we will see that $\iid$ is a relatively strong assumptions.
+
+\begin{align*}
+\Cov{Y_i, \mean{Y}} &= \Cov{Y_1, \mean{Y}} = \Cov{ Y_1, \frac{1}{n}(Y_1 + Y_2 + \dots + Y_n) } \\
+&= \frac{1}{n} \left( \Cov{Y_1, Y_1} + \Cov{Y_1, Y_2} + \dots + \Cov{Y_1, Y_n} \right) \\
+&= \frac{1}{n} \left\{ \Var{Y_1} + 0 + 0 + \dots + 0 \right\} = \frac{\sigma^2}{n}. \\
+\end{align*}
+
+Hence, we know that $\Cov{Y_i, \mean{Y}} = \frac{\sigma^2}{n}$. In fact from the second proof, we also note that we don't actually require 
 
 :::
 
+::: {#cor-unbias-sample-mean-variance}
 
+## Unbias Estimator
+
+Following directly from @thm-expected-sample-mean-and-variance, we know that both $\mean{Y}$ and $S^2$ are unbias Estimator.
+
+:::
+
+---
+
+::: {#thm-another-form-of-sample-var}
+
+## Sample Variance
+
+\begin{equation*}
+S^2 = \frac{1}{n-1}\sum_{i=1}^n (y_i - \mean{y})^2 = \frac{1}{n-1}\left(\left(\sum_{i=1}^n y_i^2\right) - n\mean{y}^2 \right)
+\end{equation*}
+
+:::
+
+::: {.proof}
+
+The proof is almost identical to the proof for the analogous theorem of the population variance in [Chapter 2 Section 2.1](../chapter-03/2measures.qmd#two-important-results). Therefore, I will not restate here.
+
+:::

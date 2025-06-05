@@ -1,0 +1,301 @@
+---
+title: Interval Estimation
+---
+
+## Motivation
+
+There are times when a point estimate is not really helpful simply because it only provides one number. It does not provide any form of statistical confidence to how good the inference is. How wrong might it be if it were to deviate? Also, loosely speaking, the probability that we make a correct guess for the parameters, which would typically be continuous, is $0$. Therefore, we may want an interval on the axis instead.
+
+## Interval Estimation and Confidence Intervals
+
+Consider a sample $Y_1, Y_2, \ldots, Y_n$ from a probability distribution which depends on one parameter $\theta$ (which is fixed but unknown). 
+
+Now, we want to find two function $g$ and $h$ such that 
+\begin{gather}
+L = g(Y_1, Y_2, \ldots , Y_n) \nonumber \\
+U = h(Y_1, Y_2, \ldots , Y_n) \\
+\end{gather}
+would satisfy the following probability statement[^1]
+\begin{equation}
+P(L \leq \theta \leq U) = 1 - \alpha
+\end{equation}
+Then, $[L, U]$ is a $100(1 - \alpha)%$ _confidence interval_ (CI) for $\theta$ in which $L$ and $U$ are the lower and upper bound and $1 - \alpha$ is the _coverage coefficient_, of the CI.
+
+[^1]: Note that this cannot really be a probability statement in general. At least under the frequentist viewpoint, the distribution parameter is a fixed, constant rather than a radom variable. Therefore, we would have to "re-interpret" such formula as the percentage of such intervals that would capture the real coefficients if we take a large numbers of random samples and calculate such interval.
+
+---
+
+::: {#exm-4}
+
+## Confidence Interval for Continuous Uniform
+
+Suppose that 6.2 is a number chosen randomly between $0$ and $c$. Find an $80\%$ confidence interval for $c$.
+
+---
+
+***Solution:***
+
+Let $Y \sim U(0, c)$. Then, $X = Y/c \sim U(0, 1)$ by applying the transformation method. 
+
+::: {#def-pivotal-quantity}
+
+## Pivotal Quantity
+
+Then, we call $X$ a _pivotal quantity_. This means that $X$ is a function of $Y$ the observable random variables and $c$, the estimand, whose distribution does not depend on $c$. 
+
+This quantity is useful for finding the confidence interval.
+
+:::
+
+Therefore, for an $80\%$ confidence interval for $c$,
+\begin{align*}
+0.8 = \P{0.1 \leq X \leq 0.9} & = \P{0.1 \leq Y / c \leq 0.9} \\
+& = \P{10Y/9 \leq c \leq 10Y}
+\end{align*}
+
+So $[10Y/9, 10Y]$ is an $80\%$ CI for $c$.
+
+Now, since the realised value of $Y$ is $y = 6.2$, we have an interval estimation being $[6.82, 62]$.
+
+:::
+
+Note that the term 'confidence interval' refers to both $[10Y/9 , 10Y]$ and $[10y / 9, 10y]$; the former is a random variable and the latter is the realised value of that random variable. 
+
+We should also note that whether to include the endpoint, even though does not matter for the current case as $X$ is continuous, it can be important in some cases.
+
+::: {#nte-smart-alternative-solution .callout-note title="A smart Alternative to @exm-4" collapse="true"}
+
+::: {.solution}
+
+First, notice that in order to obtain the center $80\%$ of $U(0, c)$, we need the center $80\%$ of the sample space of the distribution, which is $[0, c]$. Therefore, with some attention, such interval in the probability statement would then be
+\begin{equation*}
+\P{0.1c \leq Y \leq 0.9c} = 0.8
+\end{equation*}
+Then, the following follows.
+
+:::
+
+:::
+
+### Interpretation of CI
+
+> Can we really say that $c$ lies between $6.89$ and $62$ with probability $80\%$?
+
+**No**. The event "6.89 < c < 62" does not involve any random variables. It is either true or false, and so its probability must be either $1$ or $0$, respectively, and not $0.8$. Thus the statement $\P{6.89 < c < 62} = 0.8$ is wrong.
+
+The way to interpret '$80\%$ confident' is as follows. If we were to sample another number, e.g. $5.4$ from the same $U(0, c)$ distribution, then we'd get another CI, e.g. $(10(5.4)/9, 10(5.4)) = (6, 54)$. Now imagine sampling very many such numbers, so as to get the same number of corresponding CIs, e.g. $(6.89, 62)$, $(6, 54)$, $(8.89, 80)$, $\ldots$. Then close to $80\%$ of these CIs will contain $c$. This is an expression of the fact that $\P{10Y/9 < c < 10Y} = 0.8$. But for any particular value $y$ of $Y$, we should never write $\P{10y/9 < 10y} = 0.8$.
+
+### Upper and Lower Range CIs
+
+The $80\%$ CI derived above, $(10Y/9, 10Y)$, may also be called a _central_ CI. It is also possible to construct other types of CI. Three major types are defined as follows
+
+Let $I = [L, U] = [g(Y_1, Y_2, \ldots , Y_n), h(Y_1, Y_2, \ldots , Y_n)]$ be a $100(1 - \alpha)\%$ confidence interval for $\theta$. Thus $P(L \leq \theta \leq U) = 1 - \alpha$ for all $\theta$.
+
+#### Upper Range Confidence Interval
+
+We say that $I$ is an _upper range confidence interval_ if
+\begin{equation}
+\P{\theta \geq L} = 1 - \alpha \hspace{10pt} (= \P{L \leq \theta} = \P{L \leq \theta \leq \infty})
+\end{equation}
+
+Then $\P{\theta < L} = \alpha$, $U = \infty$ and we call $L$ the $1 - \alpha$ _lower confidence limit_ for $\theta$.
+
+#### Lower Range Confidence Interval
+
+We say that $I$ is a _lower range confidence interval_ if 
+\begin{equation}
+\P{\theta \leq L} = 1 - \alpha \hspace{10pt} (= \P{L \geq \theta} = \P{- \infty \leq \theta \leq U})
+\end{equation}
+
+Then $\P{\theta > U} = \alpha$, $L = -\infty$ and we call $U$ the $1 - \alpha$ _upper confidence limit_ for $\theta$.
+
+#### Central Confidence Interval
+
+We say that $I$ is a _central confidence interval_ if
+\begin{equation}
+\P{\theta < L} = \P{\theta > U} = \alpha / 2
+\end{equation}
+
+---
+
+::: {#exm-4-central}
+
+Check that $[10Y/9, 10Y]$ is central $80\%$ CI for $c$.
+
+:::{.solution}
+
+\begin{gather*}
+\P{\theta < L} = \P{c < 10Y/9} = \P{Y > 0.9c} = 0.1 = \alpha / 2 \\
+\P{\theta > U} = \P{c > 10Y} = \P{Y < 0.1c} = 0.1 = \alpha / 2 \\
+\end{gather*}
+
+:::
+
+:::
+
+---
+
+::: {#exm-5}
+
+## Example 5
+
+Now, we know that @exm-4-central is the central confidence interval. Therefore, if we can also ask the question about lower and upper confidence interval.
+
+:::{.solution}
+
+\begin{equation*}
+0.8 = \P{X \leq 0.8} = \P{Y/c \leq 0.8} = \P{5Y / 4 \leq c}
+\end{equation*}
+
+So $L = 5Y / 4$, with realised value $5(6.2) / 4 = 7.75$. So an upper range $80\%$ CI for $c$ is $[7.75, \infty)$.
+
+:::
+
+:::{.separator}
+:::
+
+What is a lower range $80\%$ CI for $c$?
+
+\begin{equation*}
+0.8 = \P{X \geq 0.2} = \P{Y/c \geq 0.2} = \P{c \leq 5Y}
+\end{equation*}
+
+So $U = 5Y$, with realised value $5(6.2) = 31$. So a lower range $80\%$ CI for $c$ is $(-\infty, 31]$.
+
+:::{.separator}
+:::
+
+> However, we can actually refine the lower and upper confidence interval...
+
+First, observe that $c$ cannot be negative. So a lower range $80\%$ CI for $c$ is $[0, 31]$. Secondly, we also know that $0 \leq y \leq c$, and therefore $c \geq y = 6.2$. So a lower range $80\%$ CI for $c$ is $[6.2, 31]$. 
+
+- Lower range $80\%$ CI $= [6.2, 31]$
+- Upper range $80\%$ CI $= [7.75, \infty)$
+- Central $80\%$ CI $= [6.89, 62]$
+
+Note that the lower range CI is the shortest of the three. This is an attractive property, and sometimes we may choose one CI formula over another because it leads to a shorter CI on _average_. However, in some cases (not considered here), choosing the shortest of two or more CIs only _after_ observing the data (as is sometimes done) may cause the confidence conefficient to be altered so that it is no longer the nominal $1-\alpha$.
+
+:::
+
+---
+
+::: {.callout-note title="Example 4" collapse="false"}
+
+::: {#exm-6}
+
+Suppose that $1.2$, $3.9$ and $2.4$ are a random sample from a normal distribution with variance $7$. Find a $95\%$ confidence interval for the normal mean.
+
+---
+
+::: {.solution}
+
+We cannot rely on the intelligence of finding a smart alternative as @nte-smart-alternative-solution.
+
+Let $Y_1, Y_2, \ldots , Y_n \sim^\iid \NormalDist(\mu, \sigma^2)$. Let's find a $100(1 - \alpha)\%$ CI for $\mu$ generally. Recall that $Z = \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \sim \NormalDist(0, 1)$. Therefore, $Z$ is a pivotal quantity,
+\begin{align*}
+1 - \alpha & = \P{-z_{\alpha/2} < Z < z_{\alpha/2}} \\
+& = \P{-z_{\alpha/2} < \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} < z_{\alpha/2}} \\
+& = \P{-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} < \mean{Y} - \mu < z_{\alpha/2}\frac{\sigma}{\sqrt{n}}} \\
+& = \P{\mean{Y}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} < \mu < \mean{Y} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}} \\
+\end{align*}
+
+So a $100(1 - \alpha)\%$ CI for $\mu$ is $(\mean{Y} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}} , \mean{Y} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}})$. This interval may also be written $\mean{Y} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$.
+
+In our case: $100(1 - \alpha) = 95 \to \alpha = 0.05$. Therefore
+$z_{\alpha/2} = z_{0.025} = 1.96$  
+$n = 3$  
+$\mean{y} = \frac{1}{n} \sum_{i=1}^n y_i = \frac{1}{3}(1.2 + 3.9 + 2.4) = 2.5$  
+$\sigma^2 = 7$
+
+So the $95\%$ CI for $\mu$ is
+\begin{equation*}
+(\mean{y} \pm z_{\alpha / 2}\frac{\sigma}{\sqrt{n}}) = \left(2.5 \pm 1.96 \frac{\sqrt{7}}{\sqrt{3}}\right) = (2.5 \pm 3.0) = (-0.5, 5.5)
+\end{equation*}
+
+:::
+
+:::
+
+:::
+
+---
+
+::: {.callout-note title="Example 7" collapse="false"}
+
+::: {#exm-7}
+ 
+ Suppose the same sample with @exm-6 but _unknown_ variance. Find a $95\%$ confidence interval for the normal mean.
+
+ ---
+
+::: {.solution}
+
+Let $Y_1, Y_2, \ldots ,Y_n \sim^\iid \NormalDist(\mu , \sigma^2)$. Recall that
+\begin{equation}
+T = \frac{\mean{Y} - \mu}{S / \sqrt{n}} \sim t(n-1)
+\end{equation}
+with $T$ being the pivotal quantity.
+
+Therefore,
+\begin{align*}
+1 - \alpha & = \P{-t < T < t} \tag{where $t = t_{\alpha/2}(n - 1)$} \\
+&= \P{ -t < \frac{\mean{Y} - \mu}{S / \sqrt{n}} < t } \\
+&= \P{ \mean{Y} - t\frac{S}{\sqrt{n}} < \mu < \mean{Y} + t\frac{S}{\sqrt{n}} } \\
+\end{align*}
+
+So a $100(1-\alpha)\%$ CI for $\mu$ is $\left( \mean{Y} \pm t_{\alpha/2}\!(n-1) \frac{S}{\sqrt{n}} \right)$
+
+With some algebraic calculation we have, the $95\%$ CI is 
+\begin{gather*}
+100(1 - \alpha) = 95 \implies \alpha = 0.05, \, n = 3 \\
+t_{\alpha / 2}(n - 1) = t_{0.025}(2) = 4.303 \\
+\mean{y} = \frac{1}{n} \sum_{i=1}^n y_i = \frac{1}{3} (1.2 + 3.9 + 2.4) = 2.5 \\
+s^2 = \frac{1}{n-1} \left( \sum_i y_i^2 - 3 * (\mean{y})^2 \right) = 1.83 \\
+\end{gather*}
+So the $95\%$ CI for $\mu$ is $(-0.86k 5.86)$.
+
+:::
+
+:::
+
+---
+
+Note that the interval for @exm-7 is wider than the CI in @exm-5, $(-0.5, 5.5)$. This corresponds to the fact that $\sigma$ is now _unknown_ and effectively needs to be estimated from the sample, by $s$. This illustrates the fact that when information is _decreased_, CI's tend to become wider (which makes sense because there is greater uncertainty). However, this is not always the case, and sometimes a decrease in information can, by change, lead to an interval (with the same confidence coefficient) which much narrower.
+
+:::
+
+---
+
+::: {.callout-note title="Approximation with Sample Variance" collapse="false"}
+
+::: {#exm-8}
+
+200 people were randomly sampled from the population of Australia, and their heights were measured. The sample mean was 1.673 and the sample standard deviation was 0.310.
+
+Find a $95\%$ confidence interval for the average height of all Australian.
+
+---
+
+First, in summary of the above, we know,
+
+- $Y_i \iid (\mu, \sigma^2)$ where $\mu$ and $\sigma$ unknown
+- $\mean{Y} = 1.673$
+- $S = 0.310$
+
+:::{.solution}
+
+Let $Y_i$ be the $i$th height and assume that $Y_1, Y_2, \ldots , Y_n \sim^\iid (\mu, \sigma^2)$.  Now, by central limit theorem, $\frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \approx \NormalDist(0, 1)$ as $n = 200$ is large. But $\sigma$ is unknown, and so we cannot make use of this pivotal quantity.
+
+However, recall that the $t = \frac{\mean{Y} - \mu}{S / \sqrt{n} \sim t(n-1) \dconv \NormalDist(0, 1)}$. This idea will be more thoroughly explore in [Chapter 9](../chapter-09/index.qmd). For now, we can approximate with
+\begin{equation*}
+Z = \frac{\mean{Y} - \mu}{S / \sqrt{n}} \approx \NormalDist(0, 1)
+\end{equation*}
+also. Using the same logic as in the last few examples, we find that $100(1 - \alpha)\%$ CI for $\mu$ is $\left(\mean{Y} \pm z_{\alpha / 2} \frac{S}{\sqrt{n}}\right)$, which in our case is $(1.630, 1.716)$. 
+
+Note that this is only an approximate CI. However, the closeness of the approximation will be very good if $n$ is large. Also, we would definitely replace $S$ with $\sigma$ if the population standard deviation is known.
+
+:::
+
+:::
+
+:::
