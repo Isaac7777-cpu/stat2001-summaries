@@ -56,6 +56,7 @@ format:
     include-in-header: 
       - scripts/mathjax.html
       - scripts/mathjax-macros.html  # this is auto-generated macro extension
+    respect-user-color-scheme: true
     theme:
       light:
         - lux
@@ -72,6 +73,16 @@ format:
     code-fold: true
     code-summary: "Show the code"
     code-results: hold
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+    page-layout: article
+format-links: true
+
+comments: 
+  hypothesis: 
+    theme: classic
 
 execute: 
   freeze: auto
