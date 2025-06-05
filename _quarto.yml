@@ -47,9 +47,10 @@ website:
       - section: "CH08 : Estimation"
         href: contents/chapter-08/index.qmd
         contents:
-          - contents/chapter-08/interval-estimate.qmd
-          - contents/chapter-08/monte-carle-method.qmd
-          - contents/chapter-08/point-estimate.qmd
+          - contents/chapter-08/1point-estimate.qmd
+          - contents/chapter-08/2evaluation.qmd
+          - contents/chapter-08/3interval-estimate.qmd
+          - contents/chapter-08/4monte-carle-method.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
