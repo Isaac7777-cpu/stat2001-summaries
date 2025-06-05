@@ -2,3 +2,11 @@
 title: Estimation
 ---
 
+This chapter is about estimation of the distribution parameters in general. There are four main aspects that we are going to cover here.
+
+1. Point Estimation
+2. Evaluation Statistics for a Point Estimation
+3. Interval Estimation
+4. Monte-Carlo Method
+
+Overall, this is almost the peak of this course as everything we have learnt and will learn is built around this topic.
