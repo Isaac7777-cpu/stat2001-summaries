@@ -346,3 +346,405 @@ but arguably better.
 
 Now, in fact the following is another way of estimation the interval.
 
+::: {#thm-wilson-ci}
+
+## Wilson CI
+
+Another $100(1-\alpha)\%$ CI for $p$ is given by 
+\begin{equation}
+\left( \frac{\hat{p} + \frac{z^2_{\alpha/2}}{2n} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2_{\alpha/2}}{4n^2}}}{1 + \frac{z^2_{\alpha/2}}{n}} \right)
+\end{equation}
+
+This interval is called **the Wilson CI for a binomial proportion**. Note that if $n$ is large this CI is approximately the same as the standard CI introduced in @exm-9.
+
+:::
+
+::: {.proof}
+
+Observe that
+\begin{align*}
+1 - \alpha &\approx \P{-z_{\alpha / 2} < \frac{Y - np}{\sqrt{np(1 - p)}} < z_{\alpha/2}} \\
+&= \P{\left(\frac{Y - np}{\sqrt{np(1 - p)}}\right)^2 < z^2} \tag{where $z = z_{\alpha/2}$} \\ 
+&= \P{ Y^2 - 2npY + n^2 p^2 < z^2 np - z^2 np^2 } \\
+&= \P{ p^2\left(1 + \frac{z^2}{n}\right) - p\left(\frac{2Y}{n} + \frac{z^2}{n} \right) + \frac{Y^2}{n^2} < 0 } \\
+&= \P{ p^2\left(1 + \frac{z^2}{n}\right) - p\left(2\hat{p} + \frac{z^2}{n} \right) + \hat{p}^2 < 0 } \tag{where $\hat{p} = \frac{Y}{n}$} \\
+&= \P{ a < p < b }, \\
+\end{align*}
+where $a$ and $b$ are the roots of quadratic function \eqref{eq:root-quad-func}.
+\begin{equation} \label{eq:root-quad-func}
+f(p) = p^2\left( 1 + \frac{z^2}{n} \right) - p\left(2\hat{p} + \frac{z^2}{n}\right) + \hat{p}^2
+\end{equation}
+Hence, finding the roots of \eqref{eq:root-quad-func} yield,
+\begin{align*}
+& \frac{
+  (2\hat{p} + \frac{z^2}{n}) \pm \sqrt{(2\hat{p} + \frac{z^2}{n})^2 - 4\hat{p}^2(1 + \frac{z^2}{n})}
+}{
+  2(1 + \frac{z^2}{n})
+} \\
+&= \frac{
+  \hat{p} + \frac{z^2}{2n} \pm \frac{1}{2} \sqrt{
+    4\hat{p}^2 + \frac{4\hat{p} z^2}{n} + \frac{z^4}{n^2} 
+    - 4\hat{p}^2 - \frac{4\hat{p}^2 z^2}{n}
+  }
+}{
+  1 + \frac{z^2}{n}
+} \\
+&= \frac{
+  \hat{p} + \frac{z^2}{2n} \pm \sqrt{
+    \frac{\hat{p} z^2}{n} + \frac{z^4}{4n^2} - \frac{\hat{p}^2 z^2}{n}
+  }
+}{
+  1 + \frac{z^2}{n}
+}\\
+\end{align*}
+
+:::
+
+---
+
+::: {.callout-note title="Example 9 in Wilson CI"}
+
+::: {#exm-9-a}
+
+Find the Wilson CI for the same setting as @exm-9.
+
+:::
+
+---
+
+::: {.solution}
+
+\begin{equation}
+\left( \frac{0.72 + \frac{1.959964^2}{2\cdot 100} \pm 1.959964 \sqrt{\frac{0.72(1-0.72)}{100} + \frac{1.959964^2}{4\cdot100^2}}}{1 + \frac{1.959964^2}{100}} \right) = \frac{0.739207 \pm 0.009007}{1.0384} = (0.625, 0.798)
+\end{equation}
+
+Note that the above is very similar to the standard CI $(0.63, 0.81)$ derived in @exm-9.
+
+:::
+
+:::
+
+### Why is Wilson CI is better?
+
+The Wilson CI is considered 'better' than the standard CI because its coverage probabilities are overall closer to the desired $1 - \alpha$. For example, if $n = 23$ and $p = 0.344$, the coverage probability of the standard $95\%$ CI is $91.4\%$, and the coverage probability of the Wilson $95\%$ CI is $95.5\%$. These calculations can be repeated for all values of $p$ on a grid ($p = 0.001, 0.002, \ldots , 1$), with $n = 23$ held the same in each case.
+
+Essentially, this is because the Wald interval uses $\hat{p}$ to approximate $p$ multiple times to obtain the interval estimation. Particularly, the approximation is used in the "standard error" part for the test statistic. In another perspective, the sample size can be seen as the key factor because it is essentially providing more information to $\hat{p}$ to approximate $p$ with a more accurate approximation. 
+
+From @fig-coverage-test, it is clear that as $p$ become more "extreme" values, the Wald CI fails quite dramatically. This is because such $p$ values usually result in a asymmetric distribution, particularly with small $n$ like $23$[^2].
+
+```{r}
+#| label: fig-coverage-test
+
+# Set parameters
+n <- 23
+alpha <- 0.05
+z <- qnorm(1 - alpha/2)
+p_vals <- seq(0, 1, by = 0.01)
+
+# Function to compute Wald CI
+wald_ci <- function(y, n) {
+  phat <- y / n
+  se <- sqrt(phat * (1 - phat) / n)
+  lower <- phat - z * se
+  upper <- phat + z * se
+  c(lower, upper)
+}
+
+# Function to compute Wilson CI
+wilson_ci <- function(y, n) {
+  phat <- y / n
+  center <- (phat + z^2 / (2 * n)) / (1 + z^2 / n)
+  margin <- z / (1 + z^2 / n) * sqrt(phat * (1 - phat) / n + z^2 / (4 * n^2))
+  lower <- center - margin
+  upper <- center + margin
+  c(lower, upper)
+}
+
+# Compute coverage for each p
+wald_coverage <- numeric(length(p_vals))
+wilson_coverage <- numeric(length(p_vals))
+
+for (i in seq_along(p_vals)) {
+  p <- p_vals[i]
+  probs <- dbinom(0:n, n, p)
+  
+  wald_hits <- 0
+  wilson_hits <- 0
+  
+  for (y in 0:n) {
+    wald_bounds <- wald_ci(y, n)
+    wilson_bounds <- wilson_ci(y, n)
+    
+    # Count if p is inside the interval
+    if (p >= wald_bounds[1] && p <= wald_bounds[2]) {
+      wald_hits <- wald_hits + probs[y + 1]
+    }
+    if (p >= wilson_bounds[1] && p <= wilson_bounds[2]) {
+      wilson_hits <- wilson_hits + probs[y + 1]
+    }
+  }
+  
+  wald_coverage[i] <- wald_hits
+  wilson_coverage[i] <- wilson_hits
+}
+
+# Plot
+plot(p_vals, wald_coverage, type = "l", col = "red", lty = 2, ylim = c(0, 1),
+     xlab = "True Proportion (p)", ylab = "Coverage",
+     main = "Coverage probabilities of 95% CIs (n = 23)")
+lines(p_vals, wilson_coverage, col = "blue", lty = 1)
+abline(h = 0.95, col = "gray", lty = 3)
+text(-0.01, 0.95, labels = "0.95", pos = 3, col = "gray40", cex = 0.8)
+
+legend("bottomright", legend = c("Standard (Wald)", "Wilson"),
+       col = c("red", "blue"), lty = c(2, 1))
+
+# Highlight example point
+p_example <- 0.344
+ix <- which.min(abs(p_vals - p_example))
+points(p_example, wald_coverage[ix], col = "red", pch = 16)
+points(p_example, wilson_coverage[ix], col = "blue", pch = 16)
+text(p_example, wald_coverage[ix], 
+     labels = paste0("(", p_example, ", ", round(wald_coverage[ix], 3), ")"),
+     pos = 1, col = "red", cex = 0.8)
+text(p_example, wilson_coverage[ix], 
+     labels = paste0("(", p_example, ", ", round(wilson_coverage[ix], 3), ")"),
+     pos = 3, col = "blue", cex = 0.8)
+```
+
+[^2]: The details of the coverage tests is included in [section about coverage test.](./5coverage-test.qmd)
+
+## Difference of $p$ in Binomial
+
+::: {#thm-difference-of-proportion}
+
+## Difference in Proportion
+
+Let $X \sim \Binomial(n, p)$, and $Y \sim \Binomial(m, q)$, where both $n$ and $m$ are large and $X \perp Y$.
+
+Then the approximate (Use of CLT and point estimator) $100(1 - \alpha)\%$ CI for $p - q$ is
+\begin{equation}
+\left( \hat{p} - \hat{q} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{\hat{q}(1 - \hat{q})}{m}} \right)
+\end{equation}
+
+:::
+
+::: {.proof}
+
+From CLT, we have:
+
+- $\hat{p} \approx \NormalDist\left(p, \dfrac{p(1 - p)}{n} \right)$  
+- $\hat{q} \approx \NormalDist\left(q, \dfrac{q(1 - q)}{m} \right)$  
+
+when $n$ and $m$ are large.
+
+So:
+
+$$
+\hat{p} - \hat{q} \approx \NormalDist\left(p - q,\ \dfrac{p(1 - p)}{n} + \dfrac{q(1 - q)}{m} \right)
+$$
+
+Since the sum (or difference) of two normal random variables is also normal, and $\hat{p}$ and $\hat{q}$ are independent, this implies:
+
+$$
+\text{Var}(\hat{p} - \hat{q}) = \text{Var}(\hat{p}) + \text{Var}(\hat{q})
+$$
+
+Thus:
+
+$$
+\frac{\hat{p} - \hat{q} - (p - q)}{
+\sqrt{ \dfrac{p(1 - p)}{n} + \dfrac{q(1 - q)}{m} }
+}
+\approx \NormalDist(0, 1)
+$$
+
+and, by substitution of sample estimates for large $n$ and $m$:
+
+$$
+\frac{\hat{p} - \hat{q} - (p - q)}{
+\sqrt{ \dfrac{\hat{p}(1 - \hat{p})}{n} + \dfrac{\hat{q}(1 - \hat{q})}{m} }
+}
+\approx \NormalDist(0, 1) \quad \text{if } n \text{ and } m \text{ are large}
+$$
+
+:::
+
+::: {#rem-approximations-and-shortcut}
+
+Note that this one uses both the CLT and the point estimator to approximate the final solution. Note that for large enough $m$ and $n$, this approximation should converge to something good that is gauranteed by the convergence property that will be discuss in [Chapter 9](../chapter-09/index.qmd).
+
+:::
+
+---
+
+::: {.callout-note title="Example 10" collapse="false"}
+
+::: {exm-10}
+
+You have a bent \$1 coin and a bent \$2 coin.  
+You toss the \$1 coin 200 times and get 108 heads.  
+You toss the \$2 coin 300 times and get 141 heads.  
+
+Find a 90% CI for the difference between the probability of a head on the \$1 coin and the probability of a head on the \$2 coin.
+
+:::
+
+---
+
+::: {.solution}
+
+In our case:
+
+- $p$ = probability of heads on a toss of the \$1 coin  
+- $q$ = probability of heads on a toss of the \$2 coin
+
+$$
+\begin{aligned}
+n &= 200, \quad x = 108, \quad \hat{p} = \frac{108}{200} = 0.54 \\
+m &= 300, \quad y = 141, \quad \hat{q} = \frac{141}{300} = 0.47 \\
+\alpha &= 0.1, \quad z_{\alpha/2} = z_{0.05} = 1.645
+\end{aligned}
+$$
+
+So a 90% confidence interval for $p - q$ is:
+
+$$
+\left(
+0.54 - 0.47 \pm 1.645 \sqrt{
+\frac{0.54(1 - 0.54)}{200} +
+\frac{0.47(1 - 0.47)}{300}
+}
+\right)
+$$
+
+$$
+= (0.07 \pm 0.075) = (-0.005,\ 0.145)
+$$
+
+Since this CI contains 0, we suspect the chance of heads is the same for both coins, **_i.e., the difference is not significantly different from zero_**. Evidence to support true means are the same/similar to the hypothesis test $p = q$ (i.e. $p - q = 0$).
+
+:::
+
+:::
+
+## Confidence for Sample Variance
+
+::: {#exm-11}
+
+## Finding the Confidence Interval for Sample Variance
+
+Suppose that $Y_1, Y_2, \ldots Y_n \sim^\iid \NormalDist(\mu, \sigma^2)$. Find a $100(1 - \alpha)\%$ CI for $\sigma^2$.
+
+---
+
+:::{.solution}
+
+Recall that $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$. Therefore
+\begin{align*}
+1 - \alpha &= P\left(
+\chi^2_{1 - \alpha/2}(n - 1)
+< \frac{(n - 1)S^2}{\sigma^2}
+< \chi^2_{\alpha/2}(n - 1)
+\right) \\
+&= P\left(
+\frac{(n - 1)S^2}{\chi^2_{\alpha/2}(n - 1)}
+< \sigma^2 <
+\frac{(n - 1)S^2}{\chi^2_{1 - \alpha/2}(n - 1)}
+\right)
+\end{align*}
+
+*( $\chi^2_p(m)$ is the upper $p$ quantile of the chi square distribution with $m$ degrees of freedom. )*
+
+So a $100(1 - \alpha)\%$ CI for $\sigma^2$ is $\left(\frac{(n - 1)S^2}{\chi^2_{\alpha/2}(n - 1)},\frac{(n - 1)S^2}{\chi^2_{1 - \alpha/2}(n - 1)}\right).$
+
+:::
+
+:::
+
+## Confidence Intervals for the Difference Between Two Population Means
+
+Let:
+
+- $X_1, X_2, \ldots, X_n \sim \text{iid } (\mu_X, \sigma_X^2)$ (first sample)
+- $Y_1, Y_2, \ldots, Y_m \sim \text{iid } (\mu_Y, \sigma_Y^2)$ (second sample)
+
+Assume:
+
+- $(X_1, X_2, \ldots, X_n) \perp (Y_1, Y_2, \ldots, Y_m)$ (the two samples are independent)
+
+Define:
+
+- $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i \quad \text{(1st sample mean)}$
+- $\bar{Y} = \frac{1}{m} \sum_{i=1}^m Y_i \quad \text{(2nd sample mean)}$
+- $S_X^2 = \frac{1}{n - 1} \sum_{i=1}^n (X_i - \bar{X})^2 \quad \text{(1st sample variance)}$
+- $S_Y^2 = \frac{1}{m - 1} \sum_{i=1}^m (Y_i - \bar{Y})^2 \quad \text{(2nd sample variance)}$
+
+We wish to construct a $100(1 - \alpha)\%$ confidence interval for $\mu_X - \mu_Y$.  
+A suitable CI will depend on:
+
+- what assumptions we can make regarding the distributions of the $X_i$ and $Y_i$ values  
+- what knowledge we have regarding the two population variances, $\sigma_X^2$ and $\sigma_Y^2$  
+- whether the two sample sizes $n$ and $m$ are ‘large’ (so that we can apply the CLT)
+
+::: {.callout-note title="Some Possible CIs for Difference between two Population Means" collapse="false"}
+
+Here are five different ways...
+
+::: {.callout-tip appearance="simple"}
+
+If $n$ and $m$ are large, and $\sigma_x^2$ and $\sigma_Y^2$ are known, a suitable approximate CI is
+
+\begin{equation} \label{eq:basic-diff-mean-ci}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} }\right)
+\end{equation}
+
+:::
+
+::: {.callout-tip appearance="simple"}
+
+If $n$ and $m$ are large, and $\sigma_x^2$ and $\sigma_Y^2$ are both unknown, a suitable approximate CI is
+
+\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m} }\right)
+\end{equation}
+
+:::
+
+::: {.callout-tip appearance="simple"}
+
+If $X_i$ and $Y_i$ values are normally distributed and $\sigma_x^2$ and $\sigma_Y^2$ are both known, a suitable _exact_ CI is 
+\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} }\right)
+\end{equation}
+
+(Same as \eqref{eq:basic-diff-mean-ci}, but this one does not rely on CLT)
+
+:::
+
+::: {.callout-tip appearance="simple"}
+
+If the $X_i$ and $Y_i$ values are normally distributed, $\sigma_X^2$ and $\sigma_Y^2$ are unknown, and $n$ and $m$ are both large, a suitable approximate CI is,
+\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m} }\right)
+\end{equation}
+
+(Relies on the fact that $t \dconv \NormalDist$.)
+
+:::
+
+::: {.callout-tip appearance="simple"}
+
+If the $X_i$ and $Y_i$ values are normally distributed, all with common population variance $\sigma^2 = \sigma_X^2 = \sigma_Y^2$ which however is unknown, a suitable exact CI is,
+\begin{equation*}
+\left( \mean{X} - \mean{Y} \pm t_{\alpha/2}(n + m - 2) S_p \sqrt{\frac{1}{n} + \frac{1}{m}} \right).
+\end{equation*}
+
+where $S_p^2 = \frac{(n-1)S_X^2 + (m - 1)S_Y^2}{n+m-2}$ is the _pooled sample variance._ In fact, $S_p^2$ is unbiased for $\sigma^2$.
+
+:::
+
+If the $X_i$ and $Y_i$ values are normally distributed, nothing at all is known
+about $\sigma_X^2$ and $\sigma_Y^2$, and $n$ and m are not both large, then the construction of a suitable CI is beyond the scope of this course. Interested students can find out more by researching the Behrens-Fisher problem, e.g. on Wikipedia (this topic is non-assessable).
+
+:::
