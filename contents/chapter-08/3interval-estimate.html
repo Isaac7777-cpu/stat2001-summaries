@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Interval Estimation – STAT2001 Revision Summaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/chapter-08/4monte-carlo-method.html" rel="next">
+<link href="../../contents/chapter-08/2evaluation.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "classic"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS",
+      }
+    },
+    tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ]}
+  });
+</script>
+
+<!-- This is what works with Quarto and MathJax 3+ -->
+<script>
+  MathJax = {
+    tex: {
+      tags: "ams", // should be 'ams', 'none', or 'all'
+    },
+  };
+</script>
+<script>
+  MathJax = MathJax || {};
+  MathJax.tex = MathJax.tex || {};
+  MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
+    indep: "\\perp\\!\\!\\!\\perp",
+    Bernoulli: "\\mathrm{Bern}",
+    Binomial: "\\mathrm{Bin}",
+    Geometric: "\\mathrm{Geo}",
+    Poisson: "\\mathrm{Poi}",
+    NormalDist: "\\mathcal{N}",
+    ExponentialDist: "\\mathrm{Exp}",
+    UniformDist: "\\mathrm{Uniform}",
+    GammaDist: "\\mathrm{Gamma}",
+    BetaDist: "\\mathrm{Beta}",
+    ChiSqDist: "\\chi^2",
+    iid: "\\mathrm{iid}",
+    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
+    abs: ["\\left|#1\\right|", 1],
+    norm: ["\\left\\lVert#1\\right\\rVert", 1],
+    ceil: ["\\left\\lceil#1\\right\\rceil", 1],
+    floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
+    set: ["\\left\\{#1\\right\\}", 1],
+    indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
+    mean: ["\\overline{#1}", 1],
+    sumrv: ["\\dot{#1}", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
+    vec: ["\\bm{#1}", 1],
+    trans: ["{#1}^\\top", 1],
+  });
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../scripts/style/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STAT2001 Revision Summaries</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About This Site</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../topics.html"> 
+<span class="menu-text">STAT2001 Weekly Topics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.qmd">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/3interval-estimate.html">Interval Estimation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-02</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-03</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Known Discrete Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measures Related to Distribution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-04</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Known Continuous Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expectations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-05</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-06</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-07</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH08 : Estimation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation Metrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Interval Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coverage Test (Optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-09</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#interval-estimation-and-confidence-intervals" id="toc-interval-estimation-and-confidence-intervals" class="nav-link" data-scroll-target="#interval-estimation-and-confidence-intervals"><span class="header-section-number">2</span> Interval Estimation and Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-of-ci" id="toc-interpretation-of-ci" class="nav-link" data-scroll-target="#interpretation-of-ci"><span class="header-section-number">2.1</span> Interpretation of CI</a></li>
+  <li><a href="#upper-and-lower-range-cis" id="toc-upper-and-lower-range-cis" class="nav-link" data-scroll-target="#upper-and-lower-range-cis"><span class="header-section-number">2.2</span> Upper and Lower Range CIs</a></li>
+  </ul></li>
+  <li><a href="#discrete-cases" id="toc-discrete-cases" class="nav-link" data-scroll-target="#discrete-cases"><span class="header-section-number">3</span> Discrete Cases</a>
+  <ul class="collapse">
+  <li><a href="#wilson-ci-for-a-binomial-proportion" id="toc-wilson-ci-for-a-binomial-proportion" class="nav-link" data-scroll-target="#wilson-ci-for-a-binomial-proportion"><span class="header-section-number">3.1</span> Wilson CI for a Binomial Proportion</a></li>
+  <li><a href="#why-is-wilson-ci-is-better" id="toc-why-is-wilson-ci-is-better" class="nav-link" data-scroll-target="#why-is-wilson-ci-is-better"><span class="header-section-number">3.2</span> Why is Wilson CI is better?</a></li>
+  </ul></li>
+  <li><a href="#difference-of-p-in-binomial" id="toc-difference-of-p-in-binomial" class="nav-link" data-scroll-target="#difference-of-p-in-binomial"><span class="header-section-number">4</span> Difference of <span class="math inline">\(p\)</span> in Binomial</a></li>
+  <li><a href="#confidence-for-sample-variance" id="toc-confidence-for-sample-variance" class="nav-link" data-scroll-target="#confidence-for-sample-variance"><span class="header-section-number">5</span> Confidence for Sample Variance</a></li>
+  <li><a href="#confidence-intervals-for-the-difference-between-two-population-means" id="toc-confidence-intervals-for-the-difference-between-two-population-means" class="nav-link" data-scroll-target="#confidence-intervals-for-the-difference-between-two-population-means"><span class="header-section-number">6</span> Confidence Intervals for the Difference Between Two Population Means</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/3interval-estimate.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/3interval-estimate.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.qmd">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/3interval-estimate.html">Interval Estimation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Interval Estimation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday Jun 6, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="motivation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1</span> Motivation</h2>
+<p>There are times when a point estimate is not really helpful simply because it only provides one number. It does not provide any form of statistical confidence to how good the inference is. How wrong might it be if it were to deviate? Also, loosely speaking, the probability that we make a correct guess for the parameters, which would typically be continuous, is <span class="math inline">\(0\)</span>. Therefore, we may want an interval on the axis instead.</p>
+</section>
+<section id="interval-estimation-and-confidence-intervals" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="interval-estimation-and-confidence-intervals"><span class="header-section-number">2</span> Interval Estimation and Confidence Intervals</h2>
+<p>Consider a sample <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> from a probability distribution which depends on one parameter <span class="math inline">\(\theta\)</span> (which is fixed but unknown).</p>
+<p>Now, we want to find two function <span class="math inline">\(g\)</span> and <span class="math inline">\(h\)</span> such that <span class="math display">\[\begin{gather}
+L = g(Y_1, Y_2, \ldots , Y_n) \nonumber \\
+U = h(Y_1, Y_2, \ldots , Y_n) \\
+\end{gather}\]</span> would satisfy the following probability statement<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math display">\[\begin{equation}
+P(L \leq \theta \leq U) = 1 - \alpha
+\end{equation}\]</span> Then, <span class="math inline">\([L, U]\)</span> is a <span class="math inline">\(100(1 - \alpha)%\)</span> <em>confidence interval</em> (CI) for <span class="math inline">\(\theta\)</span> in which <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> are the lower and upper bound and <span class="math inline">\(1 - \alpha\)</span> is the <em>coverage coefficient</em>, of the CI.</p>
+<hr>
+<div id="exm-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Confidence Interval for Continuous Uniform)</strong></span> Suppose that 6.2 is a number chosen randomly between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>. Find an <span class="math inline">\(80\%\)</span> confidence interval for <span class="math inline">\(c\)</span>.</p>
+<hr>
+<p><strong><em>Solution:</em></strong></p>
+<p>Let <span class="math inline">\(Y \sim U(0, c)\)</span>. Then, <span class="math inline">\(X = Y/c \sim U(0, 1)\)</span> by applying the transformation method.</p>
+<div id="def-pivotal-quantity" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Pivotal Quantity)</strong></span> Then, we call <span class="math inline">\(X\)</span> a <em>pivotal quantity</em>. This means that <span class="math inline">\(X\)</span> is a function of <span class="math inline">\(Y\)</span> the observable random variables and <span class="math inline">\(c\)</span>, the estimand, whose distribution does not depend on <span class="math inline">\(c\)</span>.</p>
+<p>This quantity is useful for finding the confidence interval.</p>
+</div>
+<p>Therefore, for an <span class="math inline">\(80\%\)</span> confidence interval for <span class="math inline">\(c\)</span>, <span class="math display">\[\begin{align*}
+0.8 = \P{0.1 \leq X \leq 0.9} &amp; = \P{0.1 \leq Y / c \leq 0.9} \\
+&amp; = \P{10Y/9 \leq c \leq 10Y}
+\end{align*}\]</span></p>
+<p>So <span class="math inline">\([10Y/9, 10Y]\)</span> is an <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span>.</p>
+<p>Now, since the realised value of <span class="math inline">\(Y\)</span> is <span class="math inline">\(y = 6.2\)</span>, we have an interval estimation being <span class="math inline">\([6.82, 62]\)</span>.</p>
+</div>
+<p>Note that the term ‘confidence interval’ refers to both <span class="math inline">\([10Y/9 , 10Y]\)</span> and <span class="math inline">\([10y / 9, 10y]\)</span>; the former is a random variable and the latter is the realised value of that random variable.</p>
+<p>We should also note that whether to include the endpoint, even though does not matter for the current case as <span class="math inline">\(X\)</span> is continuous, it can be important in some cases.</p>
+<div id="nte-smart-alternative-solution" class="callout callout-style-default callout-note callout-titled" title="A smart Alternative to @exm-4">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1: A smart Alternative to <a href="#exm-4" class="quarto-xref">Example&nbsp;1</a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>First, notice that in order to obtain the center <span class="math inline">\(80\%\)</span> of <span class="math inline">\(U(0, c)\)</span>, we need the center <span class="math inline">\(80\%\)</span> of the sample space of the distribution, which is <span class="math inline">\([0, c]\)</span>. Therefore, with some attention, such interval in the probability statement would then be <span class="math display">\[\begin{equation*}
+\P{0.1c \leq Y \leq 0.9c} = 0.8
+\end{equation*}\]</span> Then, the following follows.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="interpretation-of-ci" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="interpretation-of-ci"><span class="header-section-number">2.1</span> Interpretation of CI</h3>
+<blockquote class="blockquote">
+<p>Can we really say that <span class="math inline">\(c\)</span> lies between <span class="math inline">\(6.89\)</span> and <span class="math inline">\(62\)</span> with probability <span class="math inline">\(80\%\)</span>?</p>
+</blockquote>
+<p><strong>No</strong>. The event “6.89 &lt; c &lt; 62” does not involve any random variables. It is either true or false, and so its probability must be either <span class="math inline">\(1\)</span> or <span class="math inline">\(0\)</span>, respectively, and not <span class="math inline">\(0.8\)</span>. Thus the statement <span class="math inline">\(\P{6.89 &lt; c &lt; 62} = 0.8\)</span> is wrong.</p>
+<p>The way to interpret ‘<span class="math inline">\(80\%\)</span> confident’ is as follows. If we were to sample another number, e.g.&nbsp;<span class="math inline">\(5.4\)</span> from the same <span class="math inline">\(U(0, c)\)</span> distribution, then we’d get another CI, e.g.&nbsp;<span class="math inline">\((10(5.4)/9, 10(5.4)) = (6, 54)\)</span>. Now imagine sampling very many such numbers, so as to get the same number of corresponding CIs, e.g.&nbsp;<span class="math inline">\((6.89, 62)\)</span>, <span class="math inline">\((6, 54)\)</span>, <span class="math inline">\((8.89, 80)\)</span>, <span class="math inline">\(\ldots\)</span>. Then close to <span class="math inline">\(80\%\)</span> of these CIs will contain <span class="math inline">\(c\)</span>. This is an expression of the fact that <span class="math inline">\(\P{10Y/9 &lt; c &lt; 10Y} = 0.8\)</span>. But for any particular value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span>, we should never write <span class="math inline">\(\P{10y/9 &lt; 10y} = 0.8\)</span>.</p>
+</section>
+<section id="upper-and-lower-range-cis" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="upper-and-lower-range-cis"><span class="header-section-number">2.2</span> Upper and Lower Range CIs</h3>
+<p>The <span class="math inline">\(80\%\)</span> CI derived above, <span class="math inline">\((10Y/9, 10Y)\)</span>, may also be called a <em>central</em> CI. It is also possible to construct other types of CI. Three major types are defined as follows</p>
+<p>Let <span class="math inline">\(I = [L, U] = [g(Y_1, Y_2, \ldots , Y_n), h(Y_1, Y_2, \ldots , Y_n)]\)</span> be a <span class="math inline">\(100(1 - \alpha)\%\)</span> confidence interval for <span class="math inline">\(\theta\)</span>. Thus <span class="math inline">\(P(L \leq \theta \leq U) = 1 - \alpha\)</span> for all <span class="math inline">\(\theta\)</span>.</p>
+<section id="upper-range-confidence-interval" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="upper-range-confidence-interval"><span class="header-section-number">2.2.1</span> Upper Range Confidence Interval</h4>
+<p>We say that <span class="math inline">\(I\)</span> is an <em>upper range confidence interval</em> if <span class="math display">\[\begin{equation}
+\P{\theta \geq L} = 1 - \alpha \hspace{10pt} (= \P{L \leq \theta} = \P{L \leq \theta \leq \infty})
+\end{equation}\]</span></p>
+<p>Then <span class="math inline">\(\P{\theta &lt; L} = \alpha\)</span>, <span class="math inline">\(U = \infty\)</span> and we call <span class="math inline">\(L\)</span> the <span class="math inline">\(1 - \alpha\)</span> <em>lower confidence limit</em> for <span class="math inline">\(\theta\)</span>.</p>
+</section>
+<section id="lower-range-confidence-interval" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="lower-range-confidence-interval"><span class="header-section-number">2.2.2</span> Lower Range Confidence Interval</h4>
+<p>We say that <span class="math inline">\(I\)</span> is a <em>lower range confidence interval</em> if <span class="math display">\[\begin{equation}
+\P{\theta \leq L} = 1 - \alpha \hspace{10pt} (= \P{L \geq \theta} = \P{- \infty \leq \theta \leq U})
+\end{equation}\]</span></p>
+<p>Then <span class="math inline">\(\P{\theta &gt; U} = \alpha\)</span>, <span class="math inline">\(L = -\infty\)</span> and we call <span class="math inline">\(U\)</span> the <span class="math inline">\(1 - \alpha\)</span> <em>upper confidence limit</em> for <span class="math inline">\(\theta\)</span>.</p>
+</section>
+<section id="central-confidence-interval" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="central-confidence-interval"><span class="header-section-number">2.2.3</span> Central Confidence Interval</h4>
+<p>We say that <span class="math inline">\(I\)</span> is a <em>central confidence interval</em> if <span class="math display">\[\begin{equation}
+\P{\theta &lt; L} = \P{\theta &gt; U} = \alpha / 2
+\end{equation}\]</span></p>
+<hr>
+<div id="exm-4-central" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Check that <span class="math inline">\([10Y/9, 10Y]\)</span> is central <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{gather*}
+\P{\theta &lt; L} = \P{c &lt; 10Y/9} = \P{Y &gt; 0.9c} = 0.1 = \alpha / 2 \\
+\P{\theta &gt; U} = \P{c &gt; 10Y} = \P{Y &lt; 0.1c} = 0.1 = \alpha / 2 \\
+\end{gather*}\]</span></p>
+</div>
+</div>
+<hr>
+<div id="exm-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Example 5)</strong></span> Now, we know that <a href="#exm-4-central" class="quarto-xref">Example&nbsp;2</a> is the central confidence interval. Therefore, if we can also ask the question about lower and upper confidence interval.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{equation*}
+0.8 = \P{X \leq 0.8} = \P{Y/c \leq 0.8} = \P{5Y / 4 \leq c}
+\end{equation*}\]</span></p>
+<p>So <span class="math inline">\(L = 5Y / 4\)</span>, with realised value <span class="math inline">\(5(6.2) / 4 = 7.75\)</span>. So an upper range <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span> is <span class="math inline">\([7.75, \infty)\)</span>.</p>
+</div>
+<div class="separator">
+
+</div>
+<p>What is a lower range <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span>?</p>
+<p><span class="math display">\[\begin{equation*}
+0.8 = \P{X \geq 0.2} = \P{Y/c \geq 0.2} = \P{c \leq 5Y}
+\end{equation*}\]</span></p>
+<p>So <span class="math inline">\(U = 5Y\)</span>, with realised value <span class="math inline">\(5(6.2) = 31\)</span>. So a lower range <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span> is <span class="math inline">\((-\infty, 31]\)</span>.</p>
+<div class="separator">
+
+</div>
+<blockquote class="blockquote">
+<p>However, we can actually refine the lower and upper confidence interval…</p>
+</blockquote>
+<p>First, observe that <span class="math inline">\(c\)</span> cannot be negative. So a lower range <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span> is <span class="math inline">\([0, 31]\)</span>. Secondly, we also know that <span class="math inline">\(0 \leq y \leq c\)</span>, and therefore <span class="math inline">\(c \geq y = 6.2\)</span>. So a lower range <span class="math inline">\(80\%\)</span> CI for <span class="math inline">\(c\)</span> is <span class="math inline">\([6.2, 31]\)</span>.</p>
+<ul>
+<li>Lower range <span class="math inline">\(80\%\)</span> CI <span class="math inline">\(= [6.2, 31]\)</span></li>
+<li>Upper range <span class="math inline">\(80\%\)</span> CI <span class="math inline">\(= [7.75, \infty)\)</span></li>
+<li>Central <span class="math inline">\(80\%\)</span> CI <span class="math inline">\(= [6.89, 62]\)</span></li>
+</ul>
+<p>Note that the lower range CI is the shortest of the three. This is an attractive property, and sometimes we may choose one CI formula over another because it leads to a shorter CI on <em>average</em>. However, in some cases (not considered here), choosing the shortest of two or more CIs only <em>after</em> observing the data (as is sometimes done) may cause the confidence conefficient to be altered so that it is no longer the nominal <span class="math inline">\(1-\alpha\)</span>.</p>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 4">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> Suppose that <span class="math inline">\(1.2\)</span>, <span class="math inline">\(3.9\)</span> and <span class="math inline">\(2.4\)</span> are a random sample from a normal distribution with variance <span class="math inline">\(7\)</span>. Find a <span class="math inline">\(95\%\)</span> confidence interval for the normal mean.</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We cannot rely on the intelligence of finding a smart alternative as <a href="#nte-smart-alternative-solution" class="quarto-xref">Note&nbsp;1</a>.</p>
+<p>Let <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \sim^\iid \NormalDist(\mu, \sigma^2)\)</span>. Let’s find a <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(\mu\)</span> generally. Recall that <span class="math inline">\(Z = \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \sim \NormalDist(0, 1)\)</span>. Therefore, <span class="math inline">\(Z\)</span> is a pivotal quantity, <span class="math display">\[\begin{align*}
+1 - \alpha &amp; = \P{-z_{\alpha/2} &lt; Z &lt; z_{\alpha/2}} \\
+&amp; = \P{-z_{\alpha/2} &lt; \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} &lt; z_{\alpha/2}} \\
+&amp; = \P{-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} &lt; \mean{Y} - \mu &lt; z_{\alpha/2}\frac{\sigma}{\sqrt{n}}} \\
+&amp; = \P{\mean{Y}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \mean{Y} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}} \\
+\end{align*}\]</span></p>
+<p>So a <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(\mu\)</span> is <span class="math inline">\((\mean{Y} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}} , \mean{Y} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}})\)</span>. This interval may also be written <span class="math inline">\(\mean{Y} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p>In our case: <span class="math inline">\(100(1 - \alpha) = 95 \to \alpha = 0.05\)</span>. Therefore <span class="math inline">\(z_{\alpha/2} = z_{0.025} = 1.96\)</span><br>
+<span class="math inline">\(n = 3\)</span><br>
+<span class="math inline">\(\mean{y} = \frac{1}{n} \sum_{i=1}^n y_i = \frac{1}{3}(1.2 + 3.9 + 2.4) = 2.5\)</span><br>
+<span class="math inline">\(\sigma^2 = 7\)</span></p>
+<p>So the <span class="math inline">\(95\%\)</span> CI for <span class="math inline">\(\mu\)</span> is <span class="math display">\[\begin{equation*}
+(\mean{y} \pm z_{\alpha / 2}\frac{\sigma}{\sqrt{n}}) = \left(2.5 \pm 1.96 \frac{\sqrt{7}}{\sqrt{3}}\right) = (2.5 \pm 3.0) = (-0.5, 5.5)
+\end{equation*}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 7">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 7
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5</strong></span> Suppose the same sample with <a href="#exm-6" class="quarto-xref">Example&nbsp;4</a> but <em>unknown</em> variance. Find a <span class="math inline">\(95\%\)</span> confidence interval for the normal mean.</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(Y_1, Y_2, \ldots ,Y_n \sim^\iid \NormalDist(\mu , \sigma^2)\)</span>. Recall that <span class="math display">\[\begin{equation}
+T = \frac{\mean{Y} - \mu}{S / \sqrt{n}} \sim t(n-1)
+\end{equation}\]</span> with <span class="math inline">\(T\)</span> being the pivotal quantity.</p>
+<p>Therefore, <span class="math display">\[\begin{align*}
+1 - \alpha &amp; = \P{-t &lt; T &lt; t} \tag{where $t = t_{\alpha/2}(n - 1)$} \\
+&amp;= \P{ -t &lt; \frac{\mean{Y} - \mu}{S / \sqrt{n}} &lt; t } \\
+&amp;= \P{ \mean{Y} - t\frac{S}{\sqrt{n}} &lt; \mu &lt; \mean{Y} + t\frac{S}{\sqrt{n}} } \\
+\end{align*}\]</span></p>
+<p>So a <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\left( \mean{Y} \pm t_{\alpha/2}\!(n-1) \frac{S}{\sqrt{n}} \right)\)</span></p>
+<p>With some algebraic calculation we have, the <span class="math inline">\(95\%\)</span> CI is <span class="math display">\[\begin{gather*}
+100(1 - \alpha) = 95 \implies \alpha = 0.05, \, n = 3 \\
+t_{\alpha / 2}(n - 1) = t_{0.025}(2) = 4.303 \\
+\mean{y} = \frac{1}{n} \sum_{i=1}^n y_i = \frac{1}{3} (1.2 + 3.9 + 2.4) = 2.5 \\
+s^2 = \frac{1}{n-1} \left( \sum_i y_i^2 - 3 * (\mean{y})^2 \right) = 1.83 \\
+\end{gather*}\]</span> So the <span class="math inline">\(95\%\)</span> CI for <span class="math inline">\(\mu\)</span> is <span class="math inline">\((-0.86k 5.86)\)</span>.</p>
+</div>
+</div>
+<hr>
+<p>Note that the interval for <a href="#exm-7" class="quarto-xref">Example&nbsp;5</a> is wider than the CI in <a href="#exm-5" class="quarto-xref">Example&nbsp;3</a>, <span class="math inline">\((-0.5, 5.5)\)</span>. This corresponds to the fact that <span class="math inline">\(\sigma\)</span> is now <em>unknown</em> and effectively needs to be estimated from the sample, by <span class="math inline">\(s\)</span>. This illustrates the fact that when information is <em>decreased</em>, CI’s tend to become wider (which makes sense because there is greater uncertainty). However, this is not always the case, and sometimes a decrease in information can, by change, lead to an interval (with the same confidence coefficient) which much narrower.</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Approximation with Sample Variance">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Approximation with Sample Variance
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6</strong></span> 200 people were randomly sampled from the population of Australia, and their heights were measured. The sample mean was 1.673 and the sample standard deviation was 0.310.</p>
+<p>Find a <span class="math inline">\(95\%\)</span> confidence interval for the average height of all Australian.</p>
+<hr>
+<p>First, in summary of the above, we know,</p>
+<ul>
+<li><span class="math inline">\(Y_i \iid (\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> unknown</li>
+<li><span class="math inline">\(\mean{Y} = 1.673\)</span></li>
+<li><span class="math inline">\(S = 0.310\)</span></li>
+</ul>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(Y_i\)</span> be the <span class="math inline">\(i\)</span>th height and assume that <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \sim^\iid (\mu, \sigma^2)\)</span>. Now, by central limit theorem, <span class="math inline">\(\frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \approx \NormalDist(0, 1)\)</span> as <span class="math inline">\(n = 200\)</span> is large. But <span class="math inline">\(\sigma\)</span> is unknown, and so we cannot make use of this pivotal quantity.</p>
+<p>However, recall that the <span class="math inline">\(t = \frac{\mean{Y} - \mu}{S / \sqrt{n} \sim t(n-1) \dconv \NormalDist(0, 1)}\)</span>. This idea will be more thoroughly explore in <a href="../../contents/chapter-09/index.html">Chapter 9</a>. For now, we can approximate with <span class="math display">\[\begin{equation*}
+Z = \frac{\mean{Y} - \mu}{S / \sqrt{n}} \approx \NormalDist(0, 1)
+\end{equation*}\]</span> also. Using the same logic as in the last few examples, we find that <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\left(\mean{Y} \pm z_{\alpha / 2} \frac{S}{\sqrt{n}}\right)\)</span>, which in our case is <span class="math inline">\((1.630, 1.716)\)</span>.</p>
+<p>Note that this is only an approximate CI. However, the closeness of the approximation will be very good if <span class="math inline">\(n\)</span> is large. Also, we would definitely replace <span class="math inline">\(S\)</span> with <span class="math inline">\(\sigma\)</span> if the population standard deviation is known.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="discrete-cases" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="discrete-cases"><span class="header-section-number">3</span> Discrete Cases</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Motivating Example towards Wilson CI">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Motivating Example towards Wilson CI
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-9" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7</strong></span> Suppose that we toss a bent coin 100 times and get 72 heads. Find the 95% confidence interval for the probability of a head.</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(Y =\)</span> number of heads out of the <span class="math inline">\(n = 100\)</span> tosses and <span class="math inline">\(p =\)</span> probability of a head on a single toss.</p>
+<p>Then <span class="math inline">\(Y \sim \Binomial(n, p)\)</span>, with realised value <span class="math inline">\(y = 72\)</span>. Now <span class="math inline">\(Y \approx \NormalDist(np, np(1 - p))\)</span> as a result of central limit theorem as <span class="math inline">\(n = 100\)</span> is large. Therefore, applying standardisation, <span class="math display">\[\begin{equation*}
+\frac{Y - np}{\sqrt{np(1-p)}} \approx \NormalDist(0, 1)
+\end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+1 - \alpha &amp;\approx \P{-z_{\alpha / 2} &lt; \frac{Y - np}{\sqrt{np(1 - p)}} &lt; z_{\alpha/2}} \\
+&amp;\approx \P{-z_{\alpha / 2} &lt; \frac{Y - np}{\sqrt{n\hat{p}(1 - \hat{p})}} &lt; z_{\alpha/2}} \\
+&amp;\approx \P{\frac{Y}{n} - z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} &lt; p &lt; \frac{Y}{n} + z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}} \\
+\end{align*}\]</span></p>
+<p>So a <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(p\)</span> is <span class="math inline">\(\left( \hat{p} \pm z_{\alpha / 2}\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \right)\)</span>.</p>
+<p>IN our case <span class="math inline">\(\hat{p} = y/n = 72/100 = 0.72\)</span>, and so the required <span class="math inline">\(95\%\)</span> CI is <span class="math inline">\(\left( 0.72 \pm 1.96\sqrt{\frac{0.72(1-0.72)}{100}} \right) = (0.72 \pm 0.09) = (0.63, 0.81)\)</span>.</p>
+<p>Since this interval is entirely above <span class="math inline">\(0.5\)</span>, we can reasonably suspect that the coin is not fair and that heads are more likely to come up than tails.</p>
+</div>
+</div>
+<p>The CI above is called <strong>the standard CI for a binomial proportion.</strong> It is only one amongst many that have been proposed in the statistical literature. The following is another one which is more complicated but arguably better.</p>
+</div>
+</div>
+</div>
+<section id="wilson-ci-for-a-binomial-proportion" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="wilson-ci-for-a-binomial-proportion"><span class="header-section-number">3.1</span> Wilson CI for a Binomial Proportion</h3>
+<p>Now, in fact the following is another way of estimation the interval.</p>
+<div id="thm-wilson-ci" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Wilson CI)</strong></span> Another <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(p\)</span> is given by <span class="math display">\[\begin{equation}
+\left( \frac{\hat{p} + \frac{z^2_{\alpha/2}}{2n} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2_{\alpha/2}}{4n^2}}}{1 + \frac{z^2_{\alpha/2}}{n}} \right)
+\end{equation}\]</span></p>
+<p>This interval is called <strong>the Wilson CI for a binomial proportion</strong>. Note that if <span class="math inline">\(n\)</span> is large this CI is approximately the same as the standard CI introduced in <a href="#exm-9" class="quarto-xref">Example&nbsp;7</a>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Observe that <span class="math display">\[\begin{align*}
+1 - \alpha &amp;\approx \P{-z_{\alpha / 2} &lt; \frac{Y - np}{\sqrt{np(1 - p)}} &lt; z_{\alpha/2}} \\
+&amp;= \P{\left(\frac{Y - np}{\sqrt{np(1 - p)}}\right)^2 &lt; z^2} \tag{where $z = z_{\alpha/2}$} \\
+&amp;= \P{ Y^2 - 2npY + n^2 p^2 &lt; z^2 np - z^2 np^2 } \\
+&amp;= \P{ p^2\left(1 + \frac{z^2}{n}\right) - p\left(\frac{2Y}{n} + \frac{z^2}{n} \right) + \frac{Y^2}{n^2} &lt; 0 } \\
+&amp;= \P{ p^2\left(1 + \frac{z^2}{n}\right) - p\left(2\hat{p} + \frac{z^2}{n} \right) + \hat{p}^2 &lt; 0 } \tag{where $\hat{p} = \frac{Y}{n}$} \\
+&amp;= \P{ a &lt; p &lt; b }, \\
+\end{align*}\]</span> where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the roots of quadratic function <span class="math inline">\(\eqref{eq:root-quad-func}\)</span>. <span class="math display">\[\begin{equation} \label{eq:root-quad-func}
+f(p) = p^2\left( 1 + \frac{z^2}{n} \right) - p\left(2\hat{p} + \frac{z^2}{n}\right) + \hat{p}^2
+\end{equation}\]</span> Hence, finding the roots of <span class="math inline">\(\eqref{eq:root-quad-func}\)</span> yield, <span class="math display">\[\begin{align*}
+&amp; \frac{
+  (2\hat{p} + \frac{z^2}{n}) \pm \sqrt{(2\hat{p} + \frac{z^2}{n})^2 - 4\hat{p}^2(1 + \frac{z^2}{n})}
+}{
+  2(1 + \frac{z^2}{n})
+} \\
+&amp;= \frac{
+  \hat{p} + \frac{z^2}{2n} \pm \frac{1}{2} \sqrt{
+    4\hat{p}^2 + \frac{4\hat{p} z^2}{n} + \frac{z^4}{n^2}
+    - 4\hat{p}^2 - \frac{4\hat{p}^2 z^2}{n}
+  }
+}{
+  1 + \frac{z^2}{n}
+} \\
+&amp;= \frac{
+  \hat{p} + \frac{z^2}{2n} \pm \sqrt{
+    \frac{\hat{p} z^2}{n} + \frac{z^4}{4n^2} - \frac{\hat{p}^2 z^2}{n}
+  }
+}{
+  1 + \frac{z^2}{n}
+}\\
+\end{align*}\]</span></p>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 9 in Wilson CI">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 9 in Wilson CI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-9-a" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8</strong></span> Find the Wilson CI for the same setting as <a href="#exm-9" class="quarto-xref">Example&nbsp;7</a>.</p>
+</div>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{equation}
+\left( \frac{0.72 + \frac{1.959964^2}{2\cdot 100} \pm 1.959964 \sqrt{\frac{0.72(1-0.72)}{100} + \frac{1.959964^2}{4\cdot100^2}}}{1 + \frac{1.959964^2}{100}} \right) = \frac{0.739207 \pm 0.009007}{1.0384} = (0.625, 0.798)
+\end{equation}\]</span></p>
+<p>Note that the above is very similar to the standard CI <span class="math inline">\((0.63, 0.81)\)</span> derived in <a href="#exm-9" class="quarto-xref">Example&nbsp;7</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-is-wilson-ci-is-better" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="why-is-wilson-ci-is-better"><span class="header-section-number">3.2</span> Why is Wilson CI is better?</h3>
+<p>The Wilson CI is considered ‘better’ than the standard CI because its coverage probabilities are overall closer to the desired <span class="math inline">\(1 - \alpha\)</span>. For example, if <span class="math inline">\(n = 23\)</span> and <span class="math inline">\(p = 0.344\)</span>, the coverage probability of the standard <span class="math inline">\(95\%\)</span> CI is <span class="math inline">\(91.4\%\)</span>, and the coverage probability of the Wilson <span class="math inline">\(95\%\)</span> CI is <span class="math inline">\(95.5\%\)</span>. These calculations can be repeated for all values of <span class="math inline">\(p\)</span> on a grid (<span class="math inline">\(p = 0.001, 0.002, \ldots , 1\)</span>), with <span class="math inline">\(n = 23\)</span> held the same in each case.</p>
+<p>Essentially, this is because the Wald interval uses <span class="math inline">\(\hat{p}\)</span> to approximate <span class="math inline">\(p\)</span> multiple times to obtain the interval estimation. Particularly, the approximation is used in the “standard error” part for the test statistic. In another perspective, the sample size can be seen as the key factor because it is essentially providing more information to <span class="math inline">\(\hat{p}\)</span> to approximate <span class="math inline">\(p\)</span> with a more accurate approximation.</p>
+<p>From <a href="#fig-coverage-test" class="quarto-xref">Figure&nbsp;1</a>, it is clear that as <span class="math inline">\(p\)</span> become more “extreme” values, the Wald CI fails quite dramatically. This is because such <span class="math inline">\(p\)</span> values usually result in a asymmetric distribution, particularly with small <span class="math inline">\(n\)</span> like <span class="math inline">\(23\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">23</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>p_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to compute Wald CI</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>wald_ci <span class="ot">&lt;-</span> <span class="cf">function</span>(y, n) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  phat <span class="ot">&lt;-</span> y <span class="sc">/</span> n</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(phat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> phat) <span class="sc">/</span> n)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  lower <span class="ot">&lt;-</span> phat <span class="sc">-</span> z <span class="sc">*</span> se</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  upper <span class="ot">&lt;-</span> phat <span class="sc">+</span> z <span class="sc">*</span> se</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(lower, upper)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to compute Wilson CI</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>wilson_ci <span class="ot">&lt;-</span> <span class="cf">function</span>(y, n) {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  phat <span class="ot">&lt;-</span> y <span class="sc">/</span> n</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  center <span class="ot">&lt;-</span> (phat <span class="sc">+</span> z<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> n)) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> z<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> n)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  margin <span class="ot">&lt;-</span> z <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> z<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> n) <span class="sc">*</span> <span class="fu">sqrt</span>(phat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> phat) <span class="sc">/</span> n <span class="sc">+</span> z<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">4</span> <span class="sc">*</span> n<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  lower <span class="ot">&lt;-</span> center <span class="sc">-</span> margin</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  upper <span class="ot">&lt;-</span> center <span class="sc">+</span> margin</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(lower, upper)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute coverage for each p</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>wald_coverage <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(p_vals))</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>wilson_coverage <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(p_vals))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(p_vals)) {</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p_vals[i]</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  probs <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span>n, n, p)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  wald_hits <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  wilson_hits <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span>n) {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    wald_bounds <span class="ot">&lt;-</span> <span class="fu">wald_ci</span>(y, n)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    wilson_bounds <span class="ot">&lt;-</span> <span class="fu">wilson_ci</span>(y, n)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count if p is inside the interval</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">&gt;=</span> wald_bounds[<span class="dv">1</span>] <span class="sc">&amp;&amp;</span> p <span class="sc">&lt;=</span> wald_bounds[<span class="dv">2</span>]) {</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      wald_hits <span class="ot">&lt;-</span> wald_hits <span class="sc">+</span> probs[y <span class="sc">+</span> <span class="dv">1</span>]</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">&gt;=</span> wilson_bounds[<span class="dv">1</span>] <span class="sc">&amp;&amp;</span> p <span class="sc">&lt;=</span> wilson_bounds[<span class="dv">2</span>]) {</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      wilson_hits <span class="ot">&lt;-</span> wilson_hits <span class="sc">+</span> probs[y <span class="sc">+</span> <span class="dv">1</span>]</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  wald_coverage[i] <span class="ot">&lt;-</span> wald_hits</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  wilson_coverage[i] <span class="ot">&lt;-</span> wilson_hits</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p_vals, wald_coverage, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"True Proportion (p)"</span>, <span class="at">ylab =</span> <span class="st">"Coverage"</span>,</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Coverage probabilities of 95% CIs (n = 23)"</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(p_vals, wilson_coverage, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.95</span>, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.95</span>, <span class="at">labels =</span> <span class="st">"0.95"</span>, <span class="at">pos =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"gray40"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Standard (Wald)"</span>, <span class="st">"Wilson"</span>),</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Highlight example point</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>p_example <span class="ot">&lt;-</span> <span class="fl">0.344</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>ix <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">abs</span>(p_vals <span class="sc">-</span> p_example))</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(p_example, wald_coverage[ix], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(p_example, wilson_coverage[ix], <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(p_example, wald_coverage[ix], </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="st">"("</span>, p_example, <span class="st">", "</span>, <span class="fu">round</span>(wald_coverage[ix], <span class="dv">3</span>), <span class="st">")"</span>),</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>     <span class="at">pos =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(p_example, wilson_coverage[ix], </span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="st">"("</span>, p_example, <span class="st">", "</span>, <span class="fu">round</span>(wilson_coverage[ix], <span class="dv">3</span>), <span class="st">")"</span>),</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>     <span class="at">pos =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-coverage-test" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coverage-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="3interval-estimate_files/figure-html/fig-coverage-test-1.png" id="fig-coverage-test" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-coverage-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="difference-of-p-in-binomial" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="difference-of-p-in-binomial"><span class="header-section-number">4</span> Difference of <span class="math inline">\(p\)</span> in Binomial</h2>
+<div id="thm-difference-of-proportion" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Difference in Proportion)</strong></span> Let <span class="math inline">\(X \sim \Binomial(n, p)\)</span>, and <span class="math inline">\(Y \sim \Binomial(m, q)\)</span>, where both <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are large and <span class="math inline">\(X \perp Y\)</span>.</p>
+<p>Then the approximate (Use of CLT and point estimator) <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(p - q\)</span> is <span class="math display">\[\begin{equation}
+\left( \hat{p} - \hat{q} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{\hat{q}(1 - \hat{q})}{m}} \right)
+\end{equation}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>From CLT, we have:</p>
+<ul>
+<li><span class="math inline">\(\hat{p} \approx \NormalDist\left(p, \dfrac{p(1 - p)}{n} \right)\)</span><br>
+</li>
+<li><span class="math inline">\(\hat{q} \approx \NormalDist\left(q, \dfrac{q(1 - q)}{m} \right)\)</span></li>
+</ul>
+<p>when <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are large.</p>
+<p>So:</p>
+<p><span class="math display">\[
+\hat{p} - \hat{q} \approx \NormalDist\left(p - q,\ \dfrac{p(1 - p)}{n} + \dfrac{q(1 - q)}{m} \right)
+\]</span></p>
+<p>Since the sum (or difference) of two normal random variables is also normal, and <span class="math inline">\(\hat{p}\)</span> and <span class="math inline">\(\hat{q}\)</span> are independent, this implies:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{p} - \hat{q}) = \text{Var}(\hat{p}) + \text{Var}(\hat{q})
+\]</span></p>
+<p>Thus:</p>
+<p><span class="math display">\[
+\frac{\hat{p} - \hat{q} - (p - q)}{
+\sqrt{ \dfrac{p(1 - p)}{n} + \dfrac{q(1 - q)}{m} }
+}
+\approx \NormalDist(0, 1)
+\]</span></p>
+<p>and, by substitution of sample estimates for large <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span>:</p>
+<p><span class="math display">\[
+\frac{\hat{p} - \hat{q} - (p - q)}{
+\sqrt{ \dfrac{\hat{p}(1 - \hat{p})}{n} + \dfrac{\hat{q}(1 - \hat{q})}{m} }
+}
+\approx \NormalDist(0, 1) \quad \text{if } n \text{ and } m \text{ are large}
+\]</span></p>
+</div>
+<div id="rem-approximations-and-shortcut" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>Note that this one uses both the CLT and the point estimator to approximate the final solution. Note that for large enough <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>, this approximation should converge to something good that is gauranteed by the convergence property that will be discuss in <a href="../../contents/chapter-09/index.html">Chapter 9</a>.</p>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled" title="Example 10">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 10
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="{exm-10}">
+<p>You have a bent $1 coin and a bent $2 coin.<br>
+You toss the $1 coin 200 times and get 108 heads.<br>
+You toss the $2 coin 300 times and get 141 heads.</p>
+<p>Find a 90% CI for the difference between the probability of a head on the $1 coin and the probability of a head on the $2 coin.</p>
+</div>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>In our case:</p>
+<ul>
+<li><span class="math inline">\(p\)</span> = probability of heads on a toss of the $1 coin<br>
+</li>
+<li><span class="math inline">\(q\)</span> = probability of heads on a toss of the $2 coin</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+n &amp;= 200, \quad x = 108, \quad \hat{p} = \frac{108}{200} = 0.54 \\
+m &amp;= 300, \quad y = 141, \quad \hat{q} = \frac{141}{300} = 0.47 \\
+\alpha &amp;= 0.1, \quad z_{\alpha/2} = z_{0.05} = 1.645
+\end{aligned}
+\]</span></p>
+<p>So a 90% confidence interval for <span class="math inline">\(p - q\)</span> is:</p>
+<p><span class="math display">\[
+\left(
+0.54 - 0.47 \pm 1.645 \sqrt{
+\frac{0.54(1 - 0.54)}{200} +
+\frac{0.47(1 - 0.47)}{300}
+}
+\right)
+\]</span></p>
+<p><span class="math display">\[
+= (0.07 \pm 0.075) = (-0.005,\ 0.145)
+\]</span></p>
+<p>Since this CI contains 0, we suspect the chance of heads is the same for both coins, <strong><em>i.e., the difference is not significantly different from zero</em></strong>. Evidence to support true means are the same/similar to the hypothesis test <span class="math inline">\(p = q\)</span> (i.e.&nbsp;<span class="math inline">\(p - q = 0\)</span>).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="confidence-for-sample-variance" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="confidence-for-sample-variance"><span class="header-section-number">5</span> Confidence for Sample Variance</h2>
+<div id="exm-11" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (Finding the Confidence Interval for Sample Variance)</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots Y_n \sim^\iid \NormalDist(\mu, \sigma^2)\)</span>. Find a <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(\sigma^2\)</span>.</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Recall that <span class="math inline">\(\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)\)</span>. Therefore <span class="math display">\[\begin{align*}
+1 - \alpha &amp;= P\left(
+\chi^2_{1 - \alpha/2}(n - 1)
+&lt; \frac{(n - 1)S^2}{\sigma^2}
+&lt; \chi^2_{\alpha/2}(n - 1)
+\right) \\
+&amp;= P\left(
+\frac{(n - 1)S^2}{\chi^2_{\alpha/2}(n - 1)}
+&lt; \sigma^2 &lt;
+\frac{(n - 1)S^2}{\chi^2_{1 - \alpha/2}(n - 1)}
+\right)
+\end{align*}\]</span></p>
+<p><em>( <span class="math inline">\(\chi^2_p(m)\)</span> is the upper <span class="math inline">\(p\)</span> quantile of the chi square distribution with <span class="math inline">\(m\)</span> degrees of freedom. )</em></p>
+<p>So a <span class="math inline">\(100(1 - \alpha)\%\)</span> CI for <span class="math inline">\(\sigma^2\)</span> is <span class="math inline">\(\left(\frac{(n - 1)S^2}{\chi^2_{\alpha/2}(n - 1)},\frac{(n - 1)S^2}{\chi^2_{1 - \alpha/2}(n - 1)}\right).\)</span></p>
+</div>
+</div>
+</section>
+<section id="confidence-intervals-for-the-difference-between-two-population-means" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="confidence-intervals-for-the-difference-between-two-population-means"><span class="header-section-number">6</span> Confidence Intervals for the Difference Between Two Population Means</h2>
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(X_1, X_2, \ldots, X_n \sim \text{iid } (\mu_X, \sigma_X^2)\)</span> (first sample)</li>
+<li><span class="math inline">\(Y_1, Y_2, \ldots, Y_m \sim \text{iid } (\mu_Y, \sigma_Y^2)\)</span> (second sample)</li>
+</ul>
+<p>Assume:</p>
+<ul>
+<li><span class="math inline">\((X_1, X_2, \ldots, X_n) \perp (Y_1, Y_2, \ldots, Y_m)\)</span> (the two samples are independent)</li>
+</ul>
+<p>Define:</p>
+<ul>
+<li><span class="math inline">\(\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i \quad \text{(1st sample mean)}\)</span></li>
+<li><span class="math inline">\(\bar{Y} = \frac{1}{m} \sum_{i=1}^m Y_i \quad \text{(2nd sample mean)}\)</span></li>
+<li><span class="math inline">\(S_X^2 = \frac{1}{n - 1} \sum_{i=1}^n (X_i - \bar{X})^2 \quad \text{(1st sample variance)}\)</span></li>
+<li><span class="math inline">\(S_Y^2 = \frac{1}{m - 1} \sum_{i=1}^m (Y_i - \bar{Y})^2 \quad \text{(2nd sample variance)}\)</span></li>
+</ul>
+<p>We wish to construct a <span class="math inline">\(100(1 - \alpha)\%\)</span> confidence interval for <span class="math inline">\(\mu_X - \mu_Y\)</span>.<br>
+A suitable CI will depend on:</p>
+<ul>
+<li>what assumptions we can make regarding the distributions of the <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> values<br>
+</li>
+<li>what knowledge we have regarding the two population variances, <span class="math inline">\(\sigma_X^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span><br>
+</li>
+<li>whether the two sample sizes <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are ‘large’ (so that we can apply the CLT)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Some Possible CIs for Difference between two Population Means">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some Possible CIs for Difference between two Population Means
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Here are five different ways…</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are large, and <span class="math inline">\(\sigma_x^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span> are known, a suitable approximate CI is</p>
+<p><span class="math display">\[\begin{equation} \label{eq:basic-diff-mean-ci}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} }\right)
+\end{equation}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are large, and <span class="math inline">\(\sigma_x^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span> are both unknown, a suitable approximate CI is</p>
+<p><span class="math display">\[\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m} }\right)
+\end{equation}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> values are normally distributed and <span class="math inline">\(\sigma_x^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span> are both known, a suitable <em>exact</em> CI is <span class="math display">\[\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m} }\right)
+\end{equation}\]</span></p>
+<p>(Same as <span class="math inline">\(\eqref{eq:basic-diff-mean-ci}\)</span>, but this one does not rely on CLT)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If the <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> values are normally distributed, <span class="math inline">\(\sigma_X^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span> are unknown, and <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are both large, a suitable approximate CI is, <span class="math display">\[\begin{equation}
+\left( \bar{X} - \bar{Y} \pm z_{\alpha/2} \sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m} }\right)
+\end{equation}\]</span></p>
+<p>(Relies on the fact that <span class="math inline">\(t \dconv \NormalDist\)</span>.)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If the <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> values are normally distributed, all with common population variance <span class="math inline">\(\sigma^2 = \sigma_X^2 = \sigma_Y^2\)</span> which however is unknown, a suitable exact CI is, <span class="math display">\[\begin{equation*}
+\left( \mean{X} - \mean{Y} \pm t_{\alpha/2}(n + m - 2) S_p \sqrt{\frac{1}{n} + \frac{1}{m}} \right).
+\end{equation*}\]</span></p>
+<p>where <span class="math inline">\(S_p^2 = \frac{(n-1)S_X^2 + (m - 1)S_Y^2}{n+m-2}\)</span> is the <em>pooled sample variance.</em> In fact, <span class="math inline">\(S_p^2\)</span> is unbiased for <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+</div>
+</div>
+<p>If the <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> values are normally distributed, nothing at all is known about <span class="math inline">\(\sigma_X^2\)</span> and <span class="math inline">\(\sigma_Y^2\)</span>, and <span class="math inline">\(n\)</span> and m are not both large, then the construction of a suitable CI is beyond the scope of this course. Interested students can find out more by researching the Behrens-Fisher problem, e.g.&nbsp;on Wikipedia (this topic is non-assessable).</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Note that this cannot really be a probability statement in general. At least under the frequentist viewpoint, the distribution parameter is a fixed, constant rather than a radom variable. Therefore, we would have to “re-interpret” such formula as the percentage of such intervals that would capture the real coefficients if we take a large numbers of random samples and calculate such interval.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The details of the coverage tests is included in <a href="../../contents/chapter-08/5coverage-test.html">section about coverage test.</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Isaac7777-cpu\.github\.io\/stat2001-summaries\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/chapter-08/2evaluation.html" class="pagination-link" aria-label="Evaluation Metrics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Evaluation Metrics</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/chapter-08/4monte-carlo-method.html" class="pagination-link" aria-label="Estimation via Monte Carlo Methods">
+        <span class="nav-page-text">Estimation via Monte Carlo Methods</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Isaac Leong</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/3interval-estimate.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/3interval-estimate.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Isaac7777-cpu/stat2001-summaries">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/isaac-leong-40b3b6276?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQ7KeJzrBS6Kd8acL8AxrAw%3D%3D">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

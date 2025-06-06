@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,6 +108,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "classic"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -132,14 +144,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   MathJax = MathJax || {};
   MathJax.tex = MathJax.tex || {};
   MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
@@ -152,6 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     BetaDist: "\\mathrm{Beta}",
     ChiSqDist: "\\chi^2",
     iid: "\\mathrm{iid}",
+    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
     abs: ["\\left|#1\\right|", 1],
     norm: ["\\left\\lVert#1\\right\\rVert", 1],
     ceil: ["\\left\\lceil#1\\right\\rceil", 1],
@@ -160,10 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
     mean: ["\\overline{#1}", 1],
     sumrv: ["\\dot{#1}", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
-</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -195,7 +209,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../scripts/style/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -341,7 +355,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -354,6 +369,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -511,6 +534,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH08 : Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation Metrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coverage Test (Optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-09</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -547,6 +617,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday Jun 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -556,13 +632,13 @@ window.Quarto = {
 </header>
 
 
-<section id="preamble" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Preamble</h1>
+<section id="preamble" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="preamble"><span class="header-section-number">1</span> Preamble</h2>
 <p>Note that we will follow a very similar structure as we have done in <a href="../chapter-03/">the chapter for discrete variable</a>. And, indeed, a lot of the theorems can be directly transported to the continuous case. However, analysis of the continuous variables are slightly harder since, as one might expect, all the summation no becomes integral.</p>
 <p>This chapter will first goes from the definition of continuous random variable with link established via the cumulative distribution functions. Then, we will go over some of the common continuous distributions.</p>
 </section>
-<section id="cumulative-distribution" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Cumulative Distribution</h1>
+<section id="cumulative-distribution" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="cumulative-distribution"><span class="header-section-number">2</span> Cumulative Distribution</h2>
 <div id="def-cumulative-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> The <em>(cumulative) distribution function (cdf)</em> of a random variable <span class="math inline">\(Y\)</span> is <span class="math display">\[
 F(y) = P(Y \leq y)
@@ -573,8 +649,8 @@ F(y) = P(Y \leq y)
 <p>Note that we assumes that <span class="math inline">\(F(y)\)</span> is right continuous, meaning that <span class="math inline">\(\lim_{\delta \to 0} F(Y + \delta) = F(y)\)</span>.</p>
 </div>
 </section>
-<section id="random-variable" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Random Variable</h1>
+<section id="random-variable" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="random-variable"><span class="header-section-number">3</span> Random Variable</h2>
 <p>Armed with cdf, we are now ready to define what continuous random variable is.</p>
 <div id="def-cont-rv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2</strong></span> A random variable is said to be <em>continuous</em> if its cdf is continuous (everywhere).</p>
@@ -619,8 +695,8 @@ y/2 &amp; 0 \leq y &lt; 2 \\
 </div>
 <hr>
 </section>
-<section id="probability-density-function" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Probability Density Function</h1>
+<section id="probability-density-function" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="probability-density-function"><span class="header-section-number">4</span> Probability Density Function</h2>
 <p>Note that if <span class="math inline">\(Y\)</span> is continuous, then <span class="math inline">\(P(Y = y) = 0 \; \forall y\)</span>. Therefore, we need to redefine something instead of the previously defined pmf as it is now useless.</p>
 <div id="def-pdf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3</strong></span> Suppose that <span class="math inline">\(Y\)</span> is continuous random variable with cdf <span class="math inline">\(F(y)\)</span>. Then <span class="math inline">\(Y\)</span>’s probability density function is <span class="math display">\[
@@ -667,8 +743,8 @@ f(y) = \frac{dF(y)}{dy} = \begin{cases}
 </div>
 <p>Note that <span class="math inline">\(f(y)\)</span> is undefined at <span class="math inline">\(y = 0, 2\)</span>.</p>
 </div>
-<section id="two-properties-of-a-continuous-pdf" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="two-properties-of-a-continuous-pdf"><span class="header-section-number">4.1</span> Two Properties of a Continuous pdf</h2>
+<section id="two-properties-of-a-continuous-pdf" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="two-properties-of-a-continuous-pdf"><span class="header-section-number">4.1</span> Two Properties of a Continuous pdf</h3>
 <div id="thm-two-props-of-cont-pdf" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Two Properties of a Continuous PDF)</strong></span> If <span class="math inline">\(f(y)\)</span> is the pdf of a continuous random variable then:</p>
 <ol type="1">
@@ -677,15 +753,15 @@ f(y) = \frac{dF(y)}{dy} = \begin{cases}
 </ol>
 </div>
 </section>
-<section id="cdf-from-pdf" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="cdf-from-pdf"><span class="header-section-number">4.2</span> CDF from PDF</h2>
+<section id="cdf-from-pdf" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="cdf-from-pdf"><span class="header-section-number">4.2</span> CDF from PDF</h3>
 <p>In general, the cdf <span class="math inline">\(F(y)\)</span> of a continuous random variable <span class="math inline">\(Y\)</span> can be obtained from its pdf <span class="math inline">\(f(y)\)</span> via the equation</p>
 <p><span class="math display">\[
 F(y) = \int_{-\infty}^{y} f(t) \, dt
 \]</span></p>
 </section>
-<section id="computing-probability-using-pdf" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="computing-probability-using-pdf"><span class="header-section-number">4.3</span> Computing Probability using PDF</h2>
+<section id="computing-probability-using-pdf" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="computing-probability-using-pdf"><span class="header-section-number">4.3</span> Computing Probability using PDF</h3>
 <p>In general, to compute the probability of a given range for a continuous random variable, we can use</p>
 <p><span class="math display">\[
 P(a &lt; Y &lt; b) = \int_a^b f(y) \, dy
@@ -795,6 +871,13 @@ P(a &lt; Y &lt; b) = \int_a^b f(y) \, dy
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1151,4 +1234,5 @@ P(a &lt; Y &lt; b) = \int_a^b f(y) \, dy
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

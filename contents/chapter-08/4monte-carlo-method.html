@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let’s give take a deeper dive into it.">
 
-<title>Sum of Continuous Random Variables [Optional] – STAT2001 Revision Summaries</title>
+<title>Estimation via Monte Carlo Methods – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/chapter-08/index.qmd" rel="next">
-<link href="../../contents/chapter-07/index.html" rel="prev">
+<link href="../../contents/chapter-08/5coverage-test.html" rel="next">
+<link href="../../contents/chapter-08/3interval-estimate.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -390,7 +389,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-07/index.html">chapter-07</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-07/sums-of-continuous-random-variables.html">Sum of Continuous Random Variables [Optional]</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.qmd">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/4monte-carlo-method.html">Estimation via Monte Carlo Methods</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -487,14 +486,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">chapter-07</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
   </div>
 </li>
@@ -504,11 +503,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH08 : Estimation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
@@ -529,7 +528,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
   </div>
 </li>
@@ -557,33 +556,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preamable-disclaimer" id="toc-preamable-disclaimer" class="nav-link active" data-scroll-target="#preamable-disclaimer"><span class="header-section-number">1</span> Preamable &amp; Disclaimer</a></li>
-  <li><a href="#convolution" id="toc-convolution" class="nav-link" data-scroll-target="#convolution"><span class="header-section-number">2</span> Convolution</a></li>
-  <li><a href="#sum-of-two-random-variables" id="toc-sum-of-two-random-variables" class="nav-link" data-scroll-target="#sum-of-two-random-variables"><span class="header-section-number">3</span> Sum of Two Random Variables</a></li>
-  <li><a href="#convolution-in-the-multivariate-setting" id="toc-convolution-in-the-multivariate-setting" class="nav-link" data-scroll-target="#convolution-in-the-multivariate-setting">Convolution in the Multivariate Setting</a>
-  <ul class="collapse">
-  <li><a href="#n-fold-sums" id="toc-n-fold-sums" class="nav-link" data-scroll-target="#n-fold-sums"><span class="header-section-number">3.1</span> <span class="math inline">\(n\)</span>-fold sums</a></li>
-  <li><a href="#characteristic-function-shortcut" id="toc-characteristic-function-shortcut" class="nav-link" data-scroll-target="#characteristic-function-shortcut"><span class="header-section-number">3.2</span> Characteristic-function shortcut</a></li>
-  <li><a href="#example-covariance-additivity-of-gaussians" id="toc-example-covariance-additivity-of-gaussians" class="nav-link" data-scroll-target="#example-covariance-additivity-of-gaussians"><span class="header-section-number">3.3</span> Example ▸ Covariance additivity of Gaussians</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">3.4</span> Further reading</a></li>
-  </ul></li>
+  <li><a href="#motivating-problem" id="toc-motivating-problem" class="nav-link active" data-scroll-target="#motivating-problem"><span class="header-section-number">1</span> Motivating Problem</a></li>
+  <li><a href="#monte-carlo-methods" id="toc-monte-carlo-methods" class="nav-link" data-scroll-target="#monte-carlo-methods"><span class="header-section-number">2</span> Monte Carlo Methods</a></li>
+  <li><a href="#hard-analytical-solutions" id="toc-hard-analytical-solutions" class="nav-link" data-scroll-target="#hard-analytical-solutions"><span class="header-section-number">3</span> Hard Analytical Solutions</a></li>
+  <li><a href="#generalisation" id="toc-generalisation" class="nav-link" data-scroll-target="#generalisation"><span class="header-section-number">4</span> Generalisation</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-07/sums-of-continuous-random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-07/sums-of-continuous-random-variables.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/4monte-carlo-method.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/4monte-carlo-method.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-07/index.html">chapter-07</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-07/sums-of-continuous-random-variables.html">Sum of Continuous Random Variables [Optional]</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.qmd">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/4monte-carlo-method.html">Estimation via Monte Carlo Methods</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Sum of Continuous Random Variables [Optional]</h1>
+<h1 class="title">Estimation via Monte Carlo Methods</h1>
 </div>
 
-<div>
-  <div class="description">
-    As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let’s give take a deeper dive into it.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -604,175 +592,88 @@ window.Quarto = {
 </header>
 
 
-<section id="preamable-disclaimer" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="preamable-disclaimer"><span class="header-section-number">1</span> Preamable &amp; Disclaimer</h2>
-<p>As mentioned in the body content of this chapter, we have come to realisation that sum of random variables can actually be captured using the convolution operation quite nicely. Here, let’s give take a deeper dive into it.</p>
-<p>This article is based on <a href="https://courses.cs.washington.edu/courses/cse312/20su/files/student_drive/5.5.pdf">this article</a> on wayback machine, reimbursed for mordern website.</p>
+<blockquote class="blockquote">
+<p>This is basically like Dr.&nbsp;Strange in the Infinity War that will go into the future and look at all possible outcomes.</p>
+</blockquote>
+<section id="motivating-problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivating-problem"><span class="header-section-number">1</span> Motivating Problem</h2>
+<div id="exm-12" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Buffon’s Needle Problem)</strong></span> A kitchen floor has a pattern of parallel lines that are <span class="math inline">\(10\)</span>cm apart. You have a needle in your hand that is also <span class="math inline">\(10\)</span>cm long. If you randomly throw the needle onto the floor, what is the probability <span class="math inline">\(p\)</span> that it will cross a line?</p>
+</div>
 </section>
-<section id="convolution" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="convolution"><span class="header-section-number">2</span> Convolution</h2>
-<p>Typically, we define the convolution for continuous function as, <span class="math display">\[
-(f * g)(z) = \int_{-\infty}^\infty f(z - y) g(y) dy = \int_{-\infty}^\infty f(x) g(z - x) dx
-\]</span> And for discrete case as, <span class="math display">\[
-(f * g)(z) = \sum_x p_X(x) p_Y(z - x)
-\]</span></p>
+<section id="monte-carlo-methods" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="monte-carlo-methods"><span class="header-section-number">2</span> Monte Carlo Methods</h2>
+<p>It is hard to find <span class="math inline">\(p\)</span> exactly. However, it can be approximated simply, as follows.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We throw the needle onto the floor <span class="math inline">\(n = 1000\)</span> times, and find that the needle crosses a line <span class="math inline">\(651\)</span> times (say). Then an unbiased estimate of <span class="math inline">\(p\)</span> is <span class="math inline">\(\hat{p} = 651/1000= 0.651\)</span>, and a <span class="math inline">\(95%\)</span> CI for <span class="math inline">\(p\)</span> is <span class="math inline">\((0.651 \pm 1.96\sqrt{0.651(1 - 0.651)/1000)} = (0.621, 0.681)\)</span>. Note that we could get a narrower CI simply by increasing n.&nbsp;We could also use a computer to simulate the throwing of the needle.</p>
+</div>
 </section>
-<section id="sum-of-two-random-variables" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sum-of-two-random-variables"><span class="header-section-number">3</span> Sum of Two Random Variables</h2>
-<p>Now, let’s start with the sum of two random variables as we have already discussed about in chapter 6. However, let’s change the setting a bit to the discrete uniform case.</p>
-<div id="nte-motivating-example" class="callout callout-style-default callout-note callout-titled" title="Motivating Example">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note&nbsp;1: Motivating Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X, Y \sim \mathrm{Unif}(1, 4)\)</span> be independent rolls of a fair 4-sided die. What is the PMF of <span class="math inline">\(Z = X+Y\)</span>?</p>
-<hr>
-<p><strong><em>Solution:</em></strong></p>
-<p>For current setting, the range of <span class="math inline">\(Z\)</span> is <span class="math display">\[
-\Omega_Z = \{2, 3, 4, 5, 6, 7, 8 \}
-\]</span></p>
-<p>Now, if I want to find the probability of certain <span class="math inline">\(z\)</span> happens, we can simply sum over all the possible values for <span class="math inline">\(X\)</span> in particular, and zero-weight the situations with unreachable <span class="math inline">\(Y\)</span> values using the “probability” of that impossible event of <span class="math inline">\(Y\)</span> (probability = 0). For example, if we want <span class="math inline">\(P(Z = 3)\)</span>, we can do, <span class="math display">\[
-\begin{align}
-P(Z = 3) &amp; = P(X = 1, Y = 2) + P(X = 2, Y = 1) + P(X = 3, Y = 0) + P(X = 4, Y = -1) \\
-&amp; = P(X = 1)P( Y = 2) + P(X = 2)P(Y = 1) \\
-&amp; \qquad + P(X = 3)P(Y = 0) + P(X = 4)P(Y = -1) \\
-&amp; = \frac{2}{16}
-\end{align}
-\]</span> where the first line is all ways to get a <span class="math inline">\(3\)</span> going over the sample space of <span class="math inline">\(X\)</span>, and the second line uses independence. Note that it is not possible that <span class="math inline">\(Y = 0\)</span> or <span class="math inline">\(Y = -1\)</span>, but we write this to remind ourselves that we are going over the whole sample space of <span class="math inline">\(X\)</span>. More generally, to find <span class="math inline">\(p_Z(z) = P(Z = z)\)</span> for any value of <span class="math inline">\(z\)</span>, we can use the similar approach, <span class="math display">\[
-\begin{align}
-p_Z(z) &amp; = P(Z = z) \\
-&amp; = \sum_{x \in \Omega_X} P(X = x, Y = z - x) \\
-&amp; = \sum_{x \in \Omega_X} P(X = x)P(Y = z - x) \\
-&amp; = \sum_{x \in \Omega_X} p_X(x)p_Y(z-x) \\
-\end{align}
-\]</span></p>
-<p>The intuition is that if we want <span class="math inline">\(Z = z\)</span>, we sum over all possibilities of <span class="math inline">\(X = x\)</span> but require that <span class="math inline">\(Y = z - x\)</span> so that we get the desired sum of <span class="math inline">\(z\)</span>. It is very possible that <span class="math inline">\(p_Y(z - x) = 0\)</span> as above.</p>
-</div>
-</div>
-<p>Now, it turns out that the intuition above is extremely general – not only works for discrete, but also continuous.</p>
-<div id="thm-convolution-form" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Convolution)</strong></span> Let <span class="math inline">\(X, Y\)</span> be <em>independent</em> RVs, and <span class="math inline">\(Z = X + Y\)</span>.</p>
+<section id="hard-analytical-solutions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="hard-analytical-solutions"><span class="header-section-number">3</span> Hard Analytical Solutions</h2>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let:</p>
 <ul>
-<li>Discrete version: If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are discrete: <span class="math display">\[p_Z(z) = \sum_{x \in \Omega_X} p_X(x)p_Y(z - x) = (p_X * p_Y)(z)\]</span></li>
-<li>Continuous version: If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are continuous: <span class="math display">\[f_Z(z) = \int_{x\in\Omega_X} f_X(x) f_Y(z - x) \, dx = (f_X * f_Y)(z)\]</span></li>
+<li><span class="math inline">\(X =\)</span> perpendicular distance from centre of needle to nearest line in units of <span class="math inline">\(5\)</span> cm.</li>
+<li><span class="math inline">\(Y =\)</span> acute angle between lines and needle in radians</li>
+<li><span class="math inline">\(A =\)</span> “Needle crosses a line”</li>
 </ul>
-<p>Note: You can swap the roles of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Note the similarity!</p>
+<p>Therefore, we obtain</p>
+<ul>
+<li><span class="math inline">\(X \sim U(0, 1), \quad f(x) = 1, 0 &lt; x &lt; 1\)</span> as we are working in a <span class="math inline">\(1\)</span> unit distance = $5% cm</li>
+<li><span class="math inline">\(Y \sim U(0, \pi / 2), \quad f(y) = \frac{2}{\pi}, 0 &lt; y &lt; \pi / 2\)</span></li>
+<li><span class="math inline">\(X \perp Y\)</span>. Give <span class="math inline">\(X\)</span>, we do not have any additional information about orientation <span class="math inline">\(y\)</span>.</li>
+<li><span class="math inline">\(f(x, y) = f(x)(fy) = \frac{2}{\pi}, 0 &lt; x &lt; 1, 0 &lt; y &lt; \pi/2\)</span></li>
+</ul>
+<p>Now, the intuition is that the needle would cross the closer line if <span class="math inline">\(X &lt; \sin(Y)\)</span> as the needle has a length of <span class="math inline">\(5\)</span> cm from the end to the center. In other word, it is of <span class="math inline">\(1\)</span> unit distance. <span class="math display">\[\begin{equation*}
+A = \{(x, y) : x &lt; \sin(y)\}
+\end{equation*}\]</span></p>
+<p>Then, it simply comes down to the following integrals,</p>
+<p><span class="math display">\[\begin{align*}
+p = \P{A} &amp; = \iint_{A} f(x, y) \, dxdy  \\
+&amp; = \frac{2}{\pi} \int_{y=0}^{\pi / 2} \left( \int_{x = 0}^{\sin(y)} dx \right) dy \\
+&amp; = \frac{2}{\pi} \int_{y=0}^{\pi/2} \sin(y) \, dy \\
+&amp; = \frac{2}{\pi} \left[ - \cos(y) \right]_0^{\pi / 2} \\
+&amp; = \frac{2}{\pi} (- 0 - (- 1)) = \frac{2}{\pi} \\
+\end{align*}\]</span></p>
+</div>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We can also use the following lemma.</p>
+<div id="lem-iterative-probability" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Iterative Probability)</strong></span> <span class="math display">\[\begin{equation}
+\P{A} = \E{\PCond{A}{Y}}
+\end{equation}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof of the discrete case is essential the same as <a href="#nte-motivating-example" class="quarto-xref">Note&nbsp;1</a>. Therefore, we will focus on the continuous case here. Let’s start with the CDF and differentiate: <span class="math display">\[\begin{align}
-F_Z(z) &amp;= P(Z \leq z) \\
-&amp;= P(X + Y \leq z) \\
-&amp;= \int_{x \in \Omega_X} P(X+Y \leq z \mid X = x)f_X(x)\, dx \tag{LTP} \\
-&amp;= \int_{x \in \Omega_X} P(Y \leq z - x \mid) \, dx \tag{Algebra} \\
-&amp;= \int_{x \in \Omega_X} P(Y \leq z - x) f_X(x) \, dx \tag{$X$ and $Y$ are independent} \\
-&amp; = \int_{x \in \Omega_X} F_Y(z - x) f_X(x) \, dx \tag{def of CDF of $Y$} \\
-\end{align}\]</span></p>
-<p>Now we can take the derivative (with respect to <span class="math inline">\(z\)</span>) of the CDF to get the density (<span class="math inline">\(F_Y\)</span> becomes <span class="math inline">\(f_Y\)</span>):</p>
-<p><span class="math display">\[
-f_Z(z) = \frac{d}{dz} F_Z(z) = \int_{x \in \Omega_X} f_X(x)f_Y(z - x) \, dx
-\]</span></p>
-</div>
-<hr>
-<p>Now, let’s work on some other examples.</p>
-<hr>
-<div id="nte-example-2" title="Sum of Poisson Distribution" data-collapse="false">
-<p>Suppose <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two independent random variables such that <span class="math inline">\(X \sim \mathrm{Poi}(\lambda_1)\)</span> and <span class="math inline">\(Y \sim \mathrm{Poi}(\lambda_2)\)</span>, and let <span class="math inline">\(Z = X + Y\)</span>. Prove that <span class="math inline">\(Z \sim \mathrm{Poi}(\lambda_1 + \lambda_2)\)</span>.</p>
-<hr>
-<p>Now, <span class="math inline">\(\Omega_X = \Omega_Y = \{ 0, 1, 2, \ldots \}\)</span> and so <span class="math inline">\(\Omega_Z = \{ 0, 1, 2, \ldots \}\)</span> as well. For <span class="math inline">\(n \in \Omega_Z\)</span>: Note that the convolution formula says: <span class="math display">\[\begin{equation}
-p_Z(n) = \sum_{k \in \Omega_X}p_X(k)p_Y(n-k) = \sum_{k=0}^\infty p_X(k)p_Y(n-k)
-\end{equation}\]</span></p>
-<p>However, if we simply plugin the PMGs, we will get the wrong answer because we need to sum things that are non-zero. This means that we require both <span class="math inline">\(k\)</span> and <span class="math inline">\(n-k\)</span> be in the common sample space. Therefore, we can sum up to at most <span class="math inline">\(n\)</span>. <span class="math display">\[\begin{align*}
-p_Z(n) &amp; = \sum_{k=0}^n p_X(k)p_Y(n-k) \tag{Convolution Formula} \\
-&amp; = \sum_{k=0}^n e^{-\lambda_1}\frac{\lambda_1^k}{k!} \cdot e^{-\lambda_2} \frac{\lambda_2^{n-k}}{(n-k)!} \\
-&amp; = e^{-(\lambda_1 + \lambda_2)} \sum_{k=0}^n \frac{1}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
-&amp; = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \frac{n!}{k!(n-k)!}\lambda_1^k(1- \lambda_2)^{n-k} \\
-&amp; = e^{-(\lambda_1 + \lambda_2)} \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} \lambda_1^k(1- \lambda_2)^{n-k} \\
-&amp; = e^{-(\lambda_1 + \lambda_2)}\frac{(\lambda_1 + \lambda_2)^n}{n!} \\
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
+p = \P{A} &amp;= \E{\mathbfcal{1}_A} \tag{$\mathbf{1}_A$ is indicator} \\
+&amp; = \E{\ECond{\mathbfcal{1}_A}{Y}} \tag{Law of iterated expectation} \\
+&amp; = \E{\PCond{A}{Y}} \\
 \end{align*}\]</span></p>
-<p>Thus, <span class="math inline">\(Z \sim \mathrm{Poi}(\lambda_1 + \lambda_2)\)</span>, as the PMF above matches that of a Poisson distribution. Note we wouldn’t have been able to do that last step if our sum as still <span class="math inline">\(k = 0\)</span> to <span class="math inline">\(\infty\)</span>.</p>
 </div>
-<hr>
-<p>Now, although we have already used the CDF method in Chapter 6 to derive the results, we can try to see if this method is somewhat easier.</p>
-<hr>
-<div id="exm-sum-of-unif" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Sum of Uniform Variables)</strong></span> Suppose <span class="math inline">\(X, Y \sim^{\mathrm{iid}}U(0, 1)\)</span> and <span class="math inline">\(Z = X + Y\)</span>. Find <span class="math inline">\(f_Z(z)\)</span>.</p>
-<hr>
-<p><strong><em>Solution</em></strong></p>
-<p>We always begin by calculating the range: we have <span class="math inline">\(\Omega_Z = [0, 2]\)</span>. Again, we shouldn’t expect <span class="math inline">\(Z\)</span> to be uniform, since we should expect a number around <span class="math inline">\(1\)</span>, but not <span class="math inline">\(0\)</span>, or <span class="math inline">\(2\)</span>.</p>
-<p>For a <span class="math inline">\(U \sim U(0, 1)\)</span>, we know <span class="math inline">\(\Omega_U = [0,1]\)</span> and that <span class="math display">\[\begin{equation}
-f_U(u) = \begin{cases}
-1 &amp; 0 \leq u \leq 1 \\
-0 &amp; \text{otherwise} \\
-\end{cases}
-\end{equation}\]</span></p>
-<ul>
-<li>If <span class="math inline">\(z \in [0, 1]\)</span>, we already have <span class="math inline">\(z - x \leq 1\)</span> since <span class="math inline">\(z \leq 1\)</span> (and <span class="math inline">\(x \in p0, 1]\)</span>). We also need <span class="math inline">\(z - x \geq 0\)</span> for the density to be nonzero: <span class="math inline">\(x \leq z\)</span>. Hence our integral becomes: <span class="math display">\[\begin{align*}
-f_Z(z) &amp; = \int_0^z f_Y(z - x)\,dx + \int_z^1 f_Y(z - x) \, dx \\
-&amp; = \int_0^z 1 \, dx + 0 = [x]_0^z = z \\
-\end{align*}\]</span></li>
-<li>If <span class="math inline">\(z \in [1, 2]\)</span>, we already have <span class="math inline">\(z - x \geq 0\)</span> since <span class="math inline">\(z \geq 1\)</span> (and <span class="math inline">\(x \in [0, 1]\)</span>). We now need the other condition <span class="math inline">\(z - x \leq 1\)</span> for the density to be nonzero: <span class="math inline">\(x \geq z - 1\)</span>. Hence, our integral becomes: <span class="math display">\[\begin{align*}
-f_Z(z) &amp; = \int_0^{z-1} f_Y(z-x) \, dx + \int_{z-1}^1 f_Y(z - x)\, dx \\
-&amp; = 0 + \int_{z-1}^1 1 \, dx = [x]_{z-1}^1 = 2 - z \\
-\end{align*}\]</span></li>
-</ul>
-<p>Thus putting these two cases together gives: <span class="math display">\[\begin{equation*}
-f_Z(z) = \begin{cases}
-z &amp; 0 \leq z \leq 1 \\
-2 - z &amp; 1 \leq z \leq 2 \\
-0 &amp; \text{otherwise} \\
-\end{cases}
-\end{equation*}\]</span></p>
-<p>This result does confirm to our intuitions because there are “more ways” to get a value of 1 for example than any other point.</p>
+<p>Then with <a href="#lem-iterative-probability" class="quarto-xref">Lemma&nbsp;1</a>, we can approach the problem as the following, <span class="math display">\[
+\PCond{A}{y} = \P{X &lt; \sin(y)} = \sin(y)
+\]</span> since <span class="math inline">\((X \mid y) = X \sim U(0, 1)\)</span>.</p>
+<p>So, <span class="math display">\[\begin{align*}
+p &amp; = \P{A} \\
+&amp; = \E{\PCond{A}{Y}} \\
+&amp; = \E{\sin(Y)} \\
+&amp; = \int_0^{\pi/2} \sin(y) \frac{2}{\pi} \, dy \\
+&amp; = \frac{2}{\pi} \\
+\end{align*}\]</span> which is the same as before.</p>
 </div>
 </section>
-<section id="convolution-in-the-multivariate-setting" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="convolution-in-the-multivariate-setting">Convolution in the Multivariate Setting</h2>
-<p>When the sum involves vectors rather than scalars, the same convolution idea extends component-wise. Let <span class="math display">\[\begin{equation*}
-\mathbf X=(X_1,\ldots,X_d), \qquad \mathbf Y=(Y_1,\ldots,Y_d)
-\end{equation*}\]</span> be independent <span class="math inline">\(\mathbb R^d\)</span>-valued random vectors with joint densities <span class="math inline">\(f_{\mathbf X}\)</span> and <span class="math inline">\(f_{\mathbf Y}\)</span>. Define their sum <span class="math display">\[\begin{equation*}
-\mathbf Z=\mathbf X+\mathbf Y\;:=\;(X_1+Y_1,\ldots,X_d+Y_d).
-\end{equation*}\]</span> The density of <span class="math inline">\(\mathbf Z\)</span> is the <span class="math inline">\(d\)</span>-dimensional convolution <span class="math display">\[\begin{equation*}
-f_{\mathbf Z}(\mathbf z)
-=\int_{\mathbb R^{d}} f_{\mathbf X}(\mathbf t)\,f_{\mathbf Y}(\mathbf z-\mathbf t)\,d\mathbf t
-\;=\;(f_{\mathbf X}*f_{\mathbf Y})(\mathbf z).\tag{C.1}\label{eq:C1}
-\end{equation*}\]</span> For discrete vectors the integral is replaced by a <span class="math inline">\(d\)</span>-fold sum.</p>
-<section id="n-fold-sums" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="n-fold-sums"><span class="header-section-number">3.1</span> <span class="math inline">\(n\)</span>-fold sums</h3>
-<p>Because convolution is associative, the density of <span class="math inline">\(\mathbf S_n=\sum_{k=1}^{n}\mathbf X_k\)</span> (independent, not necessarily identically distributed) is <span class="math display">\[\begin{equation*}
-f_{\mathbf S_n}=f_{\mathbf X_1}f_{\mathbf X_2}\cdots*f_{\mathbf X_n}.\tag{C.2}\label{eq:C2}
-\end{equation*}\]</span> If all <span class="math inline">\(\mathbf X_k\)</span> share a common density <span class="math inline">\(f\)</span> we simply write <span class="math inline">\(f^{*n}\)</span> (the <span class="math inline">\(n\)</span>-fold convolution power).</p>
-</section>
-<section id="characteristic-function-shortcut" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="characteristic-function-shortcut"><span class="header-section-number">3.2</span> Characteristic-function shortcut</h3>
-<p>For any vector <span class="math inline">\(\boldsymbol t\in\mathbb R^d\)</span> the characteristic function is <span class="math display">\[\begin{equation*}
-\varphi_{\mathbf X}(\boldsymbol t)=\mathbb E\bigl[e^{i\langle\boldsymbol t,\mathbf X\rangle}\bigr]
-\end{equation*}\]</span> Independence gives <span class="math display">\[\begin{equation*}
-\varphi_{\mathbf S_n}(\boldsymbol t)=\prod_{k=1}^{n}\varphi_{\mathbf X_k}(\boldsymbol t),
-\end{equation*}\]</span> whose inverse Fourier transform reproduces <span class="math inline">\(\eqref{eq:C2}\)</span>. This frequency-space view powers the multivariate Central Limit Theorem and stable-law theory.</p>
-</section>
-<section id="example-covariance-additivity-of-gaussians" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="example-covariance-additivity-of-gaussians"><span class="header-section-number">3.3</span> Example ▸ Covariance additivity of Gaussians</h3>
-<p>If <span class="math inline">\(\mathbf X_k\sim\mathcal N_d(\boldsymbol\mu_k,\Sigma_k)\)</span> are independent, then by <span class="math inline">\(\eqref{eq:C2}\)</span> <span class="math display">\[\begin{equation*}
-\mathbf S_n\sim\mathcal N_d\Bigl(\sum_{k=1}^{n}\boldsymbol\mu_k\,,\;\sum_{k=1}^{n}\Sigma_k\Bigr).
-\end{equation*}\]</span> The mean vectors and covariance matrices simply add.</p>
-</section>
-<section id="further-reading" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">3.4</span> Further reading</h3>
-<ul>
-<li>P. Billingsley, Probability &amp; Measure, §17 — product measures &amp; convolution.</li>
-<li>G. Folland, Real Analysis, Ch. 8 — Fourier transform on <span class="math inline">\(\mathbb R^d\)</span>.</li>
-<li>Gnedenko &amp; Kolmogorov, Limit Distributions for Sums …, Ch. 3 — multivariate limits.</li>
-<li>Hall, Philip. “The Distribution of Means for Samples of Size N Drawn from a Population in Which the Variate Takes Values Between 0 and 1, All Such Values Being Equally Probable.” Biometrika, vol.&nbsp;19, no. 3/4, 1927, pp.&nbsp;240–45. JSTOR, https://doi.org/10.2307/2331961. Accessed 4 June 2025.</li>
-<li>Bates, Grace E. “Joint Distributions of Time Intervals for the Occurrence of Successive Accidents in a Generalized Polya Scheme.” The Annals of Mathematical Statistics, vol.&nbsp;26, no. 4, 1955, pp.&nbsp;705–20. JSTOR, http://www.jstor.org/stable/2236383. Accessed 4 June 2025.</li>
-</ul>
+<section id="generalisation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="generalisation"><span class="header-section-number">4</span> Generalisation</h2>
+<p>If the length of the needle is <span class="math inline">\(r\)</span> times the distance between lines, it can be shown that the probability that the needle will cross a line is <span class="math display">\[
+p = \begin{cases}
+2r/\pi , &amp; r \leq 1 \\
+1 - \frac{2}{\pi}\left( \sqrt{r^2 - 1} - r \sin^{-1}\left( \frac{1}{r} \right) \right), &amp; r &gt; 1 \\
+\end{cases}
+\]</span></p>
+<p>The first half with <span class="math inline">\(r \leq 1\)</span> is easy to show in which the inner integral would have an upper bound of <span class="math inline">\(r \sin(y)\)</span> instead of <span class="math inline">\(\sin(y)\)</span> and the definition of <span class="math inline">\(A\)</span> should be <span class="math inline">\(A \triangleq \{ (x, y) : x &lt; r \sin(y) \}\)</span>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1197,13 +1098,13 @@ f_{\mathbf S_n}=f_{\mathbf X_1}f_{\mathbf X_2}\cdots*f_{\mathbf X_n}.\tag{C.2}\l
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contents/chapter-07/index.html" class="pagination-link" aria-label="chapter-07">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">chapter-07</span>
+      <a href="../../contents/chapter-08/3interval-estimate.html" class="pagination-link" aria-label="Interval Estimation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Interval Estimation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/chapter-08/index.qmd" class="pagination-link" aria-label="CH08 : Estimation">
-        <span class="nav-page-text">CH08 : Estimation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/chapter-08/5coverage-test.html" class="pagination-link" aria-label="Coverage Test (Optional)">
+        <span class="nav-page-text">Coverage Test (Optional)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1215,7 +1116,7 @@ f_{\mathbf S_n}=f_{\mathbf X_1}f_{\mathbf X_2}\cdots*f_{\mathbf X_n}.\tag{C.2}\l
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-07/sums-of-continuous-random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-07/sums-of-continuous-random-variables.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/4monte-carlo-method.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/4monte-carlo-method.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

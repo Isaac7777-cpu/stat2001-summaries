@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,6 +108,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "classic"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -132,14 +144,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   MathJax = MathJax || {};
   MathJax.tex = MathJax.tex || {};
   MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
@@ -152,6 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     BetaDist: "\\mathrm{Beta}",
     ChiSqDist: "\\chi^2",
     iid: "\\mathrm{iid}",
+    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
     abs: ["\\left|#1\\right|", 1],
     norm: ["\\left\\lVert#1\\right\\rVert", 1],
     ceil: ["\\left\\lceil#1\\right\\rceil", 1],
@@ -160,10 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
     mean: ["\\overline{#1}", 1],
     sumrv: ["\\dot{#1}", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
-</script>
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
@@ -197,7 +211,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../scripts/style/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -343,7 +357,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -356,6 +371,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -513,6 +536,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH08 : Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation Metrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coverage Test (Optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-09</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -528,14 +598,8 @@ window.Quarto = {
   <li><a href="#continuous-case" id="toc-continuous-case" class="nav-link" data-scroll-target="#continuous-case"><span class="header-section-number">3</span> Continuous Case</a>
   <ul class="collapse">
   <li><a href="#the-cdf-method" id="toc-the-cdf-method" class="nav-link" data-scroll-target="#the-cdf-method"><span class="header-section-number">3.1</span> The CDF Method</a></li>
-  <li><a href="#the-transformation-method" id="toc-the-transformation-method" class="nav-link" data-scroll-target="#the-transformation-method"><span class="header-section-number">3.2</span> The Transformation Method</a>
-  <ul class="collapse">
-  <li><a href="#special-example-of-non-monotonic-transformation" id="toc-special-example-of-non-monotonic-transformation" class="nav-link" data-scroll-target="#special-example-of-non-monotonic-transformation"><span class="header-section-number">3.2.1</span> Special Example of Non-monotonic Transformation</a></li>
-  </ul></li>
-  <li><a href="#the-moment-generating-function-method" id="toc-the-moment-generating-function-method" class="nav-link" data-scroll-target="#the-moment-generating-function-method"><span class="header-section-number">3.3</span> The Moment Generating Function Method</a>
-  <ul class="collapse">
-  <li><a href="#two-useful-results-when-applying-the-mgf-technique" id="toc-two-useful-results-when-applying-the-mgf-technique" class="nav-link" data-scroll-target="#two-useful-results-when-applying-the-mgf-technique"><span class="header-section-number">3.3.1</span> Two Useful Results when Applying the MGF Technique</a></li>
-  </ul></li>
+  <li><a href="#the-transformation-method" id="toc-the-transformation-method" class="nav-link" data-scroll-target="#the-transformation-method"><span class="header-section-number">3.2</span> The Transformation Method</a></li>
+  <li><a href="#the-moment-generating-function-method" id="toc-the-moment-generating-function-method" class="nav-link" data-scroll-target="#the-moment-generating-function-method"><span class="header-section-number">3.3</span> The Moment Generating Function Method</a></li>
   </ul></li>
   <li><a href="#order-statistics" id="toc-order-statistics" class="nav-link" data-scroll-target="#order-statistics"><span class="header-section-number">4</span> Order Statistics</a>
   <ul class="collapse">
@@ -559,6 +623,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday Jun 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -568,15 +638,15 @@ window.Quarto = {
 </header>
 
 
-<section id="learning-goals" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Learning Goals</h1>
+<section id="learning-goals" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">1</span> Learning Goals</h2>
 <ul>
 <li>Transformations of Random Variables</li>
 <li>Find pdf and cdf of functions of randome variables</li>
 </ul>
 </section>
-<section id="discrete-case" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Discrete Case</h1>
+<section id="discrete-case" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="discrete-case"><span class="header-section-number">2</span> Discrete Case</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Motivating Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -651,16 +721,16 @@ E(D) &amp; = \sum_{y_1, y_2} \lvert y_1 - y_2 \rvert f(y_1, y_2) \\
 \]</span></p>
 </div>
 </section>
-<section id="continuous-case" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Continuous Case</h1>
+<section id="continuous-case" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="continuous-case"><span class="header-section-number">3</span> Continuous Case</h2>
 <p>There are three main strategies we will look at:</p>
 <ol type="1">
 <li>The <em>cdf method</em></li>
 <li>The <em>transformation method (or rule)</em></li>
 <li>The <em>mgf method</em></li>
 </ol>
-<section id="the-cdf-method" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="the-cdf-method"><span class="header-section-number">3.1</span> The CDF Method</h2>
+<section id="the-cdf-method" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-cdf-method"><span class="header-section-number">3.1</span> The CDF Method</h3>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -776,7 +846,7 @@ F_X(x) &amp; = P(X &lt; x) \\
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;p&gt;&lt;strong&gt;Shaded Area:&lt;/strong&gt; </span><span class="sc">${</span>(<span class="fu">shadedArea</span>(u))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,1,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,1,-1]" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p>&nbsp;</p>
@@ -860,8 +930,8 @@ F(x) &amp;= P(X &lt; x) \\
 <p>Now, the pdf is <span class="math inline">\(f(x) = F'(x) = 2(1 - 4x)^{-1/2}\)</span>.</p>
 </div>
 </section>
-<section id="the-transformation-method" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="the-transformation-method"><span class="header-section-number">3.2</span> The Transformation Method</h2>
+<section id="the-transformation-method" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="the-transformation-method"><span class="header-section-number">3.2</span> The Transformation Method</h3>
 <p>Suppose that <span class="math inline">\(Y\)</span> is a continuous random variable with pdf <span class="math inline">\(f(y)\)</span>, and <span class="math inline">\(x = g(y)\)</span> is a function which is strictly monotonic, for all possible values <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span>. Then <span class="math inline">\(X = g(Y)\)</span> has pdf<span class="math display">\[f(x) = f(y) \left\lvert \frac{dy}{dx} \right\rvert\]</span> where <span class="math inline">\(y = g^{-1}(x)\)</span>. (This is the inverse function of <span class="math inline">\(g\)</span>)</p>
 <div id="exm-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Example 6)</strong></span> Suppose that <span class="math inline">\(Y \sim U(0, 2)\)</span>.</p>
@@ -879,8 +949,8 @@ f(z) = f(y) \left\lvert \frac{dy}{dz} \right\rvert &amp; = \frac{1}{b \sqrt{2\pi
 \]</span></p>
 <p>Thus <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>.</p>
 </div>
-<section id="special-example-of-non-monotonic-transformation" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="special-example-of-non-monotonic-transformation"><span class="header-section-number">3.2.1</span> Special Example of Non-monotonic Transformation</h3>
+<section id="special-example-of-non-monotonic-transformation" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="special-example-of-non-monotonic-transformation"><span class="header-section-number">3.2.1</span> Special Example of Non-monotonic Transformation</h4>
 <p>Suppose <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>. Find the distribution of <span class="math inline">\(X = Z^2\)</span>.</p>
 <p>In this case, <span class="math inline">\(x = z^2\)</span> is neither strictly increasing nor strictly decreasing. So the transformation method cannot be directly used, but a alternatives can be used. We could find the pdf of <span class="math inline">\(X\)</span> using the cdf method. We can also use the mgf method as shown later. But before that, we need to develop an idea why transformation method even work.</p>
 <div id="rem-why-transformation-work" class="proof remark">
@@ -924,8 +994,8 @@ f_X(x) = \sum_{z^2 = x} f_Z(z) \left\lvert \frac{dz}{dx} \right\rvert &amp; = \f
 </div>
 </section>
 </section>
-<section id="the-moment-generating-function-method" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="the-moment-generating-function-method"><span class="header-section-number">3.3</span> The Moment Generating Function Method</h2>
+<section id="the-moment-generating-function-method" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="the-moment-generating-function-method"><span class="header-section-number">3.3</span> The Moment Generating Function Method</h3>
 <p>Recall that the mgf of a r.v. can uniquely identify the distribution of the random variable <span class="math inline">\(X\)</span>. Recall its definition being <span class="math display">\[
 m_X(t) = E\left( e^{Xt} \right)
 \]</span></p>
@@ -995,7 +1065,7 @@ m_X(t) = E\left( x^{Xt} \right) = E\left( e^{Z^2 t} \right) &amp; = \int_{-\inft
 <span id="cb2-487"><a href="#cb2-487" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb2-488"><a href="#cb2-488" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p&gt;&lt;strong&gt;Area P(-y ≤ Z ≤ y):&lt;/strong&gt; </span><span class="sc">${</span>(<span class="fu">normalCDF</span>(x) <span class="op">-</span> <span class="fu">normalCDF</span>(<span class="op">-</span>x))<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="vs">&lt;/p&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,1,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,1,-1]" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1103,8 +1173,8 @@ f(y) &amp; = F'(y) = 2\Phi'(y) = 2\phi(y) \\
 f_X(x) = f_Y(y) \left\lvert \frac{dy}{dx} \right\rvert = \frac{2}{\sqrt{2\pi}} e^{-\frac{1}{2}x} \frac{1}{2\sqrt{x}}, \qquad x &gt; 0
 \]</span></p>
 </div>
-<section id="two-useful-results-when-applying-the-mgf-technique" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="two-useful-results-when-applying-the-mgf-technique"><span class="header-section-number">3.3.1</span> Two Useful Results when Applying the MGF Technique</h3>
+<section id="two-useful-results-when-applying-the-mgf-technique" class="level4" data-number="3.3.1">
+<h4 data-number="3.3.1" class="anchored" data-anchor-id="two-useful-results-when-applying-the-mgf-technique"><span class="header-section-number">3.3.1</span> Two Useful Results when Applying the MGF Technique</h4>
 <ol type="1">
 <li>If <span class="math inline">\(X = a + bY\)</span>, then <span class="math display">\[
 m_X(t) = e^{at}m_Y(bt)
@@ -1143,8 +1213,8 @@ Y_1, \ldots , Y_n \sim^{\text{iid}} \chi^2(1) \implies \sum_i Y_i \sim \chi^2(n)
 </section>
 </section>
 </section>
-<section id="order-statistics" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Order Statistics</h1>
+<section id="order-statistics" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="order-statistics"><span class="header-section-number">4</span> Order Statistics</h2>
 <p>Suppose that <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> are iid rv’s.</p>
 <p>Let: <span class="math inline">\(U_1\)</span> be the smallest of these, <span class="math inline">\(U_2\)</span> be the second smallest and so on.</p>
 <div id="exm-11" class="theorem example">
@@ -1167,8 +1237,8 @@ E(U_2) &amp; = \int_0^\infty \frac{2u}{b} e^{-\frac{u}{b}}(1 - e^{-\frac{u}{b}})
 \end{align}
 \]</span></p>
 </div>
-<section id="general-formula" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="general-formula"><span class="header-section-number">4.1</span> General Formula</h2>
+<section id="general-formula" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="general-formula"><span class="header-section-number">4.1</span> General Formula</h3>
 <div id="thm-general-formula-for-order-statistics" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (General Formula for Order Statistics)</strong></span> If <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> are continuous and iid, then the pdf of the <span class="math inline">\(k\)</span>th order statistic <span class="math inline">\(U_k\)</span> is <span class="math display">\[
 f_{U_k}(u) = \frac{n!}{(k - 1)!(n-k)!} F(u)^{k - 1} \left( 1 - F(u) \right)^{n-k} f(u)
@@ -1196,8 +1266,8 @@ f_{U_k}(u) &amp; = \frac{d}{du}\left[ \sum_{j = k}^n \binom{n}{j} (F(u))^{j} (1 
 </div>
 </section>
 </section>
-<section id="range-restricted-distribution" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Range Restricted Distribution</h1>
+<section id="range-restricted-distribution" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="range-restricted-distribution"><span class="header-section-number">5</span> Range Restricted Distribution</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Motivating Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1347,6 +1417,13 @@ window._ojs.runtime.interpretFromScriptTags();
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1703,4 +1780,5 @@ window._ojs.runtime.interpretFromScriptTags();
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

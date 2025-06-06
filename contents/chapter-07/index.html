@@ -78,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,6 +108,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "classic"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -132,14 +144,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   MathJax = MathJax || {};
   MathJax.tex = MathJax.tex || {};
   MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
@@ -152,6 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     BetaDist: "\\mathrm{Beta}",
     ChiSqDist: "\\chi^2",
     iid: "\\mathrm{iid}",
+    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
     abs: ["\\left|#1\\right|", 1],
     norm: ["\\left\\lVert#1\\right\\rVert", 1],
     ceil: ["\\left\\lceil#1\\right\\rceil", 1],
@@ -160,10 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
     mean: ["\\overline{#1}", 1],
     sumrv: ["\\dot{#1}", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
-</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -195,7 +209,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../scripts/style/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -341,7 +355,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -354,6 +369,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -511,6 +534,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH08 : Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation Metrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coverage Test (Optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-09</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -530,10 +600,7 @@ window.Quarto = {
   <li><a href="#the-central-limit-theorem-clt" id="toc-the-central-limit-theorem-clt" class="nav-link" data-scroll-target="#the-central-limit-theorem-clt"><span class="header-section-number">3</span> The Central Limit Theorem (CLT)</a>
   <ul class="collapse">
   <li><a href="#alternative" id="toc-alternative" class="nav-link" data-scroll-target="#alternative"><span class="header-section-number">3.1</span> Alternative</a></li>
-  <li><a href="#normal-approximation-to-binomialn-p" id="toc-normal-approximation-to-binomialn-p" class="nav-link" data-scroll-target="#normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></a>
-  <ul class="collapse">
-  <li><a href="#the-continuity-correction" id="toc-the-continuity-correction" class="nav-link" data-scroll-target="#the-continuity-correction"><span class="header-section-number">3.2.1</span> The Continuity Correction</a></li>
-  </ul></li>
+  <li><a href="#normal-approximation-to-binomialn-p" id="toc-normal-approximation-to-binomialn-p" class="nav-link" data-scroll-target="#normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-07/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -552,6 +619,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday Jun 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -561,8 +634,8 @@ window.Quarto = {
 </header>
 
 
-<section id="some-theorems-regarding-the-normal-distribution" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Some Theorems Regarding the Normal Distribution</h1>
+<section id="some-theorems-regarding-the-normal-distribution" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="some-theorems-regarding-the-normal-distribution"><span class="header-section-number">1</span> Some Theorems Regarding the Normal Distribution</h2>
 <div id="thm-sample-mean-of-normal-rv" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots, Y_n \sim^{\text{iid}} N(\mu, \sigma^2)\)</span>. Let <span class="math display">\[\bar{Y} = \frac{1}{n} \sum_{i = 1}^n y_i \hspace{20pt} \text{(the sample mean)}\]</span>. Then <span class="math display">\[\bar{Y} \sim N(\mu , \frac{\sigma^2}{n})\]</span></p>
 </div>
@@ -579,8 +652,8 @@ Var(\bar{Y}) &amp;= \frac{1}{n^2}\sum_{i=1}^n Var(Y_i) \\
 \]</span></p>
 </div>
 </section>
-<section id="sampling-distribution" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Sampling Distribution</h1>
+<section id="sampling-distribution" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sampling-distribution"><span class="header-section-number">2</span> Sampling Distribution</h2>
 <div id="cor-standardised-normal-rv" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Standardised Sample Mean)</strong></span> <span class="math display">\[
 Z = \frac{\bar{Y} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)
@@ -666,7 +739,7 @@ m_U(t) &amp; = \frac{m_V(t)}{m_W(t)} \\
 <hr>
 <p>In order to prove (b), we need to first prove the following,</p>
 <div id="lem-independence-with-centered-rvs" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (Independece of Centered Random Variables)</strong></span> Suppose <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> is a random sample iid from a normal distribution with mean, <span class="math inline">\(\mu\)</span> and variance, <span class="math inline">\(\sigma^2\)</span>. It follows that the sample mean <span class="math inline">\(\bar{Y}\)</span>, is independent of <span class="math inline">\(Y_i - \overline{Y}\)</span>, <span class="math inline">\(i = 1, 2, \ldots, n\)</span>.</p>
+<p><span class="theorem-title"><strong>Lemma 1 (Independence of Centered Random Variables)</strong></span> Suppose <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> is a random sample iid from a normal distribution with mean, <span class="math inline">\(\mu\)</span> and variance, <span class="math inline">\(\sigma^2\)</span>. It follows that the sample mean <span class="math inline">\(\bar{Y}\)</span>, is independent of <span class="math inline">\(Y_i - \overline{Y}\)</span>, <span class="math inline">\(i = 1, 2, \ldots, n\)</span>.</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -794,8 +867,8 @@ f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots , x_n) &amp; = \text{constants} \cdot
 <p><span class="proof-title"><em>Remark 1</em> (Is the above really the only solution?). </span>Well, not really, it is relatively easy to find another interval. For example, we can find the interval starting from <span class="math inline">\(0\)</span>. In fact, a related problem is: “Find the shortest interval which we can be 90% sure will contain the sample variance of the 9 sampled volumes.”</p>
 <p>The solution to this problem is unique and required interval <span class="math inline">\((a, b)\)</span> satisfies two equations: <span class="math inline">\(P(a &lt; S^2 &lt; b) = 0.9\)</span> and <span class="math inline">\(f_{S^2}(a) = f_{S^2}(b)\)</span>. This solution will have to be found numerically, e.g.&nbsp;trial and error or the Newton Raphson algorithm. This seemingly difficult problem is caused by the asymmetric of the probability density function.</p>
 </div>
-<section id="the-t-distribution" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">2.1</span> The <span class="math inline">\(T\)</span> Distribution</h2>
+<section id="the-t-distribution" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">2.1</span> The <span class="math inline">\(T\)</span> Distribution</h3>
 <div id="def-t-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (<span class="math inline">\(t\)</span> Distribution)</strong></span> Suppose that <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>, <span class="math inline">\(Y \sim \chi^2(k)\)</span> and <span class="math inline">\(Z \perp U\)</span>. We say that the random variable <span class="math display">\[
 Y = \frac{Z}{\sqrt{U/k}}
@@ -852,8 +925,8 @@ P\left(\left\lvert \overline{Y} - \mu \right\rvert &lt; \frac{1}{2} S\right) &am
 <p>Now, by tables, <span class="math inline">\(P(T &lt; -1.397) = 0.1\)</span> and <span class="math inline">\(P(T &lt; -1.860) = 0.05\)</span>. Therefore, <span class="math inline">\(P(T &lt; -1.5)\)</span> is between <span class="math inline">\(0.05\)</span> and <span class="math inline">\(0.10\)</span>. So <span class="math inline">\(1 - 2P(T &lt; -1.5)\)</span> is between <span class="math inline">\(0.8\)</span> and <span class="math inline">\(0.9\)</span>.</p>
 </div>
 </section>
-<section id="the-f-distribution" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">2.2</span> The <span class="math inline">\(F\)</span> Distribution</h2>
+<section id="the-f-distribution" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">2.2</span> The <span class="math inline">\(F\)</span> Distribution</h3>
 <div id="def-f-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3</strong></span> Suppose that <span class="math inline">\(U \sim \chi^2(a)\)</span>, <span class="math inline">\(V \sim \chi^2(b)\)</span> and <span class="math inline">\(U \perp V\)</span>. We say that the random variable <span class="math inline">\(Y = \frac{U / a}{V / b}\)</span> ahs the <em><span class="math inline">\(F\)</span>-distribution</em> with <span class="math inline">\(a\)</span> numerator and <span class="math inline">\(b\)</span> denominator degrees of freedom.</p>
 <p>We write <span class="math inline">\(Y \sim F(a, b)\)</span> or <span class="math inline">\(Y \sim F_{a, b}\)</span>.</p>
@@ -919,8 +992,8 @@ P(S_X^2 \geq Y S_Y^2) &amp; = P\left( \frac{S_X^2}{S_Y^2} &gt; 7 \right) \\
 </div>
 </section>
 </section>
-<section id="the-central-limit-theorem-clt" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> The Central Limit Theorem (CLT)</h1>
+<section id="the-central-limit-theorem-clt" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="the-central-limit-theorem-clt"><span class="header-section-number">3</span> The Central Limit Theorem (CLT)</h2>
 <div id="thm-clt" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9 (Central Limit Theorem)</strong></span> Suppose that <span class="math inline">\(Y_i, Y_2, \ldots , Y_n \sim^{\text{iid}} (\mu, \sigma^2)\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma\)</span> positively bounded. Let <span class="math display">\[
 U_n = \frac{\overline{Y} - \mu}{\sigma / \sqrt{n}} \implies U_n \xrightarrow{\text{d}} \mathcal{N}(0, 1) as n \to \infty
@@ -953,7 +1026,7 @@ How good is the normal approximation?
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../../scripts/plot_bates.R"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bates_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="quarto-layout-panel" data-layout="[-1,1,-1]" data-layout-align="center">
+<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,1,-1]">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p>&nbsp;</p>
@@ -982,8 +1055,8 @@ f_{X_1 + X_2}(z) = \int_0^1 f_{X_1}(x)f_{X_2}(z - x) \, \mathrm{dx}
 </div>
 </div>
 </div>
-<section id="alternative" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="alternative"><span class="header-section-number">3.1</span> Alternative</h2>
+<section id="alternative" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="alternative"><span class="header-section-number">3.1</span> Alternative</h3>
 <p>Yet another way to think about the CLT is <span class="math inline">\(\sumrv{Y} \approx \NormalDist(n\mu, n\sigma^2)\)</span>, where <span class="math inline">\(\sumrv{Y} = Y_1 + Y_2 + \ldots + Y_n\)</span></p>
 <div id="exm-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6</strong></span> A dies is about to be rolled 50 times, and each time you will win as many dollars as the number which comes up. Find the probability that you will win a total of at least $200.</p>
@@ -997,8 +1070,8 @@ f_{X_1 + X_2}(z) = \int_0^1 f_{X_1}(x)f_{X_2}(z - x) \, \mathrm{dx}
 <p>Then <span class="math inline">\(\P{\dot{Y} \geq 200} \approx \P{Z &gt; \frac{200 - 175}{\sqrt{145.83}}} = \P{Z &gt; 2.07) = 0.0192\)</span></p>
 </div>
 </section>
-<section id="normal-approximation-to-binomialn-p" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></h2>
+<section id="normal-approximation-to-binomialn-p" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="normal-approximation-to-binomialn-p"><span class="header-section-number">3.2</span> Normal Approximation to <span class="math inline">\(\Binomial(n, p)\)</span></h3>
 <p>Suppose that <span class="math inline">\(Y \sim \Binomial(n, p)\)</span>, then <span class="math inline">\(Y = Y_1 + Y_2 + \ldots + Y_n\)</span>, where <span class="math inline">\(Y_1, \ldots Y_2 \sim^\iid \Bernoulli(p)\)</span>. So <span class="math inline">\(Y_1, Y_2, \ldots, Y_n \; \iid (\mu, \sigma^2)\)</span>, where: <span class="math display">\[\begin{gather*}
 \mu = \E{Y_i} = p \\
 \sigma^2 = \Var{Y_i} = p(1 - p) \\
@@ -1014,8 +1087,8 @@ f_{X_1 + X_2}(z) = \int_0^1 f_{X_1}(x)f_{X_2}(z - x) \, \mathrm{dx}
 &amp; = \P{Z &gt; \frac{27 - 20}{\sqrt{16.67}}} = \P{Z &gt; 1.71} = 0.0436 \\
 \end{align*}\]</span></p>
 </div>
-<section id="the-continuity-correction" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="the-continuity-correction"><span class="header-section-number">3.2.1</span> The Continuity Correction</h3>
+<section id="the-continuity-correction" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="the-continuity-correction"><span class="header-section-number">3.2.1</span> The Continuity Correction</h4>
 <p>However, we need to take a closer look at the approximation made when we are applying to discrete cases. In <a href="#fig-normal-approximation" class="quarto-xref">Figure&nbsp;1</a> below, the shaded red area is the area calculated as <span class="math inline">\(\P{U &gt; 27}\)</span> after normal approximation while the blue boxes underlay is the actual binomial distribution probability. Therefore, we can see that almost half of the column for <span class="math inline">\(x = 27\)</span> is missed when we directly use the <span class="math inline">\(\NormalDist\)</span>. Hence, a better approximation would then be <span class="math display">\[\begin{equation*}
 P(Y \geq 27) = P(U &gt; 26.5)
 \end{equation*}\]</span></p>
@@ -1230,6 +1303,13 @@ Figure&nbsp;1: Why we need to have continuity correction?
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1586,4 +1666,5 @@ Figure&nbsp;1: Why we need to have continuity correction?
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

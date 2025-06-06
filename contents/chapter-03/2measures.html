@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a173b90f7019ca19d9d528506d000c9e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-e505c57e09a98fbd852cf62f986519b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,6 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "classic"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -97,14 +109,14 @@ ul.task-list li input[type="checkbox"] {
   MathJax = MathJax || {};
   MathJax.tex = MathJax.tex || {};
   MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\left({#1}\\right)", 1],
+    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
+    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
+    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
+    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
+    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
+    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
+    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
+    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
@@ -117,6 +129,7 @@ ul.task-list li input[type="checkbox"] {
     BetaDist: "\\mathrm{Beta}",
     ChiSqDist: "\\chi^2",
     iid: "\\mathrm{iid}",
+    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
     abs: ["\\left|#1\\right|", 1],
     norm: ["\\left\\lVert#1\\right\\rVert", 1],
     ceil: ["\\left\\lceil#1\\right\\rceil", 1],
@@ -125,10 +138,11 @@ ul.task-list li input[type="checkbox"] {
     indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
     mean: ["\\overline{#1}", 1],
     sumrv: ["\\dot{#1}", 1],
+    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
+    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
-</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -160,7 +174,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../scripts/style/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -306,7 +320,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -319,6 +334,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -476,6 +499,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH08 : Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluation Metrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coverage Test (Optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chapter-09</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -524,6 +594,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Friday Jun 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -533,8 +609,8 @@ window.Quarto = {
 </header>
 
 
-<section id="expectation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Expectation</h1>
+<section id="expectation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="expectation"><span class="header-section-number">1</span> Expectation</h2>
 <p>Now, we want to ask a question about what is the “expected value” of the outcome of a certain random variable.</p>
 <div id="def-expectation" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1</strong></span> Suppose <span class="math inline">\(Y\)</span> is a discrete random variable with pmf <span class="math inline">\(p(y)\)</span>. Then the <em>expected value</em> (or <em>mean</em>) of <span class="math inline">\(Y\)</span> is <span class="math display">\[
@@ -567,8 +643,8 @@ window.Quarto = {
 <p>This makes sense. For example, if we roll a die 60 times, we can expect 60(1/6) = 10 sixes.</p>
 </div>
 <hr>
-<section id="expectations-of-functions-of-rv" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="expectations-of-functions-of-rv"><span class="header-section-number">1.1</span> Expectations of Functions of RV</h2>
+<section id="expectations-of-functions-of-rv" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="expectations-of-functions-of-rv"><span class="header-section-number">1.1</span> Expectations of Functions of RV</h3>
 <div id="def-expectation-of-function" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2</strong></span> Suppose that <span class="math inline">\(Y\)</span> is a discrete random variable with pmf <span class="math inline">\(p(y)\)</span>, and <span class="math inline">\(g(t)\)</span> is a function. Then the <em>expected value</em> (or <em>mean</em>) of <span class="math inline">\(g(Y)\)</span> is defined to be <span class="math display">\[
 \mathbb{E}(g(Y)) = \sum_y g(y)p(y)
@@ -587,8 +663,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="laws-of-expectation" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="laws-of-expectation"><span class="header-section-number">1.2</span> Laws of Expectation</h2>
+<section id="laws-of-expectation" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="laws-of-expectation"><span class="header-section-number">1.2</span> Laws of Expectation</h3>
 <ol type="1">
 <li>If <span class="math inline">\(c\)</span> is constant, then <span class="math inline">\(\mathbb{E}\left[c\right] = c\)</span></li>
 <li><span class="math inline">\(\mathbb{E}\left[c g(Y) \right] = c \mathbb{E}\left[ g(Y) \right]\)</span></li>
@@ -612,21 +688,21 @@ window.Quarto = {
 \]</span></p>
 </div>
 </section>
-<section id="special-expectations" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="special-expectations"><span class="header-section-number">1.3</span> Special Expectations</h2>
+<section id="special-expectations" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="special-expectations"><span class="header-section-number">1.3</span> Special Expectations</h3>
 <ol type="1">
 <li>The <span class="math inline">\(k\)</span>-th <em>raw moment</em> of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mu_k' = \mathbb{E}\left[Y^k\right]\)</span></li>
-<li>The <span class="math inline">\(k\)</span>-th <em>central moment</em> of <span class="math inline">\(Y\)</span> is $_k = </li>
-<li>The variance of <span class="math inline">\(Y\)</span> is $(Y) = ^2 = _2 = </li>
+<li>The <span class="math inline">\(k\)</span>-th <em>central moment</em> of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mu_k = \mathbb{E} \left[ (Y - \mu)^k \right]\)</span></li>
+<li>The variance of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\text{Var}(Y) = \sigma^2 = \mu_2 = \mathbb{E}\left[ (Y - \mu)^2 \right]\)</span></li>
 <li>The standard deviation of <span class="math inline">\(Y\)</span> is simply the square root of variance.</li>
 </ol>
 </section>
 </section>
-<section id="variance" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Variance</h1>
+<section id="variance" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="variance"><span class="header-section-number">2</span> Variance</h2>
 <p>As defined above, this is nothing more than just the second order central moment. However, we don’t always need to compute the variance from scratch. Most of the times, the following two theorems aid in finding the variance.</p>
-<section id="two-important-results" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="two-important-results"><span class="header-section-number">2.1</span> Two Important Results</h2>
+<section id="two-important-results" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="two-important-results"><span class="header-section-number">2.1</span> Two Important Results</h3>
 <ol type="1">
 <li><span class="math inline">\(\text{Var}(Y) = \mathbb{E}\left[ Y^2 \right] - \left(\mathbb{E}[Y]\right)^2\)</span></li>
 <li><span class="math inline">\(\text{Var}(a + bY) = b^2 \text{Var}(Y)\)</span></li>
@@ -643,14 +719,14 @@ Var(a + bY) = E((a + bY - E(a+ bY))^2) = E(b^2(Y - E(Y))^2) = b^2E((Y - \mu)^2) 
 </div>
 </section>
 </section>
-<section id="moment-generating-functions" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Moment Generating Functions</h1>
+<section id="moment-generating-functions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="moment-generating-functions"><span class="header-section-number">3</span> Moment Generating Functions</h2>
 <p>The <em>moment generating function</em> (mgf) of a random variable <span class="math inline">\(Y\)</span> is defined to be</p>
 <p><span class="math display">\[
 m(t) = E(e^{tY})
 \]</span></p>
-<section id="two-important-application-of-mgf" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="two-important-application-of-mgf"><span class="header-section-number">3.1</span> Two Important Application of MGF</h2>
+<section id="two-important-application-of-mgf" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="two-important-application-of-mgf"><span class="header-section-number">3.1</span> Two Important Application of MGF</h3>
 <ol type="1">
 <li><p>to compute raw moments, according to the formula: <span class="math display">\[
 \mu_k' = m^{(k)}(0)
@@ -718,8 +794,8 @@ m_Y(t) = m_{Y_1 + Y_2 + \cdots + Y_n} (t)
 </div>
 </section>
 </section>
-<section id="tchebysheffs-theorem-or-chebyshevs-theorem" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Tchebysheff’s theorem (or Chebyshev’s theorem)</h1>
+<section id="tchebysheffs-theorem-or-chebyshevs-theorem" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="tchebysheffs-theorem-or-chebyshevs-theorem"><span class="header-section-number">4</span> Tchebysheff’s theorem (or Chebyshev’s theorem)</h2>
 <div id="thm-chebyshev" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3</strong></span> Let <span class="math inline">\(Y\)</span> be a rv with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> (assumed to be finite). Also, let <span class="math inline">\(k\)</span> be a positive constant. Then <span class="math display">\[
 P(\lVert Y - \mu \rVert &lt; k\sigma) \geq 1 - \frac{1}{k^2}
@@ -743,23 +819,23 @@ P\left(\lvert Y - \mu \rvert \geq k\sigma\right) \leq \frac{1}{k^2}
 \]</span></p>
 </div>
 </section>
-<section id="mode-and-median" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Mode and Median</h1>
-<section id="model" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="model"><span class="header-section-number">5.1</span> Model</h2>
+<section id="mode-and-median" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="mode-and-median"><span class="header-section-number">5</span> Mode and Median</h2>
+<section id="model" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="model"><span class="header-section-number">5.1</span> Model</h3>
 <p>The <em>mode</em> of a rv <span class="math inline">\(Y\)</span> is any value <span class="math inline">\(y\)</span> at which <span class="math inline">\(Y\)</span>’s pmg, <span class="math inline">\(p(y)\)</span> is a maximum.</p>
 <p>It is possible to have multiple modes, and the mode may then also b defined as the set of all such modes.</p>
 </section>
-<section id="median" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="median"><span class="header-section-number">5.2</span> Median</h2>
+<section id="median" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="median"><span class="header-section-number">5.2</span> Median</h3>
 <p>The <em>median</em> of a rv <span class="math inline">\(Y\)</span> is any value <span class="math inline">\(y\)</span> such that <span class="math display">\[
 P(X \leq Y) \geq \frac{1}{2} \qquad \text{and} \qquad P(Y \geq y) \geq \frac{1}{2}
 \]</span></p>
 <p>There may be more than one median, and the median may then also be defined as the set of all such medians.</p>
 </section>
 </section>
-<section id="some-central-interpretations-of-central-tendency-measure" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Some Central Interpretations of Central Tendency Measure</h1>
+<section id="some-central-interpretations-of-central-tendency-measure" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="some-central-interpretations-of-central-tendency-measure"><span class="header-section-number">6</span> Some Central Interpretations of Central Tendency Measure</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -884,6 +960,13 @@ P(X \leq Y) \geq \frac{1}{2} \qquad \text{and} \qquad P(Y \geq y) \geq \frac{1}{
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1240,4 +1323,5 @@ P(X \leq Y) \geq \frac{1}{2} \qquad \text{and} \qquad P(Y \geq y) \geq \frac{1}{
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
