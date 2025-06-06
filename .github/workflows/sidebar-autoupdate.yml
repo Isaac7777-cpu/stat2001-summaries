@@ -90,3 +90,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sidebar-autogen
+          path: "sidebar-autogen.zip"
+          retention-days: 7
