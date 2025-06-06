@@ -1,0 +1,10 @@
+---
+title: Properties of Point Estimators & Methods of Estimation
+---
+
+## Learning Goal
+
+- consistency
+- convergent
+- MLE. Maximise probability of the samples (likelihood)
+- MOM. Equate sample moments to population moments
