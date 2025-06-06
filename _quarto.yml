@@ -51,8 +51,11 @@ website:
           - contents/chapter-08/3interval-estimate.qmd
           - contents/chapter-08/4monte-carlo-method.qmd
           - contents/chapter-08/5coverage-test.qmd
-      - text: "chapter-09"
+      - section: "CH09 : Properties of Point Estimators & Methods of Estimation"
         href: contents/chapter-09/index.qmd
+        contents:
+          - contents/chapter-09/1properties.qmd
+          - contents/chapter-09/2methods-of-estimations.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
