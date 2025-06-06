@@ -10,6 +10,14 @@
   font-size: 1.05em;
 }
 
+.proof-title {
+  background-color: rgba(var(--bs-warning-rgb), 0.2); // soft amber, respects theme
+  color: inherit;
+  padding: 1px 2px;
+  border-radius: 4px;
+  font-size: 1.03em;
+}
+
 blockquote {
   color: var(--bs-light-color) !important;
   background-color: rgba(255, 255, 255, 0.02); // very subtle highlight (works in dark and light)
