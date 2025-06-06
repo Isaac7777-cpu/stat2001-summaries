@@ -35,5 +35,3 @@ This page summarizes the weekly structure of STAT2001: Introductory Mathematical
 - Chapters refer to the textbook used in the course (check Wattle or course outline for details).
 - Makeups and assignments are based on 2025 dates; confirm current year’s schedule on Wattle.
 - This schedule is intended for student revision and is not officially endorsed by ANU.
-
-
