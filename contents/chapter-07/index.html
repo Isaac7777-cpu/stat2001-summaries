@@ -178,6 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     vec: ["\\bm{#1}", 1],
     trans: ["{#1}^\\top", 1],
   });
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -424,7 +425,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-07/index.html">chapter-07</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-07/index.html">CH07 : Sampling Distributions and Central Limit Theorem</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -439,13 +440,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-02</span></a>
+ <span class="menu-text">CH02 : Probability</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-03</span></a>
+ <span class="menu-text">CH03 : Discrete R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -468,7 +469,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-04</span></a>
+ <span class="menu-text">CH04 : Continuous R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -491,7 +492,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-05</span></a>
+ <span class="menu-text">CH05 : Multivariate Distributions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -514,13 +515,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-06</span></a>
+ <span class="menu-text">CH06 : Functions of Random Variables</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-07/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">chapter-07</span></a>
+ <span class="menu-text">CH07 : Sampling Distributions and Central Limit Theorem</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -536,8 +537,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../contents/chapter-08/index.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH08 : Estimation</span></a>
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">chapter-08</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1026,7 +1027,7 @@ How good is the normal approximation?
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../../scripts/plot_bates.R"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bates_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[-1,1,-1]">
+<div class="quarto-layout-panel" data-layout="[-1,1,-1]" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p>&nbsp;</p>
@@ -1625,8 +1626,8 @@ Figure&nbsp;1: Why we need to have continuity correction?
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contents/chapter-06/index.html" class="pagination-link" aria-label="chapter-06">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">chapter-06</span>
+      <a href="../../contents/chapter-06/index.html" class="pagination-link" aria-label="CH06 : Functions of Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CH06 : Functions of Random Variables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
