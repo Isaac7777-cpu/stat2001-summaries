@@ -43,7 +43,8 @@ website:
         href: contents/chapter-07/index.qmd
         contents:
           - contents/chapter-07/sums-of-continuous-random-variables.qmd
-      - section: "chapter-08"
+      - section: "CH08 : Estimation"
+        href: contents/chapter-08/index.qmd
         contents:
           - contents/chapter-08/1point-estimate.qmd
           - contents/chapter-08/2evaluation.qmd
