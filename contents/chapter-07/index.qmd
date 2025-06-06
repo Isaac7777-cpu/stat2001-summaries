@@ -146,7 +146,7 @@ In order to prove (b), we need to first prove the following,
 
 :::{#lem-independence-with-centered-rvs}
 
-### Independece of Centered Random Variables
+### Independence of Centered Random Variables
 
 Suppose $Y_1, Y_2, \ldots , Y_n$ is a random sample iid from a normal distribution with mean, $\mu$ and variance, $\sigma^2$. It follows that the sample mean $\bar{Y}$, is independent of $Y_i - \overline{Y}$, $i = 1, 2, \ldots, n$.
 
