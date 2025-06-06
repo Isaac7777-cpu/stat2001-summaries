@@ -1,0 +1,115 @@
+---
+title: Estimation via Monte Carlo Methods
+---
+
+> This is basically like Dr. Strange in the Infinity War that will go into the future and look at all possible outcomes.
+
+## Motivating Problem
+
+::: {#exm-12}
+
+## Buffon's Needle Problem
+
+A kitchen floor has a pattern of parallel lines that are $10$cm apart. You have a needle in your hand that is also $10$cm long. If you randomly throw the needle onto the floor, what is the probability $p$ that it will cross a line?
+
+:::
+
+## Monte Carlo Methods
+
+It is hard to find $p$ exactly. However, it can be approximated simply, as follows.
+
+::: {.solution}
+
+We throw the needle onto the floor $n = 1000$ times, and find that the needle crosses a line $651$ times (say). Then an unbiased estimate of $p$ is $\hat{p} = 651/1000= 0.651$, and a $95%$ CI for $p$ is $(0.651 \pm 1.96\sqrt{0.651(1 - 0.651)/1000)} = (0.621, 0.681)$. Note that we could get a narrower CI simply by increasing n. We could also use a computer to simulate the throwing of the needle.
+
+:::
+
+## Hard Analytical Solutions
+
+::: {.solution}
+
+Let: 
+
+- $X =$ perpendicular distance from centre of needle to nearest line in units of $5$ cm.
+- $Y =$ acute angle between lines and needle in radians
+- $A =$ "Needle crosses a line"
+
+Therefore, we obtain
+
+- $X \sim U(0, 1), \quad f(x) = 1, 0 < x < 1$ as we are working in a $1$ unit distance = $5% cm
+- $Y \sim U(0, \pi / 2), \quad f(y) = \frac{2}{\pi}, 0 < y < \pi / 2$
+- $X \perp Y$. Give $X$, we do not have any additional information about orientation $y$.
+- $f(x, y) = f(x)(fy) = \frac{2}{\pi}, 0 < x < 1, 0 < y < \pi/2$
+
+Now, the intuition is that the needle would cross the closer line if $X < \sin(Y)$ as the needle has a length of $5$ cm from the end to the center. In other word, it is of $1$ unit distance. 
+\begin{equation*}
+A = \{(x, y) : x < \sin(y)\}
+\end{equation*}
+
+Then, it simply comes down to the following integrals,
+
+\begin{align*}
+p = \P{A} & = \iint_{A} f(x, y) \, dxdy  \\
+& = \frac{2}{\pi} \int_{y=0}^{\pi / 2} \left( \int_{x = 0}^{\sin(y)} dx \right) dy \\
+& = \frac{2}{\pi} \int_{y=0}^{\pi/2} \sin(y) \, dy \\
+& = \frac{2}{\pi} \left[ - \cos(y) \right]_0^{\pi / 2} \\
+& = \frac{2}{\pi} (- 0 - (- 1)) = \frac{2}{\pi} \\
+\end{align*}
+
+:::
+
+---
+
+::: {.solution}
+
+We can also use the following lemma.
+
+::: {#lem-iterative-probability}
+
+## Iterative Probability
+
+\begin{equation}
+\P{A} = \E{\PCond{A}{Y}}
+\end{equation}
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+p = \P{A} &= \E{\mathbfcal{1}_A} \tag{$\mathbf{1}_A$ is indicator} \\
+& = \E{\ECond{\mathbfcal{1}_A}{Y}} \tag{Law of iterated expectation} \\
+& = \E{\PCond{A}{Y}} \\
+\end{align*}
+
+:::
+
+Then with @lem-iterative-probability, we can approach the problem as the following,
+$$
+\PCond{A}{y} = \P{X < \sin(y)} = \sin(y)
+$$
+since $(X \mid y) = X \sim U(0, 1)$.
+
+So,
+\begin{align*}
+p & = \P{A} \\
+& = \E{\PCond{A}{Y}} \\
+& = \E{\sin(Y)} \\
+& = \int_0^{\pi/2} \sin(y) \frac{2}{\pi} \, dy \\
+& = \frac{2}{\pi} \\
+\end{align*}
+which is the same as before.
+
+:::
+
+## Generalisation
+
+If the length of the needle is $r$ times the distance between lines, it can be shown that the probability that the needle will cross a line is
+$$
+p = \begin{cases}
+2r/\pi , & r \leq 1 \\
+1 - \frac{2}{\pi}\left( \sqrt{r^2 - 1} - r \sin^{-1}\left( \frac{1}{r} \right) \right), & r > 1 \\
+\end{cases}
+$$
+
+The first half with $r \leq 1$ is easy to show in which the inner integral would have an upper bound of $r \sin(y)$ instead of $\sin(y)$ and the definition of $A$ should be $A \triangleq \{ (x, y) : x < r \sin(y) \}$.
