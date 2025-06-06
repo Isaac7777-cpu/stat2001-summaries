@@ -6,7 +6,7 @@ page-layout: full
 
 ## 📬 Contact
 
-![](./assets/me.jpg){width=150px}[^1]
+![An unrelated photo that I think tastes pretty good](./assets/me.jpg){width=150px}[^1]
 
 ---
 
