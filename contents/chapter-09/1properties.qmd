@@ -1,3 +1,14 @@
 ---
 title: Properties of Point Estimators
 ---
+
+## Efficiency
+
+::: {#def-efficient}
+
+The **efficiency** of $A$ relative $B$ for $A$ and $B$ are two unbiased estimators of a parameter $\theta$, 
+$$
+\mathit{Eff}(A, B)
+$$
+
+:::
