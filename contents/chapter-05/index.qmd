@@ -1,5 +1,5 @@
 ---
-title: "CH05: Multivariate Distributions"
+title: "Multivariate Distributions"
 ---
 
 ## Learning Goals 

@@ -1,5 +1,5 @@
 ---
-title: "CH02: Probability"
+title: "Probability"
 ---
 
 ## Probability functions

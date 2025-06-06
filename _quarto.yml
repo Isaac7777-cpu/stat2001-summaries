@@ -8,7 +8,6 @@ website:
   repo-url: https://github.com/Isaac7777-cpu/stat2001-summaries
   repo-actions: [edit, source, issue]
   repo-branch: master
-  # repo-subdir: stat3011-lecture-notes/
   page-navigation: true
   navbar:
     left:
@@ -21,26 +20,26 @@ website:
     background: dark
     collapse-level: 1
     contents:
-      - text: "chapter-02"
+      - text: "CH02 : Probability"
         href: contents/chapter-02/index.qmd
-      - section: "chapter-03"
+      - section: "CH03 : Discrete R.V."
         href: contents/chapter-03/index.qmd
         contents:
           - contents/chapter-03/1rv.qmd
           - contents/chapter-03/2measures.qmd
-      - section: "chapter-04"
+      - section: "CH04 : Continuous R.V."
         href: contents/chapter-04/index.qmd
         contents:
           - contents/chapter-04/1rv.qmd
           - contents/chapter-04/2measures.qmd
-      - section: "chapter-05"
+      - section: "CH05 : Multivariate Distributions"
         href: contents/chapter-05/index.qmd
         contents:
           - contents/chapter-05/01-distributions.qmd
           - contents/chapter-05/02-continuous-joint-probability-and-expectations-2.qmd
-      - text: "chapter-06"
+      - text: "CH06 : Functions of Random Variables"
         href: contents/chapter-06/index.qmd
-      - section: "chapter-07"
+      - section: "CH07 : Sampling Distributions and Central Limit Theorem"
         href: contents/chapter-07/index.qmd
         contents:
           - contents/chapter-07/sums-of-continuous-random-variables.qmd

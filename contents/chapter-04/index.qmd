@@ -1,5 +1,5 @@
 ---
-title: "CH04: Continuous R.V."
+title: "Continuous R.V."
 ---
 
 ## Preamble 
