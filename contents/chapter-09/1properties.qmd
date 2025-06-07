@@ -19,7 +19,7 @@ In other words, we want to say that $A$ is more efficient than $B$ when $\Var{A}
 
 ::: {#exm-1}
 
-Tow number $X$ and $Y$ are to be randomly and independently chosen from between $0$ and $c$.
+Two numbers $X$ and $Y$ are to be randomly and independently chosen from between $0$ and $c$.
 
 Consider $U = X + Y$ and $W = 1.5\max(X, Y)$ as two estimators of $c$. Find the efficiency of $U$ relative to $W$
 
@@ -33,7 +33,7 @@ We also showed that $\Var{U} = c^2 / 6$ and $\Var{W} = c^2 / 8$.
 
 Therefore $\Eff{U, W} = \frac{\Var{W}}{\Var{U}} = \frac{c^2 / 8}{c^2 / 6} = 0.75$
 
-Thus $W$ is is more efficient than $U$. $W$'s variance is only $3/4$ the variance of $U$.
+Thus $W$ is more efficient than $U$. $W$'s variance is only $3/4$ the variance of $U$.
 
 :::
 
@@ -68,7 +68,7 @@ Show that $X \pconv 0$.
 :::{.proof}
 
 $$
-\P{\abs{X - 0} > \varepsilon} = \P{X > \varepsilon} = \int_0^\infty ne^{-nx}\, dx = e^{-ne} \to 0.
+\P{\abs{X - 0} > \varepsilon} = \P{X > \varepsilon} = \int_\varepsilon^\infty ne^{-nx}\, dx = e^{-n\varepsilon} \to 0.
 $$
 
 Therefore $X \pconv 0$.
@@ -270,7 +270,7 @@ Now, since $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$, then
 \begin{align*}
 \Var{S^2} & = \frac{\sigma^4}{(n-1)^2} \Var{\frac{(n-1)S^2}{\sigma^2}} \\
 & = \frac{\sigma^4}{(n-1)^2} (2(n - 1)) \\
-& = \frac{2\sigma^4}{n-1}  \to 0 \; \text{as} \; n \to 0
+& = \frac{2\sigma^4}{n-1}  \to 0 \; \text{as} \; n \to \infty
 \end{align*}
 
 :::
