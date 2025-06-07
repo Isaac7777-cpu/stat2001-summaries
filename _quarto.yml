@@ -56,6 +56,10 @@ website:
         contents:
           - contents/chapter-09/1properties.qmd
           - contents/chapter-09/2methods-of-estimations.qmd
+      - section: "CH16 : Bayesian Methods"
+        href: contents/chapter-16/index.qmd
+        contents:
+          - contents/chapter-16/simulation.qmd
   page-footer:
     left: "Copyright 2025, Isaac Leong"
     right:
