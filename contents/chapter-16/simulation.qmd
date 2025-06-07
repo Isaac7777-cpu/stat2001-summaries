@@ -1,0 +1,64 @@
+---
+title: "Simulation"
+format: dashboard
+---
+
+```{ojs}
+//| output: false
+
+seedrandom = require("seedrandom@3.0.5")
+d3 = require("d3@7")
+import { Plot } from "@observablehq/plot"
+```
+
+# {.sidebar}
+
+```{ojs}
+viewof seed = Inputs.number({label: "Random Seed", value: 2025, step: 1})
+viewof randomizeTheta = Inputs.button("Randomize θ")
+viewof regenerateChalks = Inputs.button("Regenerate Chalks")
+```
+
+# Plot
+
+```{ojs}
+
+rng = seedrandom(2025);  // ✅ do this in a normal ojs block
+randomValues = rng();  // true cutoff
+
+// Define theta as a reactive variable that updates when the button is clicked
+theta = {
+  randomizeTheta; // Ensures reactivity
+  return Math.random();
+}
+chalks = {
+  regenerateChalks; // Ensures reactivity
+  return Array.from({ length: 5 }, () => rng());
+}
+
+result = chalks.map(x => ({
+  x,
+  color: x < theta ? "steelblue" : "lightgray"
+}));
+
+Plot.plot({
+  width: 600,
+  height: 80,
+  marks: [
+    Plot.ruleX([theta], {stroke: "red", strokedasharray: "4,2", strokewidth: 2}),
+    Plot.dotX(result, {
+      x: d => d.x,
+      r: 7,
+      fill: d => d.color,
+      stroke: "black"
+    })
+  ],
+  x: {
+    domain: [0, 1],
+    label: "table position"
+  },
+  y: {axis: null},
+  margintop: 30,
+  marginbottom: 30
+})
+```

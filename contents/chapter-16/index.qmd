@@ -1,0 +1,173 @@
+---
+title: Bayesian Methods
+format:
+  html:
+    interactive: true
+---
+
+## Learning Goals
+
+- The term _Bayesian methods_ refer to any mathematical tools that are useful for Bayesian inference, an approach to statistics based on the work of Thomas Bayes.
+- It is neede for Credibility Theory; and it provides a third method of estimation.
+
+## Bayesian Model
+
+A Bayesian model consists of the specification of two things:
+
+1. the conditional distribution of the data $Y$ given the model parameter $\theta$.
+2. the unconditional distribution $\theta$, also known as the prior distribution.
+
+Here, the parameter $\theta$ is treated as a random variable, unlike in a classical model, which specifies only one thing: 1. but with $\theta$ treated as an unknown constant.
+
+We have already seen many examples of a classical model, although not by that name.
+
+The prior distribution represents our beliefs regarding $\theta$ before observing the data $Y$ ("prior" means "before").
+
+The idea of bayesian inference is to use the data model (1.) and the prior (2.) to derive the posterior distribution of $\theta$, meaning the conditional distribution of $\theta$ given $Y$ ("posterior" means "after" or "after observing the data").
+
+Once the posterior distribution, or equivalently posterior density, has been obtained, it can be used for Bayesian inference in various ways. This will be discussed later.
+
+## Bayesian Equation (Revisit)
+
+The posterior density can be obtained using the Bayesian equation, which is:
+\begin{equation}
+f(\theta \mid y) = \frac{f(\theta)f(y \mid \theta)}{f(y)} ,
+\end{equation}
+where
+
+- $f(\theta)$ is the **prior density** of the parameter $\theta$ (before observing $Y = y$),
+- $f(y \mid \theta)$ is the **model density** of the data $Y$ (the same as in a classical model),
+- $f(\theta \mid y)$ is the **posterior density** of the parameter $\theta$ given the data $Y$
+- $f(y)$ is the **unconditional density** of the data $Y$ (before observing $Y = y$)
+
+Equation (1) follows immediately from the definition of conditional densities.
+
+### Unconditional Density
+
+If $\theta$ is discrete then
+$$
+f(y) = \sum_\theta f(\theta, y) = \sum_\theta f(\theta)f(y \mid \theta)
+$$
+
+If $\theta$ is continuous then
+$$
+f(y) = \int f(\theta , y) \, d\theta = \int f(\theta) f(y \mid \theta) \, d\theta
+$$
+
+If $\theta$ is mixed then
+$$
+f(y) = \sum_{\text{discrete } \theta} f(\theta) f(y \mid \theta) + \int_{\text{continuous } \theta} f(\theta) f(y \mid \theta) \, d\theta
+$$
+
+The Bayesian equation is so-called because it is the same as Bayes' Theorem (covered in Chapter 2), namely
+$$
+\PCond{A_i}{B} = \frac{\P{A_i}\PCond{B}{A_i}}{\P{B}} , \qquad \text{where} \P{B} = \sum_i \P{A_iB} = \sum_i \P{A_i} \PCond{B}{A_i}, 
+$$
+but with the various probabilities involving the two events $A_i$ and $B$ replaced by the corresponding densities involving the two random variables $\theta$ and $Y$, respectively.
+
+### Data
+
+In a Bayesian model, $Y$ can be a scalar or a vector of the form $Y = (Y_1, Y_2, \ldots , Y_n)$, representing (for example) a random sample from some common distribution. Likewise $\theta$ can be a scalar or a vector of the form $\theta = (\theta_1 , \theta_2, \ldots , \theta_K)$.
+
+The Bayesian equation can be thought of as a tool for transforming our prior beliefs into our posterior beliefs by way of a multiplicative factor, as follows:
+\begin{equation*}
+f(\theta \mid y) = f(\theta) \cdot g(\theta ; y)
+\end{equation*}
+where the factor is $g(\theta ; y) = \frac{f(y \mid \theta)}{f(y)}$.
+
+### Example
+
+::: {#exm-16}
+
+Jim is standing at the left end of a billiard table which has no pockets. 
+
+He is going to vigorously and randomly throw a ball onto the table and let it bounce around, back and forth, until it stops. He will then mark where it stops with red chalk.
+
+He will then, in a similar fashion (and independently of his first throw) throw the ball another five times, and each time mark the point where it stops with blue chalk.
+
+Then Jim will count the number of blue marks which lie to the left of the red mark.
+
+Jim does the above and at the end counts four blue to the left of the red mark.
+
+Find the probability that the red chalk mark lies in the left half of the table.
+
+The following (see [this figure](simulation.qmd)) is an illustration.
+
+::: {.separator}
+:::
+
+:::{.solution}
+
+First, define one unit of distance to be the length of the billiard table. Then let $\theta$ be the distance between the left end of the table and the red chalk mark, and let $Y$ be the number of blue marks which lie of the left of the red mark.
+
+Then a suitable Bayesian model is given by:
+
+- $Y \mid \theta \sim \Binomial(n, \theta)$  (the data model distribution)
+- $\theta \sim U(0, 1)$  (the prior distribution)
+
+where $n = 5$ and the observed value of $Y$ is $y = 4$. 
+
+This model can also be expressed in terms of densities (pdfs/pmfs), as:
+
+- $f(y \mid \theta) = \binom{n}{y}\theta^y (1 - \theta)^{n - y}, \qquad y = 0, 1, 2, \ldots , n$ (data model density)
+- $f(\theta) = 1$, $0 < \theta 1$  (the prior density)
+
+This model may be called the **Binomial-Uniform Bayesian Model**.
+
+Having specified the Bayesian model, we note that the required quantity is the probability that $\theta < 1/2$. This should be understood as 'now' or 'currently', meaning after observing the data $Y$ as $y = 4$. So, we wish to calculate the posterior probability
+$$
+p = \PCond{\theta \leq 0.5}{y = 4}
+$$
+This is also the posterior cdf of $\theta$ given $Y = 4$, evaluated at $\theta = 0.5$, namely
+$$
+p = F_\theta(0.5 \mid y = 4)
+$$
+In order to calculate $p$, we first derive the unconditional density of $Y$ as follows.
+\begin{align*}
+f(y) & = \int f(\theta)f(y \mid \theta) \, d\theta = \int_0^1 1 \cdot \binom{n}{y} \theta^y (1 - \theta)^{n-y} \, d\theta \\
+& = \binom{n}{y} B(y+1, n-y+1) \int_0^1 \frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n-y+1)-1}}{B(y+1, n-y+1)} \, d\theta \\
+& = \binom{n}{y} B(y+1, n-y+1) \times 1 \\
+& = \frac{n!}{y!(n-y)!}\frac{\Gamma(y+1)\Gamma(n-y+1)}{\Gamma((y+1) + (n-y+1))} \times 1 \\
+& = \frac{n!}{y!(n-y)!}\frac{y!(n-y)!}{(n+1)!} = \frac{1}{n+1} \\
+\end{align*}
+
+Thus $f(y) = \frac{1}{n+1}$, $y = 0, 1, 2, \ldots , n$. Equivalently, $Y$ has a discrete uniform distribution given by $Y \sim DU(0, 1, 2, \ldots , n)$.
+
+:::{.callout-notes title="Implications..." collapse="false"}
+
+This result says that **before** we observed $Y = y = 4$, the value $y$ of $Y$ was equally likely to be any of the six integers from $0$ to $n = 5$ (inclusive). This seems 'sensible' (although not obvious), since the value of $\theta$ is likewise uniform, but in a continuous sense, and equally likely to be any of the possible values it could be, between $0$ and $1$.
+
+:::
+
+We can now apply the Bayesian equation to get the posterior density of $\theta$,
+\begin{align*}
+f(\theta \mid y) & = \frac{f(\theta)f(y \mid \theta)}{f(y)} \\
+& = \frac{1 \times \binom{n}{y}\theta^y (1 - \theta)^{n-y}}{\binom{n}{y}B(y+1, n-y+1)} \\
+& = \frac{\theta^y (1 - \theta)^{n-y}}{B(y+1, n-y+1)}, \qquad 0 < y < 1 \\
+\end{align*}
+
+Therefore, we see that the posterior $\theta \mid Y \sim \BetaDist(y+1, n-y+1)$.
+
+With $n = 5$ and $y = 4$ in particular, we have that:
+\begin{gather*}
+\theta \mid y \sim \BetaDist(4+1, 5 - 4 + 1) = \BetaDist(5, 2) \\
+f(\theta \mid y) = \frac{\theta^4(1 - \theta)}{B(y+1, n-y+1)} \\
+\end{gather*}
+
+Therefore, 
+\begin{align*}
+F(\theta \mid y) & = \int_{-\infty}^\theta f(t \mid y) \, dt = \int_0^\theta 30(t^4 - t^5) \, dt \\
+& = \left[ 30\left( \frac{t^5}{5} - \frac{t^6}{6} \right) \right]_0^\theta = 6\theta^5 - 5\theta^6, \qquad 0 < \theta < 1 \\
+\end{align*}
+
+We can now finally calculate the required probability as
+$$
+p = F(0.5 \mid y = 4) = 6 \left( \frac{1}{2}\right)^5 - 5 \left(\frac{1}{2} \right)^6 = \frac{12}{64} - \frac{5}{64} = \frac{7}{64} = 0.1094
+$$
+
+This probability is small, which makes sense. If $\theta$ is large, we might expect most of the $5$ rolls to stop left of the red mark. And this is what actually happened (0n $80\%$ of the $5$ rolls). $0.1094$ provides a precise value for this probability with which it is logical to believe that $\theta < 1/2$, given the model, prior and data value.
+
+:::
+
+:::
+
