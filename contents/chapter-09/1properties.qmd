@@ -1,0 +1,305 @@
+---
+title: Properties of Point Estimators
+---
+
+## Efficiency
+
+::: {#def-efficient}
+
+The **efficiency** of $A$ relative $B$ for $A$ and $B$ are two unbiased estimators of a parameter $\theta$, 
+$$
+\Eff{A, B} = \frac{\Var{B}}{\Var{A}}
+$$
+
+In other words, we want to say that $A$ is more efficient than $B$ when $\Var{A} < \Var{B}$
+
+:::
+
+### Example 1
+
+::: {#exm-1}
+
+Two numbers $X$ and $Y$ are to be randomly and independently chosen from between $0$ and $c$.
+
+Consider $U = X + Y$ and $W = 1.5\max(X, Y)$ as two estimators of $c$. Find the efficiency of $U$ relative to $W$
+
+---
+
+::: {.solution}
+
+In Example 2 Chapter 8, we showed that $U$ and $W$ are both unbiased for $c$. 
+
+We also showed that $\Var{U} = c^2 / 6$ and $\Var{W} = c^2 / 8$.
+
+Therefore $\Eff{U, W} = \frac{\Var{W}}{\Var{U}} = \frac{c^2 / 8}{c^2 / 6} = 0.75$
+
+Thus $W$ is more efficient than $U$. $W$'s variance is only $3/4$ the variance of $U$.
+
+:::
+
+:::
+
+## Convergence in Probability
+
+::: {#def}
+
+Suppose that $X = X_n$ is a random variable and $k$ is a constant such that, for any $\varepsilon > 0$:
+$$
+\P{\lvert X - k \rvert > \varepsilon} \to 0 \hspace{10pt} \text{as} \hspace{10pt} n \to \infty.
+$$
+Then we say that $X$ **converges in probability** to $k$, and we write $X \pconv k$.
+
+:::
+
+Note that the $n$ parameter typically denotes the size of the sample. This parameter can be used as a parameter for the distribution of $Y$.
+
+---
+
+::: {#exm-2}
+
+## Convergence of Probability 
+
+Suppose that $X \sim \ExponentialDist(1/n)$.
+
+Show that $X \pconv 0$.
+
+---
+
+:::{.proof}
+
+$$
+\P{\abs{X - 0} > \varepsilon} = \P{X > \varepsilon} = \int_\varepsilon^\infty ne^{-nx}\, dx = e^{-n\varepsilon} \to 0.
+$$
+
+Therefore $X \pconv 0$.
+
+:::
+
+---
+
+:::{#rem-why-exp}
+
+Note that the above makes sense, since $\E{X} = \frac{1}{n} \to 0$ and $\Var{X} = \frac{1}{n^2} \to 0$.
+
+:::
+
+:::
+
+## Consistency
+
+::: {#def-consistency}
+
+Consider an estimator $A$ of $\theta$ based on a sample of size $n$, and suppose that $A \pconv \theta$ as $n \to \infty$.
+
+Then we say that $A$ is a *consistent* estimator of $\theta$
+
+:::
+
+---
+
+:::{#exm-3}
+
+Consider a random sample of $n$ numbers from between $0$ and $c$, and let $U = 2 \mean{Y}$ (twice the sample mean). Is $U$ a consistent estimator of $c$?
+
+---
+
+:::{.solution}
+
+First, we will show that $U$ is unbiased,
+\begin{gather*}
+\mu = \E{U} = 2\E{\mean{Y}} = 2(c/2) = c \\
+\sigma^2 = \Var{U} = 2^2 \Var{\mean{Y}} = 4 \frac{\Var{Y_1}}{n} = 4 \frac{c^2/12}{n} = \frac{c^2}{3n}.
+\end{gather*}
+
+Therefore,
+\begin{align*}
+\P{\abs{U - c} > \varepsilon} & = \P{\abs{U - \mu} > k\sigma} \tag{where $k = \varepsilon / \sigma$ and unbiased} \\
+& = \P{\abs{U - \mu} \geq k \sigma} \tag{since $U$ is a continuous rv} \\
+& \leq \frac{1}{k^2} \tag{by Chebyshev's Theorem} \\
+& = \frac{1}{(\varepsilon / \sigma)^2} = \frac{\sigma^2}{\varepsilon^2} = \frac{c^2}{3n\varepsilon^2} \to 0 \; \text{as} \; n \to \infty
+\end{align*}
+
+Thus $U \pconv c$. So yes, $U$ is a consistent estimator of $c$.
+
+:::
+
+:::
+
+### Formalisation
+
+The logic used in @exm-3 can be generalised, as follows.
+
+::: {#thm-consistency}
+
+## Consistency
+
+Suppose that $A$ is an unbiased estimator of $\theta$ such that $\Var{A} \to 0 \; \text{as} \; n \to \infty$. Then $A$ is also a consistent estimator of $\theta$.
+
+---
+
+:::{.proof}
+
+The proof of this theorem is very similar to the working in @exm-3,
+\begin{align*}
+\P{\abs{A - \theta} > \varepsilon} & = \P{\abs{A - \theta} > k\sigma} \tag{where $k = \varepsilon / \sigma$ and $\sigma^2 = \Var{A}$} \\
+& \leq \P{\abs{A - \theta} \geq k\sigma} \\
+& \leq \frac{1}{k^2} \tag{by Chebyshev's Theorem} \\
+& = \frac{\sigma^2}{\varepsilon^2} \\
+& \to 0 \; \text{as} \; n \to \infty \tag{$\sigma^2 \to 0$}
+\end{align*}
+So $A \pconv \theta$, or in other words, $A$ is a consistent estimator of $\theta$.
+
+:::
+
+:::
+
+### The (Weak) Law of Large Numbers
+
+The most important implication of the above theorem is the following result, which is called the law of large numbers (or more precisely, the weak law of large numbers).
+
+:::{#thm-weak-law-of-large-num}
+
+## Weak Law of Large Numbers
+
+Consider a random sample $Y_1, Y_2, \ldots , Y_n$ from a distribution with finite mean $\mu$ and finite variance $\sigma^2$. Then the sample mean $\mean{Y}$ is a consistent estimator of $\mu$.
+
+::: {.separator}
+:::
+
+:::{.proof}
+
+$\E{\mean{Y}} = \mu$. Thus $\mean{Y}$ is an unbiased estimator of $\mu$. Also, $\Var{\mean{Y}} = \sigma^2 / n \to 0 \; \text{as} \; n \to \infty$. It follows by the above theorem that $\mean{Y}$ is a consistent estimator of $\mu$.
+
+:::
+
+:::
+
+---
+
+::: {#exm-4}
+
+Consider a bent coin, and suppose that we are interested in $p$, the probability of a head coming up on a signle toss. We toss the coin $n$ times and observe $\hat{p}$, the proportion of heads. Is $\hat{p}$ is a consistent estimator of $p$?
+
+::: {.separator}
+:::
+
+:::{.solution}
+
+We may also write $\hat{p}$ as $\mean{Y} = \frac{1}{n}(Y_1 + Y_2 + \cdots + Y_n)$, where $Y_1, Y_2, \ldots ,Y_n \iidsim \Bernoulli(p)$.
+
+- $\mu = \E{Y_i} = p$
+- $\sigma^2 = \Var{Y_i} = p(1 - p) < \infty$
+
+So by the law of large numbers, $\hat{p}$ is a consistent estimator of $p$ because $\hat{p}$ is the sample mean of the population mean of $\Bernoulli(p)$ which is $p$. That is, $\hat{p} \pconv p$, or equivalently, $\P{\abs{\hat{p} - p} > \varepsilon} \to 0$ as $n \to \infty$.
+
+:::
+
+::: {.separator}
+:::
+
+::: {#rem-fair-coin}
+
+## Determining Whether it is Fair Coin
+
+For example, if the coin is fair then $\P{\abs{\hat{p} - p} > 0.01} \to 0$. This is the same as saying $\P{\abs{\hat{p} - 0.5} \leq 0.01} \to 1$. That is, the probability that the proportion of heads will lie between $0.49$ and $0.51$ approaches $100\%$ as the number of tosses increases indefinitely.
+
+:::
+
+:::
+
+### Some Property of Convergence
+
+::: {#thm-convergency-theory}
+
+Suppose that $A \pconv a$ and $B \pconv b$ as $b \to \infty$, where $a$ and $b$ are constants. Then:
+
+1. $A + B \pconv a + b$
+2. $AB \pconv ab$
+3. $A/B \pconv a/b$, provided that $b \neq 0$
+4. $g(A) \pconv g(a)$, provided that $g$ is a real-valued function that is continuous at $a$.
+
+:::
+
+## Convergence in Distribution
+
+::: {#def-convergence-in-distribution}
+
+Suppose that $X = X_n$ and $R$ are random variables such that $F_X(k) \to F_R(k)$ as $n \to \infty$ for all $k \in \mathbb{R}$ at which $F_R(k)$ is continuous. Then we say that $X$ **converges in distribution** to $R$, and write $X \dconv R$.
+
+:::
+
+For example, $U = \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \dconv Z \sim \NormalDist(0, 1)$ (central limit theorem). Note that the above definition also applies if $R$ has a degenerate distribution at some constant $c$. In that case,
+\begin{equation*}
+F_R(k) = \P{R \leq k} = \begin{cases}
+0, & k < c \\
+1, & k \geq c \\
+\end{cases}
+\end{equation*}
+Thus, for a constant $c$, $X \dconv c$ if 
+\begin{equation*}
+\P{X \leq k} \to \begin{cases}
+0, & k < c \\
+1, & k > c \\
+\end{cases}
+\end{equation*}
+
+### Three More Theorems {#sec-three-theores}
+
+1. Suppose that $A \dconv \NormalDist(0, 1)$ and $B \pconv 1$. Then $A/B \dconv \NormalDist(0, 1)$.
+2. If $A$ and $B$ are random variables such that $A \pconv B$ then $A \dconv B$.
+3. If $A$ is random variable and $c$ is constant such that $A \dconv c$, then $A \pconv c$. (This is not generally true if $c$ is a non-degenerate random variable.)
+
+---
+
+:::{#exm-sample-variance-consistency}
+
+## Sample Variance Consistency with Population Variance
+
+\begin{equation}
+S^2 \pconv \sigma^2 \; \text{as} \; n \to \infty
+\end{equation}
+
+::: {.separator}
+:::
+
+::: {.solution}
+
+First, the way to prove this is to apply @thm-consistency as we already know that $S^2$ is unbiased. Now, we only need to find the variance and shows that the variance converges to 0 as $n$ go to infinity.
+
+Now, since $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$, then
+\begin{align*}
+\Var{S^2} & = \frac{\sigma^4}{(n-1)^2} \Var{\frac{(n-1)S^2}{\sigma^2}} \\
+& = \frac{\sigma^4}{(n-1)^2} (2(n - 1)) \\
+& = \frac{2\sigma^4}{n-1}  \to 0 \; \text{as} \; n \to \infty
+\end{align*}
+
+:::
+
+:::
+
+---
+
+::: {#exm-t-statistic}
+
+The central limit theorem still holds when we replace the population deviation $\sigma$ by the sample standard deviation $S$; we used this fact in Chapter 8 to construct large sample confidence intervals for $\mu$ and $p$).
+
+\begin{equation}
+\frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1)
+\end{equation}
+
+:::
+
+::: {.separator}
+:::
+
+::: {.proof}
+
+From CLT, we know that $\frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1)$ as $n \to \infty$
+
+Now, as $S^2 \pconv \sigma^2$ by @exm-sample-variance-consistency and $\sigma^2 \pconv \sigma^2$ Therefore, with the first line in @sec-three-theores, we know that $S^2 / \sigma^2 \pconv 1$. Therefore, by using the fourth property in @thm-convergency-theory and $g(x) = \sqrt{x}$. Then, we know that $S / \sigma \pconv 1$. Hence,
+\begin{align*}
+\frac{\frac{\mean{Y} - \mu}{\sigma / \sqrt{n}}}{\frac{S}{\sigma}} & \dconv \NormalDist(0, 1) \tag{as $n \to \infty$} \\
+& \implies \frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1) \tag{as $n \to \infty$} \\
+\end{align*}
+
+:::

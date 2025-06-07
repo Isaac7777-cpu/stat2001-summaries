@@ -1,0 +1,490 @@
+---
+title: "Methods of Estimations"
+---
+
+## Learning Goals
+
+> Now, it is not always obvious as to how the point estimator is derived...
+> 
+>  For example, using twice the average of the sample to estimate the upper bound of a continuous uniform distribution seem to be out of thin air. And, multiple other estimators. 
+
+Therefore, we will look at two general methods for deriving point estimators:
+
+1. the _method of moments_ (MOME)
+2. the _method of maximum likelihood_ (MLE)
+
+## Method of Moments
+
+Consider a random sample $Y_1, Y_2, \ldots , Y_n$ from some distribution. Thus these random variables are $\iid$ Recall that $Y \triangleq Y_1$ has **$k$th raw moment** $\mu_k' = \E{Y^k}$. We now also, analogous to sample mean, define the **$k$th sample moment** as $m_k' = \frac{1}{n} \sum_{i=1}^n y_i^k$.
+
+Suppose that the distribution of $Y$ involves $t$ unknown parameters $t = 1, 2, 3, \ldots$. Then the **method of moments (MOM)** involves solving the following system of equations.
+\begin{equation}
+\begin{aligned}
+\mu_1' &= m_1' \\
+\mu_2' &= m_2' \\
+\vdots &= \vdots \\
+\mu_t' &= m_t' \\
+\end{aligned}
+\end{equation}
+
+The solution of these $t$ equations leads to **the method of moments estimates (MOME's)** of the $t$ unknown parameters.
+
+### Some Intuitions
+
+> This seems to be a relatively unintuitive thing to do. Or why do we want to match the moment? There are many other things we can match to as well...
+
+The idea here is that the $k$th sample moment as a random variable, $M_k' = \frac{1}{n}\sum_{i=1}^n Y_i^k$, has mean $\mu_k'$ and a variance that converges to zero as $n$ to infinity:
+\begin{gather*}
+\E{M_k'} = \frac{1}{n} \sum_{i=1}^n \E{Y_i^k} = \frac{1}{n} \sum_{i=1}^n \mu_k' = \mu_k' \\
+\Var{M_k'} = \frac{1}{n^2} \sum_{i = 1}^n \Var{Y_i^k} = \frac{n \Var{Y_1^k}}{n^2} = \frac{\Var{Y_1^k}}{n} \to 0 \\
+\end{gather*}
+
+Thus, by [Theorem 1](1properties.html#formalisation), (or equivalently by law of large number), $M_k'$ is a consistent estimator of $\mu_k'$. That is, for each $k$ and any $\varepsilon > 0$, $\P{\abs{M_k' - \mu_k'
+} > \varepsilon} \to 0$ as $n \to \infty$. So, if $n$ is large, each $m_k'$ shoud be close to $\mu_k'$.
+
+In some cases the above definition of the MOM may require slight modification because the system of equations as indicated cannot be solved for the $t$ unknown parameters, For example, if $\mu_1' = 0$, it may be necessary to also equate $\mu_{t+1}' = m_{t+1}'$.
+
+---
+
+#### Example
+
+::: {#exm-4}
+
+Consider a random sample of numbers from between $0$ and $c$. Find the method of moments estimate of $c$.
+
+:::{.separator}
+:::
+
+::: {.solution}
+
+Here: $t = 1$, $\mu_1' = \E{Y} = c / 2, m_1' = \mean{y}$. We now equate $\mu_1' = m_1'$. This implies that $c/2 = \mean{y}$ and hence $c = 2 \mean{y}$. Thus the method of moments estimate of $c$ is $\hat{c}  = 2 \mean{y}$. In other words, the method of moments estimator of $c$ is $\hat{c} = 2\mean{Y}$. Note that this estimator is both unbiased and consistent. 
+
+:::
+
+:::
+
+::: {.callout-note title="Estimate vs Estimator" collapse="false"}
+
+Note that the estimates is a constant while the estimator is a random variable.
+
+... BUT, it is common for these two terms to be used interchangeable. Thus, when we say that an estimate is unbiased or consistent, it should be understood that we are saying this about the corresponding estimator.
+
+:::
+
+---
+
+::: {#exm-5}
+
+Suppose that $Y_1, Y_2, \ldots , Y_n \iidsim \GammaDist(a, b)$. Find the method of moments estimates of $a$ and $b$. 
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+Here: $t = 2$, 
+
+- $\mu_1' = \E{Y} = ab$, 
+- $\mu_2' = \E{Y^2} = \Var{Y} = (\E{Y})^2 = ab^2 + (ab)^2$
+
+Therefore, equating with $\mu_1' = m_1'$ and $\mu_2' = m_2'$. This implies that $ab = \mean{y}$ and $ab^2 + a^2b^2 = m_2'$. Solving these equations leads to the MOME's:
+\begin{equation}
+\hat{a} = \frac{\mean{y}^2}{m_2' - \mean{y}^2} \qquad , \qquad \hat{b} = \frac{\mean{y}}{\hat{a}}
+\end{equation}
+
+For example, suppose that the data values are $1.3$ and $2.7$. Then $\mean{y} = 2$ and $m_2' = 4.49$. Therefore $\hat{a} = 8.1633$ and $\hat{b} = 0.245$.
+
+:::
+
+:::
+
+---
+
+:::{#exm-mome-normal}
+
+$Y_2, Y_2, \ldots , Y_n \iidsim \NormalDist(a, b^2)$. Find the MOME's of $a$ and $b^2$.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+$\mu_1' = a$, $\mu_2' = \E{Y^2} = a^2 + b^2$, $m_1' = \mean{y}$, $m_2' = (1/n) \sum_{i=1}^n y_i^2$. Equating with $\mu_t' = m_t'$, we get
+\begin{equation}
+\hat{a} = \mean{y} \qquad , \qquad \hat{b}^2 = \frac{n-1}{n}S^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \mean{y})^2
+\end{equation}
+i.e.
+\begin{align*}
+a^2 + b^2 & = \frac{1}{n} \sum_{i=1}^n y_i^2 \\
+b^2 & = \left(\frac{1}{n} \sum_{i = 1}^n y_i^2 \right) - \mean{y}^2 \\
+& = \frac{1}{n} \left( \sum_{i=1}^n {y_i^2} - n\mean{y}^2 \right) = \frac{(n-1)}{n} S^2 \\
+\end{align*}
+
+Note that therefore $\hat{b}^2$ is biased in small samples but it is consistent.
+
+:::
+
+:::
+
+## The Method of Maximum Likelihood (Single Observation...)
+
+::: {#exm-motivation-ml}
+
+### Motivation
+
+Suppose that we have a box with two balls in it, each of which is either black or white. But we have no idea how many of these two balls are black. We randomly draw a ball from the box and find tha it is black. Is the other ball also black?
+
+:::{.separator}
+:::
+
+Here is the analysis:
+
+If the other ball is black then the probability of us having drawn a black is $100\%$. If the other ball is white then the probability of us having drawn a black is only $50\%$. Because $100\% > 50\%$, it's reasonable to conclude that the other ball is black, although we can't be sure.
+
+What we have done is an example of estimation based on the principle that we should choose the value which maximises the likelihood of what has happened.
+
+:::
+
+### Some Definitions
+
+Suppose that $Y$ is an observation from some probability distribution that depends on an unknown parameter $\theta$. 
+
+The **likelihood function** is defined to be the pdf or pmf of $Y$, $f(y)$ or $p(y)$, but considered as a function of $\theta$.
+
+We denote the likelihood by $L(\theta)$ or $L(\theta; y)$. 
+
+The **maximum likelihood estimate (MLE)** of $\theta$ of $\theta$ is the value of $\theta$ which maximises the likelihood $L(\theta)$. Note: The MLE may not be unique.
+
+### Example
+
+::: {#exm-6}
+
+We have a box with 2 balls in it, each of which is either black or white. We randomly draw a ball from the box and find that it is black. What is the MLE of the number of black balls originally in the box?
+
+---
+
+:::{.solution}
+
+Let $\theta$ be the number of black balls originally in the box. Also let $Y$ be the numbr of black balls in our sample of one.  
+Then $Y \sim \Bernoulli(\theta / 2)$, and
+$$
+p(y) = \begin{cases}
+\theta/2 , & y = 1 \\
+1 - \theta / 2 , & y = 0 \\
+\end{cases}
+$$
+where $\theta = 0, 1, 2$.
+
+But we actually observed $y = 1$ blacks. Thus $p(y) = \theta / 2$. So the likelihood is
+$$
+L(\theta) = \theta / 2 = \begin{cases}
+0, & \theta = 0 \\
+1/2, & \theta = 1 \\
+1, & \theta = 2 \\
+\end{cases}
+$$
+
+But $\max(0, 1/2 , 1) = 1$. So the MLE of $\theta$ is $\hat{\theta} = 2$. What if the chosen ball were white? They $y = 0$ and so $p(y) = 1 - \theta / 2$. So
+$$
+L(\theta) = 1 - \theta / 2 = \begin{cases}
+1, & \theta = 0 \\
+1/2, & \theta = 1 \\
+0, & \theta = 2 \\
+\end{cases}
+$$
+
+So the MLE of $\theta$ is now $0$.
+
+In conclusion we may write the MLE generally as $\hat{\theta} = 2y$, $y = 0, 1,$. We may also write the MLE as a random variable: $\hat{\theta} = 2Y$.
+
+Note that the method of moments leads to the same estimate as the method of maximum likelihood: equating $\mu_1' = \E{Y} = \theta / 2$ with $m_1' = y$, we get $\hat{\theta} = 2y$.
+
+:::
+
+:::
+
+---
+
+::: {#exm-7}
+
+A bent coin is tossed 5 times and heads come up twice. Find the MLE of the probability of heads coming up on a single toss.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+Let $Y$ be the number of heads that come up, and let $p$ be the probability of interest.
+
+Then $Y \sin \Binomial(n, p)$, where $n = 5$, and $p(y) = \binom{n}{y}p^y(1-p)^{n-y}$, $y = 0, 1, \ldots , n$ ($0 < p < 1$).
+
+So the likelihood is $L(p) = \binom{n}{y}p^y(1-p)^{n-y}$, $0 < p < 1$ ($y = 0, 1, \ldots , n$). 
+
+We now calculate
+$$
+L'(p) = \binom{n}{y} \left( p^y (n - y)(1 - p)^{n-y-1}(-1) + yp^{y-1}(1 - p)^{n-y} \right)
+$$
+Setting this to zero yields $\hat{p} = \frac{y}{n} = \frac{2}{5}$.
+
+:::
+
+---
+
+Alternatively, we can work on the log scale. This is benefitial because we typically work with assumptions of independent samples and this would typically results in a big product in the likelihood function. Applying a log transformation, such would then turn to a summation and would work much better with the differentiation.
+
+:::{#def-log-likelihood-function}
+
+:::
+
+The **log likelihood function$ is
+$$
+l(p) = \log(L(p)) = \log\left(\binom{n}{y}\right) + y \log(p) + (n - y) \log(1 - p).
+$$
+
+Then
+$$
+l'(p) = 0 + \frac{y}{p} - \frac{n - y}{1 - p}
+$$
+
+Setting $l'(p)$ to zero yields the MLE, $\hat{p} = \frac{y}{n} = \frac{2}{5}$.
+
+---
+
+::: {#rem-confirmation-with-mome}
+
+Note that this is the same as th MOME. Also note that $l''(p) = -\frac{y}{p^2} - \frac{n-y}{(1 - p)^2} < 0$, which confirms that $\hat{p} = y / n$ maximises $L$.
+
+:::
+
+:::
+
+## Simplification
+
+Observe that the $\binom{n}{y}$ term could have been left out, with no change to the resutl.
+
+Thus:
+
+- $L(p) = p^y (1 - p)^{n - y}$
+- $l(p) = y\log(p) + (n - y) \log(1 - p)$
+- $l'(p) = \frac{y}{p} - \frac{n - y}{1 - p}$
+
+etc.
+
+> Therefore, we redefine the likelihood as any constant multiple of $Y$'s pdf or pmf.
+
+This means that we can safely ignore multiplicative constants when writing down the likelihood function $L(\theta)$, and we can ignore any additive constants when writing down the loglikelihood function $l(\theta)$.
+
+## MLE for Several Observations
+
+The method of ML can also be used when there are several sample ovservations, say $Y_1, Y_2, \ldots, Y_n$, whoose distribution depends on $\theta$.
+
+:::{#exm-8}
+
+## Example 8
+
+Suppose that 1.2, 2.4, and 1.8 are a random sample from an exponential distribtuion with unknown mean. Find the MLE of that mean. 
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+The sample observations $Y_1, Y_2, \ldots ,Y_n$ have joint pdf
+
+\begin{align*}
+f(y_1, y_2, \ldots ,y_n) & = \prod_{i=1}^n f(y_i) \tag{by independence} \\
+& = \prod_{i=1}^n \frac{1}{b} e^{-y_i / b} \tag{where $b = \E{Y_i}$ is the unknown mean} \\
+& = b^{-n} e^{-\frac{1}{b}\sum_{i=1}^n y_i} \\
+& = b^{-n} e^{-\dot{y} / b} \\
+\end{align*}
+where $\dot{y} = y_1 + y_2 + \cdots + y_n$.
+
+So the likelihood is $L(b) = b^{-n} e^{-\sum{y}/b}$, $b > 0$. hence
+$$
+l(b) = -n \log(b) - \dot{y} / b \implies l'(b) = -\frac{n}{b} + \frac{\dot{y}}{b^2}
+$$
+
+Solving $l'(b) = 0$ leads to the MLE of $b$ as $\hat{b} = \frac{\dot{y}}{n} = \mean{y} = 1.8$.
+
+From [the weak law of large numbers](./1properties.qmd#the-weak-law-of-large-numbers) as $Y_i \iidsim \ExponentialDist(b)$ hence $\E{Y_i} = b$ and $\Var{Y_i} = b^2$ bounded, $\hat{b}$ is consistent for $b$ (also $\hat{b}$ is unbaised in small samples, since $\hat{b} = \mean{Y}$.)
+
+:::
+
+:::
+
+## The Case of Several Parameters
+
+Maximum Likelihood estimation also works when there are two or more unknown parameters.
+
+::: {#exm-9}
+
+$Y_1, Y_2, \ldots , Y_n \iidsim \NormalDist(a, b^2)$. Find the MLE's of $a$ and $b^2$.
+
+:::{.separator}
+:::
+
+\begin{align*}
+f(y_1. y_2, \ldots y_n) &= \prod_{i=1}^n \frac{1}{b \sqrt{2 \pi}} \exp\left\{ -\frac{1}{2b^2}(y_i - a)^2 \right\} \\
+& = b^{-n} (2 \pi)^{-n/2} \exp\left\{ -\frac{1}{2b^2} \sum_{i=1}^n (y_i - a)^2 \right\} \\
+\end{align*}
+
+So $L(a, b^2) = (b^2)^{-n/2} \exp\left\{-\frac{1}{2b^2}\sum_{i=1}^n (y_i - a)^2 \right\}$, $-\infty < a < \infty$, $b^2 > 0$.
+$$
+l(a, b^2) = -\frac{n}{2} \log(b^2) - \frac{1}{2b^2}\sum_{i=1}^n (y_i - a)^2
+$$
+
+Therefore,
+\begin{gather}
+\pdv{l(a, b^2)}{a} = - \frac{1}{2b^2} \sum_{i=1}^n 2(y_i - a)^1 (-1) = \frac{1}{b^2} \sum_{i=1}^n (y_i - a) = \frac{1}{b^2}(\dot{y} - na). \\
+\pdv{l(a, b^2)}{b^2} = - \frac{n}{2b^2} + \frac{1}{2b^4} \sum_{i=1}^n (y_i - a)^2
+\end{gather}
+
+Setting (4) to 0 yields the MLE of $a$, namely $\hat{a} = \dot{y} / n = \mean{y}$. Substituting $\mean{y}$ for $a$ in (5) and then setting (5) to zero yields.
+$$
+\hat{b}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \mean{y})^2 = \frac{n-1}{n} \frac{1}{n-1} \sum_{i=1}^n (y_i - \mean{y})^2 = \frac{n-1}{n} S^2
+$$
+
+Note that these MLE's are exactly the same as the MOME's mentioned earlier.
+
+:::
+
+### Example
+
+:::{#exm-10}
+
+A partly melted die is rolled repeatedly until the first 6 comes up. Then it is rolled again the same number of times. We are interested in $p$, the probability of $6$ coming up on a single roll. Suppose that the first $6$ comes up on the third roll, and the numbers which then come up are 6, 2, 6. Find the MLE of $p$.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+Let $X =$ number of rolls until first $6$, and $Y =$ number of $6$'s on last half of rolls.
+
+Then $X \sin \Geometric(p)$ (with $x = 3$) and $(Y \mid X = x) \sim \Binomial(x, p)$ (with $y=2$).
+
+So $$p(x, y) = p(x) p(y \mid x) = (1 - p)^{x-1} p \cdot \binom{x}{y} p^y(1 - p)^{x - y}$$; $x = 1, 2, \ldots ; y = 0, \ldots , x$.
+
+So $$L(p) = (1 - p)^{a}p^b$$ where $a = 2x - y - 1$ and $b= 1 + y$. Then:
+\begin{gather*}
+l(p) = a \log(1 - p) + b \log(p) \\
+l'(p) = - \frac{a}{1 - p} + \frac{b}{p} = 0 \implies p = \frac{b}{a + b} \\
+\end{gather*}
+
+So the MLE of $p$ is 
+\begin{equation*}
+\hat{p} = \frac{b}{a + b} = \frac{1 + y}{(2x - y - 1) + (y + 1)} = \frac{1 + y}{2x} = \frac{1 + 2}{2(3)} = \frac{1}{2}
+\end{equation*}
+This makes sense, since $6$ came up half the time: $1 + 2 = 3$ times in $3 + 3 = 6$ rolls.
+
+:::
+
+:::
+
+---
+
+We see that ML estimation works when the sample observations are not $\iid$. The same cannot be said for the MOM. We could not use the MOM directly here.
+
+:::{#exm-11}
+
+Suppose that 3.6 and 5.4 are two numbers chosen randomly and independently from between $0$ and $c$. Find the MLE of $c$.
+
+:::{.separator}
+:::
+
+Let $X$ and $Y$ denote the two numbers as random variables. Then $X, Y \iidsim U(0, c)$. Therefore
+$$
+p(x, y) = p(x)p(y) = \frac{1}{c^2}, \; 0 < x < c, 0 < y < c 
+$$
+$c > 0$.
+
+Now, 
+
+\begin{gather*}
+L(c) = c^{-2}, \; c > 0 \\
+l(c) = \log\left\{ L(c) \right\} = -2 \log(c) \\
+\end{gather*}
+So $l'(c) = -2/c$. So $l'(c) \to 0 \impliedby c \to \infty$.
+
+But this is wrong. First, it is intuitive that such $c \to \infty$ if counter-intuitive[^1]. Note that $c$ needs to be larger than all the observed values. Therefore, obtain the correct domain for the log-likelihood function -- $c \in (\max(x, y), \infty)$. Also, given that $l'(\cdot)$ is a decreasing function, the maximum values occur at the minimal $c$ values -- $c = \max(x, y)$. Note that this MLE should also be the same with several sample values.
+
+:::
+
+[^1]: Also, not to mention that this would in fact only be a minimal point anyway.
+
+## The Invariance Property of MLEs
+
+::: {#thm-invariance-property}
+
+If $\hat{\theta}$ is an MLE of $\theta$ and $g$ is a function, then an MLE of $\phi = g(\theta)$ is $\hat{\phi} = g(\hat{\theta})$.
+
+:::
+
+:::{#exm-12}
+
+Suppose that $Y \sin \Binomial(n, p)$. What is the MLE of $r = p^2$? Is this MLE unbiased? If not, find an unbiased estimator of $r$.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+Now, since we know that $\hat{p} \triangleq Y/n$ is the MLE of $p$, $\hat{r} = \hat{p}^2 = Y^2 / n^2$ is the MLE of $r$. Now
+\begin{align*}
+\E{\hat{r}} & = \E{\hat{p}^2} \\
+& = \Var{\hat{p}} + \left( \E{\hat{p}} \right)^2 \\
+& = \frac{p(1 - p)}{n} + p^2 \\
+& = \left( \frac{n-1}{n} \right)p^2 + \frac{p}{n} \\
+& = \left(\frac{n-1}{n}\right)r + \frac{p}{n} \neq r \\
+\end{align*}
+
+Therefore, we know that $\hat{r}$ is biased, in fact we realised,
+\begin{align*}
+\bias{\hat{r}} & = \E{\hat{r}} - r \\
+& = \frac{p - r}{n} \\
+& = \frac{p - p^2}{n} \\
+& = \frac{p(1 - p)}{n} \\
+& = \Var{\hat{p}} \\
+\end{align*}
+Next observe that
+\begin{equation*}
+\E{\left( \frac{n}{n-1} \right)\hat{r}} = r + \frac{p}{n-1}
+\end{equation*}
+Now,
+\begin{equation*}
+\E{\frac{\hat{p}}{n-1}} = \frac{p}{n-1}
+\end{equation*}
+So an unbiased estimator of $r$ is 
+\begin{equation*}
+\tilde{r} = \left( \frac{n}{n-1} \right)\hat{r} - \frac{\hat{p}}{n-1} = \frac{n\hat{p}^2 - \hat{p}}{n - 1} = \frac{\hat{p}(n\hat{p} - 1)}{n - 1} = \frac{Y}{n} \left( \frac{Y - 1}{n - 1} \right).
+\end{equation*}
+
+:::
+
+:::{.separator}
+:::
+
+:::{#rem-unbiased-estimator}
+
+## Unbiased Estimator of $r$
+
+Now, using the above $\tilde{r}$,
+
+\begin{align*}
+\E{\hat{r}} & = \frac{n - 1}{n}r + \frac{p}{n} \\
+\frac{n}{n - 1}\E{\hat{r}} & = r + \frac{p}{n - 1} \\
+r & = \frac{n}{n - 1}\E{\hat{r}} - \frac{p}{n - 1} \\
+\end{align*}
+Therefore, we can let,
+\begin{align*}
+\tilde{r} & = \frac{n}{n-1}\hat{r} - \frac{\hat{p}}{n - 1} \\
+\E{\tilde{r}} & = \frac{n}{n - 1}\left( \frac{n-1}{n}r + \frac{p}{n} \right) - \frac{p}{n-1} \\
+& = r + \frac{p}{n-1} - \frac{p}{n - 1} \\
+& = r \\
+\end{align*}
+
+Therefore $\tilde{r}$ is unbiased.
+
+:::
+
+:::

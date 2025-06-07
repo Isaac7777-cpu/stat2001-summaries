@@ -11,6 +11,7 @@
 \newcommand{\Corr}[1]{\mathrm{Cor}\!\left({#1}\right)}           % Correlation
 \newcommand{\sd}[1]{\mathrm{SD}\!\left({#1}\right)}               % Standard deviation
 \newcommand{\indep}{\perp\!\!\!\perp}    % Independence symbol
+\newcommand{\Eff}[1]{\mathit{Eff} ({#1})}
 
 %%%% 2. Common Distributions %%%%
 % Discrete
@@ -26,10 +27,14 @@
 \newcommand{\BetaDist}{\mathrm{Beta}}        % Beta(alpha, beta)
 \newcommand{\ChiSqDist}{\chi^2}                  % Chi-squared(k)
 \newcommand{\iid}{\mathrm{iid}}                  % iid
-\newcommand{\dconv}{\xrightarrow{\;\; d\;\;}}
+\newcommand{\iidsim}{\overset{\mathrm{iid}}{\sim}}
+\newcommand{\dconv}{\xrightarrow{\; d\;}}
+\newcommand{\pconv}{\xrightarrow{\; p\;}}
+\newcommand{\pdv}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\odv}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}
 
 %%%% 3. Common Symbols %%%%
-\newcommand{\abs}[1]{\left|#1\right|}        % Absolute value
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}        % Absolute value
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}  % Norm
 \newcommand{\ceil}[1]{\left\lceil#1\right\rceil}  % Ceiling
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor} % Floor
