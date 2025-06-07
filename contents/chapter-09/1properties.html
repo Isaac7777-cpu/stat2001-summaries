@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Contact – STAT2001 Revision Summaries</title>
+<title>Properties of Point Estimators – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/chapter-09/2methods-of-estimations.html" rel="next">
+<link href="../../contents/chapter-09/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -148,8 +150,37 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="scripts/style/styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../scripts/style/styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -330,7 +361,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT2001 Revision Summaries</span>
     </a>
   </div>
@@ -341,15 +372,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About This Site</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./topics.html"> 
+    <a class="nav-link" href="../../topics.html"> 
 <span class="menu-text">STAT2001 Weekly Topics</span></a>
   </li>  
 </ul>
@@ -364,27 +395,27 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Contact</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-09/index.html">CH09 : Properties of Point Estimators &amp; Methods of Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-09/1properties.html">Properties of Point Estimators</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH02 : Probability</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH03 : Discrete R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -393,13 +424,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Known Discrete Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Measures Related to Distribution</span></a>
   </div>
 </li>
@@ -407,7 +438,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH04 : Continuous R.V.</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -416,13 +447,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Known Continuous Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Expectations</span></a>
   </div>
 </li>
@@ -430,7 +461,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH05 : Multivariate Distributions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -439,13 +470,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
   </div>
 </li>
@@ -453,13 +484,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH06 : Functions of Random Variables</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH07 : Sampling Distributions and Central Limit Theorem</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -468,7 +499,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
   </div>
 </li>
@@ -476,7 +507,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-08/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH08 : Estimation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -485,31 +516,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Point Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluation Metrics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interval Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coverage Test (Optional)</span></a>
   </div>
 </li>
@@ -517,22 +548,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-09/1properties.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-09/1properties.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Properties of Point Estimators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods of Estimations</span></a>
   </div>
 </li>
@@ -548,25 +579,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contact" id="toc-contact" class="nav-link active" data-scroll-target="#contact"><span class="header-section-number">1</span> 📬 Contact</a>
+  <li><a href="#efficiency" id="toc-efficiency" class="nav-link active" data-scroll-target="#efficiency"><span class="header-section-number">1</span> Efficiency</a>
   <ul class="collapse">
-  <li><a href="#my-details" id="toc-my-details" class="nav-link" data-scroll-target="#my-details"><span class="header-section-number">1.1</span> My Details</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">1.1</span> Example 1</a></li>
+  </ul></li>
+  <li><a href="#convergence-in-probability" id="toc-convergence-in-probability" class="nav-link" data-scroll-target="#convergence-in-probability"><span class="header-section-number">2</span> Convergence in Probability</a></li>
+  <li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">3</span> Consistency</a>
+  <ul class="collapse">
+  <li><a href="#formalisation" id="toc-formalisation" class="nav-link" data-scroll-target="#formalisation"><span class="header-section-number">3.1</span> Formalisation</a></li>
+  <li><a href="#the-weak-law-of-large-numbers" id="toc-the-weak-law-of-large-numbers" class="nav-link" data-scroll-target="#the-weak-law-of-large-numbers"><span class="header-section-number">3.2</span> The (Weak) Law of Large Numbers</a></li>
+  <li><a href="#some-property-of-convergence" id="toc-some-property-of-convergence" class="nav-link" data-scroll-target="#some-property-of-convergence"><span class="header-section-number">3.3</span> Some Property of Convergence</a></li>
+  </ul></li>
+  <li><a href="#convergence-in-distribution" id="toc-convergence-in-distribution" class="nav-link" data-scroll-target="#convergence-in-distribution"><span class="header-section-number">4</span> Convergence in Distribution</a>
+  <ul class="collapse">
+  <li><a href="#sec-three-theores" id="toc-sec-three-theores" class="nav-link" data-scroll-target="#sec-three-theores"><span class="header-section-number">4.1</span> Three More Theorems</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contact.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contact.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-09/1properties.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-09/1properties.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-09/index.html">CH09 : Properties of Point Estimators &amp; Methods of Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-09/1properties.html">Properties of Point Estimators</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Contact</h1>
+<h1 class="title">Properties of Point Estimators</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     
     <div>
@@ -584,33 +626,205 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="contact" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="contact"><span class="header-section-number">1</span> 📬 Contact</h2>
-<p><img src="./assets/me.jpg" class="img-fluid" width="150" alt="An unrelated photo that I think tastes pretty good"><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="efficiency" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="efficiency"><span class="header-section-number">1</span> Efficiency</h2>
+<div id="def-efficient" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> The <strong>efficiency</strong> of <span class="math inline">\(A\)</span> relative <span class="math inline">\(B\)</span> for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two unbiased estimators of a parameter <span class="math inline">\(\theta\)</span>, <span class="math display">\[
+\Eff{A, B} = \frac{\Var{B}}{\Var{A}}
+\]</span></p>
+<p>In other words, we want to say that <span class="math inline">\(A\)</span> is more efficient than <span class="math inline">\(B\)</span> when <span class="math inline">\(\Var{A} &lt; \Var{B}\)</span></p>
+</div>
+<section id="example-1" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">1.1</span> Example 1</h3>
+<div id="exm-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Two numbers <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are to be randomly and independently chosen from between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>.</p>
+<p>Consider <span class="math inline">\(U = X + Y\)</span> and <span class="math inline">\(W = 1.5\max(X, Y)\)</span> as two estimators of <span class="math inline">\(c\)</span>. Find the efficiency of <span class="math inline">\(U\)</span> relative to <span class="math inline">\(W\)</span></p>
 <hr>
-<section id="my-details" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="my-details"><span class="header-section-number">1.1</span> My Details</h3>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>In Example 2 Chapter 8, we showed that <span class="math inline">\(U\)</span> and <span class="math inline">\(W\)</span> are both unbiased for <span class="math inline">\(c\)</span>.</p>
+<p>We also showed that <span class="math inline">\(\Var{U} = c^2 / 6\)</span> and <span class="math inline">\(\Var{W} = c^2 / 8\)</span>.</p>
+<p>Therefore <span class="math inline">\(\Eff{U, W} = \frac{\Var{W}}{\Var{U}} = \frac{c^2 / 8}{c^2 / 6} = 0.75\)</span></p>
+<p>Thus <span class="math inline">\(W\)</span> is more efficient than <span class="math inline">\(U\)</span>. <span class="math inline">\(W\)</span>’s variance is only <span class="math inline">\(3/4\)</span> the variance of <span class="math inline">\(U\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="convergence-in-probability" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="convergence-in-probability"><span class="header-section-number">2</span> Convergence in Probability</h2>
+<div id="def">
+<p>Suppose that <span class="math inline">\(X = X_n\)</span> is a random variable and <span class="math inline">\(k\)</span> is a constant such that, for any <span class="math inline">\(\varepsilon &gt; 0\)</span>: <span class="math display">\[
+\P{\lvert X - k \rvert &gt; \varepsilon} \to 0 \hspace{10pt} \text{as} \hspace{10pt} n \to \infty.
+\]</span> Then we say that <span class="math inline">\(X\)</span> <strong>converges in probability</strong> to <span class="math inline">\(k\)</span>, and we write <span class="math inline">\(X \pconv k\)</span>.</p>
+</div>
+<p>Note that the <span class="math inline">\(n\)</span> parameter typically denotes the size of the sample. This parameter can be used as a parameter for the distribution of <span class="math inline">\(Y\)</span>.</p>
+<hr>
+<div id="exm-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Convergence of Probability)</strong></span> Suppose that <span class="math inline">\(X \sim \ExponentialDist(1/n)\)</span>.</p>
+<p>Show that <span class="math inline">\(X \pconv 0\)</span>.</p>
+<hr>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\P{\abs{X - 0} &gt; \varepsilon} = \P{X &gt; \varepsilon} = \int_\varepsilon^\infty ne^{-nx}\, dx = e^{-n\varepsilon} \to 0.
+\]</span></p>
+<p>Therefore <span class="math inline">\(X \pconv 0\)</span>.</p>
+</div>
+<hr>
+<div id="rem-why-exp" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>Note that the above makes sense, since <span class="math inline">\(\E{X} = \frac{1}{n} \to 0\)</span> and <span class="math inline">\(\Var{X} = \frac{1}{n^2} \to 0\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="consistency" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="consistency"><span class="header-section-number">3</span> Consistency</h2>
+<div id="def-consistency" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Consider an estimator <span class="math inline">\(A\)</span> of <span class="math inline">\(\theta\)</span> based on a sample of size <span class="math inline">\(n\)</span>, and suppose that <span class="math inline">\(A \pconv \theta\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Then we say that <span class="math inline">\(A\)</span> is a <em>consistent</em> estimator of <span class="math inline">\(\theta\)</span></p>
+</div>
+<hr>
+<div id="exm-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3</strong></span> Consider a random sample of <span class="math inline">\(n\)</span> numbers from between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>, and let <span class="math inline">\(U = 2 \mean{Y}\)</span> (twice the sample mean). Is <span class="math inline">\(U\)</span> a consistent estimator of <span class="math inline">\(c\)</span>?</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>First, we will show that <span class="math inline">\(U\)</span> is unbiased, <span class="math display">\[\begin{gather*}
+\mu = \E{U} = 2\E{\mean{Y}} = 2(c/2) = c \\
+\sigma^2 = \Var{U} = 2^2 \Var{\mean{Y}} = 4 \frac{\Var{Y_1}}{n} = 4 \frac{c^2/12}{n} = \frac{c^2}{3n}.
+\end{gather*}\]</span></p>
+<p>Therefore, <span class="math display">\[\begin{align*}
+\P{\abs{U - c} &gt; \varepsilon} &amp; = \P{\abs{U - \mu} &gt; k\sigma} \tag{where $k = \varepsilon / \sigma$ and unbiased} \\
+&amp; = \P{\abs{U - \mu} \geq k \sigma} \tag{since $U$ is a continuous rv} \\
+&amp; \leq \frac{1}{k^2} \tag{by Chebyshev's Theorem} \\
+&amp; = \frac{1}{(\varepsilon / \sigma)^2} = \frac{\sigma^2}{\varepsilon^2} = \frac{c^2}{3n\varepsilon^2} \to 0 \; \text{as} \; n \to \infty
+\end{align*}\]</span></p>
+<p>Thus <span class="math inline">\(U \pconv c\)</span>. So yes, <span class="math inline">\(U\)</span> is a consistent estimator of <span class="math inline">\(c\)</span>.</p>
+</div>
+</div>
+<section id="formalisation" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="formalisation"><span class="header-section-number">3.1</span> Formalisation</h3>
+<p>The logic used in <a href="#exm-3" class="quarto-xref">Example&nbsp;3</a> can be generalised, as follows.</p>
+<div id="thm-consistency" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Consistency)</strong></span> Suppose that <span class="math inline">\(A\)</span> is an unbiased estimator of <span class="math inline">\(\theta\)</span> such that <span class="math inline">\(\Var{A} \to 0 \; \text{as} \; n \to \infty\)</span>. Then <span class="math inline">\(A\)</span> is also a consistent estimator of <span class="math inline">\(\theta\)</span>.</p>
+<hr>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof of this theorem is very similar to the working in <a href="#exm-3" class="quarto-xref">Example&nbsp;3</a>, <span class="math display">\[\begin{align*}
+\P{\abs{A - \theta} &gt; \varepsilon} &amp; = \P{\abs{A - \theta} &gt; k\sigma} \tag{where $k = \varepsilon / \sigma$ and $\sigma^2 = \Var{A}$} \\
+&amp; \leq \P{\abs{A - \theta} \geq k\sigma} \\
+&amp; \leq \frac{1}{k^2} \tag{by Chebyshev's Theorem} \\
+&amp; = \frac{\sigma^2}{\varepsilon^2} \\
+&amp; \to 0 \; \text{as} \; n \to \infty \tag{$\sigma^2 \to 0$}
+\end{align*}\]</span> So <span class="math inline">\(A \pconv \theta\)</span>, or in other words, <span class="math inline">\(A\)</span> is a consistent estimator of <span class="math inline">\(\theta\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="the-weak-law-of-large-numbers" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="the-weak-law-of-large-numbers"><span class="header-section-number">3.2</span> The (Weak) Law of Large Numbers</h3>
+<p>The most important implication of the above theorem is the following result, which is called the law of large numbers (or more precisely, the weak law of large numbers).</p>
+<div id="thm-weak-law-of-large-num" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Weak Law of Large Numbers)</strong></span> Consider a random sample <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> from a distribution with finite mean <span class="math inline">\(\mu\)</span> and finite variance <span class="math inline">\(\sigma^2\)</span>. Then the sample mean <span class="math inline">\(\mean{Y}\)</span> is a consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(\E{\mean{Y}} = \mu\)</span>. Thus <span class="math inline">\(\mean{Y}\)</span> is an unbiased estimator of <span class="math inline">\(\mu\)</span>. Also, <span class="math inline">\(\Var{\mean{Y}} = \sigma^2 / n \to 0 \; \text{as} \; n \to \infty\)</span>. It follows by the above theorem that <span class="math inline">\(\mean{Y}\)</span> is a consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+<hr>
+<div id="exm-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> Consider a bent coin, and suppose that we are interested in <span class="math inline">\(p\)</span>, the probability of a head coming up on a signle toss. We toss the coin <span class="math inline">\(n\)</span> times and observe <span class="math inline">\(\hat{p}\)</span>, the proportion of heads. Is <span class="math inline">\(\hat{p}\)</span> is a consistent estimator of <span class="math inline">\(p\)</span>?</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We may also write <span class="math inline">\(\hat{p}\)</span> as <span class="math inline">\(\mean{Y} = \frac{1}{n}(Y_1 + Y_2 + \cdots + Y_n)\)</span>, where <span class="math inline">\(Y_1, Y_2, \ldots ,Y_n \iidsim \Bernoulli(p)\)</span>.</p>
 <ul>
-<li><strong>📧 Email:</strong> isaac.leong@example.com<br>
-</li>
-<li><strong>💼 LinkedIn:</strong> <a href="https://www.linkedin.com/in/isaac-leong">linkedin.com/in/isaac-leong</a><br>
-</li>
-<li><strong>🧑‍💻 GitHub:</strong> <a href="https://github.com/Isaac7777-cpu">github.com/Isaac7777-cpu</a><br>
-</li>
-<li><strong>📍 Location:</strong> Canberra, Australia</li>
+<li><span class="math inline">\(\mu = \E{Y_i} = p\)</span></li>
+<li><span class="math inline">\(\sigma^2 = \Var{Y_i} = p(1 - p) &lt; \infty\)</span></li>
 </ul>
+<p>So by the law of large numbers, <span class="math inline">\(\hat{p}\)</span> is a consistent estimator of <span class="math inline">\(p\)</span> because <span class="math inline">\(\hat{p}\)</span> is the sample mean of the population mean of <span class="math inline">\(\Bernoulli(p)\)</span> which is <span class="math inline">\(p\)</span>. That is, <span class="math inline">\(\hat{p} \pconv p\)</span>, or equivalently, <span class="math inline">\(\P{\abs{\hat{p} - p} &gt; \varepsilon} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+</div>
+<div class="separator">
 
-
+</div>
+<div id="rem-fair-coin" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Determining Whether it is Fair Coin). </span>For example, if the coin is fair then <span class="math inline">\(\P{\abs{\hat{p} - p} &gt; 0.01} \to 0\)</span>. This is the same as saying <span class="math inline">\(\P{\abs{\hat{p} - 0.5} \leq 0.01} \to 1\)</span>. That is, the probability that the proportion of heads will lie between <span class="math inline">\(0.49\)</span> and <span class="math inline">\(0.51\)</span> approaches <span class="math inline">\(100\%\)</span> as the number of tosses increases indefinitely.</p>
+</div>
+</div>
 </section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>This is just an unrelated photo that I think tastes pretty good.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<section id="some-property-of-convergence" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="some-property-of-convergence"><span class="header-section-number">3.3</span> Some Property of Convergence</h3>
+<div id="thm-convergency-theory" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> Suppose that <span class="math inline">\(A \pconv a\)</span> and <span class="math inline">\(B \pconv b\)</span> as <span class="math inline">\(b \to \infty\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants. Then:</p>
+<ol type="1">
+<li><span class="math inline">\(A + B \pconv a + b\)</span></li>
+<li><span class="math inline">\(AB \pconv ab\)</span></li>
+<li><span class="math inline">\(A/B \pconv a/b\)</span>, provided that <span class="math inline">\(b \neq 0\)</span></li>
+<li><span class="math inline">\(g(A) \pconv g(a)\)</span>, provided that <span class="math inline">\(g\)</span> is a real-valued function that is continuous at <span class="math inline">\(a\)</span>.</li>
 </ol>
-</section></div></main> <!-- /main -->
+</div>
+</section>
+</section>
+<section id="convergence-in-distribution" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="convergence-in-distribution"><span class="header-section-number">4</span> Convergence in Distribution</h2>
+<div id="def-convergence-in-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Suppose that <span class="math inline">\(X = X_n\)</span> and <span class="math inline">\(R\)</span> are random variables such that <span class="math inline">\(F_X(k) \to F_R(k)\)</span> as <span class="math inline">\(n \to \infty\)</span> for all <span class="math inline">\(k \in \mathbb{R}\)</span> at which <span class="math inline">\(F_R(k)\)</span> is continuous. Then we say that <span class="math inline">\(X\)</span> <strong>converges in distribution</strong> to <span class="math inline">\(R\)</span>, and write <span class="math inline">\(X \dconv R\)</span>.</p>
+</div>
+<p>For example, <span class="math inline">\(U = \frac{\mean{Y} - \mu}{\sigma / \sqrt{n}} \dconv Z \sim \NormalDist(0, 1)\)</span> (central limit theorem). Note that the above definition also applies if <span class="math inline">\(R\)</span> has a degenerate distribution at some constant <span class="math inline">\(c\)</span>. In that case, <span class="math display">\[\begin{equation*}
+F_R(k) = \P{R \leq k} = \begin{cases}
+0, &amp; k &lt; c \\
+1, &amp; k \geq c \\
+\end{cases}
+\end{equation*}\]</span> Thus, for a constant <span class="math inline">\(c\)</span>, <span class="math inline">\(X \dconv c\)</span> if <span class="math display">\[\begin{equation*}
+\P{X \leq k} \to \begin{cases}
+0, &amp; k &lt; c \\
+1, &amp; k &gt; c \\
+\end{cases}
+\end{equation*}\]</span></p>
+<section id="sec-three-theores" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="sec-three-theores"><span class="header-section-number">4.1</span> Three More Theorems</h3>
+<ol type="1">
+<li>Suppose that <span class="math inline">\(A \dconv \NormalDist(0, 1)\)</span> and <span class="math inline">\(B \pconv 1\)</span>. Then <span class="math inline">\(A/B \dconv \NormalDist(0, 1)\)</span>.</li>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are random variables such that <span class="math inline">\(A \pconv B\)</span> then <span class="math inline">\(A \dconv B\)</span>.</li>
+<li>If <span class="math inline">\(A\)</span> is random variable and <span class="math inline">\(c\)</span> is constant such that <span class="math inline">\(A \dconv c\)</span>, then <span class="math inline">\(A \pconv c\)</span>. (This is not generally true if <span class="math inline">\(c\)</span> is a non-degenerate random variable.)</li>
+</ol>
+<hr>
+<div id="exm-sample-variance-consistency" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Sample Variance Consistency with Population Variance)</strong></span> <span class="math display">\[\begin{equation}
+S^2 \pconv \sigma^2 \; \text{as} \; n \to \infty
+\end{equation}\]</span></p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>First, the way to prove this is to apply <a href="#thm-consistency" class="quarto-xref">Theorem&nbsp;1</a> as we already know that <span class="math inline">\(S^2\)</span> is unbiased. Now, we only need to find the variance and shows that the variance converges to 0 as <span class="math inline">\(n\)</span> go to infinity.</p>
+<p>Now, since <span class="math inline">\(\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)\)</span>, then <span class="math display">\[\begin{align*}
+\Var{S^2} &amp; = \frac{\sigma^4}{(n-1)^2} \Var{\frac{(n-1)S^2}{\sigma^2}} \\
+&amp; = \frac{\sigma^4}{(n-1)^2} (2(n - 1)) \\
+&amp; = \frac{2\sigma^4}{n-1}  \to 0 \; \text{as} \; n \to \infty
+\end{align*}\]</span></p>
+</div>
+</div>
+<hr>
+<div id="exm-t-statistic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6</strong></span> The central limit theorem still holds when we replace the population deviation <span class="math inline">\(\sigma\)</span> by the sample standard deviation <span class="math inline">\(S\)</span>; we used this fact in Chapter 8 to construct large sample confidence intervals for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(p\)</span>).</p>
+<p><span class="math display">\[\begin{equation}
+\frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1)
+\end{equation}\]</span></p>
+</div>
+<div class="separator">
+
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>From CLT, we know that <span class="math inline">\(\frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1)\)</span> as <span class="math inline">\(n \to \infty\)</span></p>
+<p>Now, as <span class="math inline">\(S^2 \pconv \sigma^2\)</span> by <a href="#exm-sample-variance-consistency" class="quarto-xref">Example&nbsp;5</a> and <span class="math inline">\(\sigma^2 \pconv \sigma^2\)</span> Therefore, with the first line in <a href="#sec-three-theores" class="quarto-xref">Section&nbsp;4.1</a>, we know that <span class="math inline">\(S^2 / \sigma^2 \pconv 1\)</span>. Therefore, by using the fourth property in <a href="#thm-convergency-theory" class="quarto-xref">Theorem&nbsp;3</a> and <span class="math inline">\(g(x) = \sqrt{x}\)</span>. Then, we know that <span class="math inline">\(S / \sigma \pconv 1\)</span>. Hence, <span class="math display">\[\begin{align*}
+\frac{\frac{\mean{Y} - \mu}{\sigma / \sqrt{n}}}{\frac{S}{\sigma}} &amp; \dconv \NormalDist(0, 1) \tag{as $n \to \infty$} \\
+&amp; \implies \frac{\mean{Y} - \mu}{S / \sqrt{n}} \dconv \NormalDist(0, 1) \tag{as $n \to \infty$} \\
+\end{align*}\]</span></p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1030,6 +1244,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/chapter-09/index.html" class="pagination-link" aria-label="CH09 : Properties of Point Estimators &amp; Methods of Estimation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/chapter-09/2methods-of-estimations.html" class="pagination-link" aria-label="Methods of Estimations">
+        <span class="nav-page-text">Methods of Estimations</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1038,7 +1264,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contact.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contact.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-09/1properties.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-09/1properties.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -1061,5 +1287,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Coverage Test (Optional) – STAT2001 Revision Summaries</title>
+<title>Methods of Estimations – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/chapter-09/index.html" rel="next">
-<link href="../../contents/chapter-08/4monte-carlo-method.html" rel="prev">
+<link href="../../contents/chapter-09/1properties.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -395,7 +394,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.html">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/5coverage-test.html">Coverage Test (Optional)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-09/index.html">CH09 : Properties of Point Estimators &amp; Methods of Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-09/2methods-of-estimations.html">Methods of Estimations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -509,11 +508,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH08 : Estimation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
@@ -540,7 +539,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coverage Test (Optional)</span></a>
   </div>
 </li>
@@ -550,11 +549,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-09/1properties.html" class="sidebar-item-text sidebar-link">
@@ -563,7 +562,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Methods of Estimations</span></a>
   </div>
 </li>
@@ -579,20 +578,33 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-coverage-probability" id="toc-what-is-coverage-probability" class="nav-link active" data-scroll-target="#what-is-coverage-probability"><span class="header-section-number">1</span> ✅ What is Coverage Probability?</a></li>
-  <li><a href="#how-coverage-is-computed-for-binomial-ci" id="toc-how-coverage-is-computed-for-binomial-ci" class="nav-link" data-scroll-target="#how-coverage-is-computed-for-binomial-ci"><span class="header-section-number">2</span> 🎯 How Coverage is Computed (for Binomial CI)</a></li>
-  <li><a href="#in-code-terms" id="toc-in-code-terms" class="nav-link" data-scroll-target="#in-code-terms"><span class="header-section-number">3</span> In Code Terms</a></li>
-  <li><a href="#example-manually-say-n-3-p-0.2" id="toc-example-manually-say-n-3-p-0.2" class="nav-link" data-scroll-target="#example-manually-say-n-3-p-0.2"><span class="header-section-number">4</span> Example (manually, say n = 3, p = 0.2)</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">1</span> Learning Goals</a></li>
+  <li><a href="#method-of-moments" id="toc-method-of-moments" class="nav-link" data-scroll-target="#method-of-moments"><span class="header-section-number">2</span> Method of Moments</a>
+  <ul class="collapse">
+  <li><a href="#some-intuitions" id="toc-some-intuitions" class="nav-link" data-scroll-target="#some-intuitions"><span class="header-section-number">2.1</span> Some Intuitions</a></li>
+  </ul></li>
+  <li><a href="#the-method-of-maximum-likelihood-single-observation" id="toc-the-method-of-maximum-likelihood-single-observation" class="nav-link" data-scroll-target="#the-method-of-maximum-likelihood-single-observation"><span class="header-section-number">3</span> The Method of Maximum Likelihood (Single Observation…)</a>
+  <ul class="collapse">
+  <li><a href="#some-definitions" id="toc-some-definitions" class="nav-link" data-scroll-target="#some-definitions"><span class="header-section-number">3.1</span> Some Definitions</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">3.2</span> Example</a></li>
+  </ul></li>
+  <li><a href="#simplification" id="toc-simplification" class="nav-link" data-scroll-target="#simplification"><span class="header-section-number">4</span> Simplification</a></li>
+  <li><a href="#mle-for-several-observations" id="toc-mle-for-several-observations" class="nav-link" data-scroll-target="#mle-for-several-observations"><span class="header-section-number">5</span> MLE for Several Observations</a></li>
+  <li><a href="#the-case-of-several-parameters" id="toc-the-case-of-several-parameters" class="nav-link" data-scroll-target="#the-case-of-several-parameters"><span class="header-section-number">6</span> The Case of Several Parameters</a>
+  <ul class="collapse">
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">6.1</span> Example</a></li>
+  </ul></li>
+  <li><a href="#the-invariance-property-of-mles" id="toc-the-invariance-property-of-mles" class="nav-link" data-scroll-target="#the-invariance-property-of-mles"><span class="header-section-number">7</span> The Invariance Property of MLEs</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/5coverage-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/5coverage-test.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-09/2methods-of-estimations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-09/2methods-of-estimations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.html">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/5coverage-test.html">Coverage Test (Optional)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-09/index.html">CH09 : Properties of Point Estimators &amp; Methods of Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-09/2methods-of-estimations.html">Methods of Estimations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Coverage Test (Optional)</h1>
+<h1 class="title">Methods of Estimations</h1>
 </div>
 
 
@@ -615,86 +627,355 @@ window.Quarto = {
 </header>
 
 
+<section id="learning-goals" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">1</span> Learning Goals</h2>
 <blockquote class="blockquote">
-<p>Disclaimer: Taken from response by ChatGPT</p>
+<p>Now, it is not always obvious as to how the point estimator is derived…</p>
+<p>For example, using twice the average of the sample to estimate the upper bound of a continuous uniform distribution seem to be out of thin air. And, multiple other estimators.</p>
 </blockquote>
-<hr>
-<section id="what-is-coverage-probability" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="what-is-coverage-probability"><span class="header-section-number">1</span> ✅ What is Coverage Probability?</h2>
-<p>The coverage probability of a confidence interval method is:</p>
-<p>The probability that the interval contains the true parameter value, over repeated samples.</p>
-<p>For a <span class="math inline">\(95%\)</span> confidence interval for a proportion <span class="math inline">\(p\)</span>, this means:</p>
-<p><span class="math display">\[
-\text{Coverage at } p = \mathbb{P}_p\left( \text{CI contains } p \right)
-\]</span></p>
-<p>It answers: “If the true proportion is p, how often does the method capture it?”</p>
-</section>
-<section id="how-coverage-is-computed-for-binomial-ci" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="how-coverage-is-computed-for-binomial-ci"><span class="header-section-number">2</span> 🎯 How Coverage is Computed (for Binomial CI)</h2>
-<p>We assume:</p>
-<ul>
-<li><span class="math inline">\(Y \sim \text{Binomial}(n, p)\)</span></li>
-<li>Each possible outcome <span class="math inline">\(y = 0, 1, \dots, n\)</span> has probability <span class="math inline">\(\binom{n}{y} p^y (1 - p)^{n - y}\)</span></li>
-</ul>
-<p>We calculate coverage for each <span class="math inline">\(p\)</span> as:</p>
-<p><span class="math display">\[
-\text{Coverage}(p) = \sum_{y=0}^{n} \mathbb{P}(Y = y) \cdot \mathbf{1}\left[ p \in \text{CI}(y) \right]
-\]</span></p>
-<p>Where:</p>
-<ul>
-<li><span class="math inline">\(\mathbf{1}[p \in \text{CI}(y)] = 1\)</span> if the interval contains <span class="math inline">\(p\)</span>, otherwise <span class="math inline">\(0\)</span></li>
-<li><span class="math inline">\(\text{CI}(y)\)</span> is the confidence interval computed from <span class="math inline">\(y\)</span></li>
-</ul>
-</section>
-<section id="in-code-terms" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="in-code-terms"><span class="header-section-number">3</span> In Code Terms</h2>
-<p>For each value of <span class="math inline">\(p\)</span> in the grid:</p>
+<p>Therefore, we will look at two general methods for deriving point estimators:</p>
 <ol type="1">
-<li>Loop through all <span class="math inline">\(y = 0, 1, \ldots, n\)</span></li>
-<li>For each <span class="math inline">\(y\)</span>:
-<ul>
-<li>Compute <span class="math inline">\(\text{CI}(y)\)</span> using the chosen method (Wald, Wilson, etc.)</li>
-<li>Check if <span class="math inline">\(p \in \text{CI}(y)\)</span></li>
-<li>Weight that check by the binomial probability <span class="math inline">\(P(Y = y)\)</span></li>
-</ul>
-<ol start="3" type="1">
-<li>Sum those weighted checks → coverage probability at that <span class="math inline">\(p\)</span></li>
-</ol></li>
+<li>the <em>method of moments</em> (MOME)</li>
+<li>the <em>method of maximum likelihood</em> (MLE)</li>
 </ol>
 </section>
-<section id="example-manually-say-n-3-p-0.2" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="example-manually-say-n-3-p-0.2"><span class="header-section-number">4</span> Example (manually, say n = 3, p = 0.2)</h2>
-<p>Let’s say: - You compute CIs for each <span class="math inline">\(y \in \{0, 1, 2, 3\}\)</span> - You get: - CI(0): <span class="math inline">\([0.00, 0.40]\)</span> - CI(1): <span class="math inline">\([0.05, 0.60]\)</span> - CI(2): <span class="math inline">\([0.30, 0.85]\)</span> - CI(3): <span class="math inline">\([0.60, 1.00]\)</span></p>
-<p>Then check:</p>
+<section id="method-of-moments" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="method-of-moments"><span class="header-section-number">2</span> Method of Moments</h2>
+<p>Consider a random sample <span class="math inline">\(Y_1, Y_2, \ldots , Y_n\)</span> from some distribution. Thus these random variables are <span class="math inline">\(\iid\)</span> Recall that <span class="math inline">\(Y \triangleq Y_1\)</span> has <strong><span class="math inline">\(k\)</span>th raw moment</strong> <span class="math inline">\(\mu_k' = \E{Y^k}\)</span>. We now also, analogous to sample mean, define the <strong><span class="math inline">\(k\)</span>th sample moment</strong> as <span class="math inline">\(m_k' = \frac{1}{n} \sum_{i=1}^n y_i^k\)</span>.</p>
+<p>Suppose that the distribution of <span class="math inline">\(Y\)</span> involves <span class="math inline">\(t\)</span> unknown parameters <span class="math inline">\(t = 1, 2, 3, \ldots\)</span>. Then the <strong>method of moments (MOM)</strong> involves solving the following system of equations. <span class="math display">\[\begin{equation}
+\begin{aligned}
+\mu_1' &amp;= m_1' \\
+\mu_2' &amp;= m_2' \\
+\vdots &amp;= \vdots \\
+\mu_t' &amp;= m_t' \\
+\end{aligned}
+\end{equation}\]</span></p>
+<p>The solution of these <span class="math inline">\(t\)</span> equations leads to <strong>the method of moments estimates (MOME’s)</strong> of the <span class="math inline">\(t\)</span> unknown parameters.</p>
+<section id="some-intuitions" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="some-intuitions"><span class="header-section-number">2.1</span> Some Intuitions</h3>
+<blockquote class="blockquote">
+<p>This seems to be a relatively unintuitive thing to do. Or why do we want to match the moment? There are many other things we can match to as well…</p>
+</blockquote>
+<p>The idea here is that the <span class="math inline">\(k\)</span>th sample moment as a random variable, <span class="math inline">\(M_k' = \frac{1}{n}\sum_{i=1}^n Y_i^k\)</span>, has mean <span class="math inline">\(\mu_k'\)</span> and a variance that converges to zero as <span class="math inline">\(n\)</span> to infinity: <span class="math display">\[\begin{gather*}
+\E{M_k'} = \frac{1}{n} \sum_{i=1}^n \E{Y_i^k} = \frac{1}{n} \sum_{i=1}^n \mu_k' = \mu_k' \\
+\Var{M_k'} = \frac{1}{n^2} \sum_{i = 1}^n \Var{Y_i^k} = \frac{n \Var{Y_1^k}}{n^2} = \frac{\Var{Y_1^k}}{n} \to 0 \\
+\end{gather*}\]</span></p>
+<p>Thus, by <a href="1properties.html#formalisation">Theorem 1</a>, (or equivalently by law of large number), <span class="math inline">\(M_k'\)</span> is a consistent estimator of <span class="math inline">\(\mu_k'\)</span>. That is, for each <span class="math inline">\(k\)</span> and any <span class="math inline">\(\varepsilon &gt; 0\)</span>, <span class="math inline">\(\P{\abs{M_k' - \mu_k'
+} &gt; \varepsilon} \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>. So, if <span class="math inline">\(n\)</span> is large, each <span class="math inline">\(m_k'\)</span> shoud be close to <span class="math inline">\(\mu_k'\)</span>.</p>
+<p>In some cases the above definition of the MOM may require slight modification because the system of equations as indicated cannot be solved for the <span class="math inline">\(t\)</span> unknown parameters, For example, if <span class="math inline">\(\mu_1' = 0\)</span>, it may be necessary to also equate <span class="math inline">\(\mu_{t+1}' = m_{t+1}'\)</span>.</p>
+<hr>
+<section id="example" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">2.1.1</span> Example</h4>
+<div id="exm-4" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Consider a random sample of numbers from between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>. Find the method of moments estimate of <span class="math inline">\(c\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Here: <span class="math inline">\(t = 1\)</span>, <span class="math inline">\(\mu_1' = \E{Y} = c / 2, m_1' = \mean{y}\)</span>. We now equate <span class="math inline">\(\mu_1' = m_1'\)</span>. This implies that <span class="math inline">\(c/2 = \mean{y}\)</span> and hence <span class="math inline">\(c = 2 \mean{y}\)</span>. Thus the method of moments estimate of <span class="math inline">\(c\)</span> is <span class="math inline">\(\hat{c}  = 2 \mean{y}\)</span>. In other words, the method of moments estimator of <span class="math inline">\(c\)</span> is <span class="math inline">\(\hat{c} = 2\mean{Y}\)</span>. Note that this estimator is both unbiased and consistent.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Estimate vs Estimator">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Estimate vs Estimator
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Note that the estimates is a constant while the estimator is a random variable.</p>
+<p>… BUT, it is common for these two terms to be used interchangeable. Thus, when we say that an estimate is unbiased or consistent, it should be understood that we are saying this about the corresponding estimator.</p>
+</div>
+</div>
+</div>
+<hr>
+<div id="exm-5" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \iidsim \GammaDist(a, b)\)</span>. Find the method of moments estimates of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Here: <span class="math inline">\(t = 2\)</span>,</p>
 <ul>
-<li>Is 0.2 in CI(0)? ✅</li>
-<li>Is 0.2 in CI(1)? ✅</li>
-<li>Is 0.2 in CI(2)? ❌</li>
-<li>Is 0.2 in CI(3)? ❌</li>
+<li><span class="math inline">\(\mu_1' = \E{Y} = ab\)</span>,</li>
+<li><span class="math inline">\(\mu_2' = \E{Y^2} = \Var{Y} = (\E{Y})^2 = ab^2 + (ab)^2\)</span></li>
 </ul>
-<p>Get binomial probabilities:</p>
-<ul>
-<li><span class="math inline">\(P(Y = 0) = (1 - 0.2)^3 = 0.512\)</span></li>
-<li><span class="math inline">\(P(Y = 1) = 3 \cdot 0.2 \cdot (0.8)^2 = 0.3844\)</span></li>
-<li><span class="math inline">\(P(Y = 2) = 0.096\)</span></li>
-<li><span class="math inline">\(P(Y = 3) = 0.008\)</span></li>
-</ul>
-<p>Then: <span class="math display">\[
-\text{Coverage at } p = 0.2 = 0.512 + 0.384 = 0.896
+<p>Therefore, equating with <span class="math inline">\(\mu_1' = m_1'\)</span> and <span class="math inline">\(\mu_2' = m_2'\)</span>. This implies that <span class="math inline">\(ab = \mean{y}\)</span> and <span class="math inline">\(ab^2 + a^2b^2 = m_2'\)</span>. Solving these equations leads to the MOME’s: <span class="math display">\[\begin{equation}
+\hat{a} = \frac{\mean{y}^2}{m_2' - \mean{y}^2} \qquad , \qquad \hat{b} = \frac{\mean{y}}{\hat{a}}
+\end{equation}\]</span></p>
+<p>For example, suppose that the data values are <span class="math inline">\(1.3\)</span> and <span class="math inline">\(2.7\)</span>. Then <span class="math inline">\(\mean{y} = 2\)</span> and <span class="math inline">\(m_2' = 4.49\)</span>. Therefore <span class="math inline">\(\hat{a} = 8.1633\)</span> and <span class="math inline">\(\hat{b} = 0.245\)</span>.</p>
+</div>
+</div>
+<hr>
+<div id="exm-mome-normal" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3</strong></span> <span class="math inline">\(Y_2, Y_2, \ldots , Y_n \iidsim \NormalDist(a, b^2)\)</span>. Find the MOME’s of <span class="math inline">\(a\)</span> and <span class="math inline">\(b^2\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math inline">\(\mu_1' = a\)</span>, <span class="math inline">\(\mu_2' = \E{Y^2} = a^2 + b^2\)</span>, <span class="math inline">\(m_1' = \mean{y}\)</span>, <span class="math inline">\(m_2' = (1/n) \sum_{i=1}^n y_i^2\)</span>. Equating with <span class="math inline">\(\mu_t' = m_t'\)</span>, we get <span class="math display">\[\begin{equation}
+\hat{a} = \mean{y} \qquad , \qquad \hat{b}^2 = \frac{n-1}{n}S^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \mean{y})^2
+\end{equation}\]</span> i.e. <span class="math display">\[\begin{align*}
+a^2 + b^2 &amp; = \frac{1}{n} \sum_{i=1}^n y_i^2 \\
+b^2 &amp; = \left(\frac{1}{n} \sum_{i = 1}^n y_i^2 \right) - \mean{y}^2 \\
+&amp; = \frac{1}{n} \left( \sum_{i=1}^n {y_i^2} - n\mean{y}^2 \right) = \frac{(n-1)}{n} S^2 \\
+\end{align*}\]</span></p>
+<p>Note that therefore <span class="math inline">\(\hat{b}^2\)</span> is biased in small samples but it is consistent.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="the-method-of-maximum-likelihood-single-observation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="the-method-of-maximum-likelihood-single-observation"><span class="header-section-number">3</span> The Method of Maximum Likelihood (Single Observation…)</h2>
+<div id="exm-motivation-ml" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Motivation)</strong></span> Suppose that we have a box with two balls in it, each of which is either black or white. But we have no idea how many of these two balls are black. We randomly draw a ball from the box and find tha it is black. Is the other ball also black?</p>
+<div class="separator">
+
+</div>
+<p>Here is the analysis:</p>
+<p>If the other ball is black then the probability of us having drawn a black is <span class="math inline">\(100\%\)</span>. If the other ball is white then the probability of us having drawn a black is only <span class="math inline">\(50\%\)</span>. Because <span class="math inline">\(100\% &gt; 50\%\)</span>, it’s reasonable to conclude that the other ball is black, although we can’t be sure.</p>
+<p>What we have done is an example of estimation based on the principle that we should choose the value which maximises the likelihood of what has happened.</p>
+</div>
+<section id="some-definitions" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="some-definitions"><span class="header-section-number">3.1</span> Some Definitions</h3>
+<p>Suppose that <span class="math inline">\(Y\)</span> is an observation from some probability distribution that depends on an unknown parameter <span class="math inline">\(\theta\)</span>.</p>
+<p>The <strong>likelihood function</strong> is defined to be the pdf or pmf of <span class="math inline">\(Y\)</span>, <span class="math inline">\(f(y)\)</span> or <span class="math inline">\(p(y)\)</span>, but considered as a function of <span class="math inline">\(\theta\)</span>.</p>
+<p>We denote the likelihood by <span class="math inline">\(L(\theta)\)</span> or <span class="math inline">\(L(\theta; y)\)</span>.</p>
+<p>The <strong>maximum likelihood estimate (MLE)</strong> of <span class="math inline">\(\theta\)</span> of <span class="math inline">\(\theta\)</span> is the value of <span class="math inline">\(\theta\)</span> which maximises the likelihood <span class="math inline">\(L(\theta)\)</span>. Note: The MLE may not be unique.</p>
+</section>
+<section id="example-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="example-1"><span class="header-section-number">3.2</span> Example</h3>
+<div id="exm-6" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5</strong></span> We have a box with 2 balls in it, each of which is either black or white. We randomly draw a ball from the box and find that it is black. What is the MLE of the number of black balls originally in the box?</p>
+<hr>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(\theta\)</span> be the number of black balls originally in the box. Also let <span class="math inline">\(Y\)</span> be the numbr of black balls in our sample of one.<br>
+Then <span class="math inline">\(Y \sim \Bernoulli(\theta / 2)\)</span>, and <span class="math display">\[
+p(y) = \begin{cases}
+\theta/2 , &amp; y = 1 \\
+1 - \theta / 2 , &amp; y = 0 \\
+\end{cases}
+\]</span> where <span class="math inline">\(\theta = 0, 1, 2\)</span>.</p>
+<p>But we actually observed <span class="math inline">\(y = 1\)</span> blacks. Thus <span class="math inline">\(p(y) = \theta / 2\)</span>. So the likelihood is <span class="math display">\[
+L(\theta) = \theta / 2 = \begin{cases}
+0, &amp; \theta = 0 \\
+1/2, &amp; \theta = 1 \\
+1, &amp; \theta = 2 \\
+\end{cases}
 \]</span></p>
-<p>⸻</p>
-<p>✅ Why This Is Accurate</p>
-<p>This is effectively a theoretical simulation: you compute the expected proportion of times the CI captures the true p using the binomial model — without sampling.</p>
-<p>It reflects exact coverage (not approximate), assuming:</p>
+<p>But <span class="math inline">\(\max(0, 1/2 , 1) = 1\)</span>. So the MLE of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\hat{\theta} = 2\)</span>. What if the chosen ball were white? They <span class="math inline">\(y = 0\)</span> and so <span class="math inline">\(p(y) = 1 - \theta / 2\)</span>. So <span class="math display">\[
+L(\theta) = 1 - \theta / 2 = \begin{cases}
+1, &amp; \theta = 0 \\
+1/2, &amp; \theta = 1 \\
+0, &amp; \theta = 2 \\
+\end{cases}
+\]</span></p>
+<p>So the MLE of <span class="math inline">\(\theta\)</span> is now <span class="math inline">\(0\)</span>.</p>
+<p>In conclusion we may write the MLE generally as <span class="math inline">\(\hat{\theta} = 2y\)</span>, <span class="math inline">\(y = 0, 1,\)</span>. We may also write the MLE as a random variable: <span class="math inline">\(\hat{\theta} = 2Y\)</span>.</p>
+<p>Note that the method of moments leads to the same estimate as the method of maximum likelihood: equating <span class="math inline">\(\mu_1' = \E{Y} = \theta / 2\)</span> with <span class="math inline">\(m_1' = y\)</span>, we get <span class="math inline">\(\hat{\theta} = 2y\)</span>.</p>
+</div>
+</div>
+<hr>
+<div id="exm-7" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6</strong></span> A bent coin is tossed 5 times and heads come up twice. Find the MLE of the probability of heads coming up on a single toss.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(Y\)</span> be the number of heads that come up, and let <span class="math inline">\(p\)</span> be the probability of interest.</p>
+<p>Then <span class="math inline">\(Y \sin \Binomial(n, p)\)</span>, where <span class="math inline">\(n = 5\)</span>, and <span class="math inline">\(p(y) = \binom{n}{y}p^y(1-p)^{n-y}\)</span>, <span class="math inline">\(y = 0, 1, \ldots , n\)</span> (<span class="math inline">\(0 &lt; p &lt; 1\)</span>).</p>
+<p>So the likelihood is <span class="math inline">\(L(p) = \binom{n}{y}p^y(1-p)^{n-y}\)</span>, <span class="math inline">\(0 &lt; p &lt; 1\)</span> (<span class="math inline">\(y = 0, 1, \ldots , n\)</span>).</p>
+<p>We now calculate <span class="math display">\[
+L'(p) = \binom{n}{y} \left( p^y (n - y)(1 - p)^{n-y-1}(-1) + yp^{y-1}(1 - p)^{n-y} \right)
+\]</span> Setting this to zero yields <span class="math inline">\(\hat{p} = \frac{y}{n} = \frac{2}{5}\)</span>.</p>
+</div>
+<hr>
+<p>Alternatively, we can work on the log scale. This is benefitial because we typically work with assumptions of independent samples and this would typically results in a big product in the likelihood function. Applying a log transformation, such would then turn to a summation and would work much better with the differentiation.</p>
+<div id="def-log-likelihood-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> &nbsp;</p>
+</div>
+<p>The **log likelihood function$ is <span class="math display">\[
+l(p) = \log(L(p)) = \log\left(\binom{n}{y}\right) + y \log(p) + (n - y) \log(1 - p).
+\]</span></p>
+<p>Then <span class="math display">\[
+l'(p) = 0 + \frac{y}{p} - \frac{n - y}{1 - p}
+\]</span></p>
+<p>Setting <span class="math inline">\(l'(p)\)</span> to zero yields the MLE, <span class="math inline">\(\hat{p} = \frac{y}{n} = \frac{2}{5}\)</span>.</p>
+<hr>
+<div id="rem-confirmation-with-mome" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>Note that this is the same as th MOME. Also note that <span class="math inline">\(l''(p) = -\frac{y}{p^2} - \frac{n-y}{(1 - p)^2} &lt; 0\)</span>, which confirms that <span class="math inline">\(\hat{p} = y / n\)</span> maximises <span class="math inline">\(L\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="simplification" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="simplification"><span class="header-section-number">4</span> Simplification</h2>
+<p>Observe that the <span class="math inline">\(\binom{n}{y}\)</span> term could have been left out, with no change to the resutl.</p>
+<p>Thus:</p>
 <ul>
-<li>The distribution of data is exactly binomial</li>
-<li>The CI method is applied correctly for every possible <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(L(p) = p^y (1 - p)^{n - y}\)</span></li>
+<li><span class="math inline">\(l(p) = y\log(p) + (n - y) \log(1 - p)\)</span></li>
+<li><span class="math inline">\(l'(p) = \frac{y}{p} - \frac{n - y}{1 - p}\)</span></li>
 </ul>
+<p>etc.</p>
+<blockquote class="blockquote">
+<p>Therefore, we redefine the likelihood as any constant multiple of <span class="math inline">\(Y\)</span>’s pdf or pmf.</p>
+</blockquote>
+<p>This means that we can safely ignore multiplicative constants when writing down the likelihood function <span class="math inline">\(L(\theta)\)</span>, and we can ignore any additive constants when writing down the loglikelihood function <span class="math inline">\(l(\theta)\)</span>.</p>
+</section>
+<section id="mle-for-several-observations" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="mle-for-several-observations"><span class="header-section-number">5</span> MLE for Several Observations</h2>
+<p>The method of ML can also be used when there are several sample ovservations, say <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span>, whoose distribution depends on <span class="math inline">\(\theta\)</span>.</p>
+<div id="exm-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Example 8)</strong></span> Suppose that 1.2, 2.4, and 1.8 are a random sample from an exponential distribtuion with unknown mean. Find the MLE of that mean.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>The sample observations <span class="math inline">\(Y_1, Y_2, \ldots ,Y_n\)</span> have joint pdf</p>
+<p><span class="math display">\[\begin{align*}
+f(y_1, y_2, \ldots ,y_n) &amp; = \prod_{i=1}^n f(y_i) \tag{by independence} \\
+&amp; = \prod_{i=1}^n \frac{1}{b} e^{-y_i / b} \tag{where $b = \E{Y_i}$ is the unknown mean} \\
+&amp; = b^{-n} e^{-\frac{1}{b}\sum_{i=1}^n y_i} \\
+&amp; = b^{-n} e^{-\dot{y} / b} \\
+\end{align*}\]</span> where <span class="math inline">\(\dot{y} = y_1 + y_2 + \cdots + y_n\)</span>.</p>
+<p>So the likelihood is <span class="math inline">\(L(b) = b^{-n} e^{-\sum{y}/b}\)</span>, <span class="math inline">\(b &gt; 0\)</span>. hence <span class="math display">\[
+l(b) = -n \log(b) - \dot{y} / b \implies l'(b) = -\frac{n}{b} + \frac{\dot{y}}{b^2}
+\]</span></p>
+<p>Solving <span class="math inline">\(l'(b) = 0\)</span> leads to the MLE of <span class="math inline">\(b\)</span> as <span class="math inline">\(\hat{b} = \frac{\dot{y}}{n} = \mean{y} = 1.8\)</span>.</p>
+<p>From <a href="../../contents/chapter-09/1properties.html#the-weak-law-of-large-numbers">the weak law of large numbers</a> as <span class="math inline">\(Y_i \iidsim \ExponentialDist(b)\)</span> hence <span class="math inline">\(\E{Y_i} = b\)</span> and <span class="math inline">\(\Var{Y_i} = b^2\)</span> bounded, <span class="math inline">\(\hat{b}\)</span> is consistent for <span class="math inline">\(b\)</span> (also <span class="math inline">\(\hat{b}\)</span> is unbaised in small samples, since <span class="math inline">\(\hat{b} = \mean{Y}\)</span>.)</p>
+</div>
+</div>
+</section>
+<section id="the-case-of-several-parameters" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="the-case-of-several-parameters"><span class="header-section-number">6</span> The Case of Several Parameters</h2>
+<p>Maximum Likelihood estimation also works when there are two or more unknown parameters.</p>
+<div id="exm-9" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8</strong></span> <span class="math inline">\(Y_1, Y_2, \ldots , Y_n \iidsim \NormalDist(a, b^2)\)</span>. Find the MLE’s of <span class="math inline">\(a\)</span> and <span class="math inline">\(b^2\)</span>.</p>
+<div class="separator">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+f(y_1. y_2, \ldots y_n) &amp;= \prod_{i=1}^n \frac{1}{b \sqrt{2 \pi}} \exp\left\{ -\frac{1}{2b^2}(y_i - a)^2 \right\} \\
+&amp; = b^{-n} (2 \pi)^{-n/2} \exp\left\{ -\frac{1}{2b^2} \sum_{i=1}^n (y_i - a)^2 \right\} \\
+\end{align*}\]</span></p>
+<p>So <span class="math inline">\(L(a, b^2) = (b^2)^{-n/2} \exp\left\{-\frac{1}{2b^2}\sum_{i=1}^n (y_i - a)^2 \right\}\)</span>, <span class="math inline">\(-\infty &lt; a &lt; \infty\)</span>, <span class="math inline">\(b^2 &gt; 0\)</span>. <span class="math display">\[
+l(a, b^2) = -\frac{n}{2} \log(b^2) - \frac{1}{2b^2}\sum_{i=1}^n (y_i - a)^2
+\]</span></p>
+<p>Therefore, <span class="math display">\[\begin{gather}
+\pdv{l(a, b^2)}{a} = - \frac{1}{2b^2} \sum_{i=1}^n 2(y_i - a)^1 (-1) = \frac{1}{b^2} \sum_{i=1}^n (y_i - a) = \frac{1}{b^2}(\dot{y} - na). \\
+\pdv{l(a, b^2)}{b^2} = - \frac{n}{2b^2} + \frac{1}{2b^4} \sum_{i=1}^n (y_i - a)^2
+\end{gather}\]</span></p>
+<p>Setting (4) to 0 yields the MLE of <span class="math inline">\(a\)</span>, namely <span class="math inline">\(\hat{a} = \dot{y} / n = \mean{y}\)</span>. Substituting <span class="math inline">\(\mean{y}\)</span> for <span class="math inline">\(a\)</span> in (5) and then setting (5) to zero yields. <span class="math display">\[
+\hat{b}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \mean{y})^2 = \frac{n-1}{n} \frac{1}{n-1} \sum_{i=1}^n (y_i - \mean{y})^2 = \frac{n-1}{n} S^2
+\]</span></p>
+<p>Note that these MLE’s are exactly the same as the MOME’s mentioned earlier.</p>
+</div>
+<section id="example-2" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">6.1</span> Example</h3>
+<div id="exm-10" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9</strong></span> A partly melted die is rolled repeatedly until the first 6 comes up. Then it is rolled again the same number of times. We are interested in <span class="math inline">\(p\)</span>, the probability of <span class="math inline">\(6\)</span> coming up on a single roll. Suppose that the first <span class="math inline">\(6\)</span> comes up on the third roll, and the numbers which then come up are 6, 2, 6. Find the MLE of <span class="math inline">\(p\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(X =\)</span> number of rolls until first <span class="math inline">\(6\)</span>, and <span class="math inline">\(Y =\)</span> number of <span class="math inline">\(6\)</span>’s on last half of rolls.</p>
+<p>Then <span class="math inline">\(X \sin \Geometric(p)\)</span> (with <span class="math inline">\(x = 3\)</span>) and <span class="math inline">\((Y \mid X = x) \sim \Binomial(x, p)\)</span> (with <span class="math inline">\(y=2\)</span>).</p>
+<p>So <span class="math display">\[p(x, y) = p(x) p(y \mid x) = (1 - p)^{x-1} p \cdot \binom{x}{y} p^y(1 - p)^{x - y}\]</span>; <span class="math inline">\(x = 1, 2, \ldots ; y = 0, \ldots , x\)</span>.</p>
+<p>So <span class="math display">\[L(p) = (1 - p)^{a}p^b\]</span> where <span class="math inline">\(a = 2x - y - 1\)</span> and <span class="math inline">\(b= 1 + y\)</span>. Then: <span class="math display">\[\begin{gather*}
+l(p) = a \log(1 - p) + b \log(p) \\
+l'(p) = - \frac{a}{1 - p} + \frac{b}{p} = 0 \implies p = \frac{b}{a + b} \\
+\end{gather*}\]</span></p>
+<p>So the MLE of <span class="math inline">\(p\)</span> is <span class="math display">\[\begin{equation*}
+\hat{p} = \frac{b}{a + b} = \frac{1 + y}{(2x - y - 1) + (y + 1)} = \frac{1 + y}{2x} = \frac{1 + 2}{2(3)} = \frac{1}{2}
+\end{equation*}\]</span> This makes sense, since <span class="math inline">\(6\)</span> came up half the time: <span class="math inline">\(1 + 2 = 3\)</span> times in <span class="math inline">\(3 + 3 = 6\)</span> rolls.</p>
+</div>
+</div>
+<hr>
+<p>We see that ML estimation works when the sample observations are not <span class="math inline">\(\iid\)</span>. The same cannot be said for the MOM. We could not use the MOM directly here.</p>
+<div id="exm-11" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10</strong></span> Suppose that 3.6 and 5.4 are two numbers chosen randomly and independently from between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>. Find the MLE of <span class="math inline">\(c\)</span>.</p>
+<div class="separator">
+
+</div>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> denote the two numbers as random variables. Then <span class="math inline">\(X, Y \iidsim U(0, c)\)</span>. Therefore <span class="math display">\[
+p(x, y) = p(x)p(y) = \frac{1}{c^2}, \; 0 &lt; x &lt; c, 0 &lt; y &lt; c
+\]</span> <span class="math inline">\(c &gt; 0\)</span>.</p>
+<p>Now,</p>
+<p><span class="math display">\[\begin{gather*}
+L(c) = c^{-2}, \; c &gt; 0 \\
+l(c) = \log\left\{ L(c) \right\} = -2 \log(c) \\
+\end{gather*}\]</span> So <span class="math inline">\(l'(c) = -2/c\)</span>. So <span class="math inline">\(l'(c) \to 0 \impliedby c \to \infty\)</span>.</p>
+<p>But this is wrong. First, it is intuitive that such <span class="math inline">\(c \to \infty\)</span> if counter-intuitive<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Note that <span class="math inline">\(c\)</span> needs to be larger than all the observed values. Therefore, obtain the correct domain for the log-likelihood function – <span class="math inline">\(c \in (\max(x, y), \infty)\)</span>. Also, given that <span class="math inline">\(l'(\cdot)\)</span> is a decreasing function, the maximum values occur at the minimal <span class="math inline">\(c\)</span> values – <span class="math inline">\(c = \max(x, y)\)</span>. Note that this MLE should also be the same with several sample values.</p>
+</div>
+</section>
+</section>
+<section id="the-invariance-property-of-mles" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="the-invariance-property-of-mles"><span class="header-section-number">7</span> The Invariance Property of MLEs</h2>
+<div id="thm-invariance-property" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is an MLE of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(g\)</span> is a function, then an MLE of <span class="math inline">\(\phi = g(\theta)\)</span> is <span class="math inline">\(\hat{\phi} = g(\hat{\theta})\)</span>.</p>
+</div>
+<div id="exm-12" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11</strong></span> Suppose that <span class="math inline">\(Y \sin \Binomial(n, p)\)</span>. What is the MLE of <span class="math inline">\(r = p^2\)</span>? Is this MLE unbiased? If not, find an unbiased estimator of <span class="math inline">\(r\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Now, since we know that <span class="math inline">\(\hat{p} \triangleq Y/n\)</span> is the MLE of <span class="math inline">\(p\)</span>, <span class="math inline">\(\hat{r} = \hat{p}^2 = Y^2 / n^2\)</span> is the MLE of <span class="math inline">\(r\)</span>. Now <span class="math display">\[\begin{align*}
+\E{\hat{r}} &amp; = \E{\hat{p}^2} \\
+&amp; = \Var{\hat{p}} + \left( \E{\hat{p}} \right)^2 \\
+&amp; = \frac{p(1 - p)}{n} + p^2 \\
+&amp; = \left( \frac{n-1}{n} \right)p^2 + \frac{p}{n} \\
+&amp; = \left(\frac{n-1}{n}\right)r + \frac{p}{n} \neq r \\
+\end{align*}\]</span></p>
+<p>Therefore, we know that <span class="math inline">\(\hat{r}\)</span> is biased, in fact we realised, <span class="math display">\[\begin{align*}
+\bias{\hat{r}} &amp; = \E{\hat{r}} - r \\
+&amp; = \frac{p - r}{n} \\
+&amp; = \frac{p - p^2}{n} \\
+&amp; = \frac{p(1 - p)}{n} \\
+&amp; = \Var{\hat{p}} \\
+\end{align*}\]</span> Next observe that <span class="math display">\[\begin{equation*}
+\E{\left( \frac{n}{n-1} \right)\hat{r}} = r + \frac{p}{n-1}
+\end{equation*}\]</span> Now, <span class="math display">\[\begin{equation*}
+\E{\frac{\hat{p}}{n-1}} = \frac{p}{n-1}
+\end{equation*}\]</span> So an unbiased estimator of <span class="math inline">\(r\)</span> is <span class="math display">\[\begin{equation*}
+\tilde{r} = \left( \frac{n}{n-1} \right)\hat{r} - \frac{\hat{p}}{n-1} = \frac{n\hat{p}^2 - \hat{p}}{n - 1} = \frac{\hat{p}(n\hat{p} - 1)}{n - 1} = \frac{Y}{n} \left( \frac{Y - 1}{n - 1} \right).
+\end{equation*}\]</span></p>
+</div>
+<div class="separator">
+
+</div>
+<div id="rem-unbiased-estimator" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Unbiased Estimator of <span class="math inline">\(r\)</span>). </span>Now, using the above <span class="math inline">\(\tilde{r}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+\E{\hat{r}} &amp; = \frac{n - 1}{n}r + \frac{p}{n} \\
+\frac{n}{n - 1}\E{\hat{r}} &amp; = r + \frac{p}{n - 1} \\
+r &amp; = \frac{n}{n - 1}\E{\hat{r}} - \frac{p}{n - 1} \\
+\end{align*}\]</span> Therefore, we can let, <span class="math display">\[\begin{align*}
+\tilde{r} &amp; = \frac{n}{n-1}\hat{r} - \frac{\hat{p}}{n - 1} \\
+\E{\tilde{r}} &amp; = \frac{n}{n - 1}\left( \frac{n-1}{n}r + \frac{p}{n} \right) - \frac{p}{n-1} \\
+&amp; = r + \frac{p}{n-1} - \frac{p}{n - 1} \\
+&amp; = r \\
+\end{align*}\]</span></p>
+<p>Therefore <span class="math inline">\(\tilde{r}\)</span> is unbiased.</p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Also, not to mention that this would in fact only be a minimal point anyway.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1116,14 +1397,11 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contents/chapter-08/4monte-carlo-method.html" class="pagination-link" aria-label="Estimation via Monte Carlo Methods">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Estimation via Monte Carlo Methods</span>
+      <a href="../../contents/chapter-09/1properties.html" class="pagination-link" aria-label="Properties of Point Estimators">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Properties of Point Estimators</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/chapter-09/index.html" class="pagination-link" aria-label="CH09 : Properties of Point Estimators &amp; Methods of Estimation">
-        <span class="nav-page-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1134,7 +1412,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/5coverage-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/5coverage-test.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-09/2methods-of-estimations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-09/2methods-of-estimations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

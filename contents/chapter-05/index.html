@@ -118,6 +118,7 @@ ul.task-list li input[type="checkbox"] {
     Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
     sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
     indep: "\\perp\\!\\!\\!\\perp",
+    Eff: ["\\mathit{Eff} ({#1})", 1],
     Bernoulli: "\\mathrm{Bern}",
     Binomial: "\\mathrm{Bin}",
     Geometric: "\\mathrm{Geo}",
@@ -129,8 +130,12 @@ ul.task-list li input[type="checkbox"] {
     BetaDist: "\\mathrm{Beta}",
     ChiSqDist: "\\chi^2",
     iid: "\\mathrm{iid}",
-    dconv: "\\xrightarrow{\\;\\; d\\;\\;}",
-    abs: ["\\left|#1\\right|", 1],
+    iidsim: "\\overset{\\mathrm{iid}}{\\sim}",
+    dconv: "\\xrightarrow{\\; d\\;}",
+    pconv: "\\xrightarrow{\\; p\\;}",
+    pdv: ["\\frac{\\partial{#1}}{\\partial{#2}}", 2],
+    odv: ["\\frac{\\mathrm{d}{#1}}{\\mathrm{d}{#2}}", 2],
+    abs: ["\\left\\lvert#1\\right\\rvert", 1],
     norm: ["\\left\\lVert#1\\right\\rVert", 1],
     ceil: ["\\left\\lceil#1\\right\\rceil", 1],
     floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
@@ -512,12 +517,29 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">chapter-09</span></a>
+  <a href="../../contents/chapter-09/1properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Properties of Point Estimators</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods of Estimations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -549,7 +571,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Friday Jun 6, 2025</p>
+      <p class="date">Saturday Jun 7, 2025</p>
     </div>
   </div>
   

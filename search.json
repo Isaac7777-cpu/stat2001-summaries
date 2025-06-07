@@ -516,6 +516,174 @@
     ]
   },
   {
+    "objectID": "contents/chapter-09/1properties.html",
+    "href": "contents/chapter-09/1properties.html",
+    "title": "Properties of Point Estimators",
+    "section": "",
+    "text": "Definition 1 The efficiency of \\(A\\) relative \\(B\\) for \\(A\\) and \\(B\\) are two unbiased estimators of a parameter \\(\\theta\\), \\[\n\\Eff{A, B} = \\frac{\\Var{B}}{\\Var{A}}\n\\]\nIn other words, we want to say that \\(A\\) is more efficient than \\(B\\) when \\(\\Var{A} &lt; \\Var{B}\\)\n\n\n\n\nExample 1 Two numbers \\(X\\) and \\(Y\\) are to be randomly and independently chosen from between \\(0\\) and \\(c\\).\nConsider \\(U = X + Y\\) and \\(W = 1.5\\max(X, Y)\\) as two estimators of \\(c\\). Find the efficiency of \\(U\\) relative to \\(W\\)\n\n\nSolution. In Example 2 Chapter 8, we showed that \\(U\\) and \\(W\\) are both unbiased for \\(c\\).\nWe also showed that \\(\\Var{U} = c^2 / 6\\) and \\(\\Var{W} = c^2 / 8\\).\nTherefore \\(\\Eff{U, W} = \\frac{\\Var{W}}{\\Var{U}} = \\frac{c^2 / 8}{c^2 / 6} = 0.75\\)\nThus \\(W\\) is more efficient than \\(U\\). \\(W\\)’s variance is only \\(3/4\\) the variance of \\(U\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Properties of Point Estimators"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/1properties.html#efficiency",
+    "href": "contents/chapter-09/1properties.html#efficiency",
+    "title": "Properties of Point Estimators",
+    "section": "",
+    "text": "Definition 1 The efficiency of \\(A\\) relative \\(B\\) for \\(A\\) and \\(B\\) are two unbiased estimators of a parameter \\(\\theta\\), \\[\n\\Eff{A, B} = \\frac{\\Var{B}}{\\Var{A}}\n\\]\nIn other words, we want to say that \\(A\\) is more efficient than \\(B\\) when \\(\\Var{A} &lt; \\Var{B}\\)\n\n\n\n\nExample 1 Two numbers \\(X\\) and \\(Y\\) are to be randomly and independently chosen from between \\(0\\) and \\(c\\).\nConsider \\(U = X + Y\\) and \\(W = 1.5\\max(X, Y)\\) as two estimators of \\(c\\). Find the efficiency of \\(U\\) relative to \\(W\\)\n\n\nSolution. In Example 2 Chapter 8, we showed that \\(U\\) and \\(W\\) are both unbiased for \\(c\\).\nWe also showed that \\(\\Var{U} = c^2 / 6\\) and \\(\\Var{W} = c^2 / 8\\).\nTherefore \\(\\Eff{U, W} = \\frac{\\Var{W}}{\\Var{U}} = \\frac{c^2 / 8}{c^2 / 6} = 0.75\\)\nThus \\(W\\) is more efficient than \\(U\\). \\(W\\)’s variance is only \\(3/4\\) the variance of \\(U\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Properties of Point Estimators"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/1properties.html#convergence-in-probability",
+    "href": "contents/chapter-09/1properties.html#convergence-in-probability",
+    "title": "Properties of Point Estimators",
+    "section": "2 Convergence in Probability",
+    "text": "2 Convergence in Probability\n\nSuppose that \\(X = X_n\\) is a random variable and \\(k\\) is a constant such that, for any \\(\\varepsilon &gt; 0\\): \\[\n\\P{\\lvert X - k \\rvert &gt; \\varepsilon} \\to 0 \\hspace{10pt} \\text{as} \\hspace{10pt} n \\to \\infty.\n\\] Then we say that \\(X\\) converges in probability to \\(k\\), and we write \\(X \\pconv k\\).\n\nNote that the \\(n\\) parameter typically denotes the size of the sample. This parameter can be used as a parameter for the distribution of \\(Y\\).\n\n\nExample 2 (Convergence of Probability) Suppose that \\(X \\sim \\ExponentialDist(1/n)\\).\nShow that \\(X \\pconv 0\\).\n\n\nProof. \\[\n\\P{\\abs{X - 0} &gt; \\varepsilon} = \\P{X &gt; \\varepsilon} = \\int_\\varepsilon^\\infty ne^{-nx}\\, dx = e^{-n\\varepsilon} \\to 0.\n\\]\nTherefore \\(X \\pconv 0\\).\n\n\n\nRemark 1. Note that the above makes sense, since \\(\\E{X} = \\frac{1}{n} \\to 0\\) and \\(\\Var{X} = \\frac{1}{n^2} \\to 0\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Properties of Point Estimators"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/1properties.html#consistency",
+    "href": "contents/chapter-09/1properties.html#consistency",
+    "title": "Properties of Point Estimators",
+    "section": "3 Consistency",
+    "text": "3 Consistency\n\nDefinition 2 Consider an estimator \\(A\\) of \\(\\theta\\) based on a sample of size \\(n\\), and suppose that \\(A \\pconv \\theta\\) as \\(n \\to \\infty\\).\nThen we say that \\(A\\) is a consistent estimator of \\(\\theta\\)\n\n\n\nExample 3 Consider a random sample of \\(n\\) numbers from between \\(0\\) and \\(c\\), and let \\(U = 2 \\mean{Y}\\) (twice the sample mean). Is \\(U\\) a consistent estimator of \\(c\\)?\n\n\nSolution. First, we will show that \\(U\\) is unbiased, \\[\\begin{gather*}\n\\mu = \\E{U} = 2\\E{\\mean{Y}} = 2(c/2) = c \\\\\n\\sigma^2 = \\Var{U} = 2^2 \\Var{\\mean{Y}} = 4 \\frac{\\Var{Y_1}}{n} = 4 \\frac{c^2/12}{n} = \\frac{c^2}{3n}.\n\\end{gather*}\\]\nTherefore, \\[\\begin{align*}\n\\P{\\abs{U - c} &gt; \\varepsilon} & = \\P{\\abs{U - \\mu} &gt; k\\sigma} \\tag{where $k = \\varepsilon / \\sigma$ and unbiased} \\\\\n& = \\P{\\abs{U - \\mu} \\geq k \\sigma} \\tag{since $U$ is a continuous rv} \\\\\n& \\leq \\frac{1}{k^2} \\tag{by Chebyshev's Theorem} \\\\\n& = \\frac{1}{(\\varepsilon / \\sigma)^2} = \\frac{\\sigma^2}{\\varepsilon^2} = \\frac{c^2}{3n\\varepsilon^2} \\to 0 \\; \\text{as} \\; n \\to \\infty\n\\end{align*}\\]\nThus \\(U \\pconv c\\). So yes, \\(U\\) is a consistent estimator of \\(c\\).\n\n\n\n3.1 Formalisation\nThe logic used in Example 3 can be generalised, as follows.\n\nTheorem 1 (Consistency) Suppose that \\(A\\) is an unbiased estimator of \\(\\theta\\) such that \\(\\Var{A} \\to 0 \\; \\text{as} \\; n \\to \\infty\\). Then \\(A\\) is also a consistent estimator of \\(\\theta\\).\n\n\nProof. The proof of this theorem is very similar to the working in Example 3, \\[\\begin{align*}\n\\P{\\abs{A - \\theta} &gt; \\varepsilon} & = \\P{\\abs{A - \\theta} &gt; k\\sigma} \\tag{where $k = \\varepsilon / \\sigma$ and $\\sigma^2 = \\Var{A}$} \\\\\n& \\leq \\P{\\abs{A - \\theta} \\geq k\\sigma} \\\\\n& \\leq \\frac{1}{k^2} \\tag{by Chebyshev's Theorem} \\\\\n& = \\frac{\\sigma^2}{\\varepsilon^2} \\\\\n& \\to 0 \\; \\text{as} \\; n \\to \\infty \\tag{$\\sigma^2 \\to 0$}\n\\end{align*}\\] So \\(A \\pconv \\theta\\), or in other words, \\(A\\) is a consistent estimator of \\(\\theta\\).\n\n\n\n\n3.2 The (Weak) Law of Large Numbers\nThe most important implication of the above theorem is the following result, which is called the law of large numbers (or more precisely, the weak law of large numbers).\n\nTheorem 2 (Weak Law of Large Numbers) Consider a random sample \\(Y_1, Y_2, \\ldots , Y_n\\) from a distribution with finite mean \\(\\mu\\) and finite variance \\(\\sigma^2\\). Then the sample mean \\(\\mean{Y}\\) is a consistent estimator of \\(\\mu\\).\n\n\n\n\nProof. \\(\\E{\\mean{Y}} = \\mu\\). Thus \\(\\mean{Y}\\) is an unbiased estimator of \\(\\mu\\). Also, \\(\\Var{\\mean{Y}} = \\sigma^2 / n \\to 0 \\; \\text{as} \\; n \\to \\infty\\). It follows by the above theorem that \\(\\mean{Y}\\) is a consistent estimator of \\(\\mu\\).\n\n\n\n\nExample 4 Consider a bent coin, and suppose that we are interested in \\(p\\), the probability of a head coming up on a signle toss. We toss the coin \\(n\\) times and observe \\(\\hat{p}\\), the proportion of heads. Is \\(\\hat{p}\\) is a consistent estimator of \\(p\\)?\n\n\n\n\nSolution. We may also write \\(\\hat{p}\\) as \\(\\mean{Y} = \\frac{1}{n}(Y_1 + Y_2 + \\cdots + Y_n)\\), where \\(Y_1, Y_2, \\ldots ,Y_n \\iidsim \\Bernoulli(p)\\).\n\n\\(\\mu = \\E{Y_i} = p\\)\n\\(\\sigma^2 = \\Var{Y_i} = p(1 - p) &lt; \\infty\\)\n\nSo by the law of large numbers, \\(\\hat{p}\\) is a consistent estimator of \\(p\\) because \\(\\hat{p}\\) is the sample mean of the population mean of \\(\\Bernoulli(p)\\) which is \\(p\\). That is, \\(\\hat{p} \\pconv p\\), or equivalently, \\(\\P{\\abs{\\hat{p} - p} &gt; \\varepsilon} \\to 0\\) as \\(n \\to \\infty\\).\n\n\n\n\n\nRemark 2 (Determining Whether it is Fair Coin). For example, if the coin is fair then \\(\\P{\\abs{\\hat{p} - p} &gt; 0.01} \\to 0\\). This is the same as saying \\(\\P{\\abs{\\hat{p} - 0.5} \\leq 0.01} \\to 1\\). That is, the probability that the proportion of heads will lie between \\(0.49\\) and \\(0.51\\) approaches \\(100\\%\\) as the number of tosses increases indefinitely.\n\n\n\n\n3.3 Some Property of Convergence\n\nTheorem 3 Suppose that \\(A \\pconv a\\) and \\(B \\pconv b\\) as \\(b \\to \\infty\\), where \\(a\\) and \\(b\\) are constants. Then:\n\n\\(A + B \\pconv a + b\\)\n\\(AB \\pconv ab\\)\n\\(A/B \\pconv a/b\\), provided that \\(b \\neq 0\\)\n\\(g(A) \\pconv g(a)\\), provided that \\(g\\) is a real-valued function that is continuous at \\(a\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Properties of Point Estimators"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/1properties.html#convergence-in-distribution",
+    "href": "contents/chapter-09/1properties.html#convergence-in-distribution",
+    "title": "Properties of Point Estimators",
+    "section": "4 Convergence in Distribution",
+    "text": "4 Convergence in Distribution\n\nDefinition 3 Suppose that \\(X = X_n\\) and \\(R\\) are random variables such that \\(F_X(k) \\to F_R(k)\\) as \\(n \\to \\infty\\) for all \\(k \\in \\mathbb{R}\\) at which \\(F_R(k)\\) is continuous. Then we say that \\(X\\) converges in distribution to \\(R\\), and write \\(X \\dconv R\\).\n\nFor example, \\(U = \\frac{\\mean{Y} - \\mu}{\\sigma / \\sqrt{n}} \\dconv Z \\sim \\NormalDist(0, 1)\\) (central limit theorem). Note that the above definition also applies if \\(R\\) has a degenerate distribution at some constant \\(c\\). In that case, \\[\\begin{equation*}\nF_R(k) = \\P{R \\leq k} = \\begin{cases}\n0, & k &lt; c \\\\\n1, & k \\geq c \\\\\n\\end{cases}\n\\end{equation*}\\] Thus, for a constant \\(c\\), \\(X \\dconv c\\) if \\[\\begin{equation*}\n\\P{X \\leq k} \\to \\begin{cases}\n0, & k &lt; c \\\\\n1, & k &gt; c \\\\\n\\end{cases}\n\\end{equation*}\\]\n\n4.1 Three More Theorems\n\nSuppose that \\(A \\dconv \\NormalDist(0, 1)\\) and \\(B \\pconv 1\\). Then \\(A/B \\dconv \\NormalDist(0, 1)\\).\nIf \\(A\\) and \\(B\\) are random variables such that \\(A \\pconv B\\) then \\(A \\dconv B\\).\nIf \\(A\\) is random variable and \\(c\\) is constant such that \\(A \\dconv c\\), then \\(A \\pconv c\\). (This is not generally true if \\(c\\) is a non-degenerate random variable.)\n\n\n\nExample 5 (Sample Variance Consistency with Population Variance) \\[\\begin{equation}\nS^2 \\pconv \\sigma^2 \\; \\text{as} \\; n \\to \\infty\n\\end{equation}\\]\n\n\n\n\nSolution. First, the way to prove this is to apply Theorem 1 as we already know that \\(S^2\\) is unbiased. Now, we only need to find the variance and shows that the variance converges to 0 as \\(n\\) go to infinity.\nNow, since \\(\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2(n-1)\\), then \\[\\begin{align*}\n\\Var{S^2} & = \\frac{\\sigma^4}{(n-1)^2} \\Var{\\frac{(n-1)S^2}{\\sigma^2}} \\\\\n& = \\frac{\\sigma^4}{(n-1)^2} (2(n - 1)) \\\\\n& = \\frac{2\\sigma^4}{n-1}  \\to 0 \\; \\text{as} \\; n \\to \\infty\n\\end{align*}\\]\n\n\n\n\nExample 6 The central limit theorem still holds when we replace the population deviation \\(\\sigma\\) by the sample standard deviation \\(S\\); we used this fact in Chapter 8 to construct large sample confidence intervals for \\(\\mu\\) and \\(p\\)).\n\\[\\begin{equation}\n\\frac{\\mean{Y} - \\mu}{S / \\sqrt{n}} \\dconv \\NormalDist(0, 1)\n\\end{equation}\\]\n\n\n\n\n\nProof. From CLT, we know that \\(\\frac{\\mean{Y} - \\mu}{S / \\sqrt{n}} \\dconv \\NormalDist(0, 1)\\) as \\(n \\to \\infty\\)\nNow, as \\(S^2 \\pconv \\sigma^2\\) by Example 5 and \\(\\sigma^2 \\pconv \\sigma^2\\) Therefore, with the first line in Section 4.1, we know that \\(S^2 / \\sigma^2 \\pconv 1\\). Therefore, by using the fourth property in Theorem 3 and \\(g(x) = \\sqrt{x}\\). Then, we know that \\(S / \\sigma \\pconv 1\\). Hence, \\[\\begin{align*}\n\\frac{\\frac{\\mean{Y} - \\mu}{\\sigma / \\sqrt{n}}}{\\frac{S}{\\sigma}} & \\dconv \\NormalDist(0, 1) \\tag{as $n \\to \\infty$} \\\\\n& \\implies \\frac{\\mean{Y} - \\mu}{S / \\sqrt{n}} \\dconv \\NormalDist(0, 1) \\tag{as $n \\to \\infty$} \\\\\n\\end{align*}\\]",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Properties of Point Estimators"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html",
+    "href": "contents/chapter-09/2methods-of-estimations.html",
+    "title": "Methods of Estimations",
+    "section": "",
+    "text": "Now, it is not always obvious as to how the point estimator is derived…\nFor example, using twice the average of the sample to estimate the upper bound of a continuous uniform distribution seem to be out of thin air. And, multiple other estimators.\n\nTherefore, we will look at two general methods for deriving point estimators:\n\nthe method of moments (MOME)\nthe method of maximum likelihood (MLE)",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#learning-goals",
+    "href": "contents/chapter-09/2methods-of-estimations.html#learning-goals",
+    "title": "Methods of Estimations",
+    "section": "",
+    "text": "Now, it is not always obvious as to how the point estimator is derived…\nFor example, using twice the average of the sample to estimate the upper bound of a continuous uniform distribution seem to be out of thin air. And, multiple other estimators.\n\nTherefore, we will look at two general methods for deriving point estimators:\n\nthe method of moments (MOME)\nthe method of maximum likelihood (MLE)",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#method-of-moments",
+    "href": "contents/chapter-09/2methods-of-estimations.html#method-of-moments",
+    "title": "Methods of Estimations",
+    "section": "2 Method of Moments",
+    "text": "2 Method of Moments\nConsider a random sample \\(Y_1, Y_2, \\ldots , Y_n\\) from some distribution. Thus these random variables are \\(\\iid\\) Recall that \\(Y \\triangleq Y_1\\) has \\(k\\)th raw moment \\(\\mu_k' = \\E{Y^k}\\). We now also, analogous to sample mean, define the \\(k\\)th sample moment as \\(m_k' = \\frac{1}{n} \\sum_{i=1}^n y_i^k\\).\nSuppose that the distribution of \\(Y\\) involves \\(t\\) unknown parameters \\(t = 1, 2, 3, \\ldots\\). Then the method of moments (MOM) involves solving the following system of equations. \\[\\begin{equation}\n\\begin{aligned}\n\\mu_1' &= m_1' \\\\\n\\mu_2' &= m_2' \\\\\n\\vdots &= \\vdots \\\\\n\\mu_t' &= m_t' \\\\\n\\end{aligned}\n\\end{equation}\\]\nThe solution of these \\(t\\) equations leads to the method of moments estimates (MOME’s) of the \\(t\\) unknown parameters.\n\n2.1 Some Intuitions\n\nThis seems to be a relatively unintuitive thing to do. Or why do we want to match the moment? There are many other things we can match to as well…\n\nThe idea here is that the \\(k\\)th sample moment as a random variable, \\(M_k' = \\frac{1}{n}\\sum_{i=1}^n Y_i^k\\), has mean \\(\\mu_k'\\) and a variance that converges to zero as \\(n\\) to infinity: \\[\\begin{gather*}\n\\E{M_k'} = \\frac{1}{n} \\sum_{i=1}^n \\E{Y_i^k} = \\frac{1}{n} \\sum_{i=1}^n \\mu_k' = \\mu_k' \\\\\n\\Var{M_k'} = \\frac{1}{n^2} \\sum_{i = 1}^n \\Var{Y_i^k} = \\frac{n \\Var{Y_1^k}}{n^2} = \\frac{\\Var{Y_1^k}}{n} \\to 0 \\\\\n\\end{gather*}\\]\nThus, by Theorem 1, (or equivalently by law of large number), \\(M_k'\\) is a consistent estimator of \\(\\mu_k'\\). That is, for each \\(k\\) and any \\(\\varepsilon &gt; 0\\), \\(\\P{\\abs{M_k' - \\mu_k'\n} &gt; \\varepsilon} \\to 0\\) as \\(n \\to \\infty\\). So, if \\(n\\) is large, each \\(m_k'\\) shoud be close to \\(\\mu_k'\\).\nIn some cases the above definition of the MOM may require slight modification because the system of equations as indicated cannot be solved for the \\(t\\) unknown parameters, For example, if \\(\\mu_1' = 0\\), it may be necessary to also equate \\(\\mu_{t+1}' = m_{t+1}'\\).\n\n\n2.1.1 Example\n\nExample 1 Consider a random sample of numbers from between \\(0\\) and \\(c\\). Find the method of moments estimate of \\(c\\).\n\n\n\n\nSolution. Here: \\(t = 1\\), \\(\\mu_1' = \\E{Y} = c / 2, m_1' = \\mean{y}\\). We now equate \\(\\mu_1' = m_1'\\). This implies that \\(c/2 = \\mean{y}\\) and hence \\(c = 2 \\mean{y}\\). Thus the method of moments estimate of \\(c\\) is \\(\\hat{c}  = 2 \\mean{y}\\). In other words, the method of moments estimator of \\(c\\) is \\(\\hat{c} = 2\\mean{Y}\\). Note that this estimator is both unbiased and consistent.\n\n\n\n\n\n\n\n\nEstimate vs Estimator\n\n\n\n\n\nNote that the estimates is a constant while the estimator is a random variable.\n… BUT, it is common for these two terms to be used interchangeable. Thus, when we say that an estimate is unbiased or consistent, it should be understood that we are saying this about the corresponding estimator.\n\n\n\n\n\nExample 2 Suppose that \\(Y_1, Y_2, \\ldots , Y_n \\iidsim \\GammaDist(a, b)\\). Find the method of moments estimates of \\(a\\) and \\(b\\).\n\n\n\n\nSolution. Here: \\(t = 2\\),\n\n\\(\\mu_1' = \\E{Y} = ab\\),\n\\(\\mu_2' = \\E{Y^2} = \\Var{Y} = (\\E{Y})^2 = ab^2 + (ab)^2\\)\n\nTherefore, equating with \\(\\mu_1' = m_1'\\) and \\(\\mu_2' = m_2'\\). This implies that \\(ab = \\mean{y}\\) and \\(ab^2 + a^2b^2 = m_2'\\). Solving these equations leads to the MOME’s: \\[\\begin{equation}\n\\hat{a} = \\frac{\\mean{y}^2}{m_2' - \\mean{y}^2} \\qquad , \\qquad \\hat{b} = \\frac{\\mean{y}}{\\hat{a}}\n\\end{equation}\\]\nFor example, suppose that the data values are \\(1.3\\) and \\(2.7\\). Then \\(\\mean{y} = 2\\) and \\(m_2' = 4.49\\). Therefore \\(\\hat{a} = 8.1633\\) and \\(\\hat{b} = 0.245\\).\n\n\n\n\nExample 3 \\(Y_2, Y_2, \\ldots , Y_n \\iidsim \\NormalDist(a, b^2)\\). Find the MOME’s of \\(a\\) and \\(b^2\\).\n\n\n\n\nSolution. \\(\\mu_1' = a\\), \\(\\mu_2' = \\E{Y^2} = a^2 + b^2\\), \\(m_1' = \\mean{y}\\), \\(m_2' = (1/n) \\sum_{i=1}^n y_i^2\\). Equating with \\(\\mu_t' = m_t'\\), we get \\[\\begin{equation}\n\\hat{a} = \\mean{y} \\qquad , \\qquad \\hat{b}^2 = \\frac{n-1}{n}S^2 = \\frac{1}{n}\\sum_{i=1}^n (y_i - \\mean{y})^2\n\\end{equation}\\] i.e. \\[\\begin{align*}\na^2 + b^2 & = \\frac{1}{n} \\sum_{i=1}^n y_i^2 \\\\\nb^2 & = \\left(\\frac{1}{n} \\sum_{i = 1}^n y_i^2 \\right) - \\mean{y}^2 \\\\\n& = \\frac{1}{n} \\left( \\sum_{i=1}^n {y_i^2} - n\\mean{y}^2 \\right) = \\frac{(n-1)}{n} S^2 \\\\\n\\end{align*}\\]\nNote that therefore \\(\\hat{b}^2\\) is biased in small samples but it is consistent.",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#the-method-of-maximum-likelihood-single-observation",
+    "href": "contents/chapter-09/2methods-of-estimations.html#the-method-of-maximum-likelihood-single-observation",
+    "title": "Methods of Estimations",
+    "section": "3 The Method of Maximum Likelihood (Single Observation…)",
+    "text": "3 The Method of Maximum Likelihood (Single Observation…)\n\nExample 4 (Motivation) Suppose that we have a box with two balls in it, each of which is either black or white. But we have no idea how many of these two balls are black. We randomly draw a ball from the box and find tha it is black. Is the other ball also black?\n\n\n\nHere is the analysis:\nIf the other ball is black then the probability of us having drawn a black is \\(100\\%\\). If the other ball is white then the probability of us having drawn a black is only \\(50\\%\\). Because \\(100\\% &gt; 50\\%\\), it’s reasonable to conclude that the other ball is black, although we can’t be sure.\nWhat we have done is an example of estimation based on the principle that we should choose the value which maximises the likelihood of what has happened.\n\n\n3.1 Some Definitions\nSuppose that \\(Y\\) is an observation from some probability distribution that depends on an unknown parameter \\(\\theta\\).\nThe likelihood function is defined to be the pdf or pmf of \\(Y\\), \\(f(y)\\) or \\(p(y)\\), but considered as a function of \\(\\theta\\).\nWe denote the likelihood by \\(L(\\theta)\\) or \\(L(\\theta; y)\\).\nThe maximum likelihood estimate (MLE) of \\(\\theta\\) of \\(\\theta\\) is the value of \\(\\theta\\) which maximises the likelihood \\(L(\\theta)\\). Note: The MLE may not be unique.\n\n\n3.2 Example\n\nExample 5 We have a box with 2 balls in it, each of which is either black or white. We randomly draw a ball from the box and find that it is black. What is the MLE of the number of black balls originally in the box?\n\n\nSolution. Let \\(\\theta\\) be the number of black balls originally in the box. Also let \\(Y\\) be the numbr of black balls in our sample of one.\nThen \\(Y \\sim \\Bernoulli(\\theta / 2)\\), and \\[\np(y) = \\begin{cases}\n\\theta/2 , & y = 1 \\\\\n1 - \\theta / 2 , & y = 0 \\\\\n\\end{cases}\n\\] where \\(\\theta = 0, 1, 2\\).\nBut we actually observed \\(y = 1\\) blacks. Thus \\(p(y) = \\theta / 2\\). So the likelihood is \\[\nL(\\theta) = \\theta / 2 = \\begin{cases}\n0, & \\theta = 0 \\\\\n1/2, & \\theta = 1 \\\\\n1, & \\theta = 2 \\\\\n\\end{cases}\n\\]\nBut \\(\\max(0, 1/2 , 1) = 1\\). So the MLE of \\(\\theta\\) is \\(\\hat{\\theta} = 2\\). What if the chosen ball were white? They \\(y = 0\\) and so \\(p(y) = 1 - \\theta / 2\\). So \\[\nL(\\theta) = 1 - \\theta / 2 = \\begin{cases}\n1, & \\theta = 0 \\\\\n1/2, & \\theta = 1 \\\\\n0, & \\theta = 2 \\\\\n\\end{cases}\n\\]\nSo the MLE of \\(\\theta\\) is now \\(0\\).\nIn conclusion we may write the MLE generally as \\(\\hat{\\theta} = 2y\\), \\(y = 0, 1,\\). We may also write the MLE as a random variable: \\(\\hat{\\theta} = 2Y\\).\nNote that the method of moments leads to the same estimate as the method of maximum likelihood: equating \\(\\mu_1' = \\E{Y} = \\theta / 2\\) with \\(m_1' = y\\), we get \\(\\hat{\\theta} = 2y\\).\n\n\n\n\nExample 6 A bent coin is tossed 5 times and heads come up twice. Find the MLE of the probability of heads coming up on a single toss.\n\n\n\n\nSolution. Let \\(Y\\) be the number of heads that come up, and let \\(p\\) be the probability of interest.\nThen \\(Y \\sin \\Binomial(n, p)\\), where \\(n = 5\\), and \\(p(y) = \\binom{n}{y}p^y(1-p)^{n-y}\\), \\(y = 0, 1, \\ldots , n\\) (\\(0 &lt; p &lt; 1\\)).\nSo the likelihood is \\(L(p) = \\binom{n}{y}p^y(1-p)^{n-y}\\), \\(0 &lt; p &lt; 1\\) (\\(y = 0, 1, \\ldots , n\\)).\nWe now calculate \\[\nL'(p) = \\binom{n}{y} \\left( p^y (n - y)(1 - p)^{n-y-1}(-1) + yp^{y-1}(1 - p)^{n-y} \\right)\n\\] Setting this to zero yields \\(\\hat{p} = \\frac{y}{n} = \\frac{2}{5}\\).\n\n\nAlternatively, we can work on the log scale. This is benefitial because we typically work with assumptions of independent samples and this would typically results in a big product in the likelihood function. Applying a log transformation, such would then turn to a summation and would work much better with the differentiation.\n\nDefinition 1  \n\nThe **log likelihood function$ is \\[\nl(p) = \\log(L(p)) = \\log\\left(\\binom{n}{y}\\right) + y \\log(p) + (n - y) \\log(1 - p).\n\\]\nThen \\[\nl'(p) = 0 + \\frac{y}{p} - \\frac{n - y}{1 - p}\n\\]\nSetting \\(l'(p)\\) to zero yields the MLE, \\(\\hat{p} = \\frac{y}{n} = \\frac{2}{5}\\).\n\n\nRemark 1. Note that this is the same as th MOME. Also note that \\(l''(p) = -\\frac{y}{p^2} - \\frac{n-y}{(1 - p)^2} &lt; 0\\), which confirms that \\(\\hat{p} = y / n\\) maximises \\(L\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#simplification",
+    "href": "contents/chapter-09/2methods-of-estimations.html#simplification",
+    "title": "Methods of Estimations",
+    "section": "4 Simplification",
+    "text": "4 Simplification\nObserve that the \\(\\binom{n}{y}\\) term could have been left out, with no change to the resutl.\nThus:\n\n\\(L(p) = p^y (1 - p)^{n - y}\\)\n\\(l(p) = y\\log(p) + (n - y) \\log(1 - p)\\)\n\\(l'(p) = \\frac{y}{p} - \\frac{n - y}{1 - p}\\)\n\netc.\n\nTherefore, we redefine the likelihood as any constant multiple of \\(Y\\)’s pdf or pmf.\n\nThis means that we can safely ignore multiplicative constants when writing down the likelihood function \\(L(\\theta)\\), and we can ignore any additive constants when writing down the loglikelihood function \\(l(\\theta)\\).",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#mle-for-several-observations",
+    "href": "contents/chapter-09/2methods-of-estimations.html#mle-for-several-observations",
+    "title": "Methods of Estimations",
+    "section": "5 MLE for Several Observations",
+    "text": "5 MLE for Several Observations\nThe method of ML can also be used when there are several sample ovservations, say \\(Y_1, Y_2, \\ldots, Y_n\\), whoose distribution depends on \\(\\theta\\).\n\nExample 7 (Example 8) Suppose that 1.2, 2.4, and 1.8 are a random sample from an exponential distribtuion with unknown mean. Find the MLE of that mean.\n\n\n\n\nSolution. The sample observations \\(Y_1, Y_2, \\ldots ,Y_n\\) have joint pdf\n\\[\\begin{align*}\nf(y_1, y_2, \\ldots ,y_n) & = \\prod_{i=1}^n f(y_i) \\tag{by independence} \\\\\n& = \\prod_{i=1}^n \\frac{1}{b} e^{-y_i / b} \\tag{where $b = \\E{Y_i}$ is the unknown mean} \\\\\n& = b^{-n} e^{-\\frac{1}{b}\\sum_{i=1}^n y_i} \\\\\n& = b^{-n} e^{-\\dot{y} / b} \\\\\n\\end{align*}\\] where \\(\\dot{y} = y_1 + y_2 + \\cdots + y_n\\).\nSo the likelihood is \\(L(b) = b^{-n} e^{-\\sum{y}/b}\\), \\(b &gt; 0\\). hence \\[\nl(b) = -n \\log(b) - \\dot{y} / b \\implies l'(b) = -\\frac{n}{b} + \\frac{\\dot{y}}{b^2}\n\\]\nSolving \\(l'(b) = 0\\) leads to the MLE of \\(b\\) as \\(\\hat{b} = \\frac{\\dot{y}}{n} = \\mean{y} = 1.8\\).\nFrom the weak law of large numbers as \\(Y_i \\iidsim \\ExponentialDist(b)\\) hence \\(\\E{Y_i} = b\\) and \\(\\Var{Y_i} = b^2\\) bounded, \\(\\hat{b}\\) is consistent for \\(b\\) (also \\(\\hat{b}\\) is unbaised in small samples, since \\(\\hat{b} = \\mean{Y}\\).)",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#the-case-of-several-parameters",
+    "href": "contents/chapter-09/2methods-of-estimations.html#the-case-of-several-parameters",
+    "title": "Methods of Estimations",
+    "section": "6 The Case of Several Parameters",
+    "text": "6 The Case of Several Parameters\nMaximum Likelihood estimation also works when there are two or more unknown parameters.\n\nExample 8 \\(Y_1, Y_2, \\ldots , Y_n \\iidsim \\NormalDist(a, b^2)\\). Find the MLE’s of \\(a\\) and \\(b^2\\).\n\n\n\n\\[\\begin{align*}\nf(y_1. y_2, \\ldots y_n) &= \\prod_{i=1}^n \\frac{1}{b \\sqrt{2 \\pi}} \\exp\\left\\{ -\\frac{1}{2b^2}(y_i - a)^2 \\right\\} \\\\\n& = b^{-n} (2 \\pi)^{-n/2} \\exp\\left\\{ -\\frac{1}{2b^2} \\sum_{i=1}^n (y_i - a)^2 \\right\\} \\\\\n\\end{align*}\\]\nSo \\(L(a, b^2) = (b^2)^{-n/2} \\exp\\left\\{-\\frac{1}{2b^2}\\sum_{i=1}^n (y_i - a)^2 \\right\\}\\), \\(-\\infty &lt; a &lt; \\infty\\), \\(b^2 &gt; 0\\). \\[\nl(a, b^2) = -\\frac{n}{2} \\log(b^2) - \\frac{1}{2b^2}\\sum_{i=1}^n (y_i - a)^2\n\\]\nTherefore, \\[\\begin{gather}\n\\pdv{l(a, b^2)}{a} = - \\frac{1}{2b^2} \\sum_{i=1}^n 2(y_i - a)^1 (-1) = \\frac{1}{b^2} \\sum_{i=1}^n (y_i - a) = \\frac{1}{b^2}(\\dot{y} - na). \\\\\n\\pdv{l(a, b^2)}{b^2} = - \\frac{n}{2b^2} + \\frac{1}{2b^4} \\sum_{i=1}^n (y_i - a)^2\n\\end{gather}\\]\nSetting (4) to 0 yields the MLE of \\(a\\), namely \\(\\hat{a} = \\dot{y} / n = \\mean{y}\\). Substituting \\(\\mean{y}\\) for \\(a\\) in (5) and then setting (5) to zero yields. \\[\n\\hat{b}^2 = \\frac{1}{n} \\sum_{i=1}^n (y_i - \\mean{y})^2 = \\frac{n-1}{n} \\frac{1}{n-1} \\sum_{i=1}^n (y_i - \\mean{y})^2 = \\frac{n-1}{n} S^2\n\\]\nNote that these MLE’s are exactly the same as the MOME’s mentioned earlier.\n\n\n6.1 Example\n\nExample 9 A partly melted die is rolled repeatedly until the first 6 comes up. Then it is rolled again the same number of times. We are interested in \\(p\\), the probability of \\(6\\) coming up on a single roll. Suppose that the first \\(6\\) comes up on the third roll, and the numbers which then come up are 6, 2, 6. Find the MLE of \\(p\\).\n\n\n\n\nSolution. Let \\(X =\\) number of rolls until first \\(6\\), and \\(Y =\\) number of \\(6\\)’s on last half of rolls.\nThen \\(X \\sin \\Geometric(p)\\) (with \\(x = 3\\)) and \\((Y \\mid X = x) \\sim \\Binomial(x, p)\\) (with \\(y=2\\)).\nSo \\[p(x, y) = p(x) p(y \\mid x) = (1 - p)^{x-1} p \\cdot \\binom{x}{y} p^y(1 - p)^{x - y}\\]; \\(x = 1, 2, \\ldots ; y = 0, \\ldots , x\\).\nSo \\[L(p) = (1 - p)^{a}p^b\\] where \\(a = 2x - y - 1\\) and \\(b= 1 + y\\). Then: \\[\\begin{gather*}\nl(p) = a \\log(1 - p) + b \\log(p) \\\\\nl'(p) = - \\frac{a}{1 - p} + \\frac{b}{p} = 0 \\implies p = \\frac{b}{a + b} \\\\\n\\end{gather*}\\]\nSo the MLE of \\(p\\) is \\[\\begin{equation*}\n\\hat{p} = \\frac{b}{a + b} = \\frac{1 + y}{(2x - y - 1) + (y + 1)} = \\frac{1 + y}{2x} = \\frac{1 + 2}{2(3)} = \\frac{1}{2}\n\\end{equation*}\\] This makes sense, since \\(6\\) came up half the time: \\(1 + 2 = 3\\) times in \\(3 + 3 = 6\\) rolls.\n\n\n\nWe see that ML estimation works when the sample observations are not \\(\\iid\\). The same cannot be said for the MOM. We could not use the MOM directly here.\n\nExample 10 Suppose that 3.6 and 5.4 are two numbers chosen randomly and independently from between \\(0\\) and \\(c\\). Find the MLE of \\(c\\).\n\n\n\nLet \\(X\\) and \\(Y\\) denote the two numbers as random variables. Then \\(X, Y \\iidsim U(0, c)\\). Therefore \\[\np(x, y) = p(x)p(y) = \\frac{1}{c^2}, \\; 0 &lt; x &lt; c, 0 &lt; y &lt; c\n\\] \\(c &gt; 0\\).\nNow,\n\\[\\begin{gather*}\nL(c) = c^{-2}, \\; c &gt; 0 \\\\\nl(c) = \\log\\left\\{ L(c) \\right\\} = -2 \\log(c) \\\\\n\\end{gather*}\\] So \\(l'(c) = -2/c\\). So \\(l'(c) \\to 0 \\impliedby c \\to \\infty\\).\nBut this is wrong. First, it is intuitive that such \\(c \\to \\infty\\) if counter-intuitive1. Note that \\(c\\) needs to be larger than all the observed values. Therefore, obtain the correct domain for the log-likelihood function – \\(c \\in (\\max(x, y), \\infty)\\). Also, given that \\(l'(\\cdot)\\) is a decreasing function, the maximum values occur at the minimal \\(c\\) values – \\(c = \\max(x, y)\\). Note that this MLE should also be the same with several sample values.",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#the-invariance-property-of-mles",
+    "href": "contents/chapter-09/2methods-of-estimations.html#the-invariance-property-of-mles",
+    "title": "Methods of Estimations",
+    "section": "7 The Invariance Property of MLEs",
+    "text": "7 The Invariance Property of MLEs\n\nTheorem 1 If \\(\\hat{\\theta}\\) is an MLE of \\(\\theta\\) and \\(g\\) is a function, then an MLE of \\(\\phi = g(\\theta)\\) is \\(\\hat{\\phi} = g(\\hat{\\theta})\\).\n\n\nExample 11 Suppose that \\(Y \\sin \\Binomial(n, p)\\). What is the MLE of \\(r = p^2\\)? Is this MLE unbiased? If not, find an unbiased estimator of \\(r\\).\n\n\n\n\nSolution. Now, since we know that \\(\\hat{p} \\triangleq Y/n\\) is the MLE of \\(p\\), \\(\\hat{r} = \\hat{p}^2 = Y^2 / n^2\\) is the MLE of \\(r\\). Now \\[\\begin{align*}\n\\E{\\hat{r}} & = \\E{\\hat{p}^2} \\\\\n& = \\Var{\\hat{p}} + \\left( \\E{\\hat{p}} \\right)^2 \\\\\n& = \\frac{p(1 - p)}{n} + p^2 \\\\\n& = \\left( \\frac{n-1}{n} \\right)p^2 + \\frac{p}{n} \\\\\n& = \\left(\\frac{n-1}{n}\\right)r + \\frac{p}{n} \\neq r \\\\\n\\end{align*}\\]\nTherefore, we know that \\(\\hat{r}\\) is biased, in fact we realised, \\[\\begin{align*}\n\\bias{\\hat{r}} & = \\E{\\hat{r}} - r \\\\\n& = \\frac{p - r}{n} \\\\\n& = \\frac{p - p^2}{n} \\\\\n& = \\frac{p(1 - p)}{n} \\\\\n& = \\Var{\\hat{p}} \\\\\n\\end{align*}\\] Next observe that \\[\\begin{equation*}\n\\E{\\left( \\frac{n}{n-1} \\right)\\hat{r}} = r + \\frac{p}{n-1}\n\\end{equation*}\\] Now, \\[\\begin{equation*}\n\\E{\\frac{\\hat{p}}{n-1}} = \\frac{p}{n-1}\n\\end{equation*}\\] So an unbiased estimator of \\(r\\) is \\[\\begin{equation*}\n\\tilde{r} = \\left( \\frac{n}{n-1} \\right)\\hat{r} - \\frac{\\hat{p}}{n-1} = \\frac{n\\hat{p}^2 - \\hat{p}}{n - 1} = \\frac{\\hat{p}(n\\hat{p} - 1)}{n - 1} = \\frac{Y}{n} \\left( \\frac{Y - 1}{n - 1} \\right).\n\\end{equation*}\\]\n\n\n\n\n\nRemark 2 (Unbiased Estimator of \\(r\\)). Now, using the above \\(\\tilde{r}\\),\n\\[\\begin{align*}\n\\E{\\hat{r}} & = \\frac{n - 1}{n}r + \\frac{p}{n} \\\\\n\\frac{n}{n - 1}\\E{\\hat{r}} & = r + \\frac{p}{n - 1} \\\\\nr & = \\frac{n}{n - 1}\\E{\\hat{r}} - \\frac{p}{n - 1} \\\\\n\\end{align*}\\] Therefore, we can let, \\[\\begin{align*}\n\\tilde{r} & = \\frac{n}{n-1}\\hat{r} - \\frac{\\hat{p}}{n - 1} \\\\\n\\E{\\tilde{r}} & = \\frac{n}{n - 1}\\left( \\frac{n-1}{n}r + \\frac{p}{n} \\right) - \\frac{p}{n-1} \\\\\n& = r + \\frac{p}{n-1} - \\frac{p}{n - 1} \\\\\n& = r \\\\\n\\end{align*}\\]\nTherefore \\(\\tilde{r}\\) is unbiased.",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/2methods-of-estimations.html#footnotes",
+    "href": "contents/chapter-09/2methods-of-estimations.html#footnotes",
+    "title": "Methods of Estimations",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAlso, not to mention that this would in fact only be a minimal point anyway.↩︎",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation",
+      "Methods of Estimations"
+    ]
+  },
+  {
     "objectID": "contents/chapter-02/index.html",
     "href": "contents/chapter-02/index.html",
     "title": "Probability",
@@ -730,6 +898,28 @@
     "crumbs": [
       "Home",
       "CH06 : Functions of Random Variables"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/index.html",
+    "href": "contents/chapter-09/index.html",
+    "title": "Properties of Point Estimators & Methods of Estimation",
+    "section": "",
+    "text": "consistency\nconvergent\nMLE. Maximise probability of the samples (likelihood)\nMOM. Equate sample moments to population moments",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation"
+    ]
+  },
+  {
+    "objectID": "contents/chapter-09/index.html#learning-goal",
+    "href": "contents/chapter-09/index.html#learning-goal",
+    "title": "Properties of Point Estimators & Methods of Estimation",
+    "section": "",
+    "text": "consistency\nconvergent\nMLE. Maximise probability of the samples (likelihood)\nMOM. Equate sample moments to population moments",
+    "crumbs": [
+      "Home",
+      "CH09 : Properties of Point Estimators & Methods of Estimation"
     ]
   },
   {

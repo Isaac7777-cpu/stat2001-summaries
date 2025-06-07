@@ -18,6 +18,10 @@ h2 {
   text-transform: none;
 }
 
+h3 {
+  text-transform: none;
+}
+
 .separator {
   border-top: 1px solid #999;
   width: 30%;
