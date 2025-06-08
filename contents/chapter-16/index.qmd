@@ -171,3 +171,188 @@ This probability is small, which makes sense. If $\theta$ is large, we might exp
 
 :::
 
+## The Proportionality Formula
+
+Observe that in the Bayesian equation 
+$$
+f(\theta \mid y) = \frac{f(\theta) f(y \mid \theta)}{f(y)}
+$$
+the term $f(y)$ is a **constant** with respect to $\theta$. So we can also write
+$$
+f(\theta \mid y) = cf(\theta)f(y \mid \theta)
+$$
+where $c = 1/f(y)$ is a constant. Equivalently, we may write
+\begin{equation} \label{eq:proportionality-formula}
+f(\theta \mid y) \propto f(\theta) f(y \mid \theta)
+\end{equation}
+
+This is important equation can be stated in words as follows: **The posterior is proportional to the prior times the likelihood.**
+
+The work "likelihood" refers to the model density $f(y \mid \theta)$ but considered as a function of $\theta$, i.e. the likelihood function $L(\theta)$ or $L(\theta \mid y)$, as discussed earlier.
+
+Equation \eqref{eq:proportionality-formula} is called the Bayesian proportionality formula. This provides an alternative to the Bayesian equation for finding a posterior distribution, one which is convenient because it allows us to not have to determine the pdf $f(y)$.
+
+> Note that this works because we know that the constant is whatever that makes $f(\theta \mid y)$ be a probability distribution, i.e. $\int f(\theta\mid y) \, d\theta = 1$.
+
+### Example
+
+::: {#exm-17}
+
+Re-work @exm-16 using the porportionality formula.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+\begin{align*}
+f(\theta\mid y) \propto f(\theta) f(y \mid \theta) & \propto 1 \times \theta^y (1 - \theta)^{n -y} \\
+& = \theta^{(y + 1) - 1} (1 - \theta)^{(n-y+1)-1}, \qquad 0 < \theta < 1\\
+\end{align*}
+
+So $\theta \mid y \sim \BetaDist(y+1, n-y+1)$ by recognising that the above expression is the "kernel" of the beta distribution.
+
+If $n=5$ and $y=4$ then:
+\begin{align*}
+\theta \mid y  &\sim \BetaDist(5, 2) \\
+f(\theta \mid y) & = 30(\theta^4 - \theta^5), \qquad 0 < \theta < 1 \\
+\P{\theta \leq 0.5 \mid y} & = \int_0^{1/2} 30(\theta^4 - \theta^5) \, d\theta = \cdots = \frac{7}{64} \\
+\end{align*}
+
+If we are interested in finding the unconditional density of the data at this stage, in can actually be obtained more easily than previously (in @exm-16), as follows:
+\begin{equation*}
+f(y) = \frac{f(\theta)f(y \mid \theta)}{f(\theta \mid y)} = \frac{1 \times \binom{n}{y} \theta^y(1 - \theta)^{n-y}}{\frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n - y + 1) - 1}}{B(y+1, n-y+1)}} = \frac{\frac{n!}{y!(n-y)!}}{\frac{(n+1)!}{y!(n-y)!}} = \frac{1}{n+1}.
+\end{equation*}
+confirming to the above in @exm-16.
+
+:::
+
+---
+
+:::{#exm-18}
+
+Consider the **Binomial-Beta Bayesian Model**, defined as follows:
+
+- $Y \mid \theta \sim \Binomial(n, \theta)$
+- $\theta \sim \BetaDist(\alpha, \beta)$
+
+Find the posterior distribution and density of $\theta$ given the data $y$.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+The model here is a generalisation of the **Binomial-Uniform Bayesian Model**. 
+
+\begin{align*}
+f(\theta \mid y) & \propto f(\theta) f(y \mid \theta) \propto \theta^{\alpha - 1} (1 - \theta)^{\beta - 1} \times \theta^y (1 - \theta)^{n - y} \\
+& = \theta^{(y + \alpha) - 1} (1 - \theta)^{(n - y + \beta) - 1}, \qquad 0 < \theta < 1 \\
+\end{align*}
+
+So,
+\begin{gather*}
+\theta \mid y \sim \BetaDist(y+\alpha, n - y + \beta) \\
+f(\theta \mid y) = \frac{\theta^{(y+\alpha) - 1}(1 - \theta)^{(n - y + \beta) - 1}}{B(y + \alpha, n - y + \beta)}, \qquad 0 < \theta < 1 \\
+\end{gather*}
+
+:::
+
+:::
+
+## Conjugacy
+
+If the prior and posterior distributions belong to the same class of probability distributions, we say that the prior is conjugate. For example, in @exm-18 the prior is beta and the posterior is also beta. So the prior $\theta \sim \BetaDist(\alpha , \beta)$ is conjugate. It is often mathematically convenient to express prior beliefs in terms of a conjugate prior.
+
+### Example
+
+::: {#exm-19}
+
+Consider a random sample of size $n$ from a normal distribution with known variance $\sigma^2$ and unknown mean $\mu$, whose prior distribution $\NormalDist(\eta, \delta^2)$ (where $\eta$ and $\delta$ are specified constants). Given the data vector $y = (y_1, y_2, \ldots , y_n)$, find the posterior distribution of $\mu$. Is the prior conjugate?
+
+:::{.separator}
+:::
+
+::: {.solution}
+
+\begin{align*}
+f(\mu \mid y) & \propto f(\mu) f(y \mid \mu) \\
+& \propto \exp\left( - \frac{1}{2} \left( \frac{\eta - \nu}{\delta} \right)^2 \right) \times \prod_{i=1}^n \exp\left( - \frac{1}{2} \left( \frac{y_i - \eta}{\sigma} \right)^2 \right) \\
+& = \exp\left( -\frac{1}{2} \left[ \frac{1}{\delta^2}(\mu^2 - 2 \mu \eta + \eta^2) + \frac{1}{\sigma^2} \left( \left(\sum_{i=1}^n y_i^2 \right) - 2 \mu n \mean{y} + n \mu^2 \right) \right] \right)
+\end{align*}
+where $\mean{y} = (y_1 + y_2 + \cdots + y_n)/n$ is the sample mean.
+
+We see that the posterior density of $\mu$ is proportional to the exponent of a quadratic in $\mu$.
+$$
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2\sigma^2_*} (\mu - \mu_*)^2 \right) ,
+$$
+and hence $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)$, for some constants $\mu_*$ and $\sigma_*^2$. From this we see that the prior is conjugate.
+
+Now we need to find the posterior mean and variance ($\mu_*$ and $\sigma_*^2$). Write $f(\mu \mid y) \propto \exp \left( - \frac{1}{2}q \right)$, where
+\begin{align*}
+q & = \mu^2 \left( \frac{1}{\delta^2} + \frac{n}{\sigma^2} \right) - 2 \mu \left( \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \right) + c_1 \tag{$c_1$ is a constant} \\
+& = a\mu^2 - 2b\mu + c_1, \quad \text{where} \; a = \frac{1}{\delta^2} + \frac{n}{\sigma^2} \; \text{and} \; b = \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \\
+& = a \left( \mu^2 - 2 \frac{b}{a} \mu + \left( \frac{b}{a} \right)^2 \right) + c_2 \tag{$c_2$ is another constant} \\
+& = \frac{1}{1 / a} \left( \mu - \frac{b}{a} \right)^2 + c_2
+\end{align*}
+
+Hence,
+\begin{equation*}
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2(1/a)} \left( \mu - \frac{b}{a} \right)^2 \right)
+\end{equation*}
+Therefore, $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2), where$
+\begin{gather*}
+\sigma_*^2 = \frac{1}{a} = \frac{1}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \delta^2}{\sigma^2 + n \delta^2} = k\frac{\sigma^2}{n} \\
+\mu_* = \frac{b}{a} = \frac{\frac{n}{\delta^2} + \frac{n \mean{y}}{\sigma^2}}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \eta + n \delta^2 \mean{y}}{\sigma^2 + n \delta^2} = (1 - k) \eta + k \mean{y}
+\end{gather*}
+where $k = \frac{n}{n + \frac{\sigma^2}{\delta^2}}$.
+
+We see that the **posterior mean** $\mu_*$ is a weighted average of the **prior mean** $\eta$ and the sample mean $\mean{y}$. The weight $k$ applied to $\mean{y}$ may be called the **credibility factor**, because it represents how much 'credibility' is 'assigned' to the direct data estimate $\mean{y}$ (which is also the MLE). Likewise, $\mu_*$ may be called a credibility estimate.
+
+:::
+
+:::{#rem-posterior-sample-mean}
+
+Let's actually consider some implications from the formulae above.
+
+> What is actually required for deriving such posterior?
+
+The posterior distribution depends on the sample vector $y = (y_1, y_2, \ldots , y_n)$ only by way of the sample mean $\mean{y}$. So, in addition to the result $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)$, it is also true that $\mu \mid \mean{y} \sim \NormalDist(\mu_*, \sigma_*^2)$. 
+
+This means that if we observe just the single value $\mean{y}$ (and no other data), we obtain exactly the same posterior distribution for $\mu$ as if we observe all the values $y_1, y_2, \ldots, y_n$. [^2]
+
+> How does the prior variance (standard deviation) affect our conclusion?
+
+It is instructive to consider how the posterior distribution depends on the prior standard deviation $\delta$ (or on $\delta^2$). For example, if $\delta$ is small, we find that $k \approx 0$ and $\mu \mid y \approx \NormalDist(\eta, \delta^2)$[^3], reflecting that our prior beliefs are very strong and the data (i.e. $y$) doesn't much affect those beliefs. [^1]
+
+> How does sample size help?
+
+It is also instructive to consider how the posterior distribution depends on the sample size $n$. If $n$ is large, we find that $k \approx 1$ and $\mu \mid y \approx \NormalDist(\mean{y}, \sigma^2 / n)$, reflecting that there is a lot of data available which makes our prior beliefs largely irrelevant. In such cases, Bayesian inference on $\mu$ works out as very similar to classical inference on $\mu$. Both frameworks then point to $\mean{y}$ as a suitable point estimate for $\mu$.
+
+:::
+
+:::
+
+[^1]: Intuitively for me, this is because we already have a relatively "precise" estimate of $\mu$ apriori.
+
+[^2]: Well, we also need the sample size for calculating the $k$ as well... But the sample mean is the bigger part.
+
+[^3]: The standard deviation is actually not quite obvious, see the following,$$\sigma_*^2 = k \frac{\sigma^2}{n} = \frac{\sigma^2}{n + \frac{\sigma^2}{\delta^2}} = \frac{\delta^2\sigma^2}{\delta^2n + \sigma^2}$$ Then if we think loosely that $\delta^2 n$ in the denominator would go to zero, then we get $\sigma_*^2 = \delta^2$.
+
+## Bayes Estimation and Inference 
+
+:::{#def-bayesian-estimator}
+
+Let $Y = (Y_1, Y_2, \ldots , Y_n)$ be a random vector with likelihood $f(y \mid \theta)$ and let $\theta$ have prior density $f(\theta)$. The **posterior Bayes estimator** for $t(\theta)$ is given by 
+$$
+\hat{t} = \ECond{t(\theta)}{y}.
+$$
+If we consider the interval $(a, b)$, the posterior porbability that the random variable $\theta$ is in this interval is
+$$
+\PCond{a < \theta < b}{y} = \int_a^b f(\theta \mid y) d\theta.
+$$
+If the posterior probability $\P{a < \theta < b} = 0.9$, we say that $(a, b)$ is a $90\%$ **credible interval** for $\theta$.
+
+:::
+
+> Note that we will then use the summary statistics of the posterior distribution to get a single estimate of $\theta$, such as $\ECond{\theta}{y}$, $\text{mode}(\theta \mid y)$, $\text{median}(\theta \mid y)$, etc. 
