@@ -29,7 +29,7 @@ randomValues = rng();  // true cutoff
 // Define theta as a reactive variable that updates when the button is clicked
 theta = {
   randomizeTheta; // Ensures reactivity
-  return Math.random();
+  return rng();
 }
 chalks = {
   regenerateChalks; // Ensures reactivity
