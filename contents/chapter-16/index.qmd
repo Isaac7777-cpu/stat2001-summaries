@@ -110,7 +110,7 @@ where $n = 5$ and the observed value of $Y$ is $y = 4$.
 This model can also be expressed in terms of densities (pdfs/pmfs), as:
 
 - $f(y \mid \theta) = \binom{n}{y}\theta^y (1 - \theta)^{n - y}, \qquad y = 0, 1, 2, \ldots , n$ (data model density)
-- $f(\theta) = 1$, $0 < \theta 1$  (the prior density)
+- $f(\theta) = 1$, $0 < \theta < 1$  (the prior density)
 
 This model may be called the **Binomial-Uniform Bayesian Model**.
 
@@ -165,7 +165,7 @@ $$
 p = F(0.5 \mid y = 4) = 6 \left( \frac{1}{2}\right)^5 - 5 \left(\frac{1}{2} \right)^6 = \frac{12}{64} - \frac{5}{64} = \frac{7}{64} = 0.1094
 $$
 
-This probability is small, which makes sense. If $\theta$ is large, we might expect most of the $5$ rolls to stop left of the red mark. And this is what actually happened (0n $80\%$ of the $5$ rolls). $0.1094$ provides a precise value for this probability with which it is logical to believe that $\theta < 1/2$, given the model, prior and data value.
+This probability is small, which makes sense. If $\theta$ is large, we might expect most of the $5$ rolls to stop left of the red mark. And this is what actually happened (on $80\%$ of the $5$ rolls). $0.1094$ provides a precise value for this probability with which it is logical to believe that $\theta < 1/2$, given the model, prior and data value.
 
 :::
 
@@ -198,7 +198,7 @@ Equation \eqref{eq:proportionality-formula} is called the Bayesian proportionali
 
 ::: {#exm-17}
 
-Re-work @exm-16 using the porportionality formula.
+Re-work @exm-16 using the proportionality formula.
 
 :::{.separator}
 :::

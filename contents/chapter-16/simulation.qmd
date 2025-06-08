@@ -45,7 +45,7 @@ Plot.plot({
   width: 600,
   height: 80,
   marks: [
-    Plot.ruleX([theta], {stroke: "red", strokedasharray: "4,2", strokewidth: 2}),
+    Plot.ruleX([theta], {stroke: "red", strokeDasharray: "4,2", strokewidth: 2}),
     Plot.dotX(result, {
       x: d => d.x,
       r: 7,
