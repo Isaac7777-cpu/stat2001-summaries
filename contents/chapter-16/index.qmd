@@ -1,0 +1,358 @@
+---
+title: Bayesian Methods
+format:
+  html:
+    interactive: true
+---
+
+## Learning Goals
+
+- The term _Bayesian methods_ refer to any mathematical tools that are useful for Bayesian inference, an approach to statistics based on the work of Thomas Bayes.
+- It is neede for Credibility Theory; and it provides a third method of estimation.
+
+## Bayesian Model
+
+A Bayesian model consists of the specification of two things:
+
+1. the conditional distribution of the data $Y$ given the model parameter $\theta$.
+2. the unconditional distribution $\theta$, also known as the prior distribution.
+
+Here, the parameter $\theta$ is treated as a random variable, unlike in a classical model, which specifies only one thing: 1. but with $\theta$ treated as an unknown constant.
+
+We have already seen many examples of a classical model, although not by that name.
+
+The prior distribution represents our beliefs regarding $\theta$ before observing the data $Y$ ("prior" means "before").
+
+The idea of bayesian inference is to use the data model (1.) and the prior (2.) to derive the posterior distribution of $\theta$, meaning the conditional distribution of $\theta$ given $Y$ ("posterior" means "after" or "after observing the data").
+
+Once the posterior distribution, or equivalently posterior density, has been obtained, it can be used for Bayesian inference in various ways. This will be discussed later.
+
+## Bayesian Equation (Revisit)
+
+The posterior density can be obtained using the Bayesian equation, which is:
+\begin{equation}
+f(\theta \mid y) = \frac{f(\theta)f(y \mid \theta)}{f(y)} ,
+\end{equation}
+where
+
+- $f(\theta)$ is the **prior density** of the parameter $\theta$ (before observing $Y = y$),
+- $f(y \mid \theta)$ is the **model density** of the data $Y$ (the same as in a classical model),
+- $f(\theta \mid y)$ is the **posterior density** of the parameter $\theta$ given the data $Y$
+- $f(y)$ is the **unconditional density** of the data $Y$ (before observing $Y = y$)
+
+Equation (1) follows immediately from the definition of conditional densities.
+
+### Unconditional Density
+
+If $\theta$ is discrete then
+$$
+f(y) = \sum_\theta f(\theta, y) = \sum_\theta f(\theta)f(y \mid \theta)
+$$
+
+If $\theta$ is continuous then
+$$
+f(y) = \int f(\theta , y) \, d\theta = \int f(\theta) f(y \mid \theta) \, d\theta
+$$
+
+If $\theta$ is mixed then
+$$
+f(y) = \sum_{\text{discrete } \theta} f(\theta) f(y \mid \theta) + \int_{\text{continuous } \theta} f(\theta) f(y \mid \theta) \, d\theta
+$$
+
+The Bayesian equation is so-called because it is the same as Bayes' Theorem (covered in Chapter 2), namely
+$$
+\PCond{A_i}{B} = \frac{\P{A_i}\PCond{B}{A_i}}{\P{B}} , \qquad \text{where} \P{B} = \sum_i \P{A_iB} = \sum_i \P{A_i} \PCond{B}{A_i}, 
+$$
+but with the various probabilities involving the two events $A_i$ and $B$ replaced by the corresponding densities involving the two random variables $\theta$ and $Y$, respectively.
+
+### Data
+
+In a Bayesian model, $Y$ can be a scalar or a vector of the form $Y = (Y_1, Y_2, \ldots , Y_n)$, representing (for example) a random sample from some common distribution. Likewise $\theta$ can be a scalar or a vector of the form $\theta = (\theta_1 , \theta_2, \ldots , \theta_K)$.
+
+The Bayesian equation can be thought of as a tool for transforming our prior beliefs into our posterior beliefs by way of a multiplicative factor, as follows:
+\begin{equation*}
+f(\theta \mid y) = f(\theta) \cdot g(\theta ; y)
+\end{equation*}
+where the factor is $g(\theta ; y) = \frac{f(y \mid \theta)}{f(y)}$.
+
+### Example
+
+::: {#exm-16}
+
+Jim is standing at the left end of a billiard table which has no pockets. 
+
+He is going to vigorously and randomly throw a ball onto the table and let it bounce around, back and forth, until it stops. He will then mark where it stops with red chalk.
+
+He will then, in a similar fashion (and independently of his first throw) throw the ball another five times, and each time mark the point where it stops with blue chalk.
+
+Then Jim will count the number of blue marks which lie to the left of the red mark.
+
+Jim does the above and at the end counts four blue to the left of the red mark.
+
+Find the probability that the red chalk mark lies in the left half of the table.
+
+The following (see [this figure](simulation.qmd)) is an illustration.
+
+::: {.separator}
+:::
+
+:::{.solution}
+
+First, define one unit of distance to be the length of the billiard table. Then let $\theta$ be the distance between the left end of the table and the red chalk mark, and let $Y$ be the number of blue marks which lie of the left of the red mark.
+
+Then a suitable Bayesian model is given by:
+
+- $Y \mid \theta \sim \Binomial(n, \theta)$  (the data model distribution)
+- $\theta \sim U(0, 1)$  (the prior distribution)
+
+where $n = 5$ and the observed value of $Y$ is $y = 4$. 
+
+This model can also be expressed in terms of densities (pdfs/pmfs), as:
+
+- $f(y \mid \theta) = \binom{n}{y}\theta^y (1 - \theta)^{n - y}, \qquad y = 0, 1, 2, \ldots , n$ (data model density)
+- $f(\theta) = 1$, $0 < \theta < 1$  (the prior density)
+
+This model may be called the **Binomial-Uniform Bayesian Model**.
+
+Having specified the Bayesian model, we note that the required quantity is the probability that $\theta < 1/2$. This should be understood as 'now' or 'currently', meaning after observing the data $Y$ as $y = 4$. So, we wish to calculate the posterior probability
+$$
+p = \PCond{\theta \leq 0.5}{y = 4}
+$$
+This is also the posterior cdf of $\theta$ given $Y = 4$, evaluated at $\theta = 0.5$, namely
+$$
+p = F_\theta(0.5 \mid y = 4)
+$$
+In order to calculate $p$, we first derive the unconditional density of $Y$ as follows.
+\begin{align*}
+f(y) & = \int f(\theta)f(y \mid \theta) \, d\theta = \int_0^1 1 \cdot \binom{n}{y} \theta^y (1 - \theta)^{n-y} \, d\theta \\
+& = \binom{n}{y} B(y+1, n-y+1) \int_0^1 \frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n-y+1)-1}}{B(y+1, n-y+1)} \, d\theta \\
+& = \binom{n}{y} B(y+1, n-y+1) \times 1 \\
+& = \frac{n!}{y!(n-y)!}\frac{\Gamma(y+1)\Gamma(n-y+1)}{\Gamma((y+1) + (n-y+1))} \times 1 \\
+& = \frac{n!}{y!(n-y)!}\frac{y!(n-y)!}{(n+1)!} = \frac{1}{n+1} \\
+\end{align*}
+
+Thus $f(y) = \frac{1}{n+1}$, $y = 0, 1, 2, \ldots , n$. Equivalently, $Y$ has a discrete uniform distribution given by $Y \sim DU(0, 1, 2, \ldots , n)$.
+
+:::{.callout-notes title="Implications..." collapse="false"}
+
+This result says that **before** we observed $Y = y = 4$, the value $y$ of $Y$ was equally likely to be any of the six integers from $0$ to $n = 5$ (inclusive). This seems 'sensible' (although not obvious), since the value of $\theta$ is likewise uniform, but in a continuous sense, and equally likely to be any of the possible values it could be, between $0$ and $1$.
+
+:::
+
+We can now apply the Bayesian equation to get the posterior density of $\theta$,
+\begin{align*}
+f(\theta \mid y) & = \frac{f(\theta)f(y \mid \theta)}{f(y)} \\
+& = \frac{1 \times \binom{n}{y}\theta^y (1 - \theta)^{n-y}}{\binom{n}{y}B(y+1, n-y+1)} \\
+& = \frac{\theta^y (1 - \theta)^{n-y}}{B(y+1, n-y+1)}, \qquad 0 < y < 1 \\
+\end{align*}
+
+Therefore, we see that the posterior $\theta \mid Y \sim \BetaDist(y+1, n-y+1)$.
+
+With $n = 5$ and $y = 4$ in particular, we have that:
+\begin{gather*}
+\theta \mid y \sim \BetaDist(4+1, 5 - 4 + 1) = \BetaDist(5, 2) \\
+f(\theta \mid y) = \frac{\theta^4(1 - \theta)}{B(y+1, n-y+1)} \\
+\end{gather*}
+
+Therefore, 
+\begin{align*}
+F(\theta \mid y) & = \int_{-\infty}^\theta f(t \mid y) \, dt = \int_0^\theta 30(t^4 - t^5) \, dt \\
+& = \left[ 30\left( \frac{t^5}{5} - \frac{t^6}{6} \right) \right]_0^\theta = 6\theta^5 - 5\theta^6, \qquad 0 < \theta < 1 \\
+\end{align*}
+
+We can now finally calculate the required probability as
+$$
+p = F(0.5 \mid y = 4) = 6 \left( \frac{1}{2}\right)^5 - 5 \left(\frac{1}{2} \right)^6 = \frac{12}{64} - \frac{5}{64} = \frac{7}{64} = 0.1094
+$$
+
+This probability is small, which makes sense. If $\theta$ is large, we might expect most of the $5$ rolls to stop left of the red mark. And this is what actually happened (on $80\%$ of the $5$ rolls). $0.1094$ provides a precise value for this probability with which it is logical to believe that $\theta < 1/2$, given the model, prior and data value.
+
+:::
+
+:::
+
+## The Proportionality Formula
+
+Observe that in the Bayesian equation 
+$$
+f(\theta \mid y) = \frac{f(\theta) f(y \mid \theta)}{f(y)}
+$$
+the term $f(y)$ is a **constant** with respect to $\theta$. So we can also write
+$$
+f(\theta \mid y) = cf(\theta)f(y \mid \theta)
+$$
+where $c = 1/f(y)$ is a constant. Equivalently, we may write
+\begin{equation} \label{eq:proportionality-formula}
+f(\theta \mid y) \propto f(\theta) f(y \mid \theta)
+\end{equation}
+
+This is important equation can be stated in words as follows: **The posterior is proportional to the prior times the likelihood.**
+
+The work "likelihood" refers to the model density $f(y \mid \theta)$ but considered as a function of $\theta$, i.e. the likelihood function $L(\theta)$ or $L(\theta \mid y)$, as discussed earlier.
+
+Equation \eqref{eq:proportionality-formula} is called the Bayesian proportionality formula. This provides an alternative to the Bayesian equation for finding a posterior distribution, one which is convenient because it allows us to not have to determine the pdf $f(y)$.
+
+> Note that this works because we know that the constant is whatever that makes $f(\theta \mid y)$ be a probability distribution, i.e. $\int f(\theta\mid y) \, d\theta = 1$.
+
+### Example
+
+::: {#exm-17}
+
+Re-work @exm-16 using the proportionality formula.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+\begin{align*}
+f(\theta\mid y) \propto f(\theta) f(y \mid \theta) & \propto 1 \times \theta^y (1 - \theta)^{n -y} \\
+& = \theta^{(y + 1) - 1} (1 - \theta)^{(n-y+1)-1}, \qquad 0 < \theta < 1\\
+\end{align*}
+
+So $\theta \mid y \sim \BetaDist(y+1, n-y+1)$ by recognising that the above expression is the "kernel" of the beta distribution.
+
+If $n=5$ and $y=4$ then:
+\begin{align*}
+\theta \mid y  &\sim \BetaDist(5, 2) \\
+f(\theta \mid y) & = 30(\theta^4 - \theta^5), \qquad 0 < \theta < 1 \\
+\P{\theta \leq 0.5 \mid y} & = \int_0^{1/2} 30(\theta^4 - \theta^5) \, d\theta = \cdots = \frac{7}{64} \\
+\end{align*}
+
+If we are interested in finding the unconditional density of the data at this stage, in can actually be obtained more easily than previously (in @exm-16), as follows:
+\begin{equation*}
+f(y) = \frac{f(\theta)f(y \mid \theta)}{f(\theta \mid y)} = \frac{1 \times \binom{n}{y} \theta^y(1 - \theta)^{n-y}}{\frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n - y + 1) - 1}}{B(y+1, n-y+1)}} = \frac{\frac{n!}{y!(n-y)!}}{\frac{(n+1)!}{y!(n-y)!}} = \frac{1}{n+1}.
+\end{equation*}
+confirming to the above in @exm-16.
+
+:::
+
+---
+
+:::{#exm-18}
+
+Consider the **Binomial-Beta Bayesian Model**, defined as follows:
+
+- $Y \mid \theta \sim \Binomial(n, \theta)$
+- $\theta \sim \BetaDist(\alpha, \beta)$
+
+Find the posterior distribution and density of $\theta$ given the data $y$.
+
+:::{.separator}
+:::
+
+:::{.solution}
+
+The model here is a generalisation of the **Binomial-Uniform Bayesian Model**. 
+
+\begin{align*}
+f(\theta \mid y) & \propto f(\theta) f(y \mid \theta) \propto \theta^{\alpha - 1} (1 - \theta)^{\beta - 1} \times \theta^y (1 - \theta)^{n - y} \\
+& = \theta^{(y + \alpha) - 1} (1 - \theta)^{(n - y + \beta) - 1}, \qquad 0 < \theta < 1 \\
+\end{align*}
+
+So,
+\begin{gather*}
+\theta \mid y \sim \BetaDist(y+\alpha, n - y + \beta) \\
+f(\theta \mid y) = \frac{\theta^{(y+\alpha) - 1}(1 - \theta)^{(n - y + \beta) - 1}}{B(y + \alpha, n - y + \beta)}, \qquad 0 < \theta < 1 \\
+\end{gather*}
+
+:::
+
+:::
+
+## Conjugacy
+
+If the prior and posterior distributions belong to the same class of probability distributions, we say that the prior is conjugate. For example, in @exm-18 the prior is beta and the posterior is also beta. So the prior $\theta \sim \BetaDist(\alpha , \beta)$ is conjugate. It is often mathematically convenient to express prior beliefs in terms of a conjugate prior.
+
+### Example
+
+::: {#exm-19}
+
+Consider a random sample of size $n$ from a normal distribution with known variance $\sigma^2$ and unknown mean $\mu$, whose prior distribution $\NormalDist(\eta, \delta^2)$ (where $\eta$ and $\delta$ are specified constants). Given the data vector $y = (y_1, y_2, \ldots , y_n)$, find the posterior distribution of $\mu$. Is the prior conjugate?
+
+:::{.separator}
+:::
+
+::: {.solution}
+
+\begin{align*}
+f(\mu \mid y) & \propto f(\mu) f(y \mid \mu) \\
+& \propto \exp\left( - \frac{1}{2} \left( \frac{\eta - \nu}{\delta} \right)^2 \right) \times \prod_{i=1}^n \exp\left( - \frac{1}{2} \left( \frac{y_i - \eta}{\sigma} \right)^2 \right) \\
+& = \exp\left( -\frac{1}{2} \left[ \frac{1}{\delta^2}(\mu^2 - 2 \mu \eta + \eta^2) + \frac{1}{\sigma^2} \left( \left(\sum_{i=1}^n y_i^2 \right) - 2 \mu n \mean{y} + n \mu^2 \right) \right] \right)
+\end{align*}
+where $\mean{y} = (y_1 + y_2 + \cdots + y_n)/n$ is the sample mean.
+
+We see that the posterior density of $\mu$ is proportional to the exponent of a quadratic in $\mu$.
+$$
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2\sigma^2_*} (\mu - \mu_*)^2 \right) ,
+$$
+and hence $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)$, for some constants $\mu_*$ and $\sigma_*^2$. From this we see that the prior is conjugate.
+
+Now we need to find the posterior mean and variance ($\mu_*$ and $\sigma_*^2$). Write $f(\mu \mid y) \propto \exp \left( - \frac{1}{2}q \right)$, where
+\begin{align*}
+q & = \mu^2 \left( \frac{1}{\delta^2} + \frac{n}{\sigma^2} \right) - 2 \mu \left( \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \right) + c_1 \tag{$c_1$ is a constant} \\
+& = a\mu^2 - 2b\mu + c_1, \quad \text{where} \; a = \frac{1}{\delta^2} + \frac{n}{\sigma^2} \; \text{and} \; b = \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \\
+& = a \left( \mu^2 - 2 \frac{b}{a} \mu + \left( \frac{b}{a} \right)^2 \right) + c_2 \tag{$c_2$ is another constant} \\
+& = \frac{1}{1 / a} \left( \mu - \frac{b}{a} \right)^2 + c_2
+\end{align*}
+
+Hence,
+\begin{equation*}
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2(1/a)} \left( \mu - \frac{b}{a} \right)^2 \right)
+\end{equation*}
+Therefore, $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2), where$
+\begin{gather*}
+\sigma_*^2 = \frac{1}{a} = \frac{1}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \delta^2}{\sigma^2 + n \delta^2} = k\frac{\sigma^2}{n} \\
+\mu_* = \frac{b}{a} = \frac{\frac{n}{\delta^2} + \frac{n \mean{y}}{\sigma^2}}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \eta + n \delta^2 \mean{y}}{\sigma^2 + n \delta^2} = (1 - k) \eta + k \mean{y}
+\end{gather*}
+where $k = \frac{n}{n + \frac{\sigma^2}{\delta^2}}$.
+
+We see that the **posterior mean** $\mu_*$ is a weighted average of the **prior mean** $\eta$ and the sample mean $\mean{y}$. The weight $k$ applied to $\mean{y}$ may be called the **credibility factor**, because it represents how much 'credibility' is 'assigned' to the direct data estimate $\mean{y}$ (which is also the MLE). Likewise, $\mu_*$ may be called a credibility estimate.
+
+:::
+
+:::{#rem-posterior-sample-mean}
+
+Let's actually consider some implications from the formulae above.
+
+> What is actually required for deriving such posterior?
+
+The posterior distribution depends on the sample vector $y = (y_1, y_2, \ldots , y_n)$ only by way of the sample mean $\mean{y}$. So, in addition to the result $\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)$, it is also true that $\mu \mid \mean{y} \sim \NormalDist(\mu_*, \sigma_*^2)$. 
+
+This means that if we observe just the single value $\mean{y}$ (and no other data), we obtain exactly the same posterior distribution for $\mu$ as if we observe all the values $y_1, y_2, \ldots, y_n$. [^2]
+
+> How does the prior variance (standard deviation) affect our conclusion?
+
+It is instructive to consider how the posterior distribution depends on the prior standard deviation $\delta$ (or on $\delta^2$). For example, if $\delta$ is small, we find that $k \approx 0$ and $\mu \mid y \approx \NormalDist(\eta, \delta^2)$[^3], reflecting that our prior beliefs are very strong and the data (i.e. $y$) doesn't much affect those beliefs. [^1]
+
+> How does sample size help?
+
+It is also instructive to consider how the posterior distribution depends on the sample size $n$. If $n$ is large, we find that $k \approx 1$ and $\mu \mid y \approx \NormalDist(\mean{y}, \sigma^2 / n)$, reflecting that there is a lot of data available which makes our prior beliefs largely irrelevant. In such cases, Bayesian inference on $\mu$ works out as very similar to classical inference on $\mu$. Both frameworks then point to $\mean{y}$ as a suitable point estimate for $\mu$.
+
+:::
+
+:::
+
+[^1]: Intuitively for me, this is because we already have a relatively "precise" estimate of $\mu$ apriori.
+
+[^2]: Well, we also need the sample size for calculating the $k$ as well... But the sample mean is the bigger part.
+
+[^3]: The standard deviation is actually not quite obvious, see the following,$$\sigma_*^2 = k \frac{\sigma^2}{n} = \frac{\sigma^2}{n + \frac{\sigma^2}{\delta^2}} = \frac{\delta^2\sigma^2}{\delta^2n + \sigma^2}$$ Then if we think loosely that $\delta^2 n$ in the denominator would go to zero, then we get $\sigma_*^2 = \delta^2$.
+
+## Bayes Estimation and Inference 
+
+:::{#def-bayesian-estimator}
+
+Let $Y = (Y_1, Y_2, \ldots , Y_n)$ be a random vector with likelihood $f(y \mid \theta)$ and let $\theta$ have prior density $f(\theta)$. The **posterior Bayes estimator** for $t(\theta)$ is given by 
+$$
+\hat{t} = \ECond{t(\theta)}{y}.
+$$
+If we consider the interval $(a, b)$, the posterior porbability that the random variable $\theta$ is in this interval is
+$$
+\PCond{a < \theta < b}{y} = \int_a^b f(\theta \mid y) d\theta.
+$$
+If the posterior probability $\P{a < \theta < b} = 0.9$, we say that $(a, b)$ is a $90\%$ **credible interval** for $\theta$.
+
+:::
+
+> Note that we will then use the summary statistics of the posterior distribution to get a single estimate of $\theta$, such as $\ECond{\theta}{y}$, $\text{mode}(\theta \mid y)$, $\text{median}(\theta \mid y)$, etc. 
