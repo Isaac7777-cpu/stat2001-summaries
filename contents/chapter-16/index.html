@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Evaluation Metrics – STAT2001 Revision Summaries</title>
+<title>Bayesian Methods – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/chapter-08/3interval-estimate.html" rel="next">
-<link href="../../contents/chapter-08/1point-estimate.html" rel="prev">
+<link href="../../contents/chapter-16/simulation.html" rel="next">
+<link href="../../contents/chapter-09/2methods-of-estimations.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -430,7 +395,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.html">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/2evaluation.html">Evaluation Metrics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-16/index.html">CH16 : Bayesian Methods</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -544,11 +509,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/chapter-08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CH08 : Estimation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
@@ -557,7 +522,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluation Metrics</span></a>
   </div>
 </li>
@@ -606,13 +571,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../contents/chapter-16/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../contents/chapter-16/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">CH16 : Bayesian Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/chapter-16/simulation.html" class="sidebar-item-text sidebar-link">
@@ -631,20 +596,28 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bias" id="toc-bias" class="nav-link active" data-scroll-target="#bias"><span class="header-section-number">1</span> Bias</a></li>
-  <li><a href="#precision" id="toc-precision" class="nav-link" data-scroll-target="#precision"><span class="header-section-number">2</span> Precision</a></li>
-  <li><a href="#mean-square-error" id="toc-mean-square-error" class="nav-link" data-scroll-target="#mean-square-error"><span class="header-section-number">3</span> Mean Square Error</a></li>
-  <li><a href="#two-important-results-for-estimation" id="toc-two-important-results-for-estimation" class="nav-link" data-scroll-target="#two-important-results-for-estimation"><span class="header-section-number">4</span> Two Important Results for Estimation</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals"><span class="header-section-number">1</span> Learning Goals</a></li>
+  <li><a href="#bayesian-model" id="toc-bayesian-model" class="nav-link" data-scroll-target="#bayesian-model"><span class="header-section-number">2</span> Bayesian Model</a></li>
+  <li><a href="#bayesian-equation-revisit" id="toc-bayesian-equation-revisit" class="nav-link" data-scroll-target="#bayesian-equation-revisit"><span class="header-section-number">3</span> Bayesian Equation (Revisit)</a>
+  <ul class="collapse">
+  <li><a href="#unconditional-density" id="toc-unconditional-density" class="nav-link" data-scroll-target="#unconditional-density"><span class="header-section-number">3.1</span> Unconditional Density</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">3.2</span> Data</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.3</span> Example</a></li>
+  </ul></li>
+  <li><a href="#the-proportionality-formula" id="toc-the-proportionality-formula" class="nav-link" data-scroll-target="#the-proportionality-formula"><span class="header-section-number">4</span> The Proportionality Formula</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">4.1</span> Example</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/2evaluation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/2evaluation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-16/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-16/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/chapter-08/index.html">CH08 : Estimation</a></li><li class="breadcrumb-item"><a href="../../contents/chapter-08/2evaluation.html">Evaluation Metrics</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Evaluation Metrics</h1>
+<h1 class="title">Bayesian Methods</h1>
 </div>
 
 
@@ -667,350 +640,264 @@ window.Quarto = {
 </header>
 
 
-<section id="bias" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="bias"><span class="header-section-number">1</span> Bias</h2>
-<p>The question now arises: How good is <span class="math inline">\(\hat{p}\)</span> as an estimator of <span class="math inline">\(p\)</span>?</p>
-<p>What we need are some criteria for assessing the quality of estimators. The bias of an estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> is <span class="math display">\[\begin{equation}
-\bias{\hat{\theta}} = \E{\hat{\theta}} - \theta
-\end{equation}\]</span></p>
-<p>If <span class="math inline">\(\bias{\hat{\theta}} = 0\)</span>, we say that <span class="math inline">\(\hat{\theta}\)</span> is unbiased for <span class="math inline">\(\theta\)</span>.</p>
-<p>In Example 1, what is the bias of <span class="math inline">\(\hat{p}\)</span>? <span class="math display">\[\begin{equation*}
-\E{\hat{p}} = \E{\frac{Y}{n}} = \frac{1}{n} \E{Y} = \frac{1}{n} np = p
-\end{equation*}\]</span> Therefore, <span class="math display">\[\begin{equation*}
-\bias{\hat{p}} = \E{\hat{p}} - p = p - p = 0
-\end{equation*}\]</span></p>
-<p>Hence, we know that <span class="math inline">\(\hat{p}\)</span> is an accurate estimator. But, is <span class="math inline">\(\hat{p}\)</span> also precise?</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="... but wait, what does it mean to be precise?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-… but wait, what does it mean to be precise?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Well, precise means that we don’t want to have a highly variational estimator. In other words, we would like the estimator to have an estimate to be relatively close to the target on every sample as well.</p>
-</div>
-</div>
-</div>
+<section id="learning-goals" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">1</span> Learning Goals</h2>
+<ul>
+<li>The term <em>Bayesian methods</em> refer to any mathematical tools that are useful for Bayesian inference, an approach to statistics based on the work of Thomas Bayes.</li>
+<li>It is neede for Credibility Theory; and it provides a third method of estimation.</li>
+</ul>
 </section>
-<section id="precision" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="precision"><span class="header-section-number">2</span> Precision</h2>
-<p><em>Analogy</em>: Target at a firing range:</p>
-<div class="cell" data-layout-nrow="1">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mu_accurate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mu_inaccurate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sigma_accurate <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">c</span>(.<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, .<span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sigma_inaccurate <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>points1 <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> sample_size, <span class="at">mu =</span> mu_accurate, <span class="at">Sigma =</span> sigma_accurate)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>points2 <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> sample_size, <span class="at">mu =</span> mu_accurate, <span class="at">Sigma =</span> sigma_inaccurate)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>points3 <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> sample_size, <span class="at">mu =</span> mu_inaccurate, <span class="at">Sigma =</span> sigma_accurate)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>points4 <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> sample_size, <span class="at">mu =</span> mu_inaccurate, <span class="at">Sigma =</span> sigma_inaccurate)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a data frame</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> points1[,<span class="dv">1</span>], <span class="at">y =</span> points1[,<span class="dv">2</span>], <span class="at">group =</span> <span class="st">"Accurate &amp; Precise"</span>),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> points2[,<span class="dv">1</span>], <span class="at">y =</span> points2[,<span class="dv">2</span>], <span class="at">group =</span> <span class="st">"Accurate &amp; Imprecise"</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> points3[,<span class="dv">1</span>], <span class="at">y =</span> points3[,<span class="dv">2</span>], <span class="at">group =</span> <span class="st">"Inaccurate &amp; Precise"</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> points4[,<span class="dv">1</span>], <span class="at">y =</span> points4[,<span class="dv">2</span>], <span class="at">group =</span> <span class="st">"Inaccurate &amp; Imprecise"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>mv <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create one plot per group</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">filter</span>(df, group <span class="sc">==</span> <span class="st">"Accurate &amp; Precise"</span>), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Accurate &amp; Precise"</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">filter</span>(df, group <span class="sc">==</span> <span class="st">"Accurate &amp; Imprecise"</span>), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Accurate &amp; Imprecise"</span>)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">filter</span>(df, group <span class="sc">==</span> <span class="st">"Inaccurate &amp; Precise"</span>), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Inaccurate &amp; Precise"</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">filter</span>(df, group <span class="sc">==</span> <span class="st">"Inaccurate &amp; Imprecise"</span>), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span>mv, mv)) <span class="sc">+</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Inaccurate &amp; Imprecise"</span>)</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>p1</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>p2</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>p3</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div id="fig-accurate-and-precision" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-accurate-and-precision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-accurate-and-precision" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-accurate-and-precision-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-accurate-and-precision-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="2evaluation_files/figure-html/fig-accurate-and-precision-1.png" class="img-fluid figure-img" data-ref-parent="fig-accurate-and-precision" width="384">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-accurate-and-precision-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Accurate &amp; Precise
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-accurate-and-precision" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-accurate-and-precision-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-accurate-and-precision-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="2evaluation_files/figure-html/fig-accurate-and-precision-2.png" class="img-fluid figure-img" data-ref-parent="fig-accurate-and-precision" width="384">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-accurate-and-precision-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Accurate &amp; Imprecise
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-accurate-and-precision" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-accurate-and-precision-3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-accurate-and-precision-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="2evaluation_files/figure-html/fig-accurate-and-precision-3.png" class="img-fluid figure-img" data-ref-parent="fig-accurate-and-precision" width="384">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-accurate-and-precision-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c) Inaccurate &amp; Precise
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-accurate-and-precision" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-accurate-and-precision-4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-accurate-and-precision-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="2evaluation_files/figure-html/fig-accurate-and-precision-4.png" class="img-fluid figure-img" data-ref-parent="fig-accurate-and-precision" width="384">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-accurate-and-precision-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d) Inaccurate &amp; Imprecise
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-accurate-and-precision-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Accuracy vs.&nbsp;Precision
-</figcaption>
-</figure>
-</div>
-</div>
-<p>Therefore, we can clearly see that only <a href="#fig-accurate-and-precision-1" class="quarto-xref">Figure&nbsp;1 (a)</a> be the good one. However, which other is the best? Well, this is an unanswered question. However, we can see that maybe a more “clustered” one is better? Therefore, we can define the following variance measure, <span class="math display">\[\begin{equation*}
-\Var{\hat{p}} = \Var{\frac{Y}{n}} = \frac{1}{n^2} \Var{Y} = \frac{1}{n^2}np(1 - p) = \frac{p(1 - p)}{n}
-\end{equation*}\]</span></p>
+<section id="bayesian-model" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="bayesian-model"><span class="header-section-number">2</span> Bayesian Model</h2>
+<p>A Bayesian model consists of the specification of two things:</p>
+<ol type="1">
+<li>the conditional distribution of the data <span class="math inline">\(Y\)</span> given the model parameter <span class="math inline">\(\theta\)</span>.</li>
+<li>the unconditional distribution <span class="math inline">\(\theta\)</span>, also known as the prior distribution.</li>
+</ol>
+<p>Here, the parameter <span class="math inline">\(\theta\)</span> is treated as a random variable, unlike in a classical model, which specifies only one thing: 1. but with <span class="math inline">\(\theta\)</span> treated as an unknown constant.</p>
+<p>We have already seen many examples of a classical model, although not by that name.</p>
+<p>The prior distribution represents our beliefs regarding <span class="math inline">\(\theta\)</span> before observing the data <span class="math inline">\(Y\)</span> (“prior” means “before”).</p>
+<p>The idea of bayesian inference is to use the data model (1.) and the prior (2.) to derive the posterior distribution of <span class="math inline">\(\theta\)</span>, meaning the conditional distribution of <span class="math inline">\(\theta\)</span> given <span class="math inline">\(Y\)</span> (“posterior” means “after” or “after observing the data”).</p>
+<p>Once the posterior distribution, or equivalently posterior density, has been obtained, it can be used for Bayesian inference in various ways. This will be discussed later.</p>
 </section>
-<section id="mean-square-error" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="mean-square-error"><span class="header-section-number">3</span> Mean Square Error</h2>
-<p>Another measure of an estimator’s quality is the mean square error. The mean square error (MSE) of an estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> is <span class="math display">\[\begin{equation*}
-\mse{\theta} = \E{\left( \hat{\theta} - \theta \right)^2}
-\end{equation*}\]</span> Now, that it turns out that <span class="math inline">\(\mse{\hat{\theta}} = \Var{\hat{\theta}} + \left( \bias{\hat{\theta}} \right)^2\)</span>.</p>
-<p>Thus <span class="math inline">\(MSE\)</span> is a combined measure of accuracy and precision. (It will be small only if both the mean and variance are small.)</p>
-<p>In our example, <span class="math inline">\(\mse{\hat{p}} = \Var{\hat{p}} + (\bias{\hat{p}})^2 = \frac{p(1-p)}{n}\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Why do we need all this?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Why do we need all this?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>In our example, the estimator for <span class="math inline">\(p\)</span> is relatively ‘obvious’ estimator of <span class="math inline">\(p\)</span>. However, in many situations, there will be several plausible estimators to consider. One must then decide which one is the ‘best’. This will typically be done by comparing the bias, variance, and MSE of the candidate estimators.</p>
-<p>In fact, this idea of MSE is highly used in machine learning training where the loss of the neural network is directly calculated by using MSE.</p>
-</div>
-</div>
-</div>
-<hr>
-<div id="thm-mse-var-bias" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (MSE, Variance and Bias)</strong></span> <span class="math display">\[\begin{equation}
-\mse{\hat{p}} = \Var{\hat{p}} + (\bias{\hat{p}})^2 = \frac{p(1-p)}{n}
-\end{equation}\]</span></p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof requires simply algebraic manipulation.</p>
-<p><span class="math display">\[\begin{align*}
-\mse{\hat{\theta}} &amp; = \E{\left( \hat{\theta} - \theta \right)^2} \\
-&amp; = \E{\left( \hat{\theta} - \E{\hat{\theta}} + \E{\hat{\theta}} - \theta \right)^2} \\
-&amp; = \E{\left( \hat{\theta} - \E{\hat{\theta}} \right)^2 + \left(\E{\hat{\theta}} - \theta \right)^2 + 2 \left( \hat{\theta} - \E{\hat{\theta}} \right) \left( \E{\hat{\theta}} - \theta \right) } \\
-&amp; = \E{\left( \hat{\theta} - \E{\hat{\theta}} \right)^2 } + \left(\E{\hat{\theta}} - \theta \right)^2 + 2 \underbrace{\left( \E{\hat{\theta}} - \E{\hat{\theta}} \right)}_{=0} \left( \E{\hat{\theta}} - \theta \right) \\
-&amp; = \Var{\hat{\theta}} + \left( \bias{\hat{\theta}} \right)^2
-\end{align*}\]</span></p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Working Example">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Working Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Two numbers are randomly chosen between <span class="math inline">\(0\)</span> and <span class="math inline">\(c\)</span>. They are <span class="math inline">\(X = 3.6\)</span> and <span class="math inline">\(y = 5.4\)</span>. Consider the following estimates of <span class="math inline">\(c\)</span>: <span class="math display">\[\begin{align*}
-U &amp;= X + Y \\
-V &amp;= \max(X, Y) \\
-\end{align*}\]</span> Which estimate should we choose, and why?</p>
-<hr>
-<p><strong><em>Solution</em></strong></p>
-<p>Let <span class="math inline">\(X, Y \sim^\iid U(0, c)\)</span>. Then, to determine the mean, bias, variance and MSE as the following,</p>
-<p><span class="math display">\[\begin{align*}
-\E{U} &amp; = \E{X + Y}  = c \tag{U.mean} \label{eq:u-mean} \\
-\bias{U} &amp; = c - c = 0 \tag{U.bias} \label{eq:u-bias} \\
-\Var{U} &amp; = \Var{X + Y} = \Var{X} + \Var{Y} = \frac{c^2}{6} \tag{U.var} \label{eq:u-var} \\
-\mse{U} &amp; = \Var{U} + \left( \bias{U} \right)^2 = \frac{c^2}{6} \tag{U.mse} \label{eq:u-mse} \\
-\end{align*}\]</span></p>
+<section id="bayesian-equation-revisit" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="bayesian-equation-revisit"><span class="header-section-number">3</span> Bayesian Equation (Revisit)</h2>
+<p>The posterior density can be obtained using the Bayesian equation, which is: <span class="math display">\[\begin{equation}
+f(\theta \mid y) = \frac{f(\theta)f(y \mid \theta)}{f(y)} ,
+\end{equation}\]</span> where</p>
+<ul>
+<li><span class="math inline">\(f(\theta)\)</span> is the <strong>prior density</strong> of the parameter <span class="math inline">\(\theta\)</span> (before observing <span class="math inline">\(Y = y\)</span>),</li>
+<li><span class="math inline">\(f(y \mid \theta)\)</span> is the <strong>model density</strong> of the data <span class="math inline">\(Y\)</span> (the same as in a classical model),</li>
+<li><span class="math inline">\(f(\theta \mid y)\)</span> is the <strong>posterior density</strong> of the parameter <span class="math inline">\(\theta\)</span> given the data <span class="math inline">\(Y\)</span></li>
+<li><span class="math inline">\(f(y)\)</span> is the <strong>unconditional density</strong> of the data <span class="math inline">\(Y\)</span> (before observing <span class="math inline">\(Y = y\)</span>)</li>
+</ul>
+<p>Equation (1) follows immediately from the definition of conditional densities.</p>
+<section id="unconditional-density" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="unconditional-density"><span class="header-section-number">3.1</span> Unconditional Density</h3>
+<p>If <span class="math inline">\(\theta\)</span> is discrete then <span class="math display">\[
+f(y) = \sum_\theta f(\theta, y) = \sum_\theta f(\theta)f(y \mid \theta)
+\]</span></p>
+<p>If <span class="math inline">\(\theta\)</span> is continuous then <span class="math display">\[
+f(y) = \int f(\theta , y) \, d\theta = \int f(\theta) f(y \mid \theta) \, d\theta
+\]</span></p>
+<p>If <span class="math inline">\(\theta\)</span> is mixed then <span class="math display">\[
+f(y) = \sum_{\text{discrete } \theta} f(\theta) f(y \mid \theta) + \int_{\text{continuous } \theta} f(\theta) f(y \mid \theta) \, d\theta
+\]</span></p>
+<p>The Bayesian equation is so-called because it is the same as Bayes’ Theorem (covered in Chapter 2), namely <span class="math display">\[
+\PCond{A_i}{B} = \frac{\P{A_i}\PCond{B}{A_i}}{\P{B}} , \qquad \text{where} \P{B} = \sum_i \P{A_iB} = \sum_i \P{A_i} \PCond{B}{A_i},
+\]</span> but with the various probabilities involving the two events <span class="math inline">\(A_i\)</span> and <span class="math inline">\(B\)</span> replaced by the corresponding densities involving the two random variables <span class="math inline">\(\theta\)</span> and <span class="math inline">\(Y\)</span>, respectively.</p>
+</section>
+<section id="data" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="data"><span class="header-section-number">3.2</span> Data</h3>
+<p>In a Bayesian model, <span class="math inline">\(Y\)</span> can be a scalar or a vector of the form <span class="math inline">\(Y = (Y_1, Y_2, \ldots , Y_n)\)</span>, representing (for example) a random sample from some common distribution. Likewise <span class="math inline">\(\theta\)</span> can be a scalar or a vector of the form <span class="math inline">\(\theta = (\theta_1 , \theta_2, \ldots , \theta_K)\)</span>.</p>
+<p>The Bayesian equation can be thought of as a tool for transforming our prior beliefs into our posterior beliefs by way of a multiplicative factor, as follows: <span class="math display">\[\begin{equation*}
+f(\theta \mid y) = f(\theta) \cdot g(\theta ; y)
+\end{equation*}\]</span> where the factor is <span class="math inline">\(g(\theta ; y) = \frac{f(y \mid \theta)}{f(y)}\)</span>.</p>
+</section>
+<section id="example" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="example"><span class="header-section-number">3.3</span> Example</h3>
+<div id="exm-16" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Jim is standing at the left end of a billiard table which has no pockets.</p>
+<p>He is going to vigorously and randomly throw a ball onto the table and let it bounce around, back and forth, until it stops. He will then mark where it stops with red chalk.</p>
+<p>He will then, in a similar fashion (and independently of his first throw) throw the ball another five times, and each time mark the point where it stops with blue chalk.</p>
+<p>Then Jim will count the number of blue marks which lie to the left of the red mark.</p>
+<p>Jim does the above and at the end counts four blue to the left of the red mark.</p>
+<p>Find the probability that the red chalk mark lies in the left half of the table.</p>
+<p>The following (see <a href="../../contents/chapter-16/simulation.html">this figure</a>) is an illustration.</p>
 <div class="separator">
 
 </div>
-<p>To find out the measures for <span class="math inline">\(V\)</span>, we first need to determine the distribution of <span class="math inline">\(V\)</span>. Fortunately, we know that it is the order statistics. Recalling from previous chapter, we have discussed that the general formula for order statistic (<span class="math inline">\(n = 2\)</span>) is, <span class="math display">\[\begin{equation*}
-f_V(v) = f_{U_2}(v) = \frac{2!}{(2 - 1)!(2-2)!} F(v)^{2 - 1} \left( 1 - F(v) \right)^{2-2} f(v) = 2F(v)f(v) = 2 \left( \frac{v}{c} \right) \frac{1}{c} = \frac{2v}{c^2} \; \text{(for $v \in [0, c]$)}
-\end{equation*}\]</span></p>
-<p><span class="math display">\[\begin{align*}
-\E{V} &amp; = \int_0^c \frac{2v^2}{c^2} \, dv = \frac{2}{c^2} \left[ \frac{v^3}{3} \right]_0^c = \frac{2c}{3} \tag{V.mean} \label{eq:v-mean} \\
-\bias{V} &amp; = \frac{2c}{3} - c = -\frac{c}{3} \tag{V.bias} \label{eq:v-bias} \\
-\E{V^2} &amp; = \int_0^c \frac{2v^3}{c^2} \, dv = \frac{2}{c^2} \left[ \frac{v^4}{4} \right]_0^c = \frac{c^2}{2} \\
-\Var{V} &amp; = \E{V^2} - \left( \E{V} \right)^2 = \frac{c^2}{2} - \left( \frac{2c}{3} \right)^2 = \frac{c^2}{18} \tag{V.var} \label{eq:v-var} \\
-\mse{V} &amp; = \Var{V} + \left( \bias{V} \right)^2 = \frac{c^2}{9} + \frac{c^2}{18} = \frac{c^2}{6} \tag{V.mse} \label{eq:v-mse} \\
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>First, define one unit of distance to be the length of the billiard table. Then let <span class="math inline">\(\theta\)</span> be the distance between the left end of the table and the red chalk mark, and let <span class="math inline">\(Y\)</span> be the number of blue marks which lie of the left of the red mark.</p>
+<p>Then a suitable Bayesian model is given by:</p>
+<ul>
+<li><span class="math inline">\(Y \mid \theta \sim \Binomial(n, \theta)\)</span> (the data model distribution)</li>
+<li><span class="math inline">\(\theta \sim U(0, 1)\)</span> (the prior distribution)</li>
+</ul>
+<p>where <span class="math inline">\(n = 5\)</span> and the observed value of <span class="math inline">\(Y\)</span> is <span class="math inline">\(y = 4\)</span>.</p>
+<p>This model can also be expressed in terms of densities (pdfs/pmfs), as:</p>
+<ul>
+<li><span class="math inline">\(f(y \mid \theta) = \binom{n}{y}\theta^y (1 - \theta)^{n - y}, \qquad y = 0, 1, 2, \ldots , n\)</span> (data model density)</li>
+<li><span class="math inline">\(f(\theta) = 1\)</span>, <span class="math inline">\(0 &lt; \theta &lt; 1\)</span> (the prior density)</li>
+</ul>
+<p>This model may be called the <strong>Binomial-Uniform Bayesian Model</strong>.</p>
+<p>Having specified the Bayesian model, we note that the required quantity is the probability that <span class="math inline">\(\theta &lt; 1/2\)</span>. This should be understood as ‘now’ or ‘currently’, meaning after observing the data <span class="math inline">\(Y\)</span> as <span class="math inline">\(y = 4\)</span>. So, we wish to calculate the posterior probability <span class="math display">\[
+p = \PCond{\theta \leq 0.5}{y = 4}
+\]</span> This is also the posterior cdf of <span class="math inline">\(\theta\)</span> given <span class="math inline">\(Y = 4\)</span>, evaluated at <span class="math inline">\(\theta = 0.5\)</span>, namely <span class="math display">\[
+p = F_\theta(0.5 \mid y = 4)
+\]</span> In order to calculate <span class="math inline">\(p\)</span>, we first derive the unconditional density of <span class="math inline">\(Y\)</span> as follows. <span class="math display">\[\begin{align*}
+f(y) &amp; = \int f(\theta)f(y \mid \theta) \, d\theta = \int_0^1 1 \cdot \binom{n}{y} \theta^y (1 - \theta)^{n-y} \, d\theta \\
+&amp; = \binom{n}{y} B(y+1, n-y+1) \int_0^1 \frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n-y+1)-1}}{B(y+1, n-y+1)} \, d\theta \\
+&amp; = \binom{n}{y} B(y+1, n-y+1) \times 1 \\
+&amp; = \frac{n!}{y!(n-y)!}\frac{\Gamma(y+1)\Gamma(n-y+1)}{\Gamma((y+1) + (n-y+1))} \times 1 \\
+&amp; = \frac{n!}{y!(n-y)!}\frac{y!(n-y)!}{(n+1)!} = \frac{1}{n+1} \\
 \end{align*}\]</span></p>
-<p>Therefore, we can clearly see that <span class="math inline">\(V\)</span> is biased from <span class="math inline">\(\eqref{eq:v-bias}\)</span>. However, the MSE is actually the same as shown in <span class="math inline">\(\eqref{eq:u-mse}\)</span> and <span class="math inline">\(\eqref{eq:v-mse}\)</span>. Therefore it is relatively hard to say which one is better. We see that <span class="math inline">\(U\)</span> is:</p>
-<ul>
-<li>more accurate than <span class="math inline">\(V\)</span> (non-bias vs bias)</li>
-<li>less precise than <span class="math inline">\(V\)</span> (since <span class="math inline">\(c^2 / 6 &gt; c^2 / 18\)</span>)</li>
-<li>overall about as good as <span class="math inline">\(V\)</span> (since <span class="math inline">\(c^2 / 6 = c^2 / 6\)</span>)</li>
-</ul>
-<p>Since <span class="math inline">\(U\)</span> is unbiased and <span class="math inline">\(V\)</span> is not, we choose <span class="math inline">\(U\)</span> as the better of the two estimators. Does this mean that the estimate <span class="math inline">\(V\)</span> is useless? No.&nbsp;We can make use of <span class="math inline">\(v\)</span> as a starting point (or basis) for constructing an estimate that is better than <span class="math inline">\(U\)</span>. Observe that <span class="math inline">\(\E{V} = 2c/3\)</span>. This implies <span class="math inline">\(\E{3V/2} = c\)</span>. So we define <span class="math inline">\(W = 3V / 2.\)</span> This is another estimator of <span class="math inline">\(c\)</span> to be considered. Now, what is the variance of <span class="math inline">\(W\)</span>, <span class="math display">\[\begin{equation*}
-\Var{W} = \left( \frac{3}{2} \right)^2 \Var{V} = \frac{9}{4} \cdot \frac{c^2}{18} = \frac{c^2}{8}
-\end{equation*}\]</span> Therefore, we obtain the MSE as <span class="math display">\[\begin{equation*}
-\mse{W} = \Var{W} = c^2/8
-\end{equation*}\]</span></p>
-<p>Now, we see that <span class="math inline">\(W\)</span> is:</p>
-<ul>
-<li>just as accurate as <span class="math inline">\(U\)</span></li>
-<li>more precise than <span class="math inline">\(U\)</span></li>
-<li>overall better than <span class="math inline">\(U\)</span></li>
-</ul>
-<p>We conclude that <span class="math inline">\(W\)</span> is best of the three estimators. So our best estimate of <span class="math inline">\(c\)</span> is <span class="math inline">\(W = 1.5 \max(X,Y)\)</span>, our second best estimate is <span class="math inline">\(U = X + Y\)</span>, and our third choice would be <span class="math inline">\(V = \max(X, Y)\)</span>.</p>
+<p>Thus <span class="math inline">\(f(y) = \frac{1}{n+1}\)</span>, <span class="math inline">\(y = 0, 1, 2, \ldots , n\)</span>. Equivalently, <span class="math inline">\(Y\)</span> has a discrete uniform distribution given by <span class="math inline">\(Y \sim DU(0, 1, 2, \ldots , n)\)</span>.</p>
+<div class="callout-notes" title="Implications..." data-collapse="false">
+<p>This result says that <strong>before</strong> we observed <span class="math inline">\(Y = y = 4\)</span>, the value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span> was equally likely to be any of the six integers from <span class="math inline">\(0\)</span> to <span class="math inline">\(n = 5\)</span> (inclusive). This seems ‘sensible’ (although not obvious), since the value of <span class="math inline">\(\theta\)</span> is likewise uniform, but in a continuous sense, and equally likely to be any of the possible values it could be, between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p>
 </div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Something to be careful of...">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Something to be careful of…
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div id="rem-how-to-choose" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em>. </span>Ideally, we should choose which estimator to use (<span class="math inline">\(U\)</span>, <span class="math inline">\(V\)</span> or <span class="math inline">\(W\)</span>) <em>before</em> observing the data (<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>).</p>
-</div>
-</div>
+<p>We can now apply the Bayesian equation to get the posterior density of <span class="math inline">\(\theta\)</span>, <span class="math display">\[\begin{align*}
+f(\theta \mid y) &amp; = \frac{f(\theta)f(y \mid \theta)}{f(y)} \\
+&amp; = \frac{1 \times \binom{n}{y}\theta^y (1 - \theta)^{n-y}}{\binom{n}{y}B(y+1, n-y+1)} \\
+&amp; = \frac{\theta^y (1 - \theta)^{n-y}}{B(y+1, n-y+1)}, \qquad 0 &lt; y &lt; 1 \\
+\end{align*}\]</span></p>
+<p>Therefore, we see that the posterior <span class="math inline">\(\theta \mid Y \sim \BetaDist(y+1, n-y+1)\)</span>.</p>
+<p>With <span class="math inline">\(n = 5\)</span> and <span class="math inline">\(y = 4\)</span> in particular, we have that: <span class="math display">\[\begin{gather*}
+\theta \mid y \sim \BetaDist(4+1, 5 - 4 + 1) = \BetaDist(5, 2) \\
+f(\theta \mid y) = \frac{\theta^4(1 - \theta)}{B(y+1, n-y+1)} \\
+\end{gather*}\]</span></p>
+<p>Therefore, <span class="math display">\[\begin{align*}
+F(\theta \mid y) &amp; = \int_{-\infty}^\theta f(t \mid y) \, dt = \int_0^\theta 30(t^4 - t^5) \, dt \\
+&amp; = \left[ 30\left( \frac{t^5}{5} - \frac{t^6}{6} \right) \right]_0^\theta = 6\theta^5 - 5\theta^6, \qquad 0 &lt; \theta &lt; 1 \\
+\end{align*}\]</span></p>
+<p>We can now finally calculate the required probability as <span class="math display">\[
+p = F(0.5 \mid y = 4) = 6 \left( \frac{1}{2}\right)^5 - 5 \left(\frac{1}{2} \right)^6 = \frac{12}{64} - \frac{5}{64} = \frac{7}{64} = 0.1094
+\]</span></p>
+<p>This probability is small, which makes sense. If <span class="math inline">\(\theta\)</span> is large, we might expect most of the <span class="math inline">\(5\)</span> rolls to stop left of the red mark. And this is what actually happened (on <span class="math inline">\(80\%\)</span> of the <span class="math inline">\(5\)</span> rolls). <span class="math inline">\(0.1094\)</span> provides a precise value for this probability with which it is logical to believe that <span class="math inline">\(\theta &lt; 1/2\)</span>, given the model, prior and data value.</p>
 </div>
 </div>
 </section>
-<section id="two-important-results-for-estimation" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="two-important-results-for-estimation"><span class="header-section-number">4</span> Two Important Results for Estimation</h2>
-<div id="thm-expected-sample-mean-and-variance" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> Suppose that <span class="math inline">\(Y_1, Y_2, \ldots ,Y_n \sim^\iid (\mu, \sigma^2)\)</span> and define <span class="math inline">\(\mean{Y} = \frac{1}{n} \sum_{i=1}^n Y_i\)</span> (sample mean) and <span class="math inline">\(S^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i - \mean{Y})^2\)</span> (sample variance). Then</p>
-<ol type="a">
-<li><span class="math inline">\(\E{\mean{Y}} = \mu\)</span> (population mean)</li>
-<li><span class="math inline">\(\E{S^2} = \sigma^2\)</span> (population variance)</li>
-</ol>
+</section>
+<section id="the-proportionality-formula" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-proportionality-formula"><span class="header-section-number">4</span> The Proportionality Formula</h2>
+<p>Observe that in the Bayesian equation <span class="math display">\[
+f(\theta \mid y) = \frac{f(\theta) f(y \mid \theta)}{f(y)}
+\]</span> the term <span class="math inline">\(f(y)\)</span> is a <strong>constant</strong> with respect to <span class="math inline">\(\theta\)</span>. So we can also write <span class="math display">\[
+f(\theta \mid y) = cf(\theta)f(y \mid \theta)
+\]</span> where <span class="math inline">\(c = 1/f(y)\)</span> is a constant. Equivalently, we may write <span class="math display">\[\begin{equation} \label{eq:proportionality-formula}
+f(\theta \mid y) \propto f(\theta) f(y \mid \theta)
+\end{equation}\]</span></p>
+<p>This is important equation can be stated in words as follows: <strong>The posterior is proportional to the prior times the likelihood.</strong></p>
+<p>The work “likelihood” refers to the model density <span class="math inline">\(f(y \mid \theta)\)</span> but considered as a function of <span class="math inline">\(\theta\)</span>, i.e.&nbsp;the likelihood function <span class="math inline">\(L(\theta)\)</span> or <span class="math inline">\(L(\theta \mid y)\)</span>, as discussed earlier.</p>
+<p>Equation <span class="math inline">\(\eqref{eq:proportionality-formula}\)</span> is called the Bayesian proportionality formula. This provides an alternative to the Bayesian equation for finding a posterior distribution, one which is convenient because it allows us to not have to determine the pdf <span class="math inline">\(f(y)\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note that this works because we know that the constant is whatever that makes <span class="math inline">\(f(\theta \mid y)\)</span> be a probability distribution, i.e.&nbsp;<span class="math inline">\(\int f(\theta\mid y) \, d\theta = 1\)</span>.</p>
+</blockquote>
+<section id="example-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored"><span class="header-section-number">4.1</span> Example</h3>
+<div id="exm-17" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> Re-work <a href="#exm-16" class="quarto-xref">Example&nbsp;1</a> using the proportionality formula.</p>
+<div class="separator">
+
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em> (a). </span><span class="math display">\[\begin{equation*}
-\E{\mean{Y}} = \frac{1}{n} \sum_{i=1}^n \E{Y_i} = \frac{1}{n} \sum_i^n \mu = \mu
-\end{equation*}\]</span></p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{align*}
+f(\theta\mid y) \propto f(\theta) f(y \mid \theta) &amp; \propto 1 \times \theta^y (1 - \theta)^{n -y} \\
+&amp; = \theta^{(y + 1) - 1} (1 - \theta)^{(n-y+1)-1}, \qquad 0 &lt; \theta &lt; 1\\
+\end{align*}\]</span></p>
+<p>So <span class="math inline">\(\theta \mid y \sim \BetaDist(y+1, n-y+1)\)</span> by recognising that the above expression is the “kernel” of the beta distribution.</p>
+<p>If <span class="math inline">\(n=5\)</span> and <span class="math inline">\(y=4\)</span> then: <span class="math display">\[\begin{align*}
+\theta \mid y  &amp;\sim \BetaDist(5, 2) \\
+f(\theta \mid y) &amp; = 30(\theta^4 - \theta^5), \qquad 0 &lt; \theta &lt; 1 \\
+\P{\theta \leq 0.5 \mid y} &amp; = \int_0^{1/2} 30(\theta^4 - \theta^5) \, d\theta = \cdots = \frac{7}{64} \\
+\end{align*}\]</span></p>
+<p>If we are interested in finding the unconditional density of the data at this stage, in can actually be obtained more easily than previously (in <a href="#exm-16" class="quarto-xref">Example&nbsp;1</a>), as follows: <span class="math display">\[\begin{equation*}
+f(y) = \frac{f(\theta)f(y \mid \theta)}{f(\theta \mid y)} = \frac{1 \times \binom{n}{y} \theta^y(1 - \theta)^{n-y}}{\frac{\theta^{(y + 1) - 1}(1 - \theta)^{(n - y + 1) - 1}}{B(y+1, n-y+1)}} = \frac{\frac{n!}{y!(n-y)!}}{\frac{(n+1)!}{y!(n-y)!}} = \frac{1}{n+1}.
+\end{equation*}\]</span> confirming to the above in <a href="#exm-16" class="quarto-xref">Example&nbsp;1</a>.</p>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em> (b). </span>First, realise the following, <span class="math display">\[\begin{equation*}
-S^2 = \frac{1}{n-1} \sum_{i=1}^n D_i^2 \hspace{10pt} \text{where $D_i = Y - Y_i$}
-\end{equation*}\]</span></p>
-<p>Then, we can first find the second raw moment of <span class="math inline">\(D_i^2\)</span>,</p>
+<hr>
+<div id="exm-18" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Consider the <strong>Binomial-Beta Bayesian Model</strong>, defined as follows:</p>
+<ul>
+<li><span class="math inline">\(Y \mid \theta \sim \Binomial(n, \theta)\)</span></li>
+<li><span class="math inline">\(\theta \sim \BetaDist(\alpha, \beta)\)</span></li>
+</ul>
+<p>Find the posterior distribution and density of <span class="math inline">\(\theta\)</span> given the data <span class="math inline">\(y\)</span>.</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>The model here is a generalisation of the <strong>Binomial-Uniform Bayesian Model</strong>.</p>
 <p><span class="math display">\[\begin{align*}
-\E{D_i^2} &amp; = \Var{D_i} \tag{since $\E{D_i} = 0$} \\
-&amp; = \Var{Y_i} + \Var{\mean{Y}} - 2\Cov{Y_i, \mean{Y}} \\
-&amp; = \sigma^2 + \frac{\sigma^2}{n} - 2 \cdot \frac{\sigma^2}{n} \tag{Note 1} \\
-&amp; = \frac{n-1}{n} \sigma^2 \\
+f(\theta \mid y) &amp; \propto f(\theta) f(y \mid \theta) \propto \theta^{\alpha - 1} (1 - \theta)^{\beta - 1} \times \theta^y (1 - \theta)^{n - y} \\
+&amp; = \theta^{(y + \alpha) - 1} (1 - \theta)^{(n - y + \beta) - 1}, \qquad 0 &lt; \theta &lt; 1 \\
+\end{align*}\]</span></p>
+<p>So, <span class="math display">\[\begin{gather*}
+\theta \mid y \sim \BetaDist(y+\alpha, n - y + \beta) \\
+f(\theta \mid y) = \frac{\theta^{(y+\alpha) - 1}(1 - \theta)^{(n - y + \beta) - 1}}{B(y + \alpha, n - y + \beta)}, \qquad 0 &lt; \theta &lt; 1 \\
+\end{gather*}\]</span></p>
+</div>
+</div>
+<section id="conjugacy" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="conjugacy"><span class="header-section-number">5</span> Conjugacy</h2>
+<p>If the prior and posterior distributions belong to the same class of probability distributions, we say that the prior is conjugate. For example, in <a href="#exm-18" class="quarto-xref">Example&nbsp;2</a> the prior is beta and the posterior is also beta. So the prior <span class="math inline">\(\theta \sim \BetaDist(\alpha , \beta)\)</span> is conjugate. It is often mathematically convenient to express prior beliefs in terms of a conjugate prior.</p>
+<section id="example-2" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">5.1</span> Example</h3>
+<div id="exm-19" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3</strong></span> Consider a random sample of size <span class="math inline">\(n\)</span> from a normal distribution with known variance <span class="math inline">\(\sigma^2\)</span> and unknown mean <span class="math inline">\(\mu\)</span>, whose prior distribution <span class="math inline">\(\NormalDist(\eta, \delta^2)\)</span> (where <span class="math inline">\(\eta\)</span> and <span class="math inline">\(\delta\)</span> are specified constants). Given the data vector <span class="math inline">\(y = (y_1, y_2, \ldots , y_n)\)</span>, find the posterior distribution of <span class="math inline">\(\mu\)</span>. Is the prior conjugate?</p>
+<div class="separator">
+
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math display">\[\begin{align*}
+f(\mu \mid y) &amp; \propto f(\mu) f(y \mid \mu) \\
+&amp; \propto \exp\left( - \frac{1}{2} \left( \frac{\eta - \nu}{\delta} \right)^2 \right) \times \prod_{i=1}^n \exp\left( - \frac{1}{2} \left( \frac{y_i - \eta}{\sigma} \right)^2 \right) \\
+&amp; = \exp\left( -\frac{1}{2} \left[ \frac{1}{\delta^2}(\mu^2 - 2 \mu \eta + \eta^2) + \frac{1}{\sigma^2} \left( \left(\sum_{i=1}^n y_i^2 \right) - 2 \mu n \mean{y} + n \mu^2 \right) \right] \right)
+\end{align*}\]</span> where <span class="math inline">\(\mean{y} = (y_1 + y_2 + \cdots + y_n)/n\)</span> is the sample mean.</p>
+<p>We see that the posterior density of <span class="math inline">\(\mu\)</span> is proportional to the exponent of a quadratic in <span class="math inline">\(\mu\)</span>. <span class="math display">\[
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2\sigma^2_*} (\mu - \mu_*)^2 \right) ,
+\]</span> and hence <span class="math inline">\(\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)\)</span>, for some constants <span class="math inline">\(\mu_*\)</span> and <span class="math inline">\(\sigma_*^2\)</span>. From this we see that the prior is conjugate.</p>
+<p>Now we need to find the posterior mean and variance (<span class="math inline">\(\mu_*\)</span> and <span class="math inline">\(\sigma_*^2\)</span>). Write <span class="math inline">\(f(\mu \mid y) \propto \exp \left( - \frac{1}{2}q \right)\)</span>, where <span class="math display">\[\begin{align*}
+q &amp; = \mu^2 \left( \frac{1}{\delta^2} + \frac{n}{\sigma^2} \right) - 2 \mu \left( \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \right) + c_1 \tag{$c_1$ is a constant} \\
+&amp; = a\mu^2 - 2b\mu + c_1, \quad \text{where} \; a = \frac{1}{\delta^2} + \frac{n}{\sigma^2} \; \text{and} \; b = \frac{\eta}{\delta^2} + \frac{n\mean{y}}{\sigma^2} \\
+&amp; = a \left( \mu^2 - 2 \frac{b}{a} \mu + \left( \frac{b}{a} \right)^2 \right) + c_2 \tag{$c_2$ is another constant} \\
+&amp; = \frac{1}{1 / a} \left( \mu - \frac{b}{a} \right)^2 + c_2
 \end{align*}\]</span></p>
 <p>Hence, <span class="math display">\[\begin{equation*}
-\E{S^2} = \frac{1}{n-1} \sum_{i=1}^n \E{D_i^2} = \frac{1}{n-1} (n \cdot \frac{n-1}{n}\sigma^2) = \sigma^2
-\end{equation*}\]</span></p>
-<hr>
-<p>Note 1:</p>
-<p>Note that we have previously shown <span class="math inline">\(\mean{Y} \perp (Y_i - \mean{Y})\)</span> for <span class="math inline">\(\iid\)</span> <span class="math inline">\(Y_i\)</span>’s in <a href="../../contents/chapter-07/index.html#sampling-distribution">Chpater 7 Section 2</a>. Now, then, we have <span class="math display">\[\begin{align*}
-0 = \Cov{Y_i - \mean{Y}, \mean{Y}} &amp; = \Cov{Y_i, \mean{Y}} - \Cov{\mean{Y}, \mean{Y}} \\
-&amp; = \Cov{Y_i, \mean{Y}} - \Var{\mean{Y}} \\
-&amp; = \Cov{Y_i, \mean{Y}} - \frac{\sigma^2}{n} \\
-\end{align*}\]</span></p>
-<div class="separator">
-
+f(\mu \mid y) \propto \exp\left( - \frac{1}{2(1/a)} \left( \mu - \frac{b}{a} \right)^2 \right)
+\end{equation*}\]</span> Therefore, <span class="math inline">\(\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2), where\)</span> <span class="math display">\[\begin{gather*}
+\sigma_*^2 = \frac{1}{a} = \frac{1}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \delta^2}{\sigma^2 + n \delta^2} = k\frac{\sigma^2}{n} \\
+\mu_* = \frac{b}{a} = \frac{\frac{n}{\delta^2} + \frac{n \mean{y}}{\sigma^2}}{\frac{1}{\delta^2} + \frac{n}{\sigma^2}} = \frac{\sigma^2 \eta + n \delta^2 \mean{y}}{\sigma^2 + n \delta^2} = (1 - k) \eta + k \mean{y}
+\end{gather*}\]</span> where <span class="math inline">\(k = \frac{n}{n + \frac{\sigma^2}{\delta^2}}\)</span>.</p>
+<p>We see that the <strong>posterior mean</strong> <span class="math inline">\(\mu_*\)</span> is a weighted average of the <strong>prior mean</strong> <span class="math inline">\(\eta\)</span> and the sample mean <span class="math inline">\(\mean{y}\)</span>. The weight <span class="math inline">\(k\)</span> applied to <span class="math inline">\(\mean{y}\)</span> may be called the <strong>credibility factor</strong>, because it represents how much ‘credibility’ is ‘assigned’ to the direct data estimate <span class="math inline">\(\mean{y}\)</span> (which is also the MLE). Likewise, <span class="math inline">\(\mu_*\)</span> may be called a credibility estimate.</p>
 </div>
-<p><strong><em>Alternatively</em></strong></p>
-<p>In fact, we will see that <span class="math inline">\(\iid\)</span> is a relatively strong assumptions.</p>
-<p><span class="math display">\[\begin{align*}
-\Cov{Y_i, \mean{Y}} &amp;= \Cov{Y_1, \mean{Y}} = \Cov{ Y_1, \frac{1}{n}(Y_1 + Y_2 + \dots + Y_n) } \\
-&amp;= \frac{1}{n} \left( \Cov{Y_1, Y_1} + \Cov{Y_1, Y_2} + \dots + \Cov{Y_1, Y_n} \right) \\
-&amp;= \frac{1}{n} \left\{ \Var{Y_1} + 0 + 0 + \dots + 0 \right\} = \frac{\sigma^2}{n}. \\
-\end{align*}\]</span></p>
-<p>Hence, we know that <span class="math inline">\(\Cov{Y_i, \mean{Y}} = \frac{\sigma^2}{n}\)</span>. In fact from the second proof, we also note that we don’t actually require</p>
+<div id="rem-posterior-sample-mean" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>Let’s actually consider some implications from the formulae above.</p>
+<blockquote class="blockquote">
+<p>What is actually required for deriving such posterior?</p>
+</blockquote>
+<p>The posterior distribution depends on the sample vector <span class="math inline">\(y = (y_1, y_2, \ldots , y_n)\)</span> only by way of the sample mean <span class="math inline">\(\mean{y}\)</span>. So, in addition to the result <span class="math inline">\(\mu \mid y \sim \NormalDist(\mu_*, \sigma_*^2)\)</span>, it is also true that <span class="math inline">\(\mu \mid \mean{y} \sim \NormalDist(\mu_*, \sigma_*^2)\)</span>.</p>
+<p>This means that if we observe just the single value <span class="math inline">\(\mean{y}\)</span> (and no other data), we obtain exactly the same posterior distribution for <span class="math inline">\(\mu\)</span> as if we observe all the values <span class="math inline">\(y_1, y_2, \ldots, y_n\)</span>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<blockquote class="blockquote">
+<p>How does the prior variance (standard deviation) affect our conclusion?</p>
+</blockquote>
+<p>It is instructive to consider how the posterior distribution depends on the prior standard deviation <span class="math inline">\(\delta\)</span> (or on <span class="math inline">\(\delta^2\)</span>). For example, if <span class="math inline">\(\delta\)</span> is small, we find that <span class="math inline">\(k \approx 0\)</span> and <span class="math inline">\(\mu \mid y \approx \NormalDist(\eta, \delta^2)\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, reflecting that our prior beliefs are very strong and the data (i.e.&nbsp;<span class="math inline">\(y\)</span>) doesn’t much affect those beliefs. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<blockquote class="blockquote">
+<p>How does sample size help?</p>
+</blockquote>
+<p>It is also instructive to consider how the posterior distribution depends on the sample size <span class="math inline">\(n\)</span>. If <span class="math inline">\(n\)</span> is large, we find that <span class="math inline">\(k \approx 1\)</span> and <span class="math inline">\(\mu \mid y \approx \NormalDist(\mean{y}, \sigma^2 / n)\)</span>, reflecting that there is a lot of data available which makes our prior beliefs largely irrelevant. In such cases, Bayesian inference on <span class="math inline">\(\mu\)</span> works out as very similar to classical inference on <span class="math inline">\(\mu\)</span>. Both frameworks then point to <span class="math inline">\(\mean{y}\)</span> as a suitable point estimate for <span class="math inline">\(\mu\)</span>.</p>
 </div>
-<div id="cor-unbias-sample-mean-variance" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1 (Unbias Estimator)</strong></span> Following directly from <a href="#thm-expected-sample-mean-and-variance" class="quarto-xref">Theorem&nbsp;2</a>, we know that both <span class="math inline">\(\mean{Y}\)</span> and <span class="math inline">\(S^2\)</span> are unbias Estimator.</p>
 </div>
-<hr>
-<div id="thm-another-form-of-sample-var" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Sample Variance)</strong></span> <span class="math display">\[\begin{equation*}
-S^2 = \frac{1}{n-1}\sum_{i=1}^n (y_i - \mean{y})^2 = \frac{1}{n-1}\left(\left(\sum_{i=1}^n y_i^2\right) - n\mean{y}^2 \right)
-\end{equation*}\]</span></p>
+</section>
+</section>
+<section id="bayes-estimation-and-inference" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="bayes-estimation-and-inference"><span class="header-section-number">6</span> Bayes Estimation and Inference</h2>
+<div id="def-bayesian-estimator" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(Y = (Y_1, Y_2, \ldots , Y_n)\)</span> be a random vector with likelihood <span class="math inline">\(f(y \mid \theta)\)</span> and let <span class="math inline">\(\theta\)</span> have prior density <span class="math inline">\(f(\theta)\)</span>. The <strong>posterior Bayes estimator</strong> for <span class="math inline">\(t(\theta)\)</span> is given by <span class="math display">\[
+\hat{t} = \ECond{t(\theta)}{y}.
+\]</span> If we consider the interval <span class="math inline">\((a, b)\)</span>, the posterior porbability that the random variable <span class="math inline">\(\theta\)</span> is in this interval is <span class="math display">\[
+\PCond{a &lt; \theta &lt; b}{y} = \int_a^b f(\theta \mid y) d\theta.
+\]</span> If the posterior probability <span class="math inline">\(\P{a &lt; \theta &lt; b} = 0.9\)</span>, we say that <span class="math inline">\((a, b)\)</span> is a <span class="math inline">\(90\%\)</span> <strong>credible interval</strong> for <span class="math inline">\(\theta\)</span>.</p>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof is almost identical to the proof for the analogous theorem of the population variance in <a href="../../contents/chapter-03/2measures.html#two-important-results">Chapter 2 Section 2.1</a>. Therefore, I will not restate here.</p>
-</div>
+<blockquote class="blockquote">
+<p>Note that we will then use the summary statistics of the posterior distribution to get a single estimate of <span class="math inline">\(\theta\)</span>, such as <span class="math inline">\(\ECond{\theta}{y}\)</span>, <span class="math inline">\(\text{mode}(\theta \mid y)\)</span>, <span class="math inline">\(\text{median}(\theta \mid y)\)</span>, etc.</p>
+</blockquote>
 
 
 </section>
+</div>
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Well, we also need the sample size for calculating the <span class="math inline">\(k\)</span> as well… But the sample mean is the bigger part.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The standard deviation is actually not quite obvious, see the following,<span class="math display">\[\sigma_*^2 = k \frac{\sigma^2}{n} = \frac{\sigma^2}{n + \frac{\sigma^2}{\delta^2}} = \frac{\delta^2\sigma^2}{\delta^2n + \sigma^2}\]</span> Then if we think loosely that <span class="math inline">\(\delta^2 n\)</span> in the denominator would go to zero, then we get <span class="math inline">\(\sigma_*^2 = \delta^2\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Intuitively for me, this is because we already have a relatively “precise” estimate of <span class="math inline">\(\mu\)</span> apriori.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1432,13 +1319,13 @@ S^2 = \frac{1}{n-1}\sum_{i=1}^n (y_i - \mean{y})^2 = \frac{1}{n-1}\left(\left(\s
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contents/chapter-08/1point-estimate.html" class="pagination-link" aria-label="Point Estimation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Point Estimation</span>
+      <a href="../../contents/chapter-09/2methods-of-estimations.html" class="pagination-link" aria-label="Methods of Estimations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Methods of Estimations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/chapter-08/3interval-estimate.html" class="pagination-link" aria-label="Interval Estimation">
-        <span class="nav-page-text">Interval Estimation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/chapter-16/simulation.html" class="pagination-link" aria-label="Simulation">
+        <span class="nav-page-text">Simulation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1450,7 +1337,7 @@ S^2 = \frac{1}{n-1}\sum_{i=1}^n (y_i - \mean{y})^2 = \frac{1}{n-1}\left(\left(\s
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-08/2evaluation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-08/2evaluation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-16/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-16/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About This Site – STAT2001 Revision Summaries</title>
+<title>Simulation – STAT2001 Revision Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +20,73 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aaef9e79b9c4d03af29114ced78d7db3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-94dfabc79bce404951a6e12bd7915a2f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="../../site_libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="../../site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="../../site_libs/quarto-dashboard/components.js"></script>
+
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +114,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "classic"
@@ -83,76 +125,13 @@ ul.task-list li input[type="checkbox"] {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
-<!-- This is what works with MathJax 2.7 (which is ancient but all over the place) -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS",
-      }
-    },
-    tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ]}
-  });
-</script>
-
-<!-- This is what works with Quarto and MathJax 3+ -->
-<script>
-  MathJax = {
-    tex: {
-      tags: "ams", // should be 'ams', 'none', or 'all'
-    },
-  };
-</script>
-<script>
-  MathJax = MathJax || {};
-  MathJax.tex = MathJax.tex || {};
-  MathJax.tex.macros = Object.assign(MathJax.tex.macros || {}, {
-    P: ["\\mathbb{P}\\!\\left({#1}\\right)", 1],
-    E: ["\\mathbb{E}\\!\\left[{#1}\\right]", 1],
-    PCond: ["\\mathbb{P}\\!\\left({#1}\\middle\\vert{#2}\\right)", 2],
-    ECond: ["\\mathbb{E}\\!\\left[{#1}\\middle\\vert{#2}\\right]", 2],
-    Var: ["\\mathrm{Var}\\!\\left({#1}\\right)", 1],
-    Cov: ["\\mathrm{Cov}\\!\\left({#1}\\right)", 1],
-    Corr: ["\\mathrm{Cor}\\!\\left({#1}\\right)", 1],
-    sd: ["\\mathrm{SD}\\!\\left({#1}\\right)", 1],
-    indep: "\\perp\\!\\!\\!\\perp",
-    Eff: ["\\mathit{Eff} ({#1})", 1],
-    Bernoulli: "\\mathrm{Bern}",
-    Binomial: "\\mathrm{Bin}",
-    Geometric: "\\mathrm{Geo}",
-    Poisson: "\\mathrm{Poi}",
-    NormalDist: "\\mathcal{N}",
-    ExponentialDist: "\\mathrm{Exp}",
-    UniformDist: "\\mathrm{Uniform}",
-    GammaDist: "\\mathrm{Gamma}",
-    BetaDist: "\\mathrm{Beta}",
-    ChiSqDist: "\\chi^2",
-    iid: "\\mathrm{iid}",
-    iidsim: "\\overset{\\mathrm{iid}}{\\sim}",
-    dconv: "\\xrightarrow{\\; d\\;}",
-    pconv: "\\xrightarrow{\\; p\\;}",
-    pdv: ["\\frac{\\partial{#1}}{\\partial{#2}}", 2],
-    odv: ["\\frac{\\mathrm{d}{#1}}{\\mathrm{d}{#2}}", 2],
-    abs: ["\\left\\lvert#1\\right\\rvert", 1],
-    norm: ["\\left\\lVert#1\\right\\rVert", 1],
-    ceil: ["\\left\\lceil#1\\right\\rceil", 1],
-    floor: ["\\left\\lfloor#1\\right\\rfloor", 1],
-    set: ["\\left\\{#1\\right\\}", 1],
-    indic: ["\\mathbb{I}\\left\\{#1\\right\\}", 1],
-    mean: ["\\overline{#1}", 1],
-    sumrv: ["\\dot{#1}", 1],
-    bias: ["\\operatorname{B}\\!\\left({#1}\\right)", 1],
-    mse: ["\\operatorname{MSE}\\!\\left({#1}\\right)", 1],
-    vec: ["\\bm{#1}", 1],
-    trans: ["{#1}^\\top", 1],
-  });
-</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="scripts/style/styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="quarto-dashboard nav-sidebar nav-fixed dashboard-fill dashboard-sidebar fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -295,8 +274,7 @@ ul.task-list li input[type="checkbox"] {
       }
     };
     const authorPrefersDark = false;
-    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const darkModeDefault = queryPrefersDark.matches;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -309,14 +287,6 @@ ul.task-list li input[type="checkbox"] {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
-    queryPrefersDark.addEventListener("change", e => {
-      if(window.localStorage.getItem("quarto-color-scheme") !== null)
-        return;
-      const alternate = e.matches
-      toggleColorMode(alternate);
-      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
-      toggleGiscusIfUsed(alternate, darkModeDefault);
-    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -325,12 +295,13 @@ ul.task-list li input[type="checkbox"] {
     }
   </script>
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT2001 Revision Summaries</span>
     </a>
   </div>
@@ -341,15 +312,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About This Site</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./topics.html"> 
+    <a class="nav-link" href="../../topics.html"> 
 <span class="menu-text">STAT2001 Weekly Topics</span></a>
   </li>  
 </ul>
@@ -359,279 +330,208 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">About This Site</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Simulation</a></div>
+        
+        
+      </div>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH02 : Probability</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH03 : Discrete R.V.</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/1rv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Known Discrete Distributions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-03/2measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Measures Related to Distribution</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH04 : Continuous R.V.</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/1rv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Known Continuous Distributions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-04/2measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Expectations</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH05 : Multivariate Distributions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/01-distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-05/02-continuous-joint-probability-and-expectations-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Joint Continuous Distribution &amp; Expectations (2)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH06 : Functions of Random Variables</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH07 : Sampling Distributions and Central Limit Theorem</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-07/sums-of-continuous-random-variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sum of Continuous Random Variables [Optional]</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH08 : Estimation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/1point-estimate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Point Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/2evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evaluation Metrics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/3interval-estimate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Interval Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/4monte-carlo-method.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Estimation via Monte Carlo Methods</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-08/5coverage-test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Coverage Test (Optional)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH09 : Properties of Point Estimators &amp; Methods of Estimation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-09/1properties.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Properties of Point Estimators</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-09/2methods-of-estimations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods of Estimations</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./contents/chapter-16/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CH16 : Bayesian Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./contents/chapter-16/simulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulation</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-plot" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#plot" data-scrolling="false" href="#plot" aria-controls="plot" aria-selected="true"><span class="nav-link-text">Plot</span></a></li></ul></div></div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</header></header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages dashboard-sidebar-container">
+<!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#ℹ-about-this-site" id="toc-ℹ-about-this-site" class="nav-link active" data-scroll-target="#ℹ-about-this-site"><span class="header-section-number">1</span> ℹ️ About This Site</a>
-  <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose"><span class="header-section-number">1.1</span> 🎯 Purpose</a></li>
-  <li><a href="#whos-behind-this" id="toc-whos-behind-this" class="nav-link" data-scroll-target="#whos-behind-this"><span class="header-section-number">1.2</span> 👤 Who’s Behind This?</a></li>
-  <li><a href="#feedback-and-contributions" id="toc-feedback-and-contributions" class="nav-link" data-scroll-target="#feedback-and-contributions"><span class="header-section-number">1.3</span> 📬 Feedback and Contributions</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/about.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About This Site</h1>
+<div class="cell hidden bslib-grid-item html-fill-item">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="9" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 8;"><span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>seedrandom <span class="op">=</span> <span class="pp">require</span>(<span class="st">"seedrandom@3.0.5"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { Plot } <span class="im">from</span> <span class="st">"@observablehq/plot"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="tab-content bslib-grid html-fill-item html-fill-container" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="plot" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-plot">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb3" data-startfrom="26" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> <span class="fu">seedrandom</span>(<span class="dv">2025</span>)<span class="op">;</span>  <span class="co">// ✅ do this in a normal ojs block</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>randomValues <span class="op">=</span> <span class="fu">rng</span>()<span class="op">;</span>  <span class="co">// true cutoff</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">// Define theta as a reactive variable that updates when the button is clicked</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> {</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  randomizeTheta<span class="op">;</span> <span class="co">// Ensures reactivity</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">rng</span>()<span class="op">;</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>chalks <span class="op">=</span> {</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  regenerateChalks<span class="op">;</span> <span class="co">// Ensures reactivity</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({ <span class="dt">length</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> () <span class="kw">=&gt;</span> <span class="fu">rng</span>())<span class="op">;</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> chalks<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> ({</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  x<span class="op">,</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> x <span class="op">&lt;</span> theta <span class="op">?</span> <span class="st">"steelblue"</span> <span class="op">:</span> <span class="st">"lightgray"</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>}))<span class="op">;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">80</span><span class="op">,</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([theta]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,2"</span><span class="op">,</span> <span class="dt">strokewidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dotX</span>(result<span class="op">,</span> {</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">x</span><span class="op">,</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>      <span class="dt">r</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">color</span><span class="op">,</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"black"</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"table position"</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {<span class="dt">axis</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="dt">margintop</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginbottom</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-2" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-3" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-4" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-5" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-6" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+
+
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-container html-fill-item">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="17" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 16;"><span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>viewof seed <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">"Random Seed"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2025</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span>})</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>viewof randomizeTheta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Randomize θ"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>viewof regenerateChalks <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Regenerate Chalks"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div></aside>
+<button class="collapse-toggle" type="button" title="Toggle sidebar" aria-expanded="true" aria-controls="bslib-sidebar-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="bi bi-chevron-left collapse-icon" style="fill:currentColor;" aria-hidden="true" role="img">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+    </svg>
+</button>
+<script data-bslib-sidebar-init="">
+bslib.Sidebar.initCollapsibleAll()
+</script>
 </div>
 
 
-
-<div class="quarto-title-meta column-body">
-
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Sunday Jun 8, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="ℹ-about-this-site" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ℹ-about-this-site"><span class="header-section-number">1</span> ℹ️ About This Site</h2>
-<p>This website serves as a comprehensive revision resource for students enrolled in <strong>STAT2001: Introductory Mathematical Statistics</strong> at the Australian National University. It aims to distill complex statistical concepts into digestible summaries and provide practical examples to enhance learning.</p>
-<hr>
-<section id="purpose" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="purpose"><span class="header-section-number">1.1</span> 🎯 Purpose</h3>
-<ul>
-<li>To offer clear and concise summaries of each topic covered in STAT2001.</li>
-<li>To provide practical examples and exercises that reinforce theoretical concepts.</li>
-<li>To serve as a supplementary resource alongside official course materials.</li>
-</ul>
-<hr>
-</section>
-<section id="whos-behind-this" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="whos-behind-this"><span class="header-section-number">1.2</span> 👤 Who’s Behind This?</h3>
-<p>This site is created and maintained by a fellow student passionate about statistics and education. The goal is to foster a collaborative learning environment where students can access quality revision materials.</p>
-<hr>
-</section>
-<section id="feedback-and-contributions" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="feedback-and-contributions"><span class="header-section-number">1.3</span> 📬 Feedback and Contributions</h3>
-<p>Your feedback is invaluable. If you have suggestions, spot errors, or wish to contribute, please reach out via the contact form on the <a href="./contact.html">Contact</a> page.</p>
-<hr>
-<p><em>Disclaimer: This site is independently developed and is not officially endorsed by the Australian National University.</em></p>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxuc2VlZHJhbmRvbSA9IHJlcXVpcmUoXCJzZWVkcmFuZG9tQDMuMC41XCIpXG5kMyA9IHJlcXVpcmUoXCJkM0A3XCIpXG5pbXBvcnQgeyBQbG90IH0gZnJvbSBcIkBvYnNlcnZhYmxlaHEvcGxvdFwiXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2Ygc2VlZCA9IElucHV0cy5udW1iZXIoe2xhYmVsOiBcIlJhbmRvbSBTZWVkXCIsIHZhbHVlOiAyMDI1LCBzdGVwOiAxfSlcbnZpZXdvZiByYW5kb21pemVUaGV0YSA9IElucHV0cy5idXR0b24oXCJSYW5kb21pemUgzrhcIilcbnZpZXdvZiByZWdlbmVyYXRlQ2hhbGtzID0gSW5wdXRzLmJ1dHRvbihcIlJlZ2VuZXJhdGUgQ2hhbGtzXCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbnJuZyA9IHNlZWRyYW5kb20oMjAyNSk7ICAvLyDinIUgZG8gdGhpcyBpbiBhIG5vcm1hbCBvanMgYmxvY2tcbnJhbmRvbVZhbHVlcyA9IHJuZygpOyAgLy8gdHJ1ZSBjdXRvZmZcblxuLy8gRGVmaW5lIHRoZXRhIGFzIGEgcmVhY3RpdmUgdmFyaWFibGUgdGhhdCB1cGRhdGVzIHdoZW4gdGhlIGJ1dHRvbiBpcyBjbGlja2VkXG50aGV0YSA9IHtcbiAgcmFuZG9taXplVGhldGE7IC8vIEVuc3VyZXMgcmVhY3Rpdml0eVxuICByZXR1cm4gcm5nKCk7XG59XG5jaGFsa3MgPSB7XG4gIHJlZ2VuZXJhdGVDaGFsa3M7IC8vIEVuc3VyZXMgcmVhY3Rpdml0eVxuICByZXR1cm4gQXJyYXkuZnJvbSh7IGxlbmd0aDogNSB9LCAoKSA9PiBybmcoKSk7XG59XG5cbnJlc3VsdCA9IGNoYWxrcy5tYXAoeCA9PiAoe1xuICB4LFxuICBjb2xvcjogeCA8IHRoZXRhID8gXCJzdGVlbGJsdWVcIiA6IFwibGlnaHRncmF5XCJcbn0pKTtcblxuUGxvdC5wbG90KHtcbiAgd2lkdGg6IDYwMCxcbiAgaGVpZ2h0OiA4MCxcbiAgbWFya3M6IFtcbiAgICBQbG90LnJ1bGVYKFt0aGV0YV0sIHtzdHJva2U6IFwicmVkXCIsIHN0cm9rZURhc2hhcnJheTogXCI0LDJcIiwgc3Ryb2tld2lkdGg6IDJ9KSxcbiAgICBQbG90LmRvdFgocmVzdWx0LCB7XG4gICAgICB4OiBkID0+IGQueCxcbiAgICAgIHI6IDcsXG4gICAgICBmaWxsOiBkID0+IGQuY29sb3IsXG4gICAgICBzdHJva2U6IFwiYmxhY2tcIlxuICAgIH0pXG4gIF0sXG4gIHg6IHtcbiAgICBkb21haW46IFswLCAxXSxcbiAgICBsYWJlbDogXCJ0YWJsZSBwb3NpdGlvblwiXG4gIH0sXG4gIHk6IHtheGlzOiBudWxsfSxcbiAgbWFyZ2ludG9wOiAzMCxcbiAgbWFyZ2luYm90dG9tOiAzMFxufSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnc2VlZCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyYW5kb21pemVUaGV0YScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyZWdlbmVyYXRlQ2hhbGtzJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../contents/chapter-16";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -731,13 +631,6 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-            // default icon
-            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1059,7 +952,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/about.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/edit/master/contents/chapter-16/simulation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/blob/master/contents/chapter-16/simulation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Isaac7777-cpu/stat2001-summaries/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -1079,8 +972,15 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </footer>
 
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
